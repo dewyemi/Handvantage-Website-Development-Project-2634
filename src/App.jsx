@@ -20,21 +20,39 @@ function App() {
       <div className="min-h-screen bg-white">
         <Header />
         <Routes>
-          <Route path="/" element={
-            <main>
-              <Hero />
-              <ProblemSolution />
-              <Services />
-              <About />
-              <Partnerships />
-              <CTA />
-            </main>
-          } />
+          <Route 
+            path="/" 
+            element={
+              <main>
+                <Hero />
+                <ProblemSolution />
+                <Services />
+                <About />
+                <Partnerships />
+                <CTA />
+              </main>
+            } 
+          />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services/digital-transformation" element={<DigitalTransformationPage />} />
           <Route path="/services/cybersecurity" element={<CybersecurityPage />} />
           <Route path="/services/cloud-infrastructure" element={<CloudInfrastructurePage />} />
           <Route path="/services/business-automation" element={<BusinessAutomationPage />} />
+          {/* Catch all route - redirect to home */}
+          <Route path="*" element={
+            <div className="pt-20 min-h-screen flex items-center justify-center">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold text-primary-dark mb-4">Page Not Found</h1>
+                <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
+                <a 
+                  href="/#" 
+                  className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Return Home
+                </a>
+              </div>
+            </div>
+          } />
         </Routes>
         <Footer />
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import Logo from './Logo';
 import { Link } from 'react-router-dom';
 
 const { FiPhone, FiMail, FiMapPin, FiLinkedin, FiGlobe, FiZap, FiShield, FiCloud, FiBot } = FiIcons;
@@ -25,6 +26,15 @@ const Footer = () => {
     'Vanta'
   ];
 
+  const handleSmoothScroll = (href) => {
+    if (href.includes('#')) {
+      const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-primary-dark text-white py-16">
       <div className="container mx-auto px-6">
@@ -37,15 +47,15 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Link to="/" className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-primary-blue to-primary-purple rounded-lg flex items-center justify-center">
-                <img
-                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844909342-handvantage-New.png"
-                  alt="Handvantage"
-                  className="w-8 h-8 object-contain filter brightness-0 invert"
-                />
+            <Link to="/" className="inline-block mb-4">
+              <div className="flex items-center space-x-3">
+                <Logo size="default" variant="icon-only" />
+                <div className="flex flex-col">
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Handvantage
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold">Handvantage</h3>
             </Link>
             <p className="text-slate-300 mb-4">
               Transforming businesses through enterprise-grade technology partnerships and expert consultation.
@@ -53,13 +63,19 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiPhone} className="w-5 h-5 text-primary-blue" />
-                <a href="tel:+12362350919" className="text-slate-300 hover:text-white transition-colors">
+                <a 
+                  href="tel:+12362350919" 
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
                   236-235-0919
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiMail} className="w-5 h-5 text-primary-blue" />
-                <a href="mailto:josh@handvantage.com" className="text-slate-300 hover:text-white transition-colors">
+                <a 
+                  href="mailto:josh@handvantage.com" 
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
                   josh@handvantage.com
                 </a>
               </div>
@@ -87,7 +103,10 @@ const Footer = () => {
                 </li>
               ))}
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-white transition-colors flex items-center">
+                <Link
+                  to="/about"
+                  className="text-slate-300 hover:text-white transition-colors flex items-center"
+                >
                   <SafeIcon icon={FiGlobe} className="w-4 h-4 mr-2" />
                   About Us
                 </Link>
@@ -106,9 +125,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {partners.map((partner, index) => (
                 <li key={index}>
-                  <a href="#partnerships" className="text-slate-300 hover:text-white transition-colors">
+                  <button 
+                    onClick={() => handleSmoothScroll('/#partnerships')} 
+                    className="text-slate-300 hover:text-white transition-colors text-left"
+                  >
                     {partner}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -139,12 +161,12 @@ const Footer = () => {
                 <SafeIcon icon={FiLinkedin} className="w-5 h-5" />
                 <span>LinkedIn Profile</span>
               </a>
-              <a
-                href="#contact"
+              <button
+                onClick={() => handleSmoothScroll('/#contact')}
                 className="inline-block bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
               >
                 Schedule Consultation
-              </a>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -161,8 +183,8 @@ const Footer = () => {
             © {currentYear} Handvantage. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 text-sm text-slate-400">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <button className="hover:text-white transition-colors">Privacy Policy</button>
+            <button className="hover:text-white transition-colors">Terms of Service</button>
             <span>Built with expertise and partnerships</span>
           </div>
         </motion.div>

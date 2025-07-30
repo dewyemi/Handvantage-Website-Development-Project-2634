@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import Logo from './Logo';
 import { Link, useLocation } from 'react-router-dom';
 
 const { FiMenu, FiX, FiChevronDown } = FiIcons;
@@ -16,7 +17,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -35,8 +35,6 @@ const Header = () => {
         { label: 'Business Automation', href: '/services/business-automation' },
       ]
     },
-    { label: 'Solutions', href: '/#solutions', path: '/' },
-    { label: 'Partnerships', href: '/#partnerships', path: '/' },
     { label: 'About', href: '/about', path: '/about' },
     { label: 'Contact', href: '/#contact', path: '/' }
   ];
@@ -52,6 +50,18 @@ const Header = () => {
     return location.pathname === href;
   };
 
+  const handleNavClick = (href) => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    
+    if (href.includes('#')) {
+      const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -64,16 +74,9 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.05 }}>
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-primary-blue to-primary-purple rounded-lg flex items-center justify-center">
-                <img
-                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844909342-handvantage-New.png"
-                  alt="Handvantage"
-                  className="w-8 h-8 object-contain filter brightness-0 invert"
-                />
-              </div>
-              <h1 className="text-2xl font-bold text-primary-dark">Handvantage</h1>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link to="/">
+              <Logo size="default" />
             </Link>
           </motion.div>
 
@@ -91,15 +94,15 @@ const Header = () => {
               >
                 {item.hasDropdown ? (
                   <div className="group">
-                    <a
-                      href={item.href}
+                    <button
+                      onClick={() => handleNavClick(item.href)}
                       className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 flex items-center ${
                         isActive(item) ? 'text-primary-blue' : ''
                       }`}
                     >
                       {item.label}
                       <SafeIcon icon={FiChevronDown} className="w-4 h-4 ml-1" />
-                    </a>
+                    </button>
                     {/* Dropdown Menu */}
                     <div
                       className={`absolute top-full left-0 bg-white shadow-lg rounded-lg py-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
@@ -130,22 +133,22 @@ const Header = () => {
                     {item.label}
                   </Link>
                 ) : (
-                  <a
-                    href={item.href}
+                  <button
+                    onClick={() => handleNavClick(item.href)}
                     className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
                       isActive(item) ? 'text-primary-blue' : ''
                     }`}
                   >
                     {item.label}
-                  </a>
+                  </button>
                 )}
               </motion.div>
             ))}
           </nav>
 
           {/* CTA Button */}
-          <motion.a
-            href="#contact"
+          <motion.button
+            onClick={() => handleNavClick('/#contact')}
             className="hidden md:inline-flex bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -154,17 +157,14 @@ const Header = () => {
             transition={{ delay: 0.5 }}
           >
             Get Assessment
-          </motion.a>
+          </motion.button>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <SafeIcon
-              icon={isMenuOpen ? FiX : FiMenu}
-              className="w-6 h-6 text-primary-dark"
-            />
+            <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className="w-6 h-6 text-primary-dark" />
           </button>
         </div>
 
@@ -223,25 +223,23 @@ const Header = () => {
                       {item.label}
                     </Link>
                   ) : (
-                    <a
-                      href={item.href}
+                    <button
+                      onClick={() => handleNavClick(item.href)}
                       className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
                         isActive(item) ? 'text-primary-blue' : ''
                       }`}
-                      onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </button>
                   )}
                 </div>
               ))}
-              <a
-                href="#contact"
+              <button
+                onClick={() => handleNavClick('/#contact')}
                 className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold text-center"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Get Assessment
-              </a>
+              </button>
             </nav>
           </motion.div>
         )}
