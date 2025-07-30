@@ -10,6 +10,9 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import AboutPage from './components/AboutPage';
 import DigitalTransformationPage from './components/DigitalTransformationPage';
+import CybersecurityPage from './components/CybersecurityPage';
+import CloudInfrastructurePage from './components/CloudInfrastructurePage';
+import BusinessAutomationPage from './components/BusinessAutomationPage';
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
           } />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services/digital-transformation" element={<DigitalTransformationPage />} />
+          <Route path="/services/cybersecurity" element={<CybersecurityPage />} />
+          <Route path="/services/cloud-infrastructure" element={<CloudInfrastructurePage />} />
+          <Route path="/services/business-automation" element={<BusinessAutomationPage />} />
         </Routes>
         <Footer />
       </div>

@@ -11,9 +11,9 @@ const Footer = () => {
 
   const services = [
     { name: 'Digital Transformation', link: '/services/digital-transformation', icon: FiZap },
-    { name: 'Cybersecurity Solutions', link: '/#services', icon: FiShield },
-    { name: 'Cloud Infrastructure', link: '/#services', icon: FiCloud },
-    { name: 'Business Automation', link: '/#services', icon: FiBot }
+    { name: 'Cybersecurity Solutions', link: '/services/cybersecurity', icon: FiShield },
+    { name: 'Cloud Infrastructure', link: '/services/cloud-infrastructure', icon: FiCloud },
+    { name: 'Business Automation', link: '/services/business-automation', icon: FiBot }
   ];
 
   const partners = [
@@ -39,9 +39,9 @@ const Footer = () => {
           >
             <Link to="/" className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-gradient-to-r from-primary-blue to-primary-purple rounded-lg flex items-center justify-center">
-                <img 
-                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844909342-handvantage-New.png" 
-                  alt="Handvantage" 
+                <img
+                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844909342-handvantage-New.png"
+                  alt="Handvantage"
                   className="w-8 h-8 object-contain filter brightness-0 invert"
                 />
               </div>
@@ -77,17 +77,13 @@ const Footer = () => {
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>
-                  {service.link.startsWith('/') ? (
-                    <Link to={service.link} className="text-slate-300 hover:text-white transition-colors flex items-center">
-                      <SafeIcon icon={service.icon} className="w-4 h-4 mr-2" />
-                      {service.name}
-                    </Link>
-                  ) : (
-                    <a href={service.link} className="text-slate-300 hover:text-white transition-colors flex items-center">
-                      <SafeIcon icon={service.icon} className="w-4 h-4 mr-2" />
-                      {service.name}
-                    </a>
-                  )}
+                  <Link
+                    to={service.link}
+                    className="text-slate-300 hover:text-white transition-colors flex items-center"
+                  >
+                    <SafeIcon icon={service.icon} className="w-4 h-4 mr-2" />
+                    {service.name}
+                  </Link>
                 </li>
               ))}
               <li>
@@ -127,8 +123,8 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold mb-4 text-primary-blue">Connect</h4>
             <div className="space-y-4">
-              <Link 
-                to="/about" 
+              <Link
+                to="/about"
                 className="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
               >
                 <SafeIcon icon={FiGlobe} className="w-5 h-5" />

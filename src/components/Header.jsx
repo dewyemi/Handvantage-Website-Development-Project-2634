@@ -16,22 +16,23 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
     { label: 'Home', href: '/', path: '/' },
-    { 
-      label: 'Services', 
-      href: '/#services', 
+    {
+      label: 'Services',
+      href: '/#services',
       path: '/',
       hasDropdown: true,
       dropdownItems: [
         { label: 'Digital Transformation', href: '/services/digital-transformation' },
-        { label: 'Cybersecurity', href: '/#services' },
-        { label: 'Cloud Infrastructure', href: '/#services' },
-        { label: 'Business Automation', href: '/#services' },
+        { label: 'Cybersecurity', href: '/services/cybersecurity' },
+        { label: 'Cloud Infrastructure', href: '/services/cloud-infrastructure' },
+        { label: 'Business Automation', href: '/services/business-automation' },
       ]
     },
     { label: 'Solutions', href: '/#solutions', path: '/' },
@@ -52,7 +53,7 @@ const Header = () => {
   };
 
   return (
-    <motion.header 
+    <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
       }`}
@@ -63,15 +64,12 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div 
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-          >
+          <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.05 }}>
             <Link to="/" className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-r from-primary-blue to-primary-purple rounded-lg flex items-center justify-center">
-                <img 
-                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844909342-handvantage-New.png" 
-                  alt="Handvantage" 
+                <img
+                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844909342-handvantage-New.png"
+                  alt="Handvantage"
                   className="w-8 h-8 object-contain filter brightness-0 invert"
                 />
               </div>
@@ -102,14 +100,19 @@ const Header = () => {
                       {item.label}
                       <SafeIcon icon={FiChevronDown} className="w-4 h-4 ml-1" />
                     </a>
-                    
                     {/* Dropdown Menu */}
-                    <div className={`absolute top-full left-0 bg-white shadow-lg rounded-lg py-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${isServicesOpen ? 'opacity-100 visible' : ''}`}>
+                    <div
+                      className={`absolute top-full left-0 bg-white shadow-lg rounded-lg py-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
+                        isServicesOpen ? 'opacity-100 visible' : ''
+                      }`}
+                    >
                       {item.dropdownItems.map((dropdownItem, i) => (
-                        <Link 
+                        <Link
                           key={i}
                           to={dropdownItem.href}
-                          className={`block px-5 py-2 hover:bg-blue-50 text-slate-600 hover:text-primary-blue ${isActiveSubItem(dropdownItem.href) ? 'bg-blue-50 text-primary-blue' : ''}`}
+                          className={`block px-5 py-2 hover:bg-blue-50 text-slate-600 hover:text-primary-blue ${
+                            isActiveSubItem(dropdownItem.href) ? 'bg-blue-50 text-primary-blue' : ''
+                          }`}
                           onClick={() => setIsServicesOpen(false)}
                         >
                           {dropdownItem.label}
@@ -117,26 +120,24 @@ const Header = () => {
                       ))}
                     </div>
                   </div>
+                ) : item.href.startsWith('/') && !item.href.includes('#') ? (
+                  <Link
+                    to={item.href}
+                    className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
+                      isActive(item) ? 'text-primary-blue' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 ) : (
-                  item.href.startsWith('/') && !item.href.includes('#') ? (
-                    <Link 
-                      to={item.href} 
-                      className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
-                        isActive(item) ? 'text-primary-blue' : ''
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
-                        isActive(item) ? 'text-primary-blue' : ''
-                      }`}
-                    >
-                      {item.label}
-                    </a>
-                  )
+                  <a
+                    href={item.href}
+                    className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
+                      isActive(item) ? 'text-primary-blue' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </a>
                 )}
               </motion.div>
             ))}
@@ -160,9 +161,9 @@ const Header = () => {
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <SafeIcon 
-              icon={isMenuOpen ? FiX : FiMenu} 
-              className="w-6 h-6 text-primary-dark" 
+            <SafeIcon
+              icon={isMenuOpen ? FiX : FiMenu}
+              className="w-6 h-6 text-primary-dark"
             />
           </button>
         </div>
@@ -187,19 +188,22 @@ const Header = () => {
                         }`}
                       >
                         <span>{item.label}</span>
-                        <SafeIcon 
-                          icon={FiChevronDown} 
-                          className={`w-4 h-4 ml-1 transition-transform ${isServicesOpen ? 'transform rotate-180' : ''}`} 
+                        <SafeIcon
+                          icon={FiChevronDown}
+                          className={`w-4 h-4 ml-1 transition-transform ${
+                            isServicesOpen ? 'transform rotate-180' : ''
+                          }`}
                         />
                       </button>
-                      
                       {isServicesOpen && (
                         <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                           {item.dropdownItems.map((dropdownItem, i) => (
-                            <Link 
+                            <Link
                               key={i}
                               to={dropdownItem.href}
-                              className={`block py-1 text-slate-600 hover:text-primary-blue ${isActiveSubItem(dropdownItem.href) ? 'text-primary-blue' : ''}`}
+                              className={`block py-1 text-slate-600 hover:text-primary-blue ${
+                                isActiveSubItem(dropdownItem.href) ? 'text-primary-blue' : ''
+                              }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {dropdownItem.label}
@@ -208,28 +212,26 @@ const Header = () => {
                         </div>
                       )}
                     </div>
+                  ) : item.href.startsWith('/') && !item.href.includes('#') ? (
+                    <Link
+                      to={item.href}
+                      className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
+                        isActive(item) ? 'text-primary-blue' : ''
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
                   ) : (
-                    item.href.startsWith('/') && !item.href.includes('#') ? (
-                      <Link 
-                        to={item.href} 
-                        className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
-                          isActive(item) ? 'text-primary-blue' : ''
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={item.href}
-                        className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
-                          isActive(item) ? 'text-primary-blue' : ''
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    )
+                    <a
+                      href={item.href}
+                      className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
+                        isActive(item) ? 'text-primary-blue' : ''
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
                   )}
                 </div>
               ))}

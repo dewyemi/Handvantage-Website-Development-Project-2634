@@ -27,7 +27,7 @@ const Services = () => {
       description: 'Complete protection with enterprise-grade partnerships',
       features: ['Email security (IRONSCALES)', 'Network protection (Check Point)', 'Device management (Swif.ai)'],
       buttonText: 'Secure Now',
-      buttonLink: '/#services',
+      buttonLink: '/services/cybersecurity',
       color: 'red',
       bgColor: 'bg-red-50',
       iconBg: 'bg-red-100',
@@ -40,7 +40,7 @@ const Services = () => {
       description: 'Microsoft CSP + Pax8 marketplace solutions',
       features: ['Microsoft 365 & Azure', 'Pax8 marketplace', 'Unified communications'],
       buttonText: 'Optimize Now',
-      buttonLink: '/#services',
+      buttonLink: '/services/cloud-infrastructure',
       color: 'green',
       bgColor: 'bg-green-50',
       iconBg: 'bg-green-100',
@@ -53,7 +53,7 @@ const Services = () => {
       description: 'AI-powered process automation with RTILA AI',
       features: ['Workflow automation', 'AI agent development', 'Revenue optimization'],
       buttonText: 'Automate Now',
-      buttonLink: '/#services',
+      buttonLink: '/services/business-automation',
       color: 'purple',
       bgColor: 'bg-purple-50',
       iconBg: 'bg-purple-100',
@@ -119,29 +119,15 @@ const Services = () => {
               </ul>
 
               {/* CTA Button */}
-              {service.buttonLink.startsWith('/') ? (
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to={service.buttonLink}
+                  className={`w-full ${service.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}
                 >
-                  <Link 
-                    to={service.buttonLink}
-                    className={`w-full ${service.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}
-                  >
-                    <span>{service.buttonText}</span>
-                    <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
-                  </Link>
-                </motion.div>
-              ) : (
-                <motion.a
-                  href={service.buttonLink}
-                  className={`w-full ${service.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 block text-center`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {service.buttonText}
-                </motion.a>
-              )}
+                  <span>{service.buttonText}</span>
+                  <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
+                </Link>
+              </motion.div>
             </motion.div>
           ))}
         </div>
