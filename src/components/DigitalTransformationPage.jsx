@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiCheckCircle, FiXCircle, FiZap, FiShield, FiCloud, FiDatabase, FiBot, FiBuilding, FiTrendingUp, FiDollarSign, FiStar, FiPhone, FiMail, FiUser, FiLoader } = FiIcons;
+const { FiCheckCircle, FiXCircle, FiZap, FiShield, FiCloud, FiDatabase, FiBot, FiBuilding, FiTrendingUp, FiDollarSign, FiStar, FiPhone, FiUser, FiLoader } = FiIcons;
 
 const DigitalTransformationPage = () => {
   // Form state
@@ -15,7 +15,7 @@ const DigitalTransformationPage = () => {
     company: '',
     transformationChallenges: ''
   });
-  
+
   const [formStatus, setFormStatus] = useState({
     isSubmitting: false,
     isSuccess: false,
@@ -24,10 +24,30 @@ const DigitalTransformationPage = () => {
 
   // Partnership items
   const partnerships = [
-    { icon: FiCloud, title: "Microsoft CSP", badge: "Direct Support", color: "#2563eb" },
-    { icon: FiBot, title: "RTILA AI", badge: "Master Agent", color: "#7c3aed" },
-    { icon: FiBuilding, title: "Pax8", badge: "Cloud Marketplace", color: "#16a34a" },
-    { icon: FiShield, title: "Vanta", badge: "Compliance", color: "#f59e0b" }
+    {
+      icon: FiCloud,
+      title: "Microsoft CSP",
+      badge: "Direct Support",
+      color: "#2563eb"
+    },
+    {
+      icon: FiBot,
+      title: "RTILA AI",
+      badge: "Master Agent",
+      color: "#7c3aed"
+    },
+    {
+      icon: FiBuilding,
+      title: "Pax8",
+      badge: "Cloud Marketplace",
+      color: "#16a34a"
+    },
+    {
+      icon: FiShield,
+      title: "Vanta",
+      badge: "Compliance",
+      color: "#f59e0b"
+    }
   ];
 
   // What digital transformation is NOT
@@ -196,19 +216,64 @@ const DigitalTransformationPage = () => {
 
   // ROI metrics
   const roiMetrics = [
-    { number: "40%", label: "Productivity Increase", detail: "Through RTILA AI automation", color: "#16a34a" },
-    { number: "60%", label: "Faster Deployment", detail: "With partnership solutions", color: "#2563eb" },
-    { number: "25%", label: "Cost Reduction", detail: "Through process optimization", color: "#7c3aed" },
-    { number: "90%", label: "Security Improvement", detail: "With integrated protection", color: "#f59e0b" }
+    {
+      number: "40%",
+      label: "Productivity Increase",
+      detail: "Through RTILA AI automation",
+      color: "#16a34a"
+    },
+    {
+      number: "60%",
+      label: "Faster Deployment",
+      detail: "With partnership solutions",
+      color: "#2563eb"
+    },
+    {
+      number: "25%",
+      label: "Cost Reduction",
+      detail: "Through process optimization",
+      color: "#7c3aed"
+    },
+    {
+      number: "90%",
+      label: "Security Improvement",
+      detail: "With integrated protection",
+      color: "#f59e0b"
+    }
   ];
 
   // Business impact items
   const businessImpacts = [
-    { icon: FiTrendingUp, title: "Revenue Growth", description: "Automated processes free up staff for revenue-generating activities", color: "#16a34a" },
-    { icon: FiDollarSign, title: "Cost Optimization", description: "Eliminate redundant systems and optimize licensing through partnerships", color: "#2563eb" },
-    { icon: FiShield, title: "Risk Reduction", description: "Enterprise-grade security and compliance reduce business risk", color: "#dc2626" },
-    { icon: FiZap, title: "Scalability", description: "Cloud-native architecture supports rapid business growth", color: "#7c3aed" },
-    { icon: FiStar, title: "Competitive Advantage", description: "Advanced automation and AI capabilities differentiate your business", color: "#f59e0b" }
+    {
+      icon: FiTrendingUp,
+      title: "Revenue Growth",
+      description: "Automated processes free up staff for revenue-generating activities",
+      color: "#16a34a"
+    },
+    {
+      icon: FiDollarSign,
+      title: "Cost Optimization",
+      description: "Eliminate redundant systems and optimize licensing through partnerships",
+      color: "#2563eb"
+    },
+    {
+      icon: FiShield,
+      title: "Risk Reduction",
+      description: "Enterprise-grade security and compliance reduce business risk",
+      color: "#dc2626"
+    },
+    {
+      icon: FiZap,
+      title: "Scalability",
+      description: "Cloud-native architecture supports rapid business growth",
+      color: "#7c3aed"
+    },
+    {
+      icon: FiStar,
+      title: "Competitive Advantage",
+      description: "Advanced automation and AI capabilities differentiate your business",
+      color: "#f59e0b"
+    }
   ];
 
   // Form handlers
@@ -222,25 +287,20 @@ const DigitalTransformationPage = () => {
 
   const validateForm = () => {
     const errors = [];
-    
     if (!formData.firstName.trim()) {
       errors.push('First Name is required');
     }
-    
     if (!formData.lastName.trim()) {
       errors.push('Last Name is required');
     }
-    
     if (!formData.company.trim()) {
       errors.push('Company Name is required');
     }
-    
     if (!formData.email.trim()) {
       errors.push('Email is required');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.push('Please enter a valid email address');
     }
-    
     return errors;
   };
 
@@ -288,7 +348,7 @@ const DigitalTransformationPage = () => {
           company: '',
           transformationChallenges: ''
         });
-        
+
         // Reset success message after 5 seconds
         setTimeout(() => {
           setFormStatus({
@@ -297,7 +357,6 @@ const DigitalTransformationPage = () => {
             error: null
           });
         }, 5000);
-        
       } else {
         throw new Error('Form submission failed');
       }
@@ -305,7 +364,7 @@ const DigitalTransformationPage = () => {
       setFormStatus({
         isSubmitting: false,
         isSuccess: false,
-        error: 'Failed to submit form. Please try again or contact us directly at josh@handvantage.com'
+        error: 'Failed to submit form. Please try again or contact us directly at 236-235-0919'
       });
     }
   };
@@ -439,11 +498,18 @@ const DigitalTransformationPage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{ color: partner.color }} />
+                      <SafeIcon
+                        icon={partner.icon}
+                        className="w-10 h-10 mx-auto mb-3"
+                        style={{ color: partner.color }}
+                      />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span
                         className="text-xs font-medium px-2 py-1 rounded-full"
-                        style={{ backgroundColor: `${partner.color}20`, color: partner.color }}
+                        style={{
+                          backgroundColor: `${partner.color}20`,
+                          color: partner.color
+                        }}
                       >
                         {partner.badge}
                       </span>
@@ -486,7 +552,8 @@ const DigitalTransformationPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-primary-warning mb-6 flex items-center">
-                <span className="mr-2">❌</span> What It's NOT
+                <span className="mr-2">❌</span>
+                What It's NOT
               </h3>
               <div className="space-y-4">
                 {notItems.map((item, index) => (
@@ -514,7 +581,8 @@ const DigitalTransformationPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-primary-success mb-6 flex items-center">
-                <span className="mr-2">✅</span> What It IS
+                <span className="mr-2">✅</span>
+                What It IS
               </h3>
               <div className="space-y-4">
                 {isItems.map((item, index) => (
@@ -638,7 +706,11 @@ const DigitalTransformationPage = () => {
                   <ul className="grid md:grid-cols-2 gap-2">
                     {solution.benefits.map((benefit, i) => (
                       <li key={i} className="flex items-start">
-                        <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2 mt-0.5" style={{ color: solution.color }} />
+                        <SafeIcon
+                          icon={FiCheckCircle}
+                          className="w-5 h-5 mr-2 mt-0.5"
+                          style={{ color: solution.color }}
+                        />
                         <span className="text-slate-600">{benefit}</span>
                       </li>
                     ))}
@@ -711,7 +783,11 @@ const DigitalTransformationPage = () => {
                         className="p-3 rounded-full mr-4 flex-shrink-0"
                         style={{ backgroundColor: `${impact.color}15` }}
                       >
-                        <SafeIcon icon={impact.icon} className="w-6 h-6" style={{ color: impact.color }} />
+                        <SafeIcon
+                          icon={impact.icon}
+                          className="w-6 h-6"
+                          style={{ color: impact.color }}
+                        />
                       </div>
                       <div>
                         <h4 className="font-bold text-primary-dark mb-1">{impact.title}</h4>
@@ -806,6 +882,7 @@ const DigitalTransformationPage = () => {
                 <span>Call Josh: 236-235-0919</span>
               </motion.a>
             </motion.div>
+
             <p className="text-blue-100 text-sm mt-4">
               30-minute consultation • No obligation • Immediate insights
             </p>
@@ -855,12 +932,12 @@ const DigitalTransformationPage = () => {
               )}
 
               {/* Netlify Form */}
-              <form 
-                name="transformation-assessment-contact" 
-                method="POST" 
+              <form
+                name="transformation-assessment-contact"
+                method="POST"
                 data-netlify="true"
                 data-netlify-recaptcha="true"
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 {/* Netlify form detection */}
@@ -1005,11 +1082,9 @@ const DigitalTransformationPage = () => {
                   <SafeIcon icon={FiUser} className="w-5 h-5 text-slate-400" />
                   <span className="text-slate-300">20+ years experience</span>
                 </div>
-
                 <blockquote className="text-slate-300 italic mb-6 text-sm">
                   "I've implemented enterprise-grade transformation at Amazon, Oracle, and AWS. Now I bring that same expertise to growing businesses through strategic partnerships."
                 </blockquote>
-
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiPhone} className="w-5 h-5 text-primary-blue" />
@@ -1020,17 +1095,7 @@ const DigitalTransformationPage = () => {
                       236-235-0919
                     </a>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <SafeIcon icon={FiMail} className="w-5 h-5 text-primary-blue" />
-                    <a
-                      href="mailto:josh@handvantage.com"
-                      className="text-slate-300 hover:text-white"
-                    >
-                      josh@handvantage.com
-                    </a>
-                  </div>
                 </div>
-
                 <div className="border-t border-slate-700 pt-6">
                   <p className="text-slate-400 text-sm">
                     Available for calls Monday-Friday, 9 AM - 6 PM PST

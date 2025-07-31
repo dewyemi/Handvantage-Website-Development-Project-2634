@@ -15,7 +15,7 @@ const CybersecurityPage = () => {
     company: '',
     securityConcerns: ''
   });
-  
+
   const [formStatus, setFormStatus] = useState({
     isSubmitting: false,
     isSuccess: false,
@@ -24,10 +24,30 @@ const CybersecurityPage = () => {
 
   // Security partners for hero section
   const securityPartners = [
-    { icon: FiMail, title: "IRONSCALES", badge: "16,000+ Orgs", color: "#f59e0b" },
-    { icon: FiShield, title: "Check Point", badge: "Network Security", color: "#dc2626" },
-    { icon: FiCheckCircle, title: "Vanta", badge: "Compliance", color: "#16a34a" },
-    { icon: FiMonitor, title: "Swif.ai", badge: "Device Security", color: "#2563eb" }
+    {
+      icon: FiMail,
+      title: "IRONSCALES",
+      badge: "16,000+ Orgs",
+      color: "#f59e0b"
+    },
+    {
+      icon: FiShield,
+      title: "Check Point",
+      badge: "Network Security",
+      color: "#dc2626"
+    },
+    {
+      icon: FiCheckCircle,
+      title: "Vanta",
+      badge: "Compliance",
+      color: "#16a34a"
+    },
+    {
+      icon: FiMonitor,
+      title: "Swif.ai",
+      badge: "Device Security",
+      color: "#2563eb"
+    }
   ];
 
   // Security layers
@@ -254,18 +274,54 @@ const CybersecurityPage = () => {
 
   // Cost statistics
   const costStatistics = [
-    { icon: FiDollarSign, amount: "$4.45M", label: "Average cost of a data breach", color: "#dc2626" },
-    { icon: FiClock, amount: "277 days", label: "Average time to identify and contain breach", color: "#f59e0b" },
-    { icon: FiTrendingDown, amount: "60%", label: "Small businesses that close within 6 months", color: "#7c3aed" },
-    { icon: FiUsers, amount: "95%", label: "Attacks succeed due to human error", color: "#2563eb" }
+    {
+      icon: FiDollarSign,
+      amount: "$4.45M",
+      label: "Average cost of a data breach",
+      color: "#dc2626"
+    },
+    {
+      icon: FiClock,
+      amount: "277 days",
+      label: "Average time to identify and contain breach",
+      color: "#f59e0b"
+    },
+    {
+      icon: FiTrendingDown,
+      amount: "60%",
+      label: "Small businesses that close within 6 months",
+      color: "#7c3aed"
+    },
+    {
+      icon: FiUsers,
+      amount: "95%",
+      label: "Attacks succeed due to human error",
+      color: "#2563eb"
+    }
   ];
 
   // ROI metrics
   const roiMetrics = [
-    { number: "15:1", label: "ROI on Security Investment", color: "#16a34a" },
-    { number: "80%", label: "Reduction in Security Incidents", color: "#2563eb" },
-    { number: "50%", label: "Faster Incident Response", color: "#7c3aed" },
-    { number: "90%", label: "Compliance Automation", color: "#f59e0b" }
+    {
+      number: "15:1",
+      label: "ROI on Security Investment",
+      color: "#16a34a"
+    },
+    {
+      number: "80%",
+      label: "Reduction in Security Incidents",
+      color: "#2563eb"
+    },
+    {
+      number: "50%",
+      label: "Faster Incident Response",
+      color: "#7c3aed"
+    },
+    {
+      number: "90%",
+      label: "Compliance Automation",
+      color: "#f59e0b"
+    }
   ];
 
   // Form handlers
@@ -279,25 +335,20 @@ const CybersecurityPage = () => {
 
   const validateForm = () => {
     const errors = [];
-    
     if (!formData.firstName.trim()) {
       errors.push('First Name is required');
     }
-    
     if (!formData.lastName.trim()) {
       errors.push('Last Name is required');
     }
-    
     if (!formData.company.trim()) {
       errors.push('Company Name is required');
     }
-    
     if (!formData.email.trim()) {
       errors.push('Email is required');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.push('Please enter a valid email address');
     }
-    
     return errors;
   };
 
@@ -345,7 +396,7 @@ const CybersecurityPage = () => {
           company: '',
           securityConcerns: ''
         });
-        
+
         // Reset success message after 5 seconds
         setTimeout(() => {
           setFormStatus({
@@ -354,7 +405,6 @@ const CybersecurityPage = () => {
             error: null
           });
         }, 5000);
-        
       } else {
         throw new Error('Form submission failed');
       }
@@ -362,7 +412,7 @@ const CybersecurityPage = () => {
       setFormStatus({
         isSubmitting: false,
         isSuccess: false,
-        error: 'Failed to submit form. Please try again or contact us directly at josh@handvantage.com'
+        error: 'Failed to submit form. Please try again or contact us directly at 236-235-0919'
       });
     }
   };
@@ -503,11 +553,18 @@ const CybersecurityPage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{ color: partner.color }} />
+                      <SafeIcon
+                        icon={partner.icon}
+                        className="w-10 h-10 mx-auto mb-3"
+                        style={{ color: partner.color }}
+                      />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span
                         className="text-xs font-medium px-2 py-1 rounded-full"
-                        style={{ backgroundColor: `${partner.color}20`, color: partner.color }}
+                        style={{
+                          backgroundColor: `${partner.color}20`,
+                          color: partner.color
+                        }}
                       >
                         {partner.badge}
                       </span>
@@ -577,7 +634,11 @@ const CybersecurityPage = () => {
                     <ul className="grid md:grid-cols-2 gap-2">
                       {layer.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
-                          <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2 mt-0.5" style={{ color: layer.iconBg }} />
+                          <SafeIcon
+                            icon={FiCheckCircle}
+                            className="w-5 h-5 mr-2 mt-0.5"
+                            style={{ color: layer.iconBg }}
+                          />
                           <span className="text-slate-700 text-sm">{feature}</span>
                         </li>
                       ))}
@@ -657,7 +718,11 @@ const CybersecurityPage = () => {
                         className="p-2 rounded-lg flex-shrink-0"
                         style={{ backgroundColor: `${deliverable.color}15` }}
                       >
-                        <SafeIcon icon={deliverable.icon} className="w-6 h-6" style={{ color: deliverable.color }} />
+                        <SafeIcon
+                          icon={deliverable.icon}
+                          className="w-6 h-6"
+                          style={{ color: deliverable.color }}
+                        />
                       </div>
                       <div>
                         <h4 className="font-bold text-primary-dark mb-1">{deliverable.title}</h4>
@@ -720,7 +785,11 @@ const CybersecurityPage = () => {
                   }}
                 >
                   {/* Icon */}
-                  <SafeIcon icon={threat.icon} className="w-12 h-12 mb-4 mx-auto" style={{ color: threat.iconBg }} />
+                  <SafeIcon
+                    icon={threat.icon}
+                    className="w-12 h-12 mb-4 mx-auto"
+                    style={{ color: threat.iconBg }}
+                  />
 
                   {/* Title */}
                   <h3 className="text-xl font-bold text-primary-dark mb-2 text-center">
@@ -780,7 +849,11 @@ const CybersecurityPage = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <SafeIcon icon={stat.icon} className="w-8 h-8" style={{ color: stat.color }} />
+                    <SafeIcon
+                      icon={stat.icon}
+                      className="w-8 h-8"
+                      style={{ color: stat.color }}
+                    />
                     <div>
                       <p className="text-2xl font-bold" style={{ color: stat.color }}>
                         {stat.amount}
@@ -915,6 +988,7 @@ const CybersecurityPage = () => {
                 <span>Emergency Security Call: 236-235-0919</span>
               </motion.a>
             </motion.div>
+
             <p className="text-red-100 text-sm mt-4">
               24/7 security support • No obligation • Immediate threat assessment
             </p>
@@ -964,12 +1038,12 @@ const CybersecurityPage = () => {
               )}
 
               {/* Netlify Form */}
-              <form 
-                name="security-assessment-contact" 
-                method="POST" 
+              <form
+                name="security-assessment-contact"
+                method="POST"
                 data-netlify="true"
                 data-netlify-recaptcha="true"
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 {/* Netlify form detection */}

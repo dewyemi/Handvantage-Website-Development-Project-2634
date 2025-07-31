@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiCloud, FiServer, FiUsers, FiPhone, FiCheckCircle, FiDollarSign, FiZap, FiShield, FiDatabase, FiGlobe, FiTrendingDown, FiTrendingUp, FiRefreshCw, FiBarChart, FiBuilding, FiMail, FiLoader } = FiIcons;
+const { FiCloud, FiServer, FiUsers, FiPhone, FiCheckCircle, FiDollarSign, FiZap, FiShield, FiDatabase, FiGlobe, FiTrendingDown, FiTrendingUp, FiRefreshCw, FiBarChart, FiBuilding, FiLoader } = FiIcons;
 
 const CloudInfrastructurePage = () => {
   // Form state
@@ -15,7 +15,7 @@ const CloudInfrastructurePage = () => {
     company: '',
     currentCloud: ''
   });
-  
+
   const [formStatus, setFormStatus] = useState({
     isSubmitting: false,
     isSuccess: false,
@@ -24,10 +24,30 @@ const CloudInfrastructurePage = () => {
 
   // Cloud partners showcase
   const cloudPartners = [
-    { icon: FiCloud, title: "Microsoft CSP", badge: "Direct Support", color: "#0078d4" },
-    { icon: FiBuilding, title: "Pax8", badge: "Cloud Marketplace", color: "#16a34a" },
-    { icon: FiPhone, title: "Intermedia", badge: "Unified Comms", color: "#7c3aed" },
-    { icon: FiServer, title: "AWS Trained", badge: "Multi-Cloud", color: "#ff9900" }
+    {
+      icon: FiCloud,
+      title: "Microsoft CSP",
+      badge: "Direct Support",
+      color: "#0078d4"
+    },
+    {
+      icon: FiBuilding,
+      title: "Pax8",
+      badge: "Cloud Marketplace",
+      color: "#16a34a"
+    },
+    {
+      icon: FiPhone,
+      title: "Intermedia",
+      badge: "Unified Comms",
+      color: "#7c3aed"
+    },
+    {
+      icon: FiServer,
+      title: "AWS Trained",
+      badge: "Multi-Cloud",
+      color: "#ff9900"
+    }
   ];
 
   // Microsoft solutions
@@ -163,20 +183,70 @@ const CloudInfrastructurePage = () => {
 
   // Cost savings metrics
   const costSavings = [
-    { icon: FiTrendingDown, amount: "40%", label: "Reduction in IT infrastructure costs", color: "#16a34a" },
-    { icon: FiDollarSign, amount: "25%", label: "Savings on Microsoft licensing through CSP", color: "#2563eb" },
-    { icon: FiDatabase, amount: "60%", label: "Faster deployment than traditional infrastructure", color: "#7c3aed" },
-    { icon: FiUsers, amount: "50%", label: "Reduction in IT management overhead", color: "#f59e0b" }
+    {
+      icon: FiTrendingDown,
+      amount: "40%",
+      label: "Reduction in IT infrastructure costs",
+      color: "#16a34a"
+    },
+    {
+      icon: FiDollarSign,
+      amount: "25%",
+      label: "Savings on Microsoft licensing through CSP",
+      color: "#2563eb"
+    },
+    {
+      icon: FiDatabase,
+      amount: "60%",
+      label: "Faster deployment than traditional infrastructure",
+      color: "#7c3aed"
+    },
+    {
+      icon: FiUsers,
+      amount: "50%",
+      label: "Reduction in IT management overhead",
+      color: "#f59e0b"
+    }
   ];
 
   // Cloud benefits
   const cloudBenefits = [
-    { icon: FiZap, title: "Improved Productivity", description: "Modern collaboration tools increase team efficiency", color: "#16a34a" },
-    { icon: FiShield, title: "Enhanced Security", description: "Enterprise-grade security with automatic updates", color: "#dc2626" },
-    { icon: FiTrendingUp, title: "Scalability", description: "Resources scale automatically with business growth", color: "#2563eb" },
-    { icon: FiGlobe, title: "Remote Work Enablement", description: "Secure access to business applications from anywhere", color: "#7c3aed" },
-    { icon: FiRefreshCw, title: "Automatic Updates", description: "Always current with latest features and security patches", color: "#f59e0b" },
-    { icon: FiBarChart, title: "Business Intelligence", description: "Advanced analytics and reporting capabilities", color: "#059669" }
+    {
+      icon: FiZap,
+      title: "Improved Productivity",
+      description: "Modern collaboration tools increase team efficiency",
+      color: "#16a34a"
+    },
+    {
+      icon: FiShield,
+      title: "Enhanced Security",
+      description: "Enterprise-grade security with automatic updates",
+      color: "#dc2626"
+    },
+    {
+      icon: FiTrendingUp,
+      title: "Scalability",
+      description: "Resources scale automatically with business growth",
+      color: "#2563eb"
+    },
+    {
+      icon: FiGlobe,
+      title: "Remote Work Enablement",
+      description: "Secure access to business applications from anywhere",
+      color: "#7c3aed"
+    },
+    {
+      icon: FiRefreshCw,
+      title: "Automatic Updates",
+      description: "Always current with latest features and security patches",
+      color: "#f59e0b"
+    },
+    {
+      icon: FiBarChart,
+      title: "Business Intelligence",
+      description: "Advanced analytics and reporting capabilities",
+      color: "#059669"
+    }
   ];
 
   // Form handlers
@@ -190,25 +260,20 @@ const CloudInfrastructurePage = () => {
 
   const validateForm = () => {
     const errors = [];
-    
     if (!formData.firstName.trim()) {
       errors.push('First Name is required');
     }
-    
     if (!formData.lastName.trim()) {
       errors.push('Last Name is required');
     }
-    
     if (!formData.company.trim()) {
       errors.push('Company Name is required');
     }
-    
     if (!formData.email.trim()) {
       errors.push('Email is required');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.push('Please enter a valid email address');
     }
-    
     return errors;
   };
 
@@ -256,7 +321,7 @@ const CloudInfrastructurePage = () => {
           company: '',
           currentCloud: ''
         });
-        
+
         // Reset success message after 5 seconds
         setTimeout(() => {
           setFormStatus({
@@ -265,7 +330,6 @@ const CloudInfrastructurePage = () => {
             error: null
           });
         }, 5000);
-        
       } else {
         throw new Error('Form submission failed');
       }
@@ -273,7 +337,7 @@ const CloudInfrastructurePage = () => {
       setFormStatus({
         isSubmitting: false,
         isSuccess: false,
-        error: 'Failed to submit form. Please try again or contact us directly at josh@handvantage.com'
+        error: 'Failed to submit form. Please try again or contact us directly at 236-235-0919'
       });
     }
   };
@@ -407,11 +471,18 @@ const CloudInfrastructurePage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{ color: partner.color }} />
+                      <SafeIcon
+                        icon={partner.icon}
+                        className="w-10 h-10 mx-auto mb-3"
+                        style={{ color: partner.color }}
+                      />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span
                         className="text-xs font-medium px-2 py-1 rounded-full"
-                        style={{ backgroundColor: `${partner.color}20`, color: partner.color }}
+                        style={{
+                          backgroundColor: `${partner.color}20`,
+                          color: partner.color
+                        }}
                       >
                         {partner.badge}
                       </span>
@@ -465,7 +536,11 @@ const CloudInfrastructurePage = () => {
                 >
                   {/* Icon */}
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <SafeIcon icon={solution.icon} className="w-8 h-8" style={{ color: solution.color }} />
+                    <SafeIcon
+                      icon={solution.icon}
+                      className="w-8 h-8"
+                      style={{ color: solution.color }}
+                    />
                   </div>
 
                   {/* Content */}
@@ -481,7 +556,11 @@ const CloudInfrastructurePage = () => {
                     <ul className="space-y-2">
                       {solution.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
-                          <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2 mt-0.5" style={{ color: solution.color }} />
+                          <SafeIcon
+                            icon={FiCheckCircle}
+                            className="w-5 h-5 mr-2 mt-0.5"
+                            style={{ color: solution.color }}
+                          />
                           <span className="text-slate-700">{feature}</span>
                         </li>
                       ))}
@@ -584,7 +663,11 @@ const CloudInfrastructurePage = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <SafeIcon icon={metric.icon} className="w-8 h-8" style={{ color: metric.color }} />
+                    <SafeIcon
+                      icon={metric.icon}
+                      className="w-8 h-8"
+                      style={{ color: metric.color }}
+                    />
                     <div>
                       <p className="text-2xl font-bold" style={{ color: metric.color }}>
                         {metric.amount}
@@ -621,7 +704,11 @@ const CloudInfrastructurePage = () => {
                         className="p-2 rounded-lg flex-shrink-0"
                         style={{ backgroundColor: `${benefit.color}15` }}
                       >
-                        <SafeIcon icon={benefit.icon} className="w-6 h-6" style={{ color: benefit.color }} />
+                        <SafeIcon
+                          icon={benefit.icon}
+                          className="w-6 h-6"
+                          style={{ color: benefit.color }}
+                        />
                       </div>
                       <div>
                         <h4 className="font-bold text-primary-dark mb-1">
@@ -852,6 +939,7 @@ const CloudInfrastructurePage = () => {
                 <span>Call Josh: 236-235-0919</span>
               </motion.a>
             </motion.div>
+
             <p className="text-blue-100 text-sm mt-4">
               Microsoft CSP Partnership • No obligation • Immediate insights
             </p>
@@ -901,12 +989,12 @@ const CloudInfrastructurePage = () => {
               )}
 
               {/* Netlify Form */}
-              <form 
-                name="cloud-assessment-contact" 
-                method="POST" 
+              <form
+                name="cloud-assessment-contact"
+                method="POST"
                 data-netlify="true"
                 data-netlify-recaptcha="true"
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 {/* Netlify form detection */}
@@ -1083,15 +1171,6 @@ const CloudInfrastructurePage = () => {
                       className="text-slate-300 hover:text-white"
                     >
                       236-235-0919
-                    </a>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <SafeIcon icon={FiMail} className="w-5 h-5 text-[#0078d4]" />
-                    <a
-                      href="mailto:josh@handvantage.com"
-                      className="text-slate-300 hover:text-white"
-                    >
-                      josh@handvantage.com
                     </a>
                   </div>
                 </div>
