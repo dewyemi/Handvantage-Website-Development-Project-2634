@@ -1,54 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const {
-  FiCloud,
-  FiServer,
-  FiUsers,
-  FiPhone,
-  FiCheckCircle,
-  FiDollarSign,
-  FiZap,
-  FiShield,
-  FiDatabase,
-  FiGlobe,
-  FiTrendingDown,
-  FiTrendingUp,
-  FiRefreshCw,
-  FiBarChart,
-  FiBuilding,
-  FiMail
-} = FiIcons;
+const { FiCloud, FiServer, FiUsers, FiPhone, FiCheckCircle, FiDollarSign, FiZap, FiShield, FiDatabase, FiGlobe, FiTrendingDown, FiTrendingUp, FiRefreshCw, FiBarChart, FiBuilding, FiMail, FiLoader } = FiIcons;
 
 const CloudInfrastructurePage = () => {
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    currentCloud: ''
+  });
+  
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    error: null
+  });
+
   // Cloud partners showcase
   const cloudPartners = [
-    {
-      icon: FiCloud,
-      title: "Microsoft CSP",
-      badge: "Direct Support",
-      color: "#0078d4"
-    },
-    {
-      icon: FiBuilding,
-      title: "Pax8",
-      badge: "Cloud Marketplace",
-      color: "#16a34a"
-    },
-    {
-      icon: FiPhone,
-      title: "Intermedia",
-      badge: "Unified Comms",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiServer,
-      title: "AWS Trained",
-      badge: "Multi-Cloud",
-      color: "#ff9900"
-    }
+    { icon: FiCloud, title: "Microsoft CSP", badge: "Direct Support", color: "#0078d4" },
+    { icon: FiBuilding, title: "Pax8", badge: "Cloud Marketplace", color: "#16a34a" },
+    { icon: FiPhone, title: "Intermedia", badge: "Unified Comms", color: "#7c3aed" },
+    { icon: FiServer, title: "AWS Trained", badge: "Multi-Cloud", color: "#ff9900" }
   ];
 
   // Microsoft solutions
@@ -184,71 +163,120 @@ const CloudInfrastructurePage = () => {
 
   // Cost savings metrics
   const costSavings = [
-    {
-      icon: FiTrendingDown,
-      amount: "40%",
-      label: "Reduction in IT infrastructure costs",
-      color: "#16a34a"
-    },
-    {
-      icon: FiDollarSign,
-      amount: "25%",
-      label: "Savings on Microsoft licensing through CSP",
-      color: "#2563eb"
-    },
-    {
-      icon: FiDatabase,
-      amount: "60%",
-      label: "Faster deployment than traditional infrastructure",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiUsers,
-      amount: "50%",
-      label: "Reduction in IT management overhead",
-      color: "#f59e0b"
-    }
+    { icon: FiTrendingDown, amount: "40%", label: "Reduction in IT infrastructure costs", color: "#16a34a" },
+    { icon: FiDollarSign, amount: "25%", label: "Savings on Microsoft licensing through CSP", color: "#2563eb" },
+    { icon: FiDatabase, amount: "60%", label: "Faster deployment than traditional infrastructure", color: "#7c3aed" },
+    { icon: FiUsers, amount: "50%", label: "Reduction in IT management overhead", color: "#f59e0b" }
   ];
 
   // Cloud benefits
   const cloudBenefits = [
-    {
-      icon: FiZap,
-      title: "Improved Productivity",
-      description: "Modern collaboration tools increase team efficiency",
-      color: "#16a34a"
-    },
-    {
-      icon: FiShield,
-      title: "Enhanced Security",
-      description: "Enterprise-grade security with automatic updates",
-      color: "#dc2626"
-    },
-    {
-      icon: FiTrendingUp,
-      title: "Scalability",
-      description: "Resources scale automatically with business growth",
-      color: "#2563eb"
-    },
-    {
-      icon: FiGlobe,
-      title: "Remote Work Enablement",
-      description: "Secure access to business applications from anywhere",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiRefreshCw,
-      title: "Automatic Updates",
-      description: "Always current with latest features and security patches",
-      color: "#f59e0b"
-    },
-    {
-      icon: FiBarChart,
-      title: "Business Intelligence",
-      description: "Advanced analytics and reporting capabilities",
-      color: "#059669"
-    }
+    { icon: FiZap, title: "Improved Productivity", description: "Modern collaboration tools increase team efficiency", color: "#16a34a" },
+    { icon: FiShield, title: "Enhanced Security", description: "Enterprise-grade security with automatic updates", color: "#dc2626" },
+    { icon: FiTrendingUp, title: "Scalability", description: "Resources scale automatically with business growth", color: "#2563eb" },
+    { icon: FiGlobe, title: "Remote Work Enablement", description: "Secure access to business applications from anywhere", color: "#7c3aed" },
+    { icon: FiRefreshCw, title: "Automatic Updates", description: "Always current with latest features and security patches", color: "#f59e0b" },
+    { icon: FiBarChart, title: "Business Intelligence", description: "Advanced analytics and reporting capabilities", color: "#059669" }
   ];
+
+  // Form handlers
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const validateForm = () => {
+    const errors = [];
+    
+    if (!formData.firstName.trim()) {
+      errors.push('First Name is required');
+    }
+    
+    if (!formData.lastName.trim()) {
+      errors.push('Last Name is required');
+    }
+    
+    if (!formData.company.trim()) {
+      errors.push('Company Name is required');
+    }
+    
+    if (!formData.email.trim()) {
+      errors.push('Email is required');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.push('Please enter a valid email address');
+    }
+    
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const errors = validateForm();
+    if (errors.length > 0) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: errors.join(', ')
+      });
+      return;
+    }
+
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      error: null
+    });
+
+    try {
+      // Let Netlify handle the form submission
+      const formElement = e.target;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(formElement)).toString()
+      });
+
+      if (response.ok) {
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: true,
+          error: null
+        });
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          currentCloud: ''
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({
+            isSubmitting: false,
+            isSuccess: false,
+            error: null
+          });
+        }, 5000);
+        
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: 'Failed to submit form. Please try again or contact us directly at josh@handvantage.com'
+      });
+    }
+  };
 
   return (
     <div className="pt-20">
@@ -368,7 +396,6 @@ const CloudInfrastructurePage = () => {
                 >
                   Powered by Cloud Leaders
                 </motion.h3>
-
                 <div className="grid grid-cols-2 gap-4">
                   {cloudPartners.map((partner, index) => (
                     <motion.div
@@ -380,18 +407,11 @@ const CloudInfrastructurePage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <SafeIcon
-                        icon={partner.icon}
-                        className="w-10 h-10 mx-auto mb-3"
-                        style={{ color: partner.color }}
-                      />
+                      <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{ color: partner.color }} />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span
                         className="text-xs font-medium px-2 py-1 rounded-full"
-                        style={{
-                          backgroundColor: `${partner.color}20`,
-                          color: partner.color
-                        }}
+                        style={{ backgroundColor: `${partner.color}20`, color: partner.color }}
                       >
                         {partner.badge}
                       </span>
@@ -445,11 +465,7 @@ const CloudInfrastructurePage = () => {
                 >
                   {/* Icon */}
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                    <SafeIcon
-                      icon={solution.icon}
-                      className="w-8 h-8"
-                      style={{ color: solution.color }}
-                    />
+                    <SafeIcon icon={solution.icon} className="w-8 h-8" style={{ color: solution.color }} />
                   </div>
 
                   {/* Content */}
@@ -461,16 +477,11 @@ const CloudInfrastructurePage = () => {
                       {solution.subtitle}
                     </p>
                     <p className="text-slate-700 mb-4">{solution.description}</p>
-
                     <h4 className="font-bold text-primary-dark mb-2">Includes:</h4>
                     <ul className="space-y-2">
                       {solution.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
-                          <SafeIcon
-                            icon={FiCheckCircle}
-                            className="w-5 h-5 mr-2 mt-0.5"
-                            style={{ color: solution.color }}
-                          />
+                          <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2 mt-0.5" style={{ color: solution.color }} />
                           <span className="text-slate-700">{feature}</span>
                         </li>
                       ))}
@@ -563,7 +574,6 @@ const CloudInfrastructurePage = () => {
               <p className="text-lg text-slate-600 mb-8">
                 Our Microsoft CSP partnership and cloud expertise deliver significant cost savings compared to traditional IT infrastructure and direct Microsoft licensing.
               </p>
-
               <div className="space-y-4">
                 {costSavings.map((metric, index) => (
                   <motion.div
@@ -574,16 +584,9 @@ const CloudInfrastructurePage = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <SafeIcon
-                      icon={metric.icon}
-                      className="w-8 h-8"
-                      style={{ color: metric.color }}
-                    />
+                    <SafeIcon icon={metric.icon} className="w-8 h-8" style={{ color: metric.color }} />
                     <div>
-                      <p
-                        className="text-2xl font-bold"
-                        style={{ color: metric.color }}
-                      >
+                      <p className="text-2xl font-bold" style={{ color: metric.color }}>
                         {metric.amount}
                       </p>
                       <p className="text-slate-600 text-sm">{metric.label}</p>
@@ -604,7 +607,6 @@ const CloudInfrastructurePage = () => {
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Beyond Cost Savings
                 </h3>
-
                 <div className="grid md:grid-cols-2 gap-6">
                   {cloudBenefits.map((benefit, index) => (
                     <motion.div
@@ -619,11 +621,7 @@ const CloudInfrastructurePage = () => {
                         className="p-2 rounded-lg flex-shrink-0"
                         style={{ backgroundColor: `${benefit.color}15` }}
                       >
-                        <SafeIcon
-                          icon={benefit.icon}
-                          className="w-6 h-6"
-                          style={{ color: benefit.color }}
-                        />
+                        <SafeIcon icon={benefit.icon} className="w-6 h-6" style={{ color: benefit.color }} />
                       </div>
                       <div>
                         <h4 className="font-bold text-primary-dark mb-1">
@@ -684,46 +682,31 @@ const CloudInfrastructurePage = () => {
                 <h4 className="font-bold text-primary-dark mb-2">Advantages:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#0078d4] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#0078d4] mr-2" />
                     <span className="text-slate-600">
                       Seamless integration across all Microsoft services
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#0078d4] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#0078d4] mr-2" />
                     <span className="text-slate-600">
                       Unified security and compliance management
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#0078d4] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#0078d4] mr-2" />
                     <span className="text-slate-600">
                       Single vendor relationship and support
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#0078d4] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#0078d4] mr-2" />
                     <span className="text-slate-600">
                       Comprehensive business application suite
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#0078d4] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#0078d4] mr-2" />
                     <span className="text-slate-600">
                       Cost-effective licensing through CSP partnership
                     </span>
@@ -753,46 +736,31 @@ const CloudInfrastructurePage = () => {
                 <h4 className="font-bold text-primary-dark mb-2">Use Cases:</h4>
                 <ul className="space-y-2">
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#f59e0b] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#f59e0b] mr-2" />
                     <span className="text-slate-600">
                       Specialized AWS services for specific workloads
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#f59e0b] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#f59e0b] mr-2" />
                     <span className="text-slate-600">
                       Disaster recovery and business continuity
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#f59e0b] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#f59e0b] mr-2" />
                     <span className="text-slate-600">
                       Vendor diversification for critical applications
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#f59e0b] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#f59e0b] mr-2" />
                     <span className="text-slate-600">
                       Legacy application migration strategies
                     </span>
                   </li>
                   <li className="flex items-center">
-                    <SafeIcon
-                      icon={FiCheckCircle}
-                      className="w-5 h-5 text-[#f59e0b] mr-2"
-                    />
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-[#f59e0b] mr-2" />
                     <span className="text-slate-600">
                       Cost optimization through platform selection
                     </span>
@@ -829,7 +797,6 @@ const CloudInfrastructurePage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold mb-4">☁️ Free Cloud Assessment</h3>
-              
               <div className="mb-6">
                 <p className="font-semibold mb-3">Comprehensive Cloud Infrastructure Analysis</p>
                 <ul className="grid md:grid-cols-2 gap-y-2 gap-x-4 text-left">
@@ -855,7 +822,6 @@ const CloudInfrastructurePage = () => {
                   </li>
                 </ul>
               </div>
-              
               <p className="text-center font-semibold text-xl">
                 Value: $3,500 | Your Investment: $0
               </p>
@@ -886,7 +852,6 @@ const CloudInfrastructurePage = () => {
                 <span>Call Josh: 236-235-0919</span>
               </motion.a>
             </motion.div>
-            
             <p className="text-blue-100 text-sm mt-4">
               Microsoft CSP Partnership • No obligation • Immediate insights
             </p>
@@ -894,7 +859,7 @@ const CloudInfrastructurePage = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section with Netlify Form */}
       <section id="contact" className="py-20 bg-primary-dark text-white">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -909,76 +874,157 @@ const CloudInfrastructurePage = () => {
               <p className="text-slate-300 mb-8">
                 Fill out the form below to schedule your free cloud assessment with Josh and start optimizing your cloud infrastructure today.
               </p>
-              
-              <form className="space-y-6">
+
+              {/* Success Message */}
+              {formStatus.isSuccess && (
+                <motion.div
+                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <div className="flex items-center">
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2" />
+                    <span>Thank you! Your cloud assessment request has been submitted successfully. Josh will contact you within 24 hours.</span>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {formStatus.error && (
+                <motion.div
+                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p>{formStatus.error}</p>
+                </motion.div>
+              )}
+
+              {/* Netlify Form */}
+              <form 
+                name="cloud-assessment-contact" 
+                method="POST" 
+                data-netlify="true"
+                data-netlify-recaptcha="true"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* Netlify form detection */}
+                <input type="hidden" name="form-name" value="cloud-assessment-contact" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">First Name</label>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">
+                      First Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                       placeholder="Your first name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">Last Name</label>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">
+                      Last Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                       placeholder="Your last name"
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
+                    Email Address <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="Your phone number"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">Company Name</label>
+                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">
+                    Company Name <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="text"
                     id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="Your company name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="currentCloud" className="block text-sm font-medium text-slate-300 mb-1">Current Cloud Infrastructure</label>
+                  <label htmlFor="currentCloud" className="block text-sm font-medium text-slate-300 mb-1">
+                    Current Cloud Infrastructure
+                  </label>
                   <textarea
                     id="currentCloud"
+                    name="currentCloud"
+                    value={formData.currentCloud}
+                    onChange={handleInputChange}
                     rows="4"
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="Tell us about your current cloud setup and challenges..."
                   ></textarea>
                 </div>
-                
+
+                {/* reCAPTCHA */}
+                <div data-netlify-recaptcha="true"></div>
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-[#0078d4] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={formStatus.isSubmitting}
+                  className="w-full bg-[#0078d4] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  whileHover={!formStatus.isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!formStatus.isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  Schedule My Cloud Assessment
+                  {formStatus.isSubmitting ? (
+                    <>
+                      <SafeIcon icon={FiLoader} className="w-5 h-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Schedule My Cloud Assessment'
+                  )}
                 </motion.button>
               </form>
             </motion.div>
@@ -999,11 +1045,10 @@ const CloudInfrastructurePage = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
                 <p className="text-[#0078d4] font-semibold mb-2">Microsoft Cloud Solution Provider</p>
                 <p className="text-slate-300 mb-4">VP of Digital Transformation</p>
-                
+
                 <div className="bg-[#0078d4]/20 p-4 rounded-lg mb-6">
                   <h4 className="font-bold text-[#93c5fd] mb-2">🌟 CSP Benefits:</h4>
                   <ul className="text-slate-300 space-y-2 text-sm">
@@ -1029,22 +1074,28 @@ const CloudInfrastructurePage = () => {
                 <blockquote className="text-slate-300 italic mb-6 text-sm">
                   "I've helped businesses of all sizes transform their infrastructure with Microsoft's cloud ecosystem. Let me show you how to optimize your cloud investment."
                 </blockquote>
-                
+
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiPhone} className="w-5 h-5 text-[#0078d4]" />
-                    <a href="tel:+12362350919" className="text-slate-300 hover:text-white">
+                    <a
+                      href="tel:+12362350919"
+                      className="text-slate-300 hover:text-white"
+                    >
                       236-235-0919
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiMail} className="w-5 h-5 text-[#0078d4]" />
-                    <a href="mailto:josh@handvantage.com" className="text-slate-300 hover:text-white">
+                    <a
+                      href="mailto:josh@handvantage.com"
+                      className="text-slate-300 hover:text-white"
+                    >
                       josh@handvantage.com
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="border-t border-slate-700 pt-6">
                   <p className="text-slate-400 text-sm">
                     Available for consultations Monday-Friday, 9 AM - 6 PM PST

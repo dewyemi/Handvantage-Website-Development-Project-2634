@@ -1,42 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const {
-  FiShield, FiMail, FiMonitor, FiCheckCircle, FiCloud,
-  FiAlertTriangle, FiClock, FiUsers, FiTrendingDown, FiDollarSign,
-  FiFileText, FiMap, FiCheckSquare, FiTrendingUp, FiEye,
-  FiLock, FiPhone, FiX
-} = FiIcons;
+const { FiShield, FiMail, FiMonitor, FiCheckCircle, FiCloud, FiAlertTriangle, FiClock, FiUsers, FiTrendingDown, FiDollarSign, FiFileText, FiMap, FiCheckSquare, FiTrendingUp, FiEye, FiLock, FiPhone, FiX, FiLoader } = FiIcons;
 
 const CybersecurityPage = () => {
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    securityConcerns: ''
+  });
+  
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    error: null
+  });
+
   // Security partners for hero section
   const securityPartners = [
-    {
-      icon: FiMail,
-      title: "IRONSCALES",
-      badge: "16,000+ Orgs",
-      color: "#f59e0b"
-    },
-    {
-      icon: FiShield,
-      title: "Check Point",
-      badge: "Network Security",
-      color: "#dc2626"
-    },
-    {
-      icon: FiCheckCircle,
-      title: "Vanta",
-      badge: "Compliance",
-      color: "#16a34a"
-    },
-    {
-      icon: FiMonitor,
-      title: "Swif.ai",
-      badge: "Device Security",
-      color: "#2563eb"
-    }
+    { icon: FiMail, title: "IRONSCALES", badge: "16,000+ Orgs", color: "#f59e0b" },
+    { icon: FiShield, title: "Check Point", badge: "Network Security", color: "#dc2626" },
+    { icon: FiCheckCircle, title: "Vanta", badge: "Compliance", color: "#16a34a" },
+    { icon: FiMonitor, title: "Swif.ai", badge: "Device Security", color: "#2563eb" }
   ];
 
   // Security layers
@@ -263,55 +254,118 @@ const CybersecurityPage = () => {
 
   // Cost statistics
   const costStatistics = [
-    {
-      icon: FiDollarSign,
-      amount: "$4.45M",
-      label: "Average cost of a data breach",
-      color: "#dc2626"
-    },
-    {
-      icon: FiClock,
-      amount: "277 days",
-      label: "Average time to identify and contain breach",
-      color: "#f59e0b"
-    },
-    {
-      icon: FiTrendingDown,
-      amount: "60%",
-      label: "Small businesses that close within 6 months",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiUsers,
-      amount: "95%",
-      label: "Attacks succeed due to human error",
-      color: "#2563eb"
-    }
+    { icon: FiDollarSign, amount: "$4.45M", label: "Average cost of a data breach", color: "#dc2626" },
+    { icon: FiClock, amount: "277 days", label: "Average time to identify and contain breach", color: "#f59e0b" },
+    { icon: FiTrendingDown, amount: "60%", label: "Small businesses that close within 6 months", color: "#7c3aed" },
+    { icon: FiUsers, amount: "95%", label: "Attacks succeed due to human error", color: "#2563eb" }
   ];
 
   // ROI metrics
   const roiMetrics = [
-    {
-      number: "15:1",
-      label: "ROI on Security Investment",
-      color: "#16a34a"
-    },
-    {
-      number: "80%",
-      label: "Reduction in Security Incidents",
-      color: "#2563eb"
-    },
-    {
-      number: "50%",
-      label: "Faster Incident Response",
-      color: "#7c3aed"
-    },
-    {
-      number: "90%",
-      label: "Compliance Automation",
-      color: "#f59e0b"
-    }
+    { number: "15:1", label: "ROI on Security Investment", color: "#16a34a" },
+    { number: "80%", label: "Reduction in Security Incidents", color: "#2563eb" },
+    { number: "50%", label: "Faster Incident Response", color: "#7c3aed" },
+    { number: "90%", label: "Compliance Automation", color: "#f59e0b" }
   ];
+
+  // Form handlers
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const validateForm = () => {
+    const errors = [];
+    
+    if (!formData.firstName.trim()) {
+      errors.push('First Name is required');
+    }
+    
+    if (!formData.lastName.trim()) {
+      errors.push('Last Name is required');
+    }
+    
+    if (!formData.company.trim()) {
+      errors.push('Company Name is required');
+    }
+    
+    if (!formData.email.trim()) {
+      errors.push('Email is required');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.push('Please enter a valid email address');
+    }
+    
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const errors = validateForm();
+    if (errors.length > 0) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: errors.join(', ')
+      });
+      return;
+    }
+
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      error: null
+    });
+
+    try {
+      // Let Netlify handle the form submission
+      const formElement = e.target;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(formElement)).toString()
+      });
+
+      if (response.ok) {
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: true,
+          error: null
+        });
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          securityConcerns: ''
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({
+            isSubmitting: false,
+            isSuccess: false,
+            error: null
+          });
+        }, 5000);
+        
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: 'Failed to submit form. Please try again or contact us directly at josh@handvantage.com'
+      });
+    }
+  };
 
   return (
     <div className="pt-20">
@@ -438,7 +492,6 @@ const CybersecurityPage = () => {
                 >
                   Powered by Security Leaders
                 </motion.h3>
-
                 <div className="grid grid-cols-2 gap-4">
                   {securityPartners.map((partner, index) => (
                     <motion.div
@@ -450,11 +503,7 @@ const CybersecurityPage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <SafeIcon
-                        icon={partner.icon}
-                        className="w-10 h-10 mx-auto mb-3"
-                        style={{ color: partner.color }}
-                      />
+                      <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{ color: partner.color }} />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span
                         className="text-xs font-medium px-2 py-1 rounded-full"
@@ -501,9 +550,9 @@ const CybersecurityPage = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div 
+                <div
                   className="rounded-xl p-8 flex flex-col md:flex-row gap-8 items-start"
-                  style={{ 
+                  style={{
                     backgroundColor: layer.bg,
                     borderColor: layer.border,
                     borderWidth: "1px"
@@ -511,7 +560,7 @@ const CybersecurityPage = () => {
                 >
                   {/* Icon */}
                   <div className="md:flex-shrink-0 flex justify-center w-full md:w-auto">
-                    <div 
+                    <div
                       className="w-20 h-20 rounded-full flex items-center justify-center"
                       style={{ backgroundColor: layer.iconBg }}
                     >
@@ -524,16 +573,11 @@ const CybersecurityPage = () => {
                     <h3 className="text-2xl font-bold text-primary-dark mb-2">{layer.title}</h3>
                     <p className="font-medium mb-3">{layer.subtitle}</p>
                     <p className="text-slate-700 mb-4">{layer.description}</p>
-
                     <h4 className="font-bold text-primary-dark mb-2">Protection Includes:</h4>
                     <ul className="grid md:grid-cols-2 gap-2">
                       {layer.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
-                          <SafeIcon 
-                            icon={FiCheckCircle} 
-                            className="w-5 h-5 mr-2 mt-0.5" 
-                            style={{ color: layer.iconBg }} 
-                          />
+                          <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2 mt-0.5" style={{ color: layer.iconBg }} />
                           <span className="text-slate-700 text-sm">{feature}</span>
                         </li>
                       ))}
@@ -563,7 +607,6 @@ const CybersecurityPage = () => {
               <p className="text-lg text-slate-600 mb-8">
                 Before implementing any security solutions, we conduct a comprehensive assessment of your current security posture to identify vulnerabilities, gaps, and opportunities for improvement.
               </p>
-
               <div className="space-y-6">
                 {assessmentSteps.map((step, index) => (
                   <motion.div
@@ -574,7 +617,7 @@ const CybersecurityPage = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div 
+                    <div
                       className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ backgroundColor: step.color }}
                     >
@@ -600,7 +643,6 @@ const CybersecurityPage = () => {
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   What You'll Receive
                 </h3>
-
                 <div className="space-y-6">
                   {assessmentDeliverables.map((deliverable, index) => (
                     <motion.div
@@ -611,7 +653,7 @@ const CybersecurityPage = () => {
                       transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div 
+                      <div
                         className="p-2 rounded-lg flex-shrink-0"
                         style={{ backgroundColor: `${deliverable.color}15` }}
                       >
@@ -624,7 +666,6 @@ const CybersecurityPage = () => {
                     </motion.div>
                   ))}
                 </div>
-
                 <motion.a
                   href="#contact"
                   className="block w-full bg-primary-warning text-white text-center py-4 rounded-lg font-semibold mt-8 hover:bg-red-700 transition-colors duration-300"
@@ -670,20 +711,16 @@ const CybersecurityPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
               >
-                <div 
+                <div
                   className="rounded-xl p-6 h-full flex flex-col"
-                  style={{ 
+                  style={{
                     backgroundColor: threat.bg,
                     borderColor: threat.border,
                     borderWidth: "1px"
                   }}
                 >
                   {/* Icon */}
-                  <SafeIcon 
-                    icon={threat.icon} 
-                    className="w-12 h-12 mb-4 mx-auto"
-                    style={{ color: threat.iconBg }}
-                  />
+                  <SafeIcon icon={threat.icon} className="w-12 h-12 mb-4 mx-auto" style={{ color: threat.iconBg }} />
 
                   {/* Title */}
                   <h3 className="text-xl font-bold text-primary-dark mb-2 text-center">
@@ -702,7 +739,7 @@ const CybersecurityPage = () => {
 
                   {/* Badge */}
                   <div className="text-center">
-                    <span 
+                    <span
                       className="inline-block rounded-full px-4 py-1 text-xs font-semibold text-white"
                       style={{ backgroundColor: threat.iconBg }}
                     >
@@ -733,7 +770,6 @@ const CybersecurityPage = () => {
               <p className="text-lg text-slate-600 mb-8">
                 Cyber attacks can be devastating for businesses of all sizes, but especially for small and medium enterprises that may not have the resources to recover.
               </p>
-
               <div className="space-y-4">
                 {costStatistics.map((stat, index) => (
                   <motion.div
@@ -744,16 +780,9 @@ const CybersecurityPage = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <SafeIcon 
-                      icon={stat.icon} 
-                      className="w-8 h-8" 
-                      style={{ color: stat.color }}
-                    />
+                    <SafeIcon icon={stat.icon} className="w-8 h-8" style={{ color: stat.color }} />
                     <div>
-                      <p 
-                        className="text-2xl font-bold"
-                        style={{ color: stat.color }}
-                      >
+                      <p className="text-2xl font-bold" style={{ color: stat.color }}>
                         {stat.amount}
                       </p>
                       <p className="text-slate-600 text-sm">{stat.label}</p>
@@ -774,7 +803,6 @@ const CybersecurityPage = () => {
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Security Investment ROI
                 </h3>
-
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   {roiMetrics.map((metric, index) => (
                     <motion.div
@@ -786,17 +814,13 @@ const CybersecurityPage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <p 
-                        className="text-2xl font-bold mb-1"
-                        style={{ color: metric.color }}
-                      >
+                      <p className="text-2xl font-bold mb-1" style={{ color: metric.color }}>
                         {metric.number}
                       </p>
                       <p className="text-slate-600 text-xs">{metric.label}</p>
                     </motion.div>
                   ))}
                 </div>
-
                 <div className="text-center">
                   <p className="font-bold text-gray-800 mb-2">
                     Every $1 invested in cybersecurity saves $15 in potential breach costs
@@ -836,7 +860,6 @@ const CybersecurityPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold mb-4">🛡️ Free Security Assessment</h3>
-              
               <div className="mb-6">
                 <p className="font-semibold mb-3">Comprehensive Security Audit & Recommendations</p>
                 <ul className="grid md:grid-cols-2 gap-y-2 gap-x-4 text-left">
@@ -862,7 +885,6 @@ const CybersecurityPage = () => {
                   </li>
                 </ul>
               </div>
-              
               <p className="text-center font-semibold text-xl">
                 Value: $3,500 | Your Investment: $0
               </p>
@@ -893,139 +915,10 @@ const CybersecurityPage = () => {
                 <span>Emergency Security Call: 236-235-0919</span>
               </motion.a>
             </motion.div>
-
             <p className="text-red-100 text-sm mt-4">
               24/7 security support • No obligation • Immediate threat assessment
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Security Case Studies Section */}
-      <section id="case-studies" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Security Success Stories
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              See how our multi-layered security approach has protected businesses like yours
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Case Study 1 */}
-            <motion.div
-              className="bg-primary-light rounded-xl overflow-hidden shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-warning to-red-800 opacity-90 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white">Healthcare Provider</h3>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold mr-2">
-                    Healthcare
-                  </div>
-                  <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
-                    HIPAA Compliance
-                  </div>
-                </div>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Challenge:</h4>
-                <p className="text-slate-600 mb-4">Facing increased phishing attacks and struggling with HIPAA compliance requirements.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Solution:</h4>
-                <p className="text-slate-600 mb-4">Implemented IRONSCALES email security, Vanta compliance automation, and Check Point network protection.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Results:</h4>
-                <ul className="space-y-1 mb-4">
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">95% reduction in phishing incidents</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">HIPAA compliance achieved in 30 days</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">70% reduction in security management time</span>
-                  </li>
-                </ul>
-                
-                <blockquote className="text-sm italic text-slate-500">
-                  "Josh's security solutions not only protected us from attacks but also simplified our compliance challenges."
-                </blockquote>
-              </div>
-            </motion.div>
-
-            {/* Case Study 2 */}
-            <motion.div
-              className="bg-primary-light rounded-xl overflow-hidden shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-blue to-primary-purple opacity-90 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white">Manufacturing Company</h3>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mr-2">
-                    Manufacturing
-                  </div>
-                  <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
-                    Ransomware
-                  </div>
-                </div>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Challenge:</h4>
-                <p className="text-slate-600 mb-4">Recovered from a devastating ransomware attack that caused 2 weeks of downtime.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Solution:</h4>
-                <p className="text-slate-600 mb-4">Deployed multi-layered security with Check Point, Microsoft Defender, and Swif.ai device management.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Results:</h4>
-                <ul className="space-y-1 mb-4">
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">Zero successful attacks since implementation</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">Shadow IT reduced by 85%</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">Cyber insurance premiums reduced by 30%</span>
-                  </li>
-                </ul>
-                
-                <blockquote className="text-sm italic text-slate-500">
-                  "After the ransomware attack, we couldn't risk it happening again. Josh's solutions gave us complete protection and peace of mind."
-                </blockquote>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -1045,22 +938,70 @@ const CybersecurityPage = () => {
                 Fill out the form below to schedule your free security assessment with Josh and start protecting your business today.
               </p>
 
-              <form className="space-y-6">
+              {/* Success Message */}
+              {formStatus.isSuccess && (
+                <motion.div
+                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <div className="flex items-center">
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2" />
+                    <span>Thank you! Your security assessment request has been submitted successfully. Josh will contact you within 24 hours.</span>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {formStatus.error && (
+                <motion.div
+                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p>{formStatus.error}</p>
+                </motion.div>
+              )}
+
+              {/* Netlify Form */}
+              <form 
+                name="security-assessment-contact" 
+                method="POST" 
+                data-netlify="true"
+                data-netlify-recaptcha="true"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* Netlify form detection */}
+                <input type="hidden" name="form-name" value="security-assessment-contact" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">First Name</label>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">
+                      First Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-warning text-white"
                       placeholder="Your first name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">Last Name</label>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">
+                      Last Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-warning text-white"
                       placeholder="Your last name"
                     />
@@ -1068,52 +1009,85 @@ const CybersecurityPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
+                    Email Address <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-warning text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-warning text-white"
                     placeholder="Your phone number"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">Company Name</label>
+                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">
+                    Company Name <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="text"
                     id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-warning text-white"
                     placeholder="Your company name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">What's your biggest security concern?</label>
+                  <label htmlFor="securityConcerns" className="block text-sm font-medium text-slate-300 mb-1">
+                    What's your biggest security concern?
+                  </label>
                   <textarea
-                    id="message"
+                    id="securityConcerns"
+                    name="securityConcerns"
+                    value={formData.securityConcerns}
+                    onChange={handleInputChange}
                     rows="4"
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-warning text-white"
                     placeholder="Tell us about your security challenges..."
                   ></textarea>
                 </div>
 
+                {/* reCAPTCHA */}
+                <div data-netlify-recaptcha="true"></div>
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-primary-warning text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-red-700 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={formStatus.isSubmitting}
+                  className="w-full bg-primary-warning text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  whileHover={!formStatus.isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!formStatus.isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  Schedule My Security Assessment
+                  {formStatus.isSubmitting ? (
+                    <>
+                      <SafeIcon icon={FiLoader} className="w-5 h-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Schedule My Security Assessment'
+                  )}
                 </motion.button>
               </form>
             </motion.div>
@@ -1130,12 +1104,10 @@ const CybersecurityPage = () => {
                 <div className="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center bg-red-600">
                   <SafeIcon icon={FiShield} className="w-12 h-12 text-white" />
                 </div>
-                
                 <h3 className="text-2xl font-bold mb-4">Security Emergency?</h3>
                 <p className="text-slate-300 mb-6">
                   If you're experiencing an active security incident, don't wait. Contact our emergency response team immediately.
                 </p>
-                
                 <div className="bg-red-900/30 p-4 rounded-lg mb-6">
                   <h4 className="font-bold text-red-300 mb-2">Emergency Response Available:</h4>
                   <ul className="text-slate-300 space-y-2">
@@ -1157,7 +1129,6 @@ const CybersecurityPage = () => {
                     </li>
                   </ul>
                 </div>
-                
                 <motion.a
                   href="tel:+12362350919"
                   className="flex items-center justify-center space-x-2 bg-red-600 text-white px-6 py-4 rounded-lg font-semibold w-full mb-4 hover:bg-red-700 transition-colors duration-300"
@@ -1167,7 +1138,6 @@ const CybersecurityPage = () => {
                   <SafeIcon icon={FiPhone} className="w-5 h-5" />
                   <span>Emergency: 236-235-0919</span>
                 </motion.a>
-                
                 <p className="text-slate-400 text-sm">
                   24/7 emergency response available
                 </p>

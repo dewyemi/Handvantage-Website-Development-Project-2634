@@ -1,34 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const {
-  FiBot,
-  FiZap,
-  FiTrendingUp,
-  FiDollarSign,
-  FiCheckCircle,
-  FiCpu,
-  FiBarChart,
-  FiUsers,
-  FiFileText,
-  FiMessageCircle,
-  FiTarget,
-  FiUserPlus,
-  FiHeart,
-  FiPhone,
-  FiMail,
-  FiClock,
-  FiShield,
-  FiSettings,
-  FiRepeat,
-  FiArrowRight,
-  FiStar,
-  FiAward
-} = FiIcons;
+const { FiBot, FiZap, FiTrendingUp, FiDollarSign, FiCheckCircle, FiCpu, FiBarChart, FiUsers, FiFileText, FiMessageCircle, FiTarget, FiUserPlus, FiHeart, FiPhone, FiMail, FiClock, FiShield, FiSettings, FiRepeat, FiArrowRight, FiStar, FiAward, FiLoader } = FiIcons;
 
 const BusinessAutomationPage = () => {
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    automationNeeds: ''
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    error: null
+  });
+
   // RTILA AI capabilities showcase
   const rtilaCapabilities = [
     {
@@ -361,6 +354,99 @@ const BusinessAutomationPage = () => {
     }
   ];
 
+  // Form handlers
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const validateForm = () => {
+    const errors = [];
+    if (!formData.firstName.trim()) {
+      errors.push('First Name is required');
+    }
+    if (!formData.lastName.trim()) {
+      errors.push('Last Name is required');
+    }
+    if (!formData.company.trim()) {
+      errors.push('Company Name is required');
+    }
+    if (!formData.email.trim()) {
+      errors.push('Email is required');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.push('Please enter a valid email address');
+    }
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const errors = validateForm();
+    if (errors.length > 0) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: errors.join(', ')
+      });
+      return;
+    }
+
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      error: null
+    });
+
+    try {
+      // Let Netlify handle the form submission
+      const formElement = e.target;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(formElement)).toString()
+      });
+
+      if (response.ok) {
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: true,
+          error: null
+        });
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          automationNeeds: ''
+        });
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({
+            isSubmitting: false,
+            isSuccess: false,
+            error: null
+          });
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: 'Failed to submit form. Please try again or contact us directly at 236-235-0919'
+      });
+    }
+  };
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -486,7 +572,6 @@ const BusinessAutomationPage = () => {
                 >
                   RTILA AI Master Agent
                 </motion.h3>
-
                 <motion.div
                   className="bg-[#7c3aed] text-white px-4 py-2 rounded-full text-sm font-semibold text-center mb-6"
                   initial={{ opacity: 0, y: 20 }}
@@ -496,7 +581,6 @@ const BusinessAutomationPage = () => {
                 >
                   🏆 Exclusive Master Agent Status
                 </motion.div>
-
                 <div className="grid grid-cols-2 gap-4">
                   {rtilaCapabilities.map((capability, index) => (
                     <motion.div
@@ -554,14 +638,12 @@ const BusinessAutomationPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-[#f59e0b] mb-6">⚙️ Basic Task Automation</h3>
-              
               <div className="mb-6">
                 <h4 className="font-bold text-gray-800 mb-2">Simple, Rule-Based Automation</h4>
                 <p className="text-gray-700 mb-4">
                   Traditional automation tools that follow basic if-then rules and handle simple, repetitive tasks.
                 </p>
               </div>
-
               <div className="mb-6">
                 <h4 className="font-bold text-gray-800 mb-3">Characteristics:</h4>
                 <ul className="space-y-2">
@@ -573,7 +655,6 @@ const BusinessAutomationPage = () => {
                   ))}
                 </ul>
               </div>
-
               <div>
                 <h4 className="font-bold text-gray-800 mb-3">Examples:</h4>
                 <ul className="space-y-2">
@@ -596,14 +677,12 @@ const BusinessAutomationPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-[#7c3aed] mb-6">🧠 Intelligent Business Automation</h3>
-              
               <div className="mb-6">
                 <h4 className="font-bold text-gray-800 mb-2">AI-Powered Business Transformation</h4>
                 <p className="text-gray-700 mb-4">
                   RTILA AI delivers intelligent automation that learns, adapts, and makes decisions to transform entire business processes.
                 </p>
               </div>
-
               <div className="mb-6">
                 <h4 className="font-bold text-gray-800 mb-3">Characteristics:</h4>
                 <ul className="space-y-2">
@@ -615,7 +694,6 @@ const BusinessAutomationPage = () => {
                   ))}
                 </ul>
               </div>
-
               <div>
                 <h4 className="font-bold text-gray-800 mb-3">Examples:</h4>
                 <ul className="space-y-2">
@@ -728,7 +806,6 @@ const BusinessAutomationPage = () => {
               <p className="text-lg text-slate-600 mb-8">
                 RTILA AI automation delivers quantifiable business results that justify investment and accelerate growth. Our Master Agent expertise ensures maximum ROI from day one.
               </p>
-
               <div className="grid grid-cols-2 gap-5">
                 {roiMetrics.map((metric, index) => (
                   <motion.div
@@ -740,10 +817,7 @@ const BusinessAutomationPage = () => {
                     viewport={{ once: true }}
                     whileHover={{ y: -5 }}
                   >
-                    <p
-                      className="text-2xl font-bold mb-1"
-                      style={{ color: metric.color }}
-                    >
+                    <p className="text-2xl font-bold mb-1" style={{ color: metric.color }}>
                       {metric.number}
                     </p>
                     <p className="text-slate-700 font-medium text-sm">{metric.label}</p>
@@ -764,7 +838,6 @@ const BusinessAutomationPage = () => {
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Real Business Transformation
                 </h3>
-
                 <div className="space-y-6">
                   {businessImpacts.map((impact, index) => (
                     <motion.div
@@ -847,10 +920,7 @@ const BusinessAutomationPage = () => {
                 <ul className="space-y-2 text-left">
                   {step.description.map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <span
-                        className="text-lg mr-2"
-                        style={{ color: step.color }}
-                      >
+                      <span className="text-lg mr-2" style={{ color: step.color }}>
                         •
                       </span>
                       <span className="text-slate-600 text-sm">{item}</span>
@@ -901,7 +971,6 @@ const BusinessAutomationPage = () => {
                     <SafeIcon icon={useCase.icon} className="w-8 h-8 text-white" />
                   </div>
                 </div>
-
                 <div className="md:col-span-10">
                   <div
                     className="rounded-xl p-8"
@@ -914,16 +983,13 @@ const BusinessAutomationPage = () => {
                     <h3 className="text-2xl font-bold text-primary-dark mb-4">
                       {useCase.title}
                     </h3>
-                    
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-bold text-primary-dark mb-2">Challenge:</h4>
                         <p className="text-slate-600 mb-4">{useCase.challenge}</p>
-                        
                         <h4 className="font-bold text-primary-dark mb-2">Solution:</h4>
                         <p className="text-slate-600">{useCase.solution}</p>
                       </div>
-                      
                       <div>
                         <h4 className="font-bold text-primary-dark mb-3">Results:</h4>
                         <ul className="space-y-2 mb-4">
@@ -938,7 +1004,6 @@ const BusinessAutomationPage = () => {
                             </li>
                           ))}
                         </ul>
-                        
                         <div
                           className="p-3 rounded-lg"
                           style={{ backgroundColor: `${useCase.color}15` }}
@@ -982,7 +1047,6 @@ const BusinessAutomationPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold mb-4">🤖 Free Business Automation Assessment</h3>
-              
               <div className="mb-6">
                 <p className="font-semibold mb-3">Comprehensive Automation Opportunity Analysis</p>
                 <ul className="grid md:grid-cols-2 gap-y-2 gap-x-4 text-left">
@@ -1008,7 +1072,6 @@ const BusinessAutomationPage = () => {
                   </li>
                 </ul>
               </div>
-              
               <p className="text-center font-semibold text-xl">
                 Value: $3,000 | Your Investment: $0
               </p>
@@ -1039,7 +1102,7 @@ const BusinessAutomationPage = () => {
                 <span>Call Josh: 236-235-0919</span>
               </motion.a>
             </motion.div>
-            
+
             <p className="text-purple-100 text-sm mt-4">
               RTILA AI Master Agent • No obligation • Immediate automation insights
             </p>
@@ -1062,76 +1125,157 @@ const BusinessAutomationPage = () => {
               <p className="text-slate-300 mb-8">
                 Fill out the form below to schedule your free automation assessment with Josh and discover how RTILA AI can transform your business operations.
               </p>
-              
-              <form className="space-y-6">
+
+              {/* Success Message */}
+              {formStatus.isSuccess && (
+                <motion.div
+                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <div className="flex items-center">
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2" />
+                    <span>Thank you! Your automation assessment request has been submitted successfully. Josh will contact you within 24 hours.</span>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {formStatus.error && (
+                <motion.div
+                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p>{formStatus.error}</p>
+                </motion.div>
+              )}
+
+              {/* Netlify Form */}
+              <form
+                name="automation-assessment-contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-recaptcha="true"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {/* Netlify form detection */}
+                <input type="hidden" name="form-name" value="automation-assessment-contact" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">First Name</label>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">
+                      First Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                       placeholder="Your first name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">Last Name</label>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">
+                      Last Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                       placeholder="Your last name"
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
+                    Email Address <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="Your phone number"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">Company Name</label>
+                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">
+                    Company Name <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="text"
                     id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="Your company name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="processes" className="block text-sm font-medium text-slate-300 mb-1">What processes would you like to automate?</label>
+                  <label htmlFor="automationNeeds" className="block text-sm font-medium text-slate-300 mb-1">
+                    What processes would you like to automate?
+                  </label>
                   <textarea
-                    id="processes"
+                    id="automationNeeds"
+                    name="automationNeeds"
+                    value={formData.automationNeeds}
+                    onChange={handleInputChange}
                     rows="4"
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="Tell us about the manual processes you'd like to automate..."
                   ></textarea>
                 </div>
-                
+
+                {/* reCAPTCHA */}
+                <div data-netlify-recaptcha="true"></div>
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={formStatus.isSubmitting}
+                  className="w-full bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  whileHover={!formStatus.isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!formStatus.isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  Schedule My Automation Assessment
+                  {formStatus.isSubmitting ? (
+                    <>
+                      <SafeIcon icon={FiLoader} className="w-5 h-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Schedule My Automation Assessment'
+                  )}
                 </motion.button>
               </form>
             </motion.div>
@@ -1152,11 +1296,10 @@ const BusinessAutomationPage = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
                 <p className="text-[#7c3aed] font-semibold mb-2">RTILA AI Master Agent</p>
                 <p className="text-slate-300 mb-4">VP of Digital Transformation</p>
-                
+
                 <div className="bg-[#7c3aed]/20 p-4 rounded-lg mb-6">
                   <h4 className="font-bold text-[#c4b5fd] mb-2">🏆 Master Agent Exclusive Benefits:</h4>
                   <ul className="text-slate-300 space-y-2 text-sm">
@@ -1182,22 +1325,19 @@ const BusinessAutomationPage = () => {
                 <blockquote className="text-slate-300 italic mb-6 text-sm">
                   "As a RTILA AI Master Agent, I bring enterprise-grade automation capabilities to growing businesses. Let's transform your operations with AI that actually works."
                 </blockquote>
-                
+
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiPhone} className="w-5 h-5 text-[#7c3aed]" />
-                    <a href="tel:+12362350919" className="text-slate-300 hover:text-white">
+                    <a
+                      href="tel:+12362350919"
+                      className="text-slate-300 hover:text-white"
+                    >
                       236-235-0919
                     </a>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <SafeIcon icon={FiMail} className="w-5 h-5 text-[#7c3aed]" />
-                    <a href="mailto:josh@handvantage.com" className="text-slate-300 hover:text-white">
-                      josh@handvantage.com
-                    </a>
-                  </div>
                 </div>
-                
+
                 <div className="border-t border-slate-700 pt-6">
                   <p className="text-slate-400 text-sm">
                     Available for automation consultations Monday-Friday, 9 AM - 6 PM PST

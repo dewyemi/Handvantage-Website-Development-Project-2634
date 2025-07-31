@@ -1,41 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const {
-  FiCheckCircle, FiXCircle, FiZap, FiShield, FiCloud, FiDatabase,
-  FiBot, FiBuilding, FiTrendingUp, FiDollarSign, FiStar,
-  FiPhone, FiMail, FiUser
-} = FiIcons;
+const { FiCheckCircle, FiXCircle, FiZap, FiShield, FiCloud, FiDatabase, FiBot, FiBuilding, FiTrendingUp, FiDollarSign, FiStar, FiPhone, FiMail, FiUser, FiLoader } = FiIcons;
 
 const DigitalTransformationPage = () => {
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    transformationChallenges: ''
+  });
+  
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    error: null
+  });
+
   // Partnership items
   const partnerships = [
-    {
-      icon: FiCloud,
-      title: "Microsoft CSP",
-      badge: "Direct Support",
-      color: "#2563eb"
-    },
-    {
-      icon: FiBot,
-      title: "RTILA AI",
-      badge: "Master Agent",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiBuilding,
-      title: "Pax8",
-      badge: "Cloud Marketplace",
-      color: "#16a34a"
-    },
-    {
-      icon: FiShield,
-      title: "Vanta",
-      badge: "Compliance",
-      color: "#f59e0b"
-    }
+    { icon: FiCloud, title: "Microsoft CSP", badge: "Direct Support", color: "#2563eb" },
+    { icon: FiBot, title: "RTILA AI", badge: "Master Agent", color: "#7c3aed" },
+    { icon: FiBuilding, title: "Pax8", badge: "Cloud Marketplace", color: "#16a34a" },
+    { icon: FiShield, title: "Vanta", badge: "Compliance", color: "#f59e0b" }
   ];
 
   // What digital transformation is NOT
@@ -204,65 +196,119 @@ const DigitalTransformationPage = () => {
 
   // ROI metrics
   const roiMetrics = [
-    {
-      number: "40%",
-      label: "Productivity Increase",
-      detail: "Through RTILA AI automation",
-      color: "#16a34a"
-    },
-    {
-      number: "60%",
-      label: "Faster Deployment",
-      detail: "With partnership solutions",
-      color: "#2563eb"
-    },
-    {
-      number: "25%",
-      label: "Cost Reduction",
-      detail: "Through process optimization",
-      color: "#7c3aed"
-    },
-    {
-      number: "90%",
-      label: "Security Improvement",
-      detail: "With integrated protection",
-      color: "#f59e0b"
-    }
+    { number: "40%", label: "Productivity Increase", detail: "Through RTILA AI automation", color: "#16a34a" },
+    { number: "60%", label: "Faster Deployment", detail: "With partnership solutions", color: "#2563eb" },
+    { number: "25%", label: "Cost Reduction", detail: "Through process optimization", color: "#7c3aed" },
+    { number: "90%", label: "Security Improvement", detail: "With integrated protection", color: "#f59e0b" }
   ];
 
   // Business impact items
   const businessImpacts = [
-    {
-      icon: FiTrendingUp,
-      title: "Revenue Growth",
-      description: "Automated processes free up staff for revenue-generating activities",
-      color: "#16a34a"
-    },
-    {
-      icon: FiDollarSign,
-      title: "Cost Optimization",
-      description: "Eliminate redundant systems and optimize licensing through partnerships",
-      color: "#2563eb"
-    },
-    {
-      icon: FiShield,
-      title: "Risk Reduction",
-      description: "Enterprise-grade security and compliance reduce business risk",
-      color: "#dc2626"
-    },
-    {
-      icon: FiZap,
-      title: "Scalability",
-      description: "Cloud-native architecture supports rapid business growth",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiStar,
-      title: "Competitive Advantage",
-      description: "Advanced automation and AI capabilities differentiate your business",
-      color: "#f59e0b"
-    }
+    { icon: FiTrendingUp, title: "Revenue Growth", description: "Automated processes free up staff for revenue-generating activities", color: "#16a34a" },
+    { icon: FiDollarSign, title: "Cost Optimization", description: "Eliminate redundant systems and optimize licensing through partnerships", color: "#2563eb" },
+    { icon: FiShield, title: "Risk Reduction", description: "Enterprise-grade security and compliance reduce business risk", color: "#dc2626" },
+    { icon: FiZap, title: "Scalability", description: "Cloud-native architecture supports rapid business growth", color: "#7c3aed" },
+    { icon: FiStar, title: "Competitive Advantage", description: "Advanced automation and AI capabilities differentiate your business", color: "#f59e0b" }
   ];
+
+  // Form handlers
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const validateForm = () => {
+    const errors = [];
+    
+    if (!formData.firstName.trim()) {
+      errors.push('First Name is required');
+    }
+    
+    if (!formData.lastName.trim()) {
+      errors.push('Last Name is required');
+    }
+    
+    if (!formData.company.trim()) {
+      errors.push('Company Name is required');
+    }
+    
+    if (!formData.email.trim()) {
+      errors.push('Email is required');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.push('Please enter a valid email address');
+    }
+    
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const errors = validateForm();
+    if (errors.length > 0) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: errors.join(', ')
+      });
+      return;
+    }
+
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      error: null
+    });
+
+    try {
+      // Let Netlify handle the form submission
+      const formElement = e.target;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(formElement)).toString()
+      });
+
+      if (response.ok) {
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: true,
+          error: null
+        });
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          transformationChallenges: ''
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus({
+            isSubmitting: false,
+            isSuccess: false,
+            error: null
+          });
+        }, 5000);
+        
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        error: 'Failed to submit form. Please try again or contact us directly at josh@handvantage.com'
+      });
+    }
+  };
 
   return (
     <div className="pt-20">
@@ -323,17 +369,14 @@ const DigitalTransformationPage = () => {
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
                   <span className="text-gray-700 font-medium">Strategic roadmap based on enterprise best practices</span>
                 </div>
-
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
                   <span className="text-gray-700 font-medium">RTILA AI automation for immediate efficiency gains</span>
                 </div>
-
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
                   <span className="text-gray-700 font-medium">Microsoft 365 & Azure implementation with CSP support</span>
                 </div>
-
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
                   <span className="text-gray-700 font-medium">Measurable ROI with 90-day quick wins</span>
@@ -385,7 +428,6 @@ const DigitalTransformationPage = () => {
                 >
                   Powered by Enterprise Partnerships
                 </motion.h3>
-
                 <div className="grid grid-cols-2 gap-4">
                   {partnerships.map((partner, index) => (
                     <motion.div
@@ -397,11 +439,7 @@ const DigitalTransformationPage = () => {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <SafeIcon
-                        icon={partner.icon}
-                        className="w-10 h-10 mx-auto mb-3"
-                        style={{ color: partner.color }}
-                      />
+                      <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{ color: partner.color }} />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span
                         className="text-xs font-medium px-2 py-1 rounded-full"
@@ -450,7 +488,6 @@ const DigitalTransformationPage = () => {
               <h3 className="text-2xl font-bold text-primary-warning mb-6 flex items-center">
                 <span className="mr-2">❌</span> What It's NOT
               </h3>
-
               <div className="space-y-4">
                 {notItems.map((item, index) => (
                   <motion.div
@@ -479,7 +516,6 @@ const DigitalTransformationPage = () => {
               <h3 className="text-2xl font-bold text-primary-success mb-6 flex items-center">
                 <span className="mr-2">✅</span> What It IS
               </h3>
-
               <div className="space-y-4">
                 {isItems.map((item, index) => (
                   <motion.div
@@ -531,16 +567,14 @@ const DigitalTransformationPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
               >
-                <div 
+                <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto"
                   style={{ backgroundColor: step.color }}
                 >
                   <span className="text-xl font-bold text-white">{step.number}</span>
                 </div>
-
                 <h3 className="text-xl font-bold text-primary-dark text-center mb-2">{step.title}</h3>
                 <p className="text-center text-primary-blue font-medium mb-4">{step.subtitle}</p>
-
                 <ul className="space-y-2">
                   {step.items.map((item, i) => (
                     <li key={i} className="flex items-center">
@@ -587,7 +621,7 @@ const DigitalTransformationPage = () => {
               >
                 {/* Icon */}
                 <div className="md:col-span-2 flex justify-center">
-                  <div 
+                  <div
                     className="w-24 h-24 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: solution.color }}
                   >
@@ -600,7 +634,6 @@ const DigitalTransformationPage = () => {
                   <h3 className="text-2xl font-bold text-primary-dark mb-2">{solution.title}</h3>
                   <p className="font-medium mb-3" style={{ color: solution.color }}>{solution.subtitle}</p>
                   <p className="text-slate-600 mb-4">{solution.description}</p>
-
                   <h4 className="font-semibold text-primary-dark mb-3">What This Means for You:</h4>
                   <ul className="grid md:grid-cols-2 gap-2">
                     {solution.benefits.map((benefit, i) => (
@@ -634,7 +667,6 @@ const DigitalTransformationPage = () => {
               <p className="text-lg text-slate-600 mb-8">
                 Digital transformation isn't just about technology – it's about measurable business impact. Our partnership-powered approach delivers quantifiable results that justify your investment.
               </p>
-
               <div className="grid grid-cols-2 gap-6">
                 {roiMetrics.map((metric, index) => (
                   <motion.div
@@ -665,7 +697,6 @@ const DigitalTransformationPage = () => {
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Real Business Impact
                 </h3>
-
                 <div className="space-y-6">
                   {businessImpacts.map((impact, index) => (
                     <motion.div
@@ -676,7 +707,7 @@ const DigitalTransformationPage = () => {
                       transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div 
+                      <div
                         className="p-3 rounded-full mr-4 flex-shrink-0"
                         style={{ backgroundColor: `${impact.color}15` }}
                       >
@@ -720,7 +751,6 @@ const DigitalTransformationPage = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold mb-4">Free Digital Transformation Assessment</h3>
-              
               <div className="mb-6">
                 <p className="font-semibold mb-3">What You'll Receive:</p>
                 <ul className="grid md:grid-cols-2 gap-y-2 gap-x-4 text-left">
@@ -746,7 +776,6 @@ const DigitalTransformationPage = () => {
                   </li>
                 </ul>
               </div>
-              
               <p className="text-center font-semibold text-xl">
                 Value: $2,500 | Your Investment: $0
               </p>
@@ -777,139 +806,10 @@ const DigitalTransformationPage = () => {
                 <span>Call Josh: 236-235-0919</span>
               </motion.a>
             </motion.div>
-
             <p className="text-blue-100 text-sm mt-4">
               30-minute consultation • No obligation • Immediate insights
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Case Studies Section */}
-      <section id="case-studies" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Transformation Success Stories
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              See how our partnership-powered approach has transformed businesses like yours
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Case Study 1 */}
-            <motion.div
-              className="bg-primary-light rounded-xl overflow-hidden shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-blue to-primary-purple opacity-90 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white">Growing SaaS Company</h3>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mr-2">
-                    Technology
-                  </div>
-                  <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
-                    RTILA AI
-                  </div>
-                </div>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Challenge:</h4>
-                <p className="text-slate-600 mb-4">Manual processes slowing growth and increasing operational costs.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Solution:</h4>
-                <p className="text-slate-600 mb-4">Implemented RTILA AI automation for customer onboarding and support, integrated with Microsoft 365 and Azure.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Results:</h4>
-                <ul className="space-y-1 mb-4">
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">60% faster customer onboarding</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">35% reduction in support costs</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">20% increase in customer satisfaction</span>
-                  </li>
-                </ul>
-                
-                <blockquote className="text-sm italic text-slate-500">
-                  "Josh didn't just implement technology – he transformed our entire business operations."
-                </blockquote>
-              </div>
-            </motion.div>
-
-            {/* Case Study 2 */}
-            <motion.div
-              className="bg-primary-light rounded-xl overflow-hidden shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="h-48 bg-gray-200 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-success to-primary-blue opacity-90 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white">Financial Services Firm</h3>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mr-2">
-                    Finance
-                  </div>
-                  <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold">
-                    Security
-                  </div>
-                </div>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Challenge:</h4>
-                <p className="text-slate-600 mb-4">Growing security threats and compliance requirements slowing down business.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Solution:</h4>
-                <p className="text-slate-600 mb-4">Implemented integrated security ecosystem with IRONSCALES, Check Point, and Vanta compliance automation.</p>
-                
-                <h4 className="font-bold text-primary-dark mb-2">Results:</h4>
-                <ul className="space-y-1 mb-4">
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">SOC 2 compliance in 45 days</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">90% reduction in security incidents</span>
-                  </li>
-                  <li className="flex items-center">
-                    <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-primary-success mr-2" />
-                    <span className="text-slate-600">Gained 3 enterprise clients due to improved security posture</span>
-                  </li>
-                </ul>
-                
-                <blockquote className="text-sm italic text-slate-500">
-                  "Josh's partnership approach gave us enterprise-grade security that helped us win major clients."
-                </blockquote>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 
@@ -929,22 +829,70 @@ const DigitalTransformationPage = () => {
                 Fill out the form below to schedule your free 30-minute transformation assessment with Josh.
               </p>
 
-              <form className="space-y-6">
+              {/* Success Message */}
+              {formStatus.isSuccess && (
+                <motion.div
+                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <div className="flex items-center">
+                    <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2" />
+                    <span>Thank you! Your transformation assessment request has been submitted successfully. Josh will contact you within 24 hours.</span>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {formStatus.error && (
+                <motion.div
+                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p>{formStatus.error}</p>
+                </motion.div>
+              )}
+
+              {/* Netlify Form */}
+              <form 
+                name="transformation-assessment-contact" 
+                method="POST" 
+                data-netlify="true"
+                data-netlify-recaptcha="true"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* Netlify form detection */}
+                <input type="hidden" name="form-name" value="transformation-assessment-contact" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">First Name</label>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">
+                      First Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                       placeholder="Your first name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">Last Name</label>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">
+                      Last Name <span className="text-red-400">*</span>
+                    </label>
                     <input
                       type="text"
                       id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                       placeholder="Your last name"
                     />
@@ -952,52 +900,85 @@ const DigitalTransformationPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
+                    Email Address <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="Your phone number"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">Company Name</label>
+                  <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">
+                    Company Name <span className="text-red-400">*</span>
+                  </label>
                   <input
                     type="text"
                     id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="Your company name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">What's your biggest transformation challenge?</label>
+                  <label htmlFor="transformationChallenges" className="block text-sm font-medium text-slate-300 mb-1">
+                    What's your biggest transformation challenge?
+                  </label>
                   <textarea
-                    id="message"
+                    id="transformationChallenges"
+                    name="transformationChallenges"
+                    value={formData.transformationChallenges}
+                    onChange={handleInputChange}
                     rows="4"
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="Tell us about your current challenges..."
                   ></textarea>
                 </div>
 
+                {/* reCAPTCHA */}
+                <div data-netlify-recaptcha="true"></div>
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={formStatus.isSubmitting}
+                  className="w-full bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  whileHover={!formStatus.isSubmitting ? { scale: 1.02 } : {}}
+                  whileTap={!formStatus.isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  Schedule My Assessment
+                  {formStatus.isSubmitting ? (
+                    <>
+                      <SafeIcon icon={FiLoader} className="w-5 h-5 mr-2 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Schedule My Assessment'
+                  )}
                 </motion.button>
               </form>
             </motion.div>
@@ -1018,34 +999,38 @@ const DigitalTransformationPage = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
                 <p className="text-primary-blue font-semibold mb-4">VP of Digital Transformation</p>
-                
                 <div className="flex items-center justify-center space-x-3 mb-6">
                   <SafeIcon icon={FiUser} className="w-5 h-5 text-slate-400" />
                   <span className="text-slate-300">20+ years experience</span>
                 </div>
-                
+
                 <blockquote className="text-slate-300 italic mb-6 text-sm">
                   "I've implemented enterprise-grade transformation at Amazon, Oracle, and AWS. Now I bring that same expertise to growing businesses through strategic partnerships."
                 </blockquote>
-                
+
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiPhone} className="w-5 h-5 text-primary-blue" />
-                    <a href="tel:+12362350919" className="text-slate-300 hover:text-white">
+                    <a
+                      href="tel:+12362350919"
+                      className="text-slate-300 hover:text-white"
+                    >
                       236-235-0919
                     </a>
                   </div>
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiMail} className="w-5 h-5 text-primary-blue" />
-                    <a href="mailto:josh@handvantage.com" className="text-slate-300 hover:text-white">
+                    <a
+                      href="mailto:josh@handvantage.com"
+                      className="text-slate-300 hover:text-white"
+                    >
                       josh@handvantage.com
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="border-t border-slate-700 pt-6">
                   <p className="text-slate-400 text-sm">
                     Available for calls Monday-Friday, 9 AM - 6 PM PST

@@ -3,11 +3,7 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { 
-  FiCheckCircle, FiExternalLink, FiLinkedin, FiUser, 
-  FiShield, FiZap, FiHeart, FiCloud, FiDatabase,
-  FiStar, FiBuilding, FiPhone, FiMail, FiMapPin
-} = FiIcons;
+const { FiCheckCircle, FiExternalLink, FiLinkedin, FiUser, FiShield, FiZap, FiHeart, FiCloud, FiDatabase, FiStar, FiBuilding, FiPhone, FiMail, FiMapPin } = FiIcons;
 
 const AboutPage = () => {
   // Career timeline data
@@ -215,7 +211,7 @@ const AboutPage = () => {
               viewport={{ once: true }}
             >
               <div className="bg-white rounded-3xl p-8 shadow-xl">
-                <motion.div 
+                <motion.div
                   className="w-64 h-64 mx-auto mb-6 bg-gradient-to-r from-primary-blue to-primary-purple rounded-2xl overflow-hidden"
                   initial={{ scale: 0.9, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
@@ -409,7 +405,6 @@ const AboutPage = () => {
                   <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
                     <h3 className="text-2xl font-bold text-primary-dark mb-3 hidden md:block">{item.company}</h3>
                     <p className="text-slate-600 mb-6">{item.description}</p>
-                    
                     <h4 className="font-bold text-primary-dark mb-3">Key Achievements:</h4>
                     <ul className="space-y-2">
                       {item.achievements.map((achievement, i) => (
@@ -476,11 +471,7 @@ const AboutPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
               >
-                <SafeIcon 
-                  icon={category.icon} 
-                  className="w-16 h-16 mb-6" 
-                  style={{ color: category.color }} 
-                />
+                <SafeIcon icon={category.icon} className="w-16 h-16 mb-6" style={{ color: category.color }} />
                 <h3 className="text-2xl font-bold text-primary-dark mb-4">{category.title}</h3>
                 <div className="space-y-4">
                   {category.partners.map((partner, i) => (
@@ -682,8 +673,8 @@ const AboutPage = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
               >
-                <div 
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" 
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
                   style={{ backgroundColor: step.color }}
                 >
                   <p className="text-2xl font-bold">{step.number}</p>
@@ -795,16 +786,19 @@ const AboutPage = () => {
                     <a href="tel:+12362350919" className="hover:underline">+1 236-235-0919</a>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <SafeIcon icon={FiMail} className="w-6 h-6 text-white" />
-                    <a href="mailto:josh@handvantage.com" className="hover:underline">josh@handvantage.com</a>
-                  </div>
-                  <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiMapPin} className="w-6 h-6 text-white" />
                     <span>Vancouver, BC Canada</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiLinkedin} className="w-6 h-6 text-white" />
-                    <a href="https://linkedin.com/in/josh-olayemi" target="_blank" rel="noopener noreferrer" className="hover:underline">linkedin.com/in/josh-olayemi</a>
+                    <a
+                      href="https://linkedin.com/in/josh-olayemi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      linkedin.com/in/josh-olayemi
+                    </a>
                   </div>
                 </div>
                 <p className="text-blue-100 text-center mt-6 text-sm">
