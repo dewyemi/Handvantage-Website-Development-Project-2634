@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, {useState} from 'react';
+import {motion} from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiBot, FiZap, FiTrendingUp, FiDollarSign, FiCheckCircle, FiCpu, FiBarChart, FiUsers, FiFileText, FiMessageCircle, FiTarget, FiUserPlus, FiHeart, FiPhone, FiMail, FiClock, FiShield, FiSettings, FiRepeat, FiArrowRight, FiStar, FiAward, FiLoader } = FiIcons;
+const {FiBot, FiZap, FiTrendingUp, FiDollarSign, FiCheckCircle, FiCpu, FiBarChart, FiUsers, FiFileText, FiMessageCircle, FiTarget, FiUserPlus, FiHeart, FiPhone, FiMail, FiClock, FiShield, FiSettings, FiRepeat, FiArrowRight, FiStar, FiAward, FiLoader} = FiIcons;
 
 const BusinessAutomationPage = () => {
   // Form state
@@ -15,7 +15,6 @@ const BusinessAutomationPage = () => {
     company: '',
     automationNeeds: ''
   });
-
   const [formStatus, setFormStatus] = useState({
     isSubmitting: false,
     isSuccess: false,
@@ -356,7 +355,7 @@ const BusinessAutomationPage = () => {
 
   // Form handlers
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -384,7 +383,6 @@ const BusinessAutomationPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     const errors = validateForm();
     if (errors.length > 0) {
       setFormStatus({
@@ -406,7 +404,7 @@ const BusinessAutomationPage = () => {
       const formElement = e.target;
       const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: new URLSearchParams(new FormData(formElement)).toString()
       });
 
@@ -416,7 +414,6 @@ const BusinessAutomationPage = () => {
           isSuccess: true,
           error: null
         });
-        
         // Reset form
         setFormData({
           firstName: '',
@@ -426,7 +423,6 @@ const BusinessAutomationPage = () => {
           company: '',
           automationNeeds: ''
         });
-
         // Reset success message after 5 seconds
         setTimeout(() => {
           setFormStatus({
@@ -456,18 +452,18 @@ const BusinessAutomationPage = () => {
             {/* Left Column - Automation Message */}
             <motion.div
               className="lg:col-span-7 space-y-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 30}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               {/* Badge */}
               <motion.div
                 className="inline-flex items-center bg-[#e9d5ff] text-[#7c3aed] px-4 py-2 rounded-full text-sm font-semibold"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{delay: 0.2}}
+                viewport={{once: true}}
               >
                 🤖 RTILA AI Master Agent
               </motion.div>
@@ -475,10 +471,10 @@ const BusinessAutomationPage = () => {
               {/* Headline */}
               <motion.h1
                 className="text-4xl lg:text-5xl font-bold text-primary-dark leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{delay: 0.3}}
+                viewport={{once: true}}
               >
                 AI-Powered Business Automation That Actually Drives Revenue
               </motion.h1>
@@ -486,10 +482,10 @@ const BusinessAutomationPage = () => {
               {/* Value proposition */}
               <motion.p
                 className="text-lg text-slate-600"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{delay: 0.4}}
+                viewport={{once: true}}
               >
                 Most businesses waste 40% of their time on repetitive tasks. As a RTILA AI Master Agent, Josh delivers cutting-edge automation that eliminates manual work, accelerates growth, and gives you a competitive advantage that's impossible to replicate.
               </motion.p>
@@ -497,10 +493,10 @@ const BusinessAutomationPage = () => {
               {/* Automation impact stats */}
               <motion.div
                 className="bg-[rgba(124,58,237,0.1)] border border-[#c4b5fd] rounded-lg p-5"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{delay: 0.5}}
+                viewport={{once: true}}
               >
                 <h4 className="text-lg font-bold text-[#7c3aed] mb-3">⚡ The Power of Intelligent Automation</h4>
                 <ul className="space-y-2 text-[#6b46c1]">
@@ -530,24 +526,32 @@ const BusinessAutomationPage = () => {
               {/* CTA buttons */}
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 pt-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, y: 20}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{delay: 0.6}}
+                viewport={{once: true}}
               >
                 <motion.a
                   href="#automation-assessment"
                   className="bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{scale: 1.05}}
+                  whileTap={{scale: 0.95}}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('automation-assessment').scrollIntoView({behavior: 'smooth'});
+                  }}
                 >
                   Get Automation Assessment
                 </motion.a>
                 <motion.a
                   href="#examples"
                   className="border-2 border-[#7c3aed] text-[#7c3aed] px-8 py-4 rounded-lg font-semibold text-center hover:bg-[#7c3aed] hover:text-white transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{scale: 1.05}}
+                  whileTap={{scale: 0.95}}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('examples').scrollIntoView({behavior: 'smooth'});
+                  }}
                 >
                   See Automation Examples
                 </motion.a>
@@ -557,27 +561,27 @@ const BusinessAutomationPage = () => {
             {/* Right Column - RTILA AI Showcase */}
             <motion.div
               className="lg:col-span-5"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 30}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <div className="bg-white rounded-2xl p-8 shadow-xl">
                 <motion.h3
                   className="text-2xl font-bold text-primary-dark text-center mb-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  viewport={{ once: true }}
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{delay: 0.2}}
+                  viewport={{once: true}}
                 >
                   RTILA AI Master Agent
                 </motion.h3>
                 <motion.div
                   className="bg-[#7c3aed] text-white px-4 py-2 rounded-full text-sm font-semibold text-center mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  viewport={{ once: true }}
+                  initial={{opacity: 0, y: 20}}
+                  whileInView={{opacity: 1, y: 0}}
+                  transition={{delay: 0.3}}
+                  viewport={{once: true}}
                 >
                   🏆 Exclusive Master Agent Status
                 </motion.div>
@@ -586,16 +590,16 @@ const BusinessAutomationPage = () => {
                     <motion.div
                       key={index}
                       className="bg-gray-50 rounded-lg p-4 text-center"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.4 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -5 }}
+                      initial={{opacity: 0, scale: 0.8}}
+                      whileInView={{opacity: 1, scale: 1}}
+                      transition={{delay: 0.4 + index * 0.1}}
+                      viewport={{once: true}}
+                      whileHover={{y: -5}}
                     >
                       <SafeIcon
                         icon={capability.icon}
                         className="w-8 h-8 mx-auto mb-3"
-                        style={{ color: capability.color }}
+                        style={{color: capability.color}}
                       />
                       <h4 className="font-bold text-primary-dark mb-1 text-sm">{capability.title}</h4>
                       <p className="text-xs text-slate-600">{capability.description}</p>
@@ -614,10 +618,10 @@ const BusinessAutomationPage = () => {
           {/* Section header */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
               Business Automation vs. Simple Task Automation
@@ -632,10 +636,10 @@ const BusinessAutomationPage = () => {
             {/* Basic Automation */}
             <motion.div
               className="bg-[#fef3c7] border border-[#fbbf24] rounded-xl p-8"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, x: -30}}
+              whileInView={{opacity: 1, x: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <h3 className="text-2xl font-bold text-[#f59e0b] mb-6">⚙️ Basic Task Automation</h3>
               <div className="mb-6">
@@ -671,10 +675,10 @@ const BusinessAutomationPage = () => {
             {/* Intelligent Automation */}
             <motion.div
               className="bg-[#f3e8ff] border border-[#c4b5fd] rounded-xl p-8"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, x: 30}}
+              whileInView={{opacity: 1, x: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <h3 className="text-2xl font-bold text-[#7c3aed] mb-6">🧠 Intelligent Business Automation</h3>
               <div className="mb-6">
@@ -716,10 +720,10 @@ const BusinessAutomationPage = () => {
           {/* Section header */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
               RTILA AI Automation Capabilities
@@ -735,11 +739,11 @@ const BusinessAutomationPage = () => {
               <motion.div
                 key={index}
                 className="automation-capability"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
+                initial={{opacity: 0, y: 30}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.6, delay: index * 0.1}}
+                viewport={{once: true}}
+                whileHover={{y: -8}}
               >
                 <div
                   className="rounded-xl p-6 h-full"
@@ -753,7 +757,7 @@ const BusinessAutomationPage = () => {
                   <SafeIcon
                     icon={capability.icon}
                     className="w-12 h-12 mb-4"
-                    style={{ color: capability.color }}
+                    style={{color: capability.color}}
                   />
 
                   {/* Title */}
@@ -762,7 +766,7 @@ const BusinessAutomationPage = () => {
                   </h3>
 
                   {/* Subtitle */}
-                  <p className="font-medium mb-3" style={{ color: capability.color }}>
+                  <p className="font-medium mb-3" style={{color: capability.color}}>
                     {capability.subtitle}
                   </p>
 
@@ -776,7 +780,7 @@ const BusinessAutomationPage = () => {
                         <SafeIcon
                           icon={FiCheckCircle}
                           className="w-4 h-4 mr-2 mt-0.5"
-                          style={{ color: capability.color }}
+                          style={{color: capability.color}}
                         />
                         <span className="text-slate-700 text-xs">{feature}</span>
                       </li>
@@ -795,10 +799,10 @@ const BusinessAutomationPage = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Column - ROI Metrics */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, x: -30}}
+              whileInView={{opacity: 1, x: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <h2 className="text-3xl font-bold text-primary-dark mb-4">
                 Measurable Automation ROI
@@ -811,13 +815,16 @@ const BusinessAutomationPage = () => {
                   <motion.div
                     key={index}
                     className="bg-primary-light rounded-xl p-5 text-center shadow-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -5 }}
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.4, delay: index * 0.1}}
+                    viewport={{once: true}}
+                    whileHover={{y: -5}}
                   >
-                    <p className="text-2xl font-bold mb-1" style={{ color: metric.color }}>
+                    <p
+                      className="text-2xl font-bold mb-1"
+                      style={{color: metric.color}}
+                    >
                       {metric.number}
                     </p>
                     <p className="text-slate-700 font-medium text-sm">{metric.label}</p>
@@ -829,10 +836,10 @@ const BusinessAutomationPage = () => {
 
             {/* Right Column - Business Impact */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, x: 30}}
+              whileInView={{opacity: 1, x: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <div className="bg-[#f3e8ff] rounded-xl p-8 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
@@ -843,19 +850,19 @@ const BusinessAutomationPage = () => {
                     <motion.div
                       key={index}
                       className="flex items-start"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                      viewport={{ once: true }}
+                      initial={{opacity: 0, y: 20}}
+                      whileInView={{opacity: 1, y: 0}}
+                      transition={{duration: 0.4, delay: 0.2 + index * 0.1}}
+                      viewport={{once: true}}
                     >
                       <div
                         className="p-3 rounded-lg mr-4 flex-shrink-0"
-                        style={{ backgroundColor: `${impact.color}15` }}
+                        style={{backgroundColor: `${impact.color}15`}}
                       >
                         <SafeIcon
                           icon={impact.icon}
                           className="w-6 h-6"
-                          style={{ color: impact.color }}
+                          style={{color: impact.color}}
                         />
                       </div>
                       <div>
@@ -881,10 +888,10 @@ const BusinessAutomationPage = () => {
           {/* Section header */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
               Our Proven Automation Implementation Process
@@ -900,15 +907,15 @@ const BusinessAutomationPage = () => {
               <motion.div
                 key={index}
                 className="implementation-step bg-white rounded-xl p-6 text-center shadow-lg"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
+                initial={{opacity: 0, y: 30}}
+                whileInView={{opacity: 1, y: 0}}
+                transition={{duration: 0.5, delay: index * 0.1}}
+                viewport={{once: true}}
+                whileHover={{y: -8}}
               >
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ backgroundColor: step.color }}
+                  style={{backgroundColor: step.color}}
                 >
                   <span className="text-lg font-bold text-white">
                     {step.number}
@@ -920,7 +927,10 @@ const BusinessAutomationPage = () => {
                 <ul className="space-y-2 text-left">
                   {step.description.map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <span className="text-lg mr-2" style={{ color: step.color }}>
+                      <span
+                        className="text-lg mr-2"
+                        style={{color: step.color}}
+                      >
                         •
                       </span>
                       <span className="text-slate-600 text-sm">{item}</span>
@@ -939,10 +949,10 @@ const BusinessAutomationPage = () => {
           {/* Section header */}
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
               Real-World Automation Examples
@@ -958,15 +968,15 @@ const BusinessAutomationPage = () => {
               <motion.div
                 key={index}
                 className="use-case grid md:grid-cols-12 gap-8 items-center"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                initial={{opacity: 0, x: -30}}
+                whileInView={{opacity: 1, x: 0}}
+                transition={{duration: 0.6, delay: index * 0.2}}
+                viewport={{once: true}}
               >
                 <div className="md:col-span-2 flex justify-center">
                   <div
                     className="w-20 h-20 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: useCase.color }}
+                    style={{backgroundColor: useCase.color}}
                   >
                     <SafeIcon icon={useCase.icon} className="w-8 h-8 text-white" />
                   </div>
@@ -998,7 +1008,7 @@ const BusinessAutomationPage = () => {
                               <SafeIcon
                                 icon={FiCheckCircle}
                                 className="w-4 h-4 mr-2 mt-0.5"
-                                style={{ color: useCase.color }}
+                                style={{color: useCase.color}}
                               />
                               <span className="text-slate-600 text-sm">{result}</span>
                             </li>
@@ -1006,9 +1016,9 @@ const BusinessAutomationPage = () => {
                         </ul>
                         <div
                           className="p-3 rounded-lg"
-                          style={{ backgroundColor: `${useCase.color}15` }}
+                          style={{backgroundColor: `${useCase.color}15`}}
                         >
-                          <p className="font-bold" style={{ color: useCase.color }}>
+                          <p className="font-bold" style={{color: useCase.color}}>
                             ROI: {useCase.roi}
                           </p>
                         </div>
@@ -1027,10 +1037,10 @@ const BusinessAutomationPage = () => {
         <div className="container mx-auto px-6">
           <motion.div
             className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold mb-4">
               Ready to Automate Your Business?
@@ -1038,13 +1048,12 @@ const BusinessAutomationPage = () => {
             <p className="text-xl text-purple-100 mb-8">
               Get your free automation assessment and discover how RTILA AI can transform your business operations
             </p>
-
             <motion.div
               className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 30}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.6, delay: 0.2}}
+              viewport={{once: true}}
             >
               <h3 className="text-2xl font-bold mb-4">🤖 Free Business Automation Assessment</h3>
               <div className="mb-6">
@@ -1076,33 +1085,35 @@ const BusinessAutomationPage = () => {
                 Value: $3,000 | Your Investment: $0
               </p>
             </motion.div>
-
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, y: 30}}
+              whileInView={{opacity: 1, y: 0}}
+              transition={{duration: 0.6, delay: 0.3}}
+              viewport={{once: true}}
             >
               <motion.a
                 href="#contact"
                 className="bg-white text-[#7c3aed] px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{scale: 1.05}}
+                whileTap={{scale: 0.95}}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+                }}
               >
                 Get Your Free Automation Assessment
               </motion.a>
               <motion.a
                 href="tel:+12362350919"
                 className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-[#7c3aed] transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{scale: 1.05}}
+                whileTap={{scale: 0.95}}
               >
                 <SafeIcon icon={FiPhone} className="w-5 h-5" />
                 <span>Call Josh: 236-235-0919</span>
               </motion.a>
             </motion.div>
-
             <p className="text-purple-100 text-sm mt-4">
               RTILA AI Master Agent • No obligation • Immediate automation insights
             </p>
@@ -1116,10 +1127,10 @@ const BusinessAutomationPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column - Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, x: -30}}
+              whileInView={{opacity: 1, x: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <h2 className="text-3xl font-bold mb-6">Schedule Your Automation Assessment</h2>
               <p className="text-slate-300 mb-8">
@@ -1130,8 +1141,8 @@ const BusinessAutomationPage = () => {
               {formStatus.isSuccess && (
                 <motion.div
                   className="bg-green-500 text-white p-4 rounded-lg mb-6"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{opacity: 0, y: -20}}
+                  animate={{opacity: 1, y: 0}}
                 >
                   <div className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2" />
@@ -1144,8 +1155,8 @@ const BusinessAutomationPage = () => {
               {formStatus.error && (
                 <motion.div
                   className="bg-red-500 text-white p-4 rounded-lg mb-6"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{opacity: 0, y: -20}}
+                  animate={{opacity: 1, y: 0}}
                 >
                   <p>{formStatus.error}</p>
                 </motion.div>
@@ -1265,8 +1276,8 @@ const BusinessAutomationPage = () => {
                   type="submit"
                   disabled={formStatus.isSubmitting}
                   className="w-full bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                  whileHover={!formStatus.isSubmitting ? { scale: 1.02 } : {}}
-                  whileTap={!formStatus.isSubmitting ? { scale: 0.98 } : {}}
+                  whileHover={!formStatus.isSubmitting ? {scale: 1.02} : {}}
+                  whileTap={!formStatus.isSubmitting ? {scale: 0.98} : {}}
                 >
                   {formStatus.isSubmitting ? (
                     <>
@@ -1283,10 +1294,10 @@ const BusinessAutomationPage = () => {
             {/* Right Column - Master Agent Profile */}
             <motion.div
               className="text-center"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{opacity: 0, x: 30}}
+              whileInView={{opacity: 1, x: 0}}
+              transition={{duration: 0.8}}
+              viewport={{once: true}}
             >
               <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#7c3aed]">
@@ -1299,7 +1310,6 @@ const BusinessAutomationPage = () => {
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
                 <p className="text-[#7c3aed] font-semibold mb-2">RTILA AI Master Agent</p>
                 <p className="text-slate-300 mb-4">VP of Digital Transformation</p>
-
                 <div className="bg-[#7c3aed]/20 p-4 rounded-lg mb-6">
                   <h4 className="font-bold text-[#c4b5fd] mb-2">🏆 Master Agent Exclusive Benefits:</h4>
                   <ul className="text-slate-300 space-y-2 text-sm">
@@ -1321,11 +1331,9 @@ const BusinessAutomationPage = () => {
                     </li>
                   </ul>
                 </div>
-
                 <blockquote className="text-slate-300 italic mb-6 text-sm">
                   "As a RTILA AI Master Agent, I bring enterprise-grade automation capabilities to growing businesses. Let's transform your operations with AI that actually works."
                 </blockquote>
-
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiPhone} className="w-5 h-5 text-[#7c3aed]" />
@@ -1337,7 +1345,6 @@ const BusinessAutomationPage = () => {
                     </a>
                   </div>
                 </div>
-
                 <div className="border-t border-slate-700 pt-6">
                   <p className="text-slate-400 text-sm">
                     Available for automation consultations Monday-Friday, 9 AM - 6 PM PST
