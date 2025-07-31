@@ -1,23 +1,23 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Logo from './Logo';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const { FiPhone, FiMail, FiMapPin, FiLinkedin, FiGlobe, FiZap, FiShield, FiCloud, FiBot } = FiIcons;
+const {FiPhone,FiMail,FiMapPin,FiLinkedin,FiGlobe,FiZap,FiShield,FiCloud,FiBot}=FiIcons;
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+const Footer=()=> {
+  const currentYear=new Date().getFullYear();
 
-  const services = [
-    { name: 'Digital Transformation', link: '/services/digital-transformation', icon: FiZap },
-    { name: 'Cybersecurity Solutions', link: '/services/cybersecurity', icon: FiShield },
-    { name: 'Cloud Infrastructure', link: '/services/cloud-infrastructure', icon: FiCloud },
-    { name: 'Business Automation', link: '/services/business-automation', icon: FiBot }
+  const services=[
+    {name: 'Digital Transformation',link: '/services/digital-transformation',icon: FiZap},
+    {name: 'Cybersecurity Solutions',link: '/services/cybersecurity',icon: FiShield},
+    {name: 'Cloud Infrastructure',link: '/services/cloud-infrastructure',icon: FiCloud},
+    {name: 'Business Automation',link: '/services/business-automation',icon: FiBot}
   ];
 
-  const partners = [
+  const partners=[
     'Microsoft CSP',
     'RTILA AI',
     'Check Point',
@@ -26,11 +26,11 @@ const Footer = () => {
     'Vanta'
   ];
 
-  const handleSmoothScroll = (href) => {
+  const handleSmoothScroll=(href)=> {
     if (href.includes('#')) {
-      const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#');
+      const element=document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({behavior: 'smooth'});
       }
     }
   };
@@ -42,10 +42,10 @@ const Footer = () => {
           {/* Company Info */}
           <motion.div
             className="col-span-1"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0,y: 30}}
+            whileInView={{opacity: 1,y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <Link to="/" className="inline-block mb-4">
               <div className="flex items-center space-x-3">
@@ -63,8 +63,8 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiPhone} className="w-5 h-5 text-primary-blue" />
-                <a 
-                  href="tel:+12362350919" 
+                <a
+                  href="tel:+12362350919"
                   className="text-slate-300 hover:text-white transition-colors"
                 >
                   236-235-0919
@@ -72,8 +72,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiMail} className="w-5 h-5 text-primary-blue" />
-                <a 
-                  href="mailto:josh@handvantage.com" 
+                <a
+                  href="mailto:josh@handvantage.com"
                   className="text-slate-300 hover:text-white transition-colors"
                 >
                   josh@handvantage.com
@@ -84,14 +84,14 @@ const Footer = () => {
 
           {/* Services */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0,y: 30}}
+            whileInView={{opacity: 1,y: 0}}
+            transition={{duration: 0.6,delay: 0.1}}
+            viewport={{once: true}}
           >
             <h4 className="text-lg font-semibold mb-4 text-primary-blue">Services</h4>
             <ul className="space-y-2">
-              {services.map((service, index) => (
+              {services.map((service,index)=> (
                 <li key={index}>
                   <Link
                     to={service.link}
@@ -116,17 +116,17 @@ const Footer = () => {
 
           {/* Partners */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0,y: 30}}
+            whileInView={{opacity: 1,y: 0}}
+            transition={{duration: 0.6,delay: 0.2}}
+            viewport={{once: true}}
           >
             <h4 className="text-lg font-semibold mb-4 text-primary-blue">Partners</h4>
             <ul className="space-y-2">
-              {partners.map((partner, index) => (
+              {partners.map((partner,index)=> (
                 <li key={index}>
-                  <button 
-                    onClick={() => handleSmoothScroll('/#partnerships')} 
+                  <button
+                    onClick={()=> handleSmoothScroll('/#partnerships')}
                     className="text-slate-300 hover:text-white transition-colors text-left"
                   >
                     {partner}
@@ -138,10 +138,10 @@ const Footer = () => {
 
           {/* Contact & Social */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0,y: 30}}
+            whileInView={{opacity: 1,y: 0}}
+            transition={{duration: 0.6,delay: 0.3}}
+            viewport={{once: true}}
           >
             <h4 className="text-lg font-semibold mb-4 text-primary-blue">Connect</h4>
             <div className="space-y-4">
@@ -161,12 +161,14 @@ const Footer = () => {
                 <SafeIcon icon={FiLinkedin} className="w-5 h-5" />
                 <span>LinkedIn Profile</span>
               </a>
-              <button
-                onClick={() => handleSmoothScroll('/#contact')}
+              <a
+                href="https://handvantage.co/contact"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
               >
                 Schedule Consultation
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -174,10 +176,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <motion.div
           className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          initial={{opacity: 0,y: 30}}
+          whileInView={{opacity: 1,y: 0}}
+          transition={{duration: 0.6,delay: 0.4}}
+          viewport={{once: true}}
         >
           <p className="text-slate-400 text-sm mb-4 md:mb-0">
             © {currentYear} Handvantage. All rights reserved.
