@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiCheckCircle, FiExternalLink, FiLinkedin, FiUser, FiShield, FiZap, FiHeart, FiCloud, FiDatabase, FiStar, FiBuilding, FiPhone, FiMail, FiMapPin } = FiIcons;
+const {FiCheckCircle,FiExternalLink,FiLinkedin,FiUser,FiShield,FiZap,FiHeart,FiCloud,FiDatabase,FiStar,FiBuilding,FiPhone,FiMail,FiMapPin} = FiIcons;
 
 const AboutPage = () => {
   // Career timeline data
@@ -329,7 +329,9 @@ const AboutPage = () => {
                 viewport={{ once: true }}
               >
                 <motion.a
-                  href="#contact"
+                  href="https://handvantage.co/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -502,6 +504,7 @@ const AboutPage = () => {
               <h2 className="text-4xl font-bold text-primary-dark">
                 What Makes Handvantage Different
               </h2>
+
               <div className="text-lg text-slate-600 space-y-4">
                 <p>
                   Most IT companies are either:
@@ -587,6 +590,7 @@ const AboutPage = () => {
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   The Results Speak for Themselves
                 </h3>
+
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   {/* Stat 1 */}
                   <motion.div
@@ -711,6 +715,7 @@ const AboutPage = () => {
               >
                 Ready to Transform Your Business?
               </motion.h2>
+
               <motion.div
                 className="text-lg space-y-4 text-blue-100"
                 initial={{ opacity: 0, y: 30 }}
@@ -743,6 +748,7 @@ const AboutPage = () => {
                   </ul>
                 </div>
               </motion.div>
+
               <motion.div
                 className="space-y-4"
                 initial={{ opacity: 0, y: 30 }}
@@ -751,7 +757,9 @@ const AboutPage = () => {
                 viewport={{ once: true }}
               >
                 <motion.a
-                  href="#contact"
+                  href="https://handvantage.co/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
