@@ -1,83 +1,110 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Handvantage - Digital Transformation Expert</title>
-    <meta name="description" content="Transform your business with enterprise-grade technology solutions. Digital transformation,cybersecurity,and automation powered by industry-leading partnerships." />
-  </head>
-  <body>
-    <!-- Netlify Forms Detection -->
-    <form name="cloud-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="company" />
-      <input type="text" name="currentCloud" />
-    </form>
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" /> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
+  <title>Handvantage - Digital Transformation Expert</title> 
+  <meta name="description" content="Transform your business with enterprise-grade technology solutions. Digital transformation, cybersecurity, and automation powered by industry-leading partnerships." /> 
+</head> 
+<body> 
+  <!-- Netlify Forms Detection --> 
+  <form name="cloud-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
+    <input type="text" name="firstName" /> 
+    <input type="text" name="lastName" /> 
+    <input type="email" name="email" /> 
+    <input type="tel" name="phone" /> 
+    <input type="text" name="company" /> 
+    <input type="text" name="currentCloud" /> 
+  </form> 
+  <form name="security-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
+    <input type="text" name="firstName" /> 
+    <input type="text" name="lastName" /> 
+    <input type="email" name="email" /> 
+    <input type="tel" name="phone" /> 
+    <input type="text" name="company" /> 
+    <input type="text" name="securityConcerns" /> 
+  </form> 
+  <form name="automation-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
+    <input type="text" name="firstName" /> 
+    <input type="text" name="lastName" /> 
+    <input type="email" name="email" /> 
+    <input type="tel" name="phone" /> 
+    <input type="text" name="company" /> 
+    <input type="text" name="automationNeeds" /> 
+  </form> 
+  <form name="transformation-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
+    <input type="text" name="firstName" /> 
+    <input type="text" name="lastName" /> 
+    <input type="email" name="email" /> 
+    <input type="tel" name="phone" /> 
+    <input type="text" name="company" /> 
+    <input type="text" name="transformationChallenges" /> 
+  </form> 
+  <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden> 
+    <input type="text" name="firstName" /> 
+    <input type="text" name="lastName" /> 
+    <input type="email" name="email" /> 
+    <input type="tel" name="phone" /> 
+    <input type="text" name="company" /> 
+    <input type="text" name="companySize" /> 
+    <input type="text" name="industry" /> 
+    <input type="text" name="revenue" /> 
+    <input type="number" name="totalScore" /> 
+    <input type="number" name="scorePercentage" /> 
+    <input type="number" name="completionTime" /> 
+    <input type="text" name="sectionScores" /> 
+    <input type="text" name="answers" /> 
+  </form> 
+  <form name="cybersecurity-assessment-results" netlify netlify-honeypot="bot-field" hidden> 
+    <input type="text" name="firstName" /> 
+    <input type="text" name="lastName" /> 
+    <input type="email" name="email" /> 
+    <input type="tel" name="phone" /> 
+    <input type="text" name="company" /> 
+    <input type="text" name="industry" /> 
+    <input type="text" name="companySize" /> 
+    <input type="text" name="complianceNeeds" /> 
+    <input type="number" name="totalScore" /> 
+    <input type="number" name="scorePercentage" /> 
+    <input type="number" name="completionTime" /> 
+    <input type="text" name="domainScores" /> 
+    <input type="text" name="answers" /> 
+  </form> 
+  <div id="root"></div> 
+  <script type="module" src="/src/main.jsx"></script>
+  
+  <!-- AI Sales Bot Integration -->
+  <script src="https://app.noem.ai/js/ChatBot.js"></script>
+  <script>
+    // (optional) Current user. You can exclude this for generic conversations.
+    let currentUser = { 
+      userId: null, // id or email
+      displayName: 'user', // display name
+      profilePic: null, // url to profile pic
+      email: null // User email. Required if you want to send emails to user
+      // add any other properties you'd like the AI bot to know about this user
+    };
     
-    <form name="security-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="company" />
-      <input type="text" name="securityConcerns" />
-    </form>
+    // (optional) set options for the bot.
+    let nbOptions = {
+      "inputMessagePlaceHolderText": "Type your message here...",
+      "disableCSS": false,
+      "disableFabButton": false
+    };
     
-    <form name="automation-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="company" />
-      <input type="text" name="automationNeeds" />
-    </form>
+    const bot = new ChatBot('Njg4YzFjZjNjMjg0ODY2ZDcyZTFkZWFm', currentUser, null, nbOptions);
     
-    <form name="transformation-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="company" />
-      <input type="text" name="transformationChallenges" />
-    </form>
-
-    <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="company" />
-      <input type="text" name="companySize" />
-      <input type="text" name="industry" />
-      <input type="text" name="revenue" />
-      <input type="number" name="totalScore" />
-      <input type="number" name="scorePercentage" />
-      <input type="number" name="completionTime" />
-      <input type="text" name="sectionScores" />
-      <input type="text" name="answers" />
-    </form>
-
-    <form name="cybersecurity-assessment-results" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="company" />
-      <input type="text" name="industry" />
-      <input type="text" name="companySize" />
-      <input type="text" name="complianceNeeds" />
-      <input type="number" name="totalScore" />
-      <input type="number" name="scorePercentage" />
-      <input type="number" name="completionTime" />
-      <input type="text" name="domainScores" />
-      <input type="text" name="answers" />
-    </form>
-
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    // (optional) override to take action. By default sends an event to Google Tag Manager 
+    //bot.onMessageSent = msg=>{}
+    //bot.onMessageReceived = msg=>{}
+    
+    // (optional) handles events triggered by the bot. 
+    bot.onEventTriggered = (event, data) => {
+      console.log(event, data);
+    };
+    
+    bot.init();
+  </script>
+</body> 
 </html>
