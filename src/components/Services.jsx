@@ -62,6 +62,35 @@ const Services = () => {
     }
   ];
 
+  const assessments = [
+    {
+      icon: FiZap,
+      title: 'Digital Transformation Assessment',
+      description: 'Comprehensive 20-question evaluation across 4 key areas',
+      features: ['Technology readiness', 'Process automation', 'Growth potential'],
+      buttonText: 'Start Assessment',
+      buttonLink: '/assessment',
+      color: 'blue',
+      bgColor: 'bg-blue-50',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-primary-blue',
+      buttonBg: 'bg-primary-blue'
+    },
+    {
+      icon: FiShield,
+      title: 'Cybersecurity Risk Assessment',
+      description: 'Detailed 25-question security evaluation across 5 domains',
+      features: ['Email security', 'Network protection', 'Compliance status'],
+      buttonText: 'Start Security Assessment',
+      buttonLink: '/security-assessment',
+      color: 'red',
+      bgColor: 'bg-red-50',
+      iconBg: 'bg-red-100',
+      iconColor: 'text-primary-warning',
+      buttonBg: 'bg-primary-warning'
+    }
+  ];
+
   return (
     <section id="services" className="py-20 bg-primary-light">
       <div className="container mx-auto px-6">
@@ -82,7 +111,7 @@ const Services = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -125,6 +154,73 @@ const Services = () => {
                   className={`w-full ${service.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}
                 >
                   <span>{service.buttonText}</span>
+                  <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Assessments Section */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-3xl font-bold text-primary-dark mb-4">
+            Free Business Assessments
+          </h3>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Get detailed insights into your business readiness with our comprehensive assessments
+          </p>
+        </motion.div>
+
+        {/* Assessments Grid */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {assessments.map((assessment, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+            >
+              {/* Icon */}
+              <div className={`w-16 h-16 ${assessment.iconBg} rounded-xl flex items-center justify-center mb-6`}>
+                <SafeIcon icon={assessment.icon} className={`w-8 h-8 ${assessment.iconColor}`} />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-primary-dark mb-3">
+                {assessment.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-600 mb-4">
+                {assessment.description}
+              </p>
+
+              {/* Features */}
+              <ul className="space-y-2 mb-6">
+                {assessment.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center text-sm text-slate-600">
+                    <SafeIcon icon={FiCheck} className="w-4 h-4 text-primary-success mr-2" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA Button */}
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to={assessment.buttonLink}
+                  className={`w-full ${assessment.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}
+                >
+                  <span>{assessment.buttonText}</span>
                   <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>

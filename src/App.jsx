@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import {HashRouter as Router,Routes,Route} from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
@@ -13,6 +13,10 @@ import DigitalTransformationPage from './components/DigitalTransformationPage';
 import CybersecurityPage from './components/CybersecurityPage';
 import CloudInfrastructurePage from './components/CloudInfrastructurePage';
 import BusinessAutomationPage from './components/BusinessAutomationPage';
+import AssessmentLanding from './components/AssessmentLanding';
+import AssessmentTool from './components/AssessmentTool';
+import CybersecurityAssessmentLanding from './components/CybersecurityAssessmentLanding';
+import CybersecurityAssessment from './components/CybersecurityAssessment';
 
 function App() {
   return (
@@ -20,24 +24,25 @@ function App() {
       <div className="min-h-screen bg-white">
         <Header />
         <Routes>
-          <Route 
-            path="/" 
-            element={
-              <main>
-                <Hero />
-                <ProblemSolution />
-                <Services />
-                <About />
-                <Partnerships />
-                <CTA />
-              </main>
-            } 
-          />
+          <Route path="/" element={
+            <main>
+              <Hero />
+              <ProblemSolution />
+              <Services />
+              <About />
+              <Partnerships />
+              <CTA />
+            </main>
+          } />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services/digital-transformation" element={<DigitalTransformationPage />} />
           <Route path="/services/cybersecurity" element={<CybersecurityPage />} />
           <Route path="/services/cloud-infrastructure" element={<CloudInfrastructurePage />} />
           <Route path="/services/business-automation" element={<BusinessAutomationPage />} />
+          <Route path="/assessment" element={<AssessmentLanding />} />
+          <Route path="/assessment/start" element={<AssessmentTool />} />
+          <Route path="/security-assessment" element={<CybersecurityAssessmentLanding />} />
+          <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
           {/* Catch all route - redirect to home */}
           <Route path="*" element={
             <div className="pt-20 min-h-screen flex items-center justify-center">
