@@ -18,6 +18,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -38,13 +39,14 @@ const Header = () => {
     },
     { label: 'About', href: '/about', path: '/about' },
     {
-      label: 'Assessments',
+      label: 'Tools',
       href: '/#assessments',
       path: '/',
       hasDropdown: true,
       dropdownItems: [
         { label: 'Digital Transformation Assessment', href: '/assessment' },
         { label: 'Cybersecurity Risk Assessment', href: '/security-assessment' },
+        { label: 'ROI Calculator', href: '/roi-calculator' },
       ]
     },
     { label: 'Contact', href: 'https://handvantage.co/contact', path: '/', external: true }
@@ -54,16 +56,20 @@ const Header = () => {
     if (item.path === '/about' && location.pathname === '/about') return true;
     if (item.path === '/' && location.pathname === '/') return true;
     if (location.pathname.includes('/services/') && item.label === 'Services') return true;
-    if ((location.pathname === '/assessment' || location.pathname === '/assessment/start' || 
-         location.pathname === '/security-assessment' || location.pathname === '/security-assessment/start') && 
-         item.label === 'Assessments') return true;
+    if ((location.pathname === '/assessment' || 
+         location.pathname === '/assessment/start' || 
+         location.pathname === '/security-assessment' || 
+         location.pathname === '/security-assessment/start' ||
+         location.pathname === '/roi-calculator' ||
+         location.pathname === '/roi-calculator/start') && item.label === 'Tools') return true;
     return false;
   };
 
   const isActiveSubItem = (href) => {
     return location.pathname === href || 
-           (href === '/assessment' && location.pathname === '/assessment/start') || 
-           (href === '/security-assessment' && location.pathname === '/security-assessment/start');
+           (href === '/assessment' && location.pathname === '/assessment/start') ||
+           (href === '/security-assessment' && location.pathname === '/security-assessment/start') ||
+           (href === '/roi-calculator' && location.pathname === '/roi-calculator/start');
   };
 
   const handleNavClick = (href, external) => {
@@ -114,13 +120,13 @@ const Header = () => {
                 onMouseEnter={() => {
                   if (item.hasDropdown) {
                     if (item.label === 'Services') setIsServicesOpen(true);
-                    if (item.label === 'Assessments') setIsAssessmentsOpen(true);
+                    if (item.label === 'Tools') setIsAssessmentsOpen(true);
                   }
                 }}
                 onMouseLeave={() => {
                   if (item.hasDropdown) {
                     if (item.label === 'Services') setIsServicesOpen(false);
-                    if (item.label === 'Assessments') setIsAssessmentsOpen(false);
+                    if (item.label === 'Tools') setIsAssessmentsOpen(false);
                   }
                 }}
               >
@@ -136,10 +142,12 @@ const Header = () => {
                       <SafeIcon icon={FiChevronDown} className="w-4 h-4 ml-1" />
                     </button>
                     {/* Dropdown Menu */}
-                    <div className={`absolute top-full left-0 bg-white shadow-lg rounded-lg py-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
-                      (item.label === 'Services' && isServicesOpen) || 
-                      (item.label === 'Assessments' && isAssessmentsOpen) ? 'opacity-100 visible' : ''
-                    }`}>
+                    <div
+                      className={`absolute top-full left-0 bg-white shadow-lg rounded-lg py-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
+                        (item.label === 'Services' && isServicesOpen) || 
+                        (item.label === 'Tools' && isAssessmentsOpen) ? 'opacity-100 visible' : ''
+                      }`}
+                    >
                       {item.dropdownItems.map((dropdownItem, i) => (
                         <Link
                           key={i}
@@ -149,7 +157,7 @@ const Header = () => {
                           }`}
                           onClick={() => {
                             if (item.label === 'Services') setIsServicesOpen(false);
-                            if (item.label === 'Assessments') setIsAssessmentsOpen(false);
+                            if (item.label === 'Tools') setIsAssessmentsOpen(false);
                           }}
                         >
                           {dropdownItem.label}
@@ -199,10 +207,10 @@ const Header = () => {
             transition={{ delay: 0.5 }}
           >
             <Link
-              to="/assessment"
+              to="/roi-calculator"
               className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 mr-4"
             >
-              Free Assessment
+              ROI Calculator
             </Link>
             <a
               href="https://handvantage.co/contact"
@@ -239,7 +247,7 @@ const Header = () => {
                       <button
                         onClick={() => {
                           if (item.label === 'Services') setIsServicesOpen(!isServicesOpen);
-                          if (item.label === 'Assessments') setIsAssessmentsOpen(!isAssessmentsOpen);
+                          if (item.label === 'Tools') setIsAssessmentsOpen(!isAssessmentsOpen);
                         }}
                         className={`flex items-center justify-between w-full text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
                           isActive(item) ? 'text-primary-blue' : ''
@@ -250,12 +258,12 @@ const Header = () => {
                           icon={FiChevronDown}
                           className={`w-4 h-4 ml-1 transition-transform ${
                             (item.label === 'Services' && isServicesOpen) || 
-                            (item.label === 'Assessments' && isAssessmentsOpen) ? 'transform rotate-180' : ''
+                            (item.label === 'Tools' && isAssessmentsOpen) ? 'transform rotate-180' : ''
                           }`}
                         />
                       </button>
                       {((item.label === 'Services' && isServicesOpen) || 
-                        (item.label === 'Assessments' && isAssessmentsOpen)) && (
+                        (item.label === 'Tools' && isAssessmentsOpen)) && (
                         <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                           {item.dropdownItems.map((dropdownItem, i) => (
                             <Link
@@ -307,11 +315,11 @@ const Header = () => {
               ))}
               <div className="pt-4 space-y-2">
                 <Link
-                  to="/assessment"
+                  to="/roi-calculator"
                   className="block bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Free Assessment
+                  ROI Calculator
                 </Link>
                 <a
                   href="https://handvantage.co/contact"

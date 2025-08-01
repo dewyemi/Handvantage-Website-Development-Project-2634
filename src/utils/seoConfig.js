@@ -16,6 +16,7 @@ export const seoConfig = {
       }
     }
   },
+
   about: {
     title: "About Josh Olayemi - Digital Transformation Expert | 20+ Years Experience",
     description: "Meet Josh Olayemi, VP of Digital Transformation with 20+ years experience at Amazon, Oracle, and AWS. Expert in cybersecurity, cloud infrastructure, and business automation for growing businesses.",
@@ -36,6 +37,7 @@ export const seoConfig = {
       }
     }
   },
+
   digitalTransformation: {
     title: "Digital Transformation Services | Strategic Technology Consulting",
     description: "Complete digital transformation services with Microsoft CSP, RTILA AI automation, and enterprise partnerships. Strategic consulting for growing businesses seeking technology-driven growth.",
@@ -51,6 +53,7 @@ export const seoConfig = {
       }
     }
   },
+
   cybersecurity: {
     title: "Cybersecurity Solutions | IRONSCALES, Check Point & Enterprise Security",
     description: "Comprehensive cybersecurity protection with IRONSCALES email security, Check Point firewalls, Vanta compliance, and Swif.ai device management. Enterprise-grade security for growing businesses.",
@@ -66,6 +69,7 @@ export const seoConfig = {
       }
     }
   },
+
   cloudInfrastructure: {
     title: "Cloud Infrastructure Services | Microsoft CSP & Azure Solutions",
     description: "Microsoft Cloud Solution Provider (CSP) services including Microsoft 365, Azure infrastructure, and Pax8 marketplace solutions. Expert cloud migration and optimization for growing businesses.",
@@ -81,6 +85,7 @@ export const seoConfig = {
       }
     }
   },
+
   businessAutomation: {
     title: "Business Automation Services | RTILA AI Master Agent",
     description: "AI-powered business automation with RTILA AI platform. Custom AI agents, workflow automation, and process optimization to increase productivity and reduce manual work.",
@@ -96,6 +101,7 @@ export const seoConfig = {
       }
     }
   },
+
   assessment: {
     title: "Free Digital Transformation Assessment | Business Technology Evaluation",
     description: "Take our free 20-question digital transformation assessment. Evaluate your technology readiness, security posture, and automation opportunities with expert recommendations.",
@@ -108,6 +114,7 @@ export const seoConfig = {
       "applicationCategory": "BusinessApplication"
     }
   },
+
   securityAssessment: {
     title: "Free Cybersecurity Risk Assessment | Security Vulnerability Analysis",
     description: "Comprehensive 25-question cybersecurity risk assessment across 5 security domains. Identify vulnerabilities, compliance gaps, and security improvement opportunities.",
@@ -118,6 +125,25 @@ export const seoConfig = {
       "name": "Cybersecurity Risk Assessment",
       "description": "Comprehensive security evaluation across multiple domains",
       "applicationCategory": "BusinessApplication"
+    }
+  },
+
+  roiCalculator: {
+    title: "Digital Transformation ROI Calculator | Investment Return Analysis",
+    description: "Calculate your digital transformation ROI with our interactive calculator. Analyze savings, payback period, and 3-year value from partnership-powered solutions including Microsoft CSP, RTILA AI, and security partnerships.",
+    keywords: "ROI calculator, digital transformation ROI, investment return calculator, business transformation calculator, Microsoft CSP savings, RTILA AI ROI, automation savings calculator",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Digital Transformation ROI Calculator",
+      "description": "Interactive calculator for analyzing digital transformation return on investment",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free ROI calculation with detailed analysis report"
+      }
     }
   }
 };
