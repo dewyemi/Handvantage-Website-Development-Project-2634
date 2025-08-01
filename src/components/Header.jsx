@@ -11,6 +11,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isAssessmentsOpen, setIsAssessmentsOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -36,27 +37,39 @@ const Header = () => {
       ]
     },
     { label: 'About', href: '/about', path: '/about' },
-    { label: 'Assessment', href: '/assessment', path: '/assessment' },
-    { label: 'Security Assessment', href: '/security-assessment', path: '/security-assessment' },
+    {
+      label: 'Assessments',
+      href: '/#assessments',
+      path: '/',
+      hasDropdown: true,
+      dropdownItems: [
+        { label: 'Digital Transformation Assessment', href: '/assessment' },
+        { label: 'Cybersecurity Risk Assessment', href: '/security-assessment' },
+      ]
+    },
     { label: 'Contact', href: 'https://handvantage.co/contact', path: '/', external: true }
   ];
 
   const isActive = (item) => {
     if (item.path === '/about' && location.pathname === '/about') return true;
-    if (item.path === '/assessment' && location.pathname.startsWith('/assessment')) return true;
-    if (item.path === '/security-assessment' && location.pathname.startsWith('/security-assessment')) return true;
     if (item.path === '/' && location.pathname === '/') return true;
     if (location.pathname.includes('/services/') && item.label === 'Services') return true;
+    if ((location.pathname === '/assessment' || location.pathname === '/assessment/start' || 
+         location.pathname === '/security-assessment' || location.pathname === '/security-assessment/start') && 
+         item.label === 'Assessments') return true;
     return false;
   };
 
   const isActiveSubItem = (href) => {
-    return location.pathname === href;
+    return location.pathname === href || 
+           (href === '/assessment' && location.pathname === '/assessment/start') || 
+           (href === '/security-assessment' && location.pathname === '/security-assessment/start');
   };
 
   const handleNavClick = (href, external) => {
     setIsMenuOpen(false);
     setIsServicesOpen(false);
+    setIsAssessmentsOpen(false);
 
     if (external) {
       window.open(href, '_blank', 'noopener,noreferrer');
@@ -98,8 +111,18 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className="relative"
-                onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
-                onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
+                onMouseEnter={() => {
+                  if (item.hasDropdown) {
+                    if (item.label === 'Services') setIsServicesOpen(true);
+                    if (item.label === 'Assessments') setIsAssessmentsOpen(true);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (item.hasDropdown) {
+                    if (item.label === 'Services') setIsServicesOpen(false);
+                    if (item.label === 'Assessments') setIsAssessmentsOpen(false);
+                  }
+                }}
               >
                 {item.hasDropdown ? (
                   <div className="group">
@@ -114,7 +137,8 @@ const Header = () => {
                     </button>
                     {/* Dropdown Menu */}
                     <div className={`absolute top-full left-0 bg-white shadow-lg rounded-lg py-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
-                      isServicesOpen ? 'opacity-100 visible' : ''
+                      (item.label === 'Services' && isServicesOpen) || 
+                      (item.label === 'Assessments' && isAssessmentsOpen) ? 'opacity-100 visible' : ''
                     }`}>
                       {item.dropdownItems.map((dropdownItem, i) => (
                         <Link
@@ -123,7 +147,10 @@ const Header = () => {
                           className={`block px-5 py-2 hover:bg-blue-50 text-slate-600 hover:text-primary-blue ${
                             isActiveSubItem(dropdownItem.href) ? 'bg-blue-50 text-primary-blue' : ''
                           }`}
-                          onClick={() => setIsServicesOpen(false)}
+                          onClick={() => {
+                            if (item.label === 'Services') setIsServicesOpen(false);
+                            if (item.label === 'Assessments') setIsAssessmentsOpen(false);
+                          }}
                         >
                           {dropdownItem.label}
                         </Link>
@@ -210,7 +237,10 @@ const Header = () => {
                   {item.hasDropdown ? (
                     <div>
                       <button
-                        onClick={() => setIsServicesOpen(!isServicesOpen)}
+                        onClick={() => {
+                          if (item.label === 'Services') setIsServicesOpen(!isServicesOpen);
+                          if (item.label === 'Assessments') setIsAssessmentsOpen(!isAssessmentsOpen);
+                        }}
                         className={`flex items-center justify-between w-full text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
                           isActive(item) ? 'text-primary-blue' : ''
                         }`}
@@ -219,11 +249,13 @@ const Header = () => {
                         <SafeIcon
                           icon={FiChevronDown}
                           className={`w-4 h-4 ml-1 transition-transform ${
-                            isServicesOpen ? 'transform rotate-180' : ''
+                            (item.label === 'Services' && isServicesOpen) || 
+                            (item.label === 'Assessments' && isAssessmentsOpen) ? 'transform rotate-180' : ''
                           }`}
                         />
                       </button>
-                      {isServicesOpen && (
+                      {((item.label === 'Services' && isServicesOpen) || 
+                        (item.label === 'Assessments' && isAssessmentsOpen)) && (
                         <div className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                           {item.dropdownItems.map((dropdownItem, i) => (
                             <Link
