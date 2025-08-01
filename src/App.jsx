@@ -1,5 +1,5 @@
-import React from 'react';
-import {HashRouter as Router,Routes,Route} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
@@ -17,11 +17,31 @@ import AssessmentLanding from './components/AssessmentLanding';
 import AssessmentTool from './components/AssessmentTool';
 import CybersecurityAssessmentLanding from './components/CybersecurityAssessmentLanding';
 import CybersecurityAssessment from './components/CybersecurityAssessment';
+import SEOHead from './components/SEOHead';
+import { seoConfig } from './utils/seoConfig';
+import { trackPageView } from './utils/analytics';
+
+// Component to handle page tracking
+function PageTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Track page view
+    const fullUrl = `${window.location.origin}${location.pathname}${location.hash}`;
+    trackPageView(fullUrl, document.title);
+
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
+        <PageTracker />
         <Header />
         <Routes>
           <Route path="/" element={
@@ -35,13 +55,43 @@ function App() {
             </main>
           } />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/services/digital-transformation" element={<DigitalTransformationPage />} />
-          <Route path="/services/cybersecurity" element={<CybersecurityPage />} />
-          <Route path="/services/cloud-infrastructure" element={<CloudInfrastructurePage />} />
-          <Route path="/services/business-automation" element={<BusinessAutomationPage />} />
-          <Route path="/assessment" element={<AssessmentLanding />} />
+          <Route path="/services/digital-transformation" element={
+            <>
+              <SEOHead {...seoConfig.digitalTransformation} />
+              <DigitalTransformationPage />
+            </>
+          } />
+          <Route path="/services/cybersecurity" element={
+            <>
+              <SEOHead {...seoConfig.cybersecurity} />
+              <CybersecurityPage />
+            </>
+          } />
+          <Route path="/services/cloud-infrastructure" element={
+            <>
+              <SEOHead {...seoConfig.cloudInfrastructure} />
+              <CloudInfrastructurePage />
+            </>
+          } />
+          <Route path="/services/business-automation" element={
+            <>
+              <SEOHead {...seoConfig.businessAutomation} />
+              <BusinessAutomationPage />
+            </>
+          } />
+          <Route path="/assessment" element={
+            <>
+              <SEOHead {...seoConfig.assessment} />
+              <AssessmentLanding />
+            </>
+          } />
           <Route path="/assessment/start" element={<AssessmentTool />} />
-          <Route path="/security-assessment" element={<CybersecurityAssessmentLanding />} />
+          <Route path="/security-assessment" element={
+            <>
+              <SEOHead {...seoConfig.securityAssessment} />
+              <CybersecurityAssessmentLanding />
+            </>
+          } />
           <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
           {/* Catch all route - redirect to home */}
           <Route path="*" element={

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://pages.handvantage.com/</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pages.handvantage.com/og-image.jpg</image:loc>
+      <image:title>Handvantage Digital Transformation Expert</image:title>
+      <image:caption>Josh Olayemi VP of Digital Transformation</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://pages.handvantage.com/#/about</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp</image:loc>
+      <image:title>Josh Olayemi - VP of Digital Transformation</image:title>
+      <image:caption>Digital transformation expert with 20+ years experience</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Digital Transformation Services -->
+  <url>
+    <loc>https://pages.handvantage.com/#/services/digital-transformation</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cybersecurity Services -->
+  <url>
+    <loc>https://pages.handvantage.com/#/services/cybersecurity</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Cloud Infrastructure Services -->
+  <url>
+    <loc>https://pages.handvantage.com/#/services/cloud-infrastructure</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Business Automation Services -->
+  <url>
+    <loc>https://pages.handvantage.com/#/services/business-automation</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Digital Transformation Assessment -->
+  <url>
+    <loc>https://pages.handvantage.com/#/assessment</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Cybersecurity Assessment -->
+  <url>
+    <loc>https://pages.handvantage.com/#/security-assessment</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Assessment Tools -->
+  <url>
+    <loc>https://pages.handvantage.com/#/assessment/start</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://pages.handvantage.com/#/security-assessment/start</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

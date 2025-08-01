@@ -1,92 +1,274 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8" /> 
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" /> 
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
-  <title>Handvantage - Digital Transformation Expert</title> 
-  <meta name="description" content="Transform your business with enterprise-grade technology solutions. Digital transformation, cybersecurity, and automation powered by industry-leading partnerships." /> 
-</head> 
-<body> 
-  <!-- Netlify Forms Detection --> 
-  <form name="cloud-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
-    <input type="text" name="firstName" /> 
-    <input type="text" name="lastName" /> 
-    <input type="email" name="email" /> 
-    <input type="tel" name="phone" /> 
-    <input type="text" name="company" /> 
-    <input type="text" name="currentCloud" /> 
-  </form> 
-  <form name="security-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
-    <input type="text" name="firstName" /> 
-    <input type="text" name="lastName" /> 
-    <input type="email" name="email" /> 
-    <input type="tel" name="phone" /> 
-    <input type="text" name="company" /> 
-    <input type="text" name="securityConcerns" /> 
-  </form> 
-  <form name="automation-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
-    <input type="text" name="firstName" /> 
-    <input type="text" name="lastName" /> 
-    <input type="email" name="email" /> 
-    <input type="tel" name="phone" /> 
-    <input type="text" name="company" /> 
-    <input type="text" name="automationNeeds" /> 
-  </form> 
-  <form name="transformation-assessment-contact" netlify netlify-honeypot="bot-field" hidden> 
-    <input type="text" name="firstName" /> 
-    <input type="text" name="lastName" /> 
-    <input type="email" name="email" /> 
-    <input type="tel" name="phone" /> 
-    <input type="text" name="company" /> 
-    <input type="text" name="transformationChallenges" /> 
-  </form> 
-  <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden> 
-    <input type="text" name="firstName" /> 
-    <input type="text" name="lastName" /> 
-    <input type="email" name="email" /> 
-    <input type="tel" name="phone" /> 
-    <input type="text" name="company" /> 
-    <input type="text" name="companySize" /> 
-    <input type="text" name="industry" /> 
-    <input type="text" name="revenue" /> 
-    <input type="number" name="totalScore" /> 
-    <input type="number" name="scorePercentage" /> 
-    <input type="number" name="completionTime" /> 
-    <input type="text" name="sectionScores" /> 
-    <input type="text" name="answers" /> 
-  </form> 
-  <form name="cybersecurity-assessment-results" netlify netlify-honeypot="bot-field" hidden> 
-    <input type="text" name="firstName" /> 
-    <input type="text" name="lastName" /> 
-    <input type="email" name="email" /> 
-    <input type="tel" name="phone" /> 
-    <input type="text" name="company" /> 
-    <input type="text" name="industry" /> 
-    <input type="text" name="companySize" /> 
-    <input type="text" name="complianceNeeds" /> 
-    <input type="number" name="totalScore" /> 
-    <input type="number" name="scorePercentage" /> 
-    <input type="number" name="completionTime" /> 
-    <input type="text" name="domainScores" /> 
-    <input type="text" name="answers" /> 
-  </form> 
-  <div id="root"></div> 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Handvantage - Digital Transformation Expert | Josh Olayemi VP</title>
+  <meta name="title" content="Handvantage - Digital Transformation Expert | Josh Olayemi VP">
+  <meta name="description" content="Transform your business with enterprise-grade technology solutions. Digital transformation, cybersecurity, cloud infrastructure, and AI automation powered by Microsoft CSP, RTILA AI, and industry-leading partnerships.">
+  <meta name="keywords" content="digital transformation, cybersecurity, cloud infrastructure, business automation, Microsoft CSP, RTILA AI, IRONSCALES, Check Point, Josh Olayemi, enterprise technology, small business IT, managed services">
+  <meta name="author" content="Josh Olayemi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pages.handvantage.com/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pages.handvantage.com/">
+  <meta property="og:title" content="Handvantage - Digital Transformation Expert | Josh Olayemi VP">
+  <meta property="og:description" content="Transform your business with enterprise-grade technology solutions. Digital transformation, cybersecurity, cloud infrastructure, and AI automation powered by industry-leading partnerships.">
+  <meta property="og:image" content="https://pages.handvantage.com/og-image.jpg">
+  <meta property="og:site_name" content="Handvantage">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://pages.handvantage.com/">
+  <meta property="twitter:title" content="Handvantage - Digital Transformation Expert | Josh Olayemi VP">
+  <meta property="twitter:description" content="Transform your business with enterprise-grade technology solutions. Digital transformation, cybersecurity, cloud infrastructure, and AI automation.">
+  <meta property="twitter:image" content="https://pages.handvantage.com/og-image.jpg">
+  <meta property="twitter:creator" content="@joshhandvantage">
+  
+  <!-- Business/Local SEO -->
+  <meta name="geo.region" content="CA-BC">
+  <meta name="geo.placename" content="Vancouver">
+  <meta name="geo.position" content="49.2827;-123.1207">
+  <meta name="ICBM" content="49.2827, -123.1207">
+  
+  <!-- Structured Data for Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Handvantage",
+    "url": "https://pages.handvantage.com",
+    "logo": "https://pages.handvantage.com/logo.png",
+    "description": "Digital transformation expert providing enterprise-grade technology solutions including cybersecurity, cloud infrastructure, and business automation.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-236-235-0919",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Josh Olayemi",
+      "jobTitle": "VP of Digital Transformation",
+      "description": "20+ years experience in digital transformation, former AWS, Oracle, and Amazon consultant"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/josh-olayemi",
+      "https://handvantage.co"
+    ],
+    "service": [
+      {
+        "@type": "Service",
+        "name": "Digital Transformation",
+        "description": "Strategic digital transformation consulting and implementation"
+      },
+      {
+        "@type": "Service", 
+        "name": "Cybersecurity Solutions",
+        "description": "Enterprise-grade cybersecurity protection with IRONSCALES, Check Point, and Vanta"
+      },
+      {
+        "@type": "Service",
+        "name": "Cloud Infrastructure",
+        "description": "Microsoft CSP cloud solutions and infrastructure optimization"
+      },
+      {
+        "@type": "Service",
+        "name": "Business Automation",
+        "description": "AI-powered business automation with RTILA AI platform"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Structured Data for Person (Josh Olayemi) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Josh Olayemi",
+    "jobTitle": "VP of Digital Transformation",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Handvantage"
+    },
+    "description": "Digital transformation expert with 20+ years experience. Former AWS, Oracle, and Amazon consultant specializing in enterprise technology solutions for growing businesses.",
+    "url": "https://pages.handvantage.com/about",
+    "image": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp",
+    "sameAs": [
+      "https://linkedin.com/in/josh-olayemi"
+    ],
+    "knowsAbout": [
+      "Digital Transformation",
+      "Cybersecurity",
+      "Cloud Computing",
+      "Business Automation",
+      "Microsoft Azure",
+      "AWS",
+      "Enterprise Technology"
+    ],
+    "alumniOf": [
+      "Amazon Web Services",
+      "Oracle Corporation"
+    ]
+  }
+  </script>
+  
+  <!-- Structured Data for Services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Handvantage Digital Transformation Services",
+    "description": "Comprehensive digital transformation services including cybersecurity, cloud infrastructure, and business automation for growing businesses.",
+    "url": "https://pages.handvantage.com",
+    "telephone": "+1-236-235-0919",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "49.2827",
+      "longitude": "-123.1207"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Canada"
+    },
+    "serviceType": "Digital Transformation Consulting",
+    "provider": {
+      "@type": "Organization",
+      "name": "Handvantage"
+    }
+  }
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CG9491VNQK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CG9491VNQK');
+  </script>
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com">
+  
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="//handvantage.co">
+  <link rel="dns-prefetch" href="//linkedin.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/src/main.jsx" as="script">
+  
+</head>
+<body>
+  <!-- Netlify Forms Detection -->
+  <form name="cloud-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="currentCloud" />
+  </form>
+  
+  <form name="security-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="securityConcerns" />
+  </form>
+  
+  <form name="automation-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="automationNeeds" />
+  </form>
+  
+  <form name="transformation-assessment-contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="transformationChallenges" />
+  </form>
+  
+  <form name="assessment-results" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="companySize" />
+    <input type="text" name="industry" />
+    <input type="text" name="revenue" />
+    <input type="number" name="totalScore" />
+    <input type="number" name="scorePercentage" />
+    <input type="number" name="completionTime" />
+    <input type="text" name="sectionScores" />
+    <input type="text" name="answers" />
+  </form>
+  
+  <form name="cybersecurity-assessment-results" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="industry" />
+    <input type="text" name="companySize" />
+    <input type="text" name="complianceNeeds" />
+    <input type="number" name="totalScore" />
+    <input type="number" name="scorePercentage" />
+    <input type="number" name="completionTime" />
+    <input type="text" name="domainScores" />
+    <input type="text" name="answers" />
+  </form>
+
+  <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   
   <!-- AI Sales Bot Integration -->
   <script src="https://app.noem.ai/js/ChatBot.js"></script>
   <script>
-    // (optional) Current user. You can exclude this for generic conversations.
-    let currentUser = { 
-      userId: null, // id or email
-      displayName: 'user', // display name
-      profilePic: null, // url to profile pic
-      email: null // User email. Required if you want to send emails to user
-      // add any other properties you'd like the AI bot to know about this user
+    let currentUser = {
+      userId: null,
+      displayName: 'user',
+      profilePic: null,
+      email: null
     };
     
-    // (optional) set options for the bot.
     let nbOptions = {
       "inputMessagePlaceHolderText": "Type your message here...",
       "disableCSS": false,
@@ -95,16 +277,11 @@
     
     const bot = new ChatBot('Njg4YzFjZjNjMjg0ODY2ZDcyZTFkZWFm', currentUser, null, nbOptions);
     
-    // (optional) override to take action. By default sends an event to Google Tag Manager 
-    //bot.onMessageSent = msg=>{}
-    //bot.onMessageReceived = msg=>{}
-    
-    // (optional) handles events triggered by the bot. 
     bot.onEventTriggered = (event, data) => {
       console.log(event, data);
     };
     
     bot.init();
   </script>
-</body> 
+</body>
 </html>
