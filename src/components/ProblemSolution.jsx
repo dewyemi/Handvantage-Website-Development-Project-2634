@@ -7,19 +7,57 @@ const {FiZap,FiShield,FiCpu,FiBuilding,FiGlobe,FiBot,FiCheckCircle,FiCloud,FiSta
 
 const ProblemSolution=()=> {
   const problems=[ 
-    {icon: FiZap,title: 'Digital Transformation Complexity',description: 'Overwhelming technology choices and implementation challenges'},
-    {icon: FiShield,title: 'Cybersecurity Threats',description: 'Email phishing,network vulnerabilities,and compliance gaps'},
-    {icon: FiCpu,title: 'Manual Processes',description: 'Time-consuming manual workflows slowing growth'},
-    {icon: FiBuilding,title: 'Multiple Vendors',description: 'Juggling different technology providers and contracts'},
-    {icon: FiGlobe,title: 'Lack of Strategy',description: 'No integrated technology roadmap for growth'} 
+    {icon: FiZap,
+     title: 'Digital Transformation Complexity',
+     description: 'Technology decisions that worked at 20 employees break at 50+ - creating growth bottlenecks instead of enabling expansion'},
+    
+    {icon: FiShield,
+     title: 'Cybersecurity Threats',
+     description: 'Growing businesses become attractive targets but lack enterprise-grade protection - one incident could destroy everything you\'ve built'},
+    
+    {icon: FiCpu,
+     title: 'Manual Processes',
+     description: 'Manual processes that worked before become bottlenecks - your team spends time on repetitive tasks instead of growing the business'},
+    
+    {icon: FiBuilding,
+     title: 'Multiple Vendors',
+     description: 'Technology vendors that don\'t talk to each other - creating complexity, higher costs, and integration nightmares'},
+    
+    {icon: FiGlobe,
+     title: 'Lack of Strategy',
+     description: 'Reactive technology decisions instead of strategic planning - limiting your ability to scale and compete effectively'} 
   ];
 
   const solutions=[ 
-    {icon: FiBot,title: 'RTILA AI Automation',description: 'Strategic consulting + cutting-edge business automation',badge: 'Master Agent',color: 'green'},
-    {icon: FiShield,title: 'Complete Security',description: 'IRONSCALES + Check Point + Microsoft + Swif.ai protection',badge: '16,000+ Orgs',color: 'green'},
-    {icon: FiCheckCircle,title: 'Compliance Automation',description: 'Vanta + Swif.ai automated SOC 2,HIPAA,ISO 27001',badge: '14 Days',color: 'green'},
-    {icon: FiCloud,title: 'Cloud Infrastructure',description: 'Microsoft CSP + Pax8 marketplace + Intermedia',badge: 'Direct Support',color: 'green'},
-    {icon: FiStar,title: 'Single Partner',description: 'Complete technology ecosystem through one relationship',badge: 'Integrated',color: 'green'} 
+    {icon: FiBot,
+     title: 'RTILA AI Automation',
+     description: 'Strategic consulting + cutting-edge business automation',
+     badge: 'Master Agent',
+     color: 'green'},
+    
+    {icon: FiShield,
+     title: 'Complete Security',
+     description: 'IRONSCALES + Check Point + Microsoft + Swif.ai protection',
+     badge: '16,000+ Orgs',
+     color: 'green'},
+    
+    {icon: FiCheckCircle,
+     title: 'Compliance Automation',
+     description: 'Vanta + Swif.ai automated SOC 2,HIPAA,ISO 27001',
+     badge: '14 Days',
+     color: 'green'},
+    
+    {icon: FiCloud,
+     title: 'Cloud Infrastructure',
+     description: 'Microsoft CSP + Pax8 marketplace + Intermedia',
+     badge: 'Direct Support',
+     color: 'green'},
+    
+    {icon: FiStar,
+     title: 'Single Partner',
+     description: 'Complete technology ecosystem through one relationship',
+     badge: 'Integrated',
+     color: 'green'} 
   ];
 
   return ( 
@@ -34,6 +72,7 @@ const ProblemSolution=()=> {
             We solve the complex technology challenges that hold your business back 
           </p> 
         </motion.div> 
+        
         {/* Problems Grid */} 
         <motion.div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 mb-20" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{duration: 0.6,delay: 0.2}} viewport={{once: true}} > 
           {problems.map((problem,index)=> ( 
@@ -46,15 +85,17 @@ const ProblemSolution=()=> {
             </motion.div> 
           ))} 
         </motion.div> 
+        
         {/* Solution Header */} 
         <motion.div className="text-center mb-16" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{duration: 0.6}} viewport={{once: true}} > 
           <h2 className="text-4xl font-bold text-primary-dark mb-4"> 
-            Strategic Technology Solutions That Eliminate Growth Bottlenecks
+            Strategic Technology Solutions That Eliminate Growth Bottlenecks 
           </h2> 
           <p className="text-xl text-slate-600 max-w-3xl mx-auto"> 
-            Comprehensive strategic consulting that transforms technology from growth barrier into competitive advantage
+            Comprehensive strategic consulting that transforms technology from growth barrier into competitive advantage 
           </p> 
         </motion.div> 
+        
         {/* Solutions Grid */} 
         <motion.div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{duration: 0.6,delay: 0.2}} viewport={{once: true}} > 
           {solutions.map((solution,index)=> ( 
