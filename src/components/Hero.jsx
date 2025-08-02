@@ -14,12 +14,6 @@ const Hero=()=> {
     {name: 'IRONSCALES',icon: FiMail},
     {name: 'RTILA AI',icon: FiCpu} 
   ];
-  
-  const credentials=[ 
-    'Former AWS Consultant',
-    'Former Oracle Consultant',
-    'Cybersecurity Consultant' 
-  ];
 
   return ( 
     <> 
@@ -44,7 +38,7 @@ const Hero=()=> {
               </motion.header> 
               {/* Subheadline */} 
               <motion.p className="text-xl text-slate-600 leading-relaxed" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.4}} > 
-                Strategic technology consulting that turns growing business challenges into competitive advantages
+                Strategic technology consulting that turns growing business challenges into competitive advantages 
               </motion.p> 
               {/* Josh's Credentials */} 
               <motion.div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.5}} > 
@@ -53,21 +47,23 @@ const Hero=()=> {
                 </div> 
                 <div> 
                   <h2 className="font-semibold text-primary-dark">Led by Josh Olayemi</h2> 
-                  <p className="text-slate-600">VP of Digital Transformation • 20+ years experience</p> 
+                  <p className="text-slate-600">VP of Digital Transformation • Strategic Business Consultant</p> 
                 </div> 
               </motion.div> 
               {/* Experience Badges */} 
               <motion.div className="flex flex-wrap gap-2" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.6}} > 
-                {credentials.map((credential,index)=> ( 
-                  <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm border" > 
-                    {credential} 
-                  </span> 
-                ))} 
-              </motion.div> 
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm border">
+                  20+ years implementing solutions from Fortune 500 enterprises to growing businesses
+                </span>
+              </motion.div>
+              {/* Enhanced Description */}
+              <motion.p className="text-slate-600 text-sm" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.7}}>
+                Josh brings something rare to growing businesses: the strategic thinking of Fortune 500 enterprises combined with hands-on experience serving companies just like yours. His unique background spans Amazon, Oracle, and AWS enterprise implementations, plus practical MSP ownership experience with growing businesses. This combination enables him to deliver enterprise-quality results without enterprise complexity and cost.
+              </motion.p>
               {/* CTA Buttons */} 
               <motion.div className="flex flex-col sm:flex-row gap-4" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.7}} > 
-                <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Get Digital Transformation Assessment" > 
-                  Get Digital Transformation Assessment 
+                <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Get Growth Bottleneck Assessment" > 
+                  Get Your Growth Bottleneck Assessment 
                 </motion.a> 
                 <motion.a href="tel:+12362350919" className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Call Josh Olayemi at 236-235-0919" > 
                   <SafeIcon icon={FiPhone} className="w-5 h-5" /> 
