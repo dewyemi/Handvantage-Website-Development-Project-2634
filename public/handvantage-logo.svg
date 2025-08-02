@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Main H shape -->
+  <path 
+    d="M20,15 L20,85 L35,85 L35,55 L65,55 L65,85 L80,85 L80,15 L65,15 L65,45 L35,45 L35,15 Z" 
+    fill="#2563eb" 
+  />
+  
+  <!-- Connection nodes and lines -->
+  <circle cx="80" cy="25" r="5" fill="white" />
+  <circle cx="90" cy="40" r="5" fill="white" />
+  <circle cx="90" cy="60" r="5" fill="white" />
+  <circle cx="80" cy="75" r="5" fill="white" />
+  
+  <!-- Connection lines -->
+  <line x1="80" y1="25" x2="90" y2="40" stroke="white" strokeWidth="2" />
+  <line x1="90" y1="40" x2="90" y2="60" stroke="white" strokeWidth="2" />
+  <line x1="90" y1="60" x2="80" y2="75" stroke="white" strokeWidth="2" />
+  
+  <!-- Central node -->
+  <circle cx="80" cy="50" r="7" fill="white" />
+  
+  <!-- Connecting lines to central node -->
+  <line x1="80" y1="25" x2="80" y2="50" stroke="white" strokeWidth="2" />
+  <line x1="90" y1="40" x2="80" y2="50" stroke="white" strokeWidth="2" />
+  <line x1="90" y1="60" x2="80" y2="50" stroke="white" strokeWidth="2" />
+  <line x1="80" y1="75" x2="80" y2="50" stroke="white" strokeWidth="2" />
+</svg>
