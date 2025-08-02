@@ -23,30 +23,10 @@ const BusinessAutomationPage = () => {
 
   // RTILA AI capabilities showcase
   const rtilaCapabilities = [
-    {
-      icon: FiBot,
-      title: "AI Agent Development",
-      description: "Custom AI agents for your specific workflows",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiZap,
-      title: "Process Automation",
-      description: "End-to-end workflow automation and optimization",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiBarChart,
-      title: "Revenue Optimization",
-      description: "AI-driven insights for business growth",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiShield,
-      title: "Enterprise Integration",
-      description: "Seamless integration with existing systems",
-      color: "#7c3aed"
-    }
+    {icon: FiBot, title: "AI Agent Development", description: "Custom AI agents for your specific workflows", color: "#7c3aed"},
+    {icon: FiZap, title: "Process Automation", description: "End-to-end workflow automation and optimization", color: "#7c3aed"},
+    {icon: FiBarChart, title: "Revenue Optimization", description: "AI-driven insights for business growth", color: "#7c3aed"},
+    {icon: FiShield, title: "Enterprise Integration", description: "Seamless integration with existing systems", color: "#7c3aed"}
   ];
 
   // Automation comparison - Basic vs Intelligent
@@ -185,64 +165,19 @@ const BusinessAutomationPage = () => {
 
   // ROI metrics
   const roiMetrics = [
-    {
-      number: "300%",
-      label: "Average ROI",
-      detail: "Within 12 months",
-      color: "#16a34a"
-    },
-    {
-      number: "40%",
-      label: "Time Savings",
-      detail: "On repetitive tasks",
-      color: "#7c3aed"
-    },
-    {
-      number: "60%",
-      label: "Faster Processing",
-      detail: "End-to-end workflows",
-      color: "#2563eb"
-    },
-    {
-      number: "90%",
-      label: "Error Reduction",
-      detail: "In automated processes",
-      color: "#f59e0b"
-    }
+    {number: "300%", label: "Average ROI", detail: "Within 12 months", color: "#16a34a"},
+    {number: "40%", label: "Time Savings", detail: "On repetitive tasks", color: "#7c3aed"},
+    {number: "60%", label: "Faster Processing", detail: "End-to-end workflows", color: "#2563eb"},
+    {number: "90%", label: "Error Reduction", detail: "In automated processes", color: "#f59e0b"}
   ];
 
   // Business impact categories
   const businessImpacts = [
-    {
-      icon: FiTrendingUp,
-      title: "Revenue Growth",
-      description: "Automated sales processes and customer service increase revenue by 25%",
-      color: "#16a34a"
-    },
-    {
-      icon: FiDollarSign,
-      title: "Cost Reduction",
-      description: "Eliminate manual labor costs and reduce operational expenses by 40%",
-      color: "#2563eb"
-    },
-    {
-      icon: FiZap,
-      title: "Competitive Advantage",
-      description: "AI automation capabilities that competitors can't easily replicate",
-      color: "#7c3aed"
-    },
-    {
-      icon: FiTrendingUp,
-      title: "Unlimited Scalability",
-      description: "Automated processes scale infinitely without additional headcount",
-      color: "#f59e0b"
-    },
-    {
-      icon: FiHeart,
-      title: "Employee Satisfaction",
-      description: "Staff focus on strategic work instead of repetitive tasks",
-      color: "#dc2626"
-    }
+    {icon: FiTrendingUp, title: "Revenue Growth", description: "Automated sales processes and customer service increase revenue by 25%", color: "#16a34a"},
+    {icon: FiDollarSign, title: "Cost Reduction", description: "Eliminate manual labor costs and reduce operational expenses by 40%", color: "#2563eb"},
+    {icon: FiZap, title: "Competitive Advantage", description: "AI automation capabilities that competitors can't easily replicate", color: "#7c3aed"},
+    {icon: FiTrendingUp, title: "Unlimited Scalability", description: "Automated processes scale infinitely without additional headcount", color: "#f59e0b"},
+    {icon: FiHeart, title: "Employee Satisfaction", description: "Staff focus on strategic work instead of repetitive tasks", color: "#dc2626"}
   ];
 
   // Implementation process steps
@@ -356,26 +291,16 @@ const BusinessAutomationPage = () => {
   // Form handlers
   const handleInputChange = (e) => {
     const {name, value} = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({...prev, [name]: value}));
   };
 
   const validateForm = () => {
     const errors = [];
-    if (!formData.firstName.trim()) {
-      errors.push('First Name is required');
-    }
-    if (!formData.lastName.trim()) {
-      errors.push('Last Name is required');
-    }
-    if (!formData.company.trim()) {
-      errors.push('Company Name is required');
-    }
-    if (!formData.email.trim()) {
-      errors.push('Email is required');
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (!formData.firstName.trim()) {errors.push('First Name is required');}
+    if (!formData.lastName.trim()) {errors.push('Last Name is required');}
+    if (!formData.company.trim()) {errors.push('Company Name is required');}
+    if (!formData.email.trim()) {errors.push('Email is required');}
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.push('Please enter a valid email address');
     }
     return errors;
@@ -385,19 +310,11 @@ const BusinessAutomationPage = () => {
     e.preventDefault();
     const errors = validateForm();
     if (errors.length > 0) {
-      setFormStatus({
-        isSubmitting: false,
-        isSuccess: false,
-        error: errors.join(', ')
-      });
+      setFormStatus({isSubmitting: false, isSuccess: false, error: errors.join(',')});
       return;
     }
 
-    setFormStatus({
-      isSubmitting: true,
-      isSuccess: false,
-      error: null
-    });
+    setFormStatus({isSubmitting: true, isSuccess: false, error: null});
 
     try {
       // Let Netlify handle the form submission
@@ -409,37 +326,18 @@ const BusinessAutomationPage = () => {
       });
 
       if (response.ok) {
-        setFormStatus({
-          isSubmitting: false,
-          isSuccess: true,
-          error: null
-        });
+        setFormStatus({isSubmitting: false, isSuccess: true, error: null});
         // Reset form
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          automationNeeds: ''
-        });
+        setFormData({firstName: '', lastName: '', email: '', phone: '', company: '', automationNeeds: ''});
         // Reset success message after 5 seconds
         setTimeout(() => {
-          setFormStatus({
-            isSubmitting: false,
-            isSuccess: false,
-            error: null
-          });
+          setFormStatus({isSubmitting: false, isSuccess: false, error: null});
         }, 5000);
       } else {
         throw new Error('Form submission failed');
       }
     } catch (error) {
-      setFormStatus({
-        isSubmitting: false,
-        isSuccess: false,
-        error: 'Failed to submit form. Please try again or contact us directly at 236-235-0919'
-      });
+      setFormStatus({isSubmitting: false, isSuccess: false, error: 'Failed to submit form. Please try again or contact us directly at 236-235-0919'});
     }
   };
 
@@ -450,7 +348,7 @@ const BusinessAutomationPage = () => {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Column - Automation Message */}
-            <motion.div
+            <motion.div 
               className="lg:col-span-7 space-y-8"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
@@ -458,7 +356,7 @@ const BusinessAutomationPage = () => {
               viewport={{once: true}}
             >
               {/* Badge */}
-              <motion.div
+              <motion.div 
                 className="inline-flex items-center bg-[#e9d5ff] text-[#7c3aed] px-4 py-2 rounded-full text-sm font-semibold"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
@@ -469,18 +367,18 @@ const BusinessAutomationPage = () => {
               </motion.div>
 
               {/* Headline */}
-              <motion.h1
+              <motion.h1 
                 className="text-4xl lg:text-5xl font-bold text-primary-dark leading-tight"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.3}}
                 viewport={{once: true}}
               >
-                AI-Powered Business Automation That Actually Drives Revenue
+                Strategic Process Optimization That Drives Revenue Growth
               </motion.h1>
 
               {/* Value proposition */}
-              <motion.p
+              <motion.p 
                 className="text-lg text-slate-600"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
@@ -491,14 +389,14 @@ const BusinessAutomationPage = () => {
               </motion.p>
 
               {/* Automation impact stats */}
-              <motion.div
+              <motion.div 
                 className="bg-[rgba(124,58,237,0.1)] border border-[#c4b5fd] rounded-lg p-5"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.5}}
                 viewport={{once: true}}
               >
-                <h4 className="text-lg font-bold text-[#7c3aed] mb-3">⚡ The Power of Intelligent Automation</h4>
+                <h4 className="text-lg font-bold text-[#7c3aed] mb-3">⚡ Strategic Business Advantages</h4>
                 <ul className="space-y-2 text-[#6b46c1]">
                   <li className="flex items-start">
                     <span className="font-bold mr-2">•</span>
@@ -524,14 +422,14 @@ const BusinessAutomationPage = () => {
               </motion.div>
 
               {/* CTA buttons */}
-              <motion.div
+              <motion.div 
                 className="flex flex-col sm:flex-row gap-4 pt-4"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.6}}
                 viewport={{once: true}}
               >
-                <motion.a
+                <motion.a 
                   href="#automation-assessment"
                   className="bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300"
                   whileHover={{scale: 1.05}}
@@ -541,9 +439,9 @@ const BusinessAutomationPage = () => {
                     document.getElementById('automation-assessment').scrollIntoView({behavior: 'smooth'});
                   }}
                 >
-                  Get Automation Assessment
+                  Get Process Optimization Strategy
                 </motion.a>
-                <motion.a
+                <motion.a 
                   href="#examples"
                   className="border-2 border-[#7c3aed] text-[#7c3aed] px-8 py-4 rounded-lg font-semibold text-center hover:bg-[#7c3aed] hover:text-white transition-colors duration-300"
                   whileHover={{scale: 1.05}}
@@ -553,13 +451,13 @@ const BusinessAutomationPage = () => {
                     document.getElementById('examples').scrollIntoView({behavior: 'smooth'});
                   }}
                 >
-                  See Automation Examples
+                  See Strategic Automation Examples
                 </motion.a>
               </motion.div>
             </motion.div>
 
             {/* Right Column - RTILA AI Showcase */}
-            <motion.div
+            <motion.div 
               className="lg:col-span-5"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
@@ -567,7 +465,7 @@ const BusinessAutomationPage = () => {
               viewport={{once: true}}
             >
               <div className="bg-white rounded-2xl p-8 shadow-xl">
-                <motion.h3
+                <motion.h3 
                   className="text-2xl font-bold text-primary-dark text-center mb-4"
                   initial={{opacity: 0, y: 20}}
                   whileInView={{opacity: 1, y: 0}}
@@ -576,7 +474,7 @@ const BusinessAutomationPage = () => {
                 >
                   RTILA AI Master Agent
                 </motion.h3>
-                <motion.div
+                <motion.div 
                   className="bg-[#7c3aed] text-white px-4 py-2 rounded-full text-sm font-semibold text-center mb-6"
                   initial={{opacity: 0, y: 20}}
                   whileInView={{opacity: 1, y: 0}}
@@ -587,7 +485,7 @@ const BusinessAutomationPage = () => {
                 </motion.div>
                 <div className="grid grid-cols-2 gap-4">
                   {rtilaCapabilities.map((capability, index) => (
-                    <motion.div
+                    <motion.div 
                       key={index}
                       className="bg-gray-50 rounded-lg p-4 text-center"
                       initial={{opacity: 0, scale: 0.8}}
@@ -596,11 +494,7 @@ const BusinessAutomationPage = () => {
                       viewport={{once: true}}
                       whileHover={{y: -5}}
                     >
-                      <SafeIcon
-                        icon={capability.icon}
-                        className="w-8 h-8 mx-auto mb-3"
-                        style={{color: capability.color}}
-                      />
+                      <SafeIcon icon={capability.icon} className="w-8 h-8 mx-auto mb-3" style={{color: capability.color}} />
                       <h4 className="font-bold text-primary-dark mb-1 text-sm">{capability.title}</h4>
                       <p className="text-xs text-slate-600">{capability.description}</p>
                     </motion.div>
@@ -616,7 +510,7 @@ const BusinessAutomationPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           {/* Section header */}
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -624,17 +518,17 @@ const BusinessAutomationPage = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Business Automation vs. Simple Task Automation
+              Strategic Automation vs. Basic Task Automation
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Understanding the difference between basic automation and intelligent business transformation
+              Understanding the difference between basic automation and strategic business transformation
             </p>
           </motion.div>
 
           {/* Automation Comparison */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Basic Automation */}
-            <motion.div
+            <motion.div 
               className="bg-[#fef3c7] border border-[#fbbf24] rounded-xl p-8"
               initial={{opacity: 0, x: -30}}
               whileInView={{opacity: 1, x: 0}}
@@ -673,22 +567,22 @@ const BusinessAutomationPage = () => {
             </motion.div>
 
             {/* Intelligent Automation */}
-            <motion.div
+            <motion.div 
               className="bg-[#f3e8ff] border border-[#c4b5fd] rounded-xl p-8"
               initial={{opacity: 0, x: 30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <h3 className="text-2xl font-bold text-[#7c3aed] mb-6">🧠 Intelligent Business Automation</h3>
+              <h3 className="text-2xl font-bold text-[#7c3aed] mb-6">🧠 Strategic Process Optimization</h3>
               <div className="mb-6">
                 <h4 className="font-bold text-gray-800 mb-2">AI-Powered Business Transformation</h4>
                 <p className="text-gray-700 mb-4">
-                  RTILA AI delivers intelligent automation that learns, adapts, and makes decisions to transform entire business processes.
+                  RTILA AI delivers intelligent automation that learns, adapts, and makes decisions to transform entire business processes into competitive advantages.
                 </p>
               </div>
               <div className="mb-6">
-                <h4 className="font-bold text-gray-800 mb-3">Characteristics:</h4>
+                <h4 className="font-bold text-gray-800 mb-3">Strategic Advantages:</h4>
                 <ul className="space-y-2">
                   {intelligentAutomation.map((item, index) => (
                     <li key={index} className="flex items-start">
@@ -699,7 +593,7 @@ const BusinessAutomationPage = () => {
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-gray-800 mb-3">Examples:</h4>
+                <h4 className="font-bold text-gray-800 mb-3">Business Applications:</h4>
                 <ul className="space-y-2">
                   {intelligentExamples.map((example, index) => (
                     <li key={index} className="flex items-start">
@@ -718,7 +612,7 @@ const BusinessAutomationPage = () => {
       <section className="py-20 bg-primary-light">
         <div className="container mx-auto px-6">
           {/* Section header */}
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -726,7 +620,7 @@ const BusinessAutomationPage = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              RTILA AI Automation Capabilities
+              Strategic Process Optimization Capabilities
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Comprehensive AI automation platform that transforms every aspect of your business
@@ -736,7 +630,7 @@ const BusinessAutomationPage = () => {
           {/* Automation Capabilities Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {automationCapabilities.map((capability, index) => (
-              <motion.div
+              <motion.div 
                 key={index}
                 className="automation-capability"
                 initial={{opacity: 0, y: 30}}
@@ -745,42 +639,37 @@ const BusinessAutomationPage = () => {
                 viewport={{once: true}}
                 whileHover={{y: -8}}
               >
-                <div
-                  className="rounded-xl p-6 h-full"
-                  style={{
-                    backgroundColor: capability.bg,
-                    borderColor: capability.border,
-                    borderWidth: "1px"
-                  }}
+                <div 
+                  className="rounded-xl p-6 h-full" 
+                  style={{backgroundColor: capability.bg, borderColor: capability.border, borderWidth: "1px"}}
                 >
                   {/* Icon */}
-                  <SafeIcon
-                    icon={capability.icon}
-                    className="w-12 h-12 mb-4"
-                    style={{color: capability.color}}
-                  />
-
+                  <SafeIcon icon={capability.icon} className="w-12 h-12 mb-4" style={{color: capability.color}} />
+                  
                   {/* Title */}
                   <h3 className="text-xl font-bold text-primary-dark mb-2">
                     {capability.title}
                   </h3>
-
+                  
                   {/* Subtitle */}
-                  <p className="font-medium mb-3" style={{color: capability.color}}>
+                  <p 
+                    className="font-medium mb-3" 
+                    style={{color: capability.color}}
+                  >
                     {capability.subtitle}
                   </p>
-
+                  
                   {/* Description */}
                   <p className="text-slate-700 mb-4 text-sm">{capability.description}</p>
-
+                  
                   {/* Features */}
                   <ul className="space-y-2">
                     {capability.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <SafeIcon
-                          icon={FiCheckCircle}
-                          className="w-4 h-4 mr-2 mt-0.5"
-                          style={{color: capability.color}}
+                        <SafeIcon 
+                          icon={FiCheckCircle} 
+                          className="w-4 h-4 mr-2 mt-0.5" 
+                          style={{color: capability.color}} 
                         />
                         <span className="text-slate-700 text-xs">{feature}</span>
                       </li>
@@ -798,21 +687,21 @@ const BusinessAutomationPage = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Column - ROI Metrics */}
-            <motion.div
+            <motion.div 
               initial={{opacity: 0, x: -30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
               <h2 className="text-3xl font-bold text-primary-dark mb-4">
-                Measurable Automation ROI
+                Measurable Strategic ROI
               </h2>
               <p className="text-lg text-slate-600 mb-8">
                 RTILA AI automation delivers quantifiable business results that justify investment and accelerate growth. Our Master Agent expertise ensures maximum ROI from day one.
               </p>
               <div className="grid grid-cols-2 gap-5">
                 {roiMetrics.map((metric, index) => (
-                  <motion.div
+                  <motion.div 
                     key={index}
                     className="bg-primary-light rounded-xl p-5 text-center shadow-sm"
                     initial={{opacity: 0, y: 20}}
@@ -821,8 +710,8 @@ const BusinessAutomationPage = () => {
                     viewport={{once: true}}
                     whileHover={{y: -5}}
                   >
-                    <p
-                      className="text-2xl font-bold mb-1"
+                    <p 
+                      className="text-2xl font-bold mb-1" 
                       style={{color: metric.color}}
                     >
                       {metric.number}
@@ -835,7 +724,7 @@ const BusinessAutomationPage = () => {
             </motion.div>
 
             {/* Right Column - Business Impact */}
-            <motion.div
+            <motion.div 
               initial={{opacity: 0, x: 30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
@@ -843,11 +732,11 @@ const BusinessAutomationPage = () => {
             >
               <div className="bg-[#f3e8ff] rounded-xl p-8 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
-                  Real Business Transformation
+                  Strategic Business Advantages
                 </h3>
                 <div className="space-y-6">
                   {businessImpacts.map((impact, index) => (
-                    <motion.div
+                    <motion.div 
                       key={index}
                       className="flex items-start"
                       initial={{opacity: 0, y: 20}}
@@ -855,15 +744,11 @@ const BusinessAutomationPage = () => {
                       transition={{duration: 0.4, delay: 0.2 + index * 0.1}}
                       viewport={{once: true}}
                     >
-                      <div
-                        className="p-3 rounded-lg mr-4 flex-shrink-0"
+                      <div 
+                        className="p-3 rounded-lg mr-4 flex-shrink-0" 
                         style={{backgroundColor: `${impact.color}15`}}
                       >
-                        <SafeIcon
-                          icon={impact.icon}
-                          className="w-6 h-6"
-                          style={{color: impact.color}}
-                        />
+                        <SafeIcon icon={impact.icon} className="w-6 h-6" style={{color: impact.color}} />
                       </div>
                       <div>
                         <h4 className="font-bold text-primary-dark mb-1">
@@ -886,7 +771,7 @@ const BusinessAutomationPage = () => {
       <section className="py-20 bg-primary-light">
         <div className="container mx-auto px-6">
           {/* Section header */}
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -894,7 +779,7 @@ const BusinessAutomationPage = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Our Proven Automation Implementation Process
+              Our Strategic Implementation Methodology
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Master Agent methodology that ensures successful automation deployment and adoption
@@ -904,7 +789,7 @@ const BusinessAutomationPage = () => {
           {/* Implementation Steps */}
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
             {implementationSteps.map((step, index) => (
-              <motion.div
+              <motion.div 
                 key={index}
                 className="implementation-step bg-white rounded-xl p-6 text-center shadow-lg"
                 initial={{opacity: 0, y: 30}}
@@ -913,8 +798,8 @@ const BusinessAutomationPage = () => {
                 viewport={{once: true}}
                 whileHover={{y: -8}}
               >
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" 
                   style={{backgroundColor: step.color}}
                 >
                   <span className="text-lg font-bold text-white">
@@ -927,8 +812,8 @@ const BusinessAutomationPage = () => {
                 <ul className="space-y-2 text-left">
                   {step.description.map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <span
-                        className="text-lg mr-2"
+                      <span 
+                        className="text-lg mr-2" 
                         style={{color: step.color}}
                       >
                         •
@@ -947,7 +832,7 @@ const BusinessAutomationPage = () => {
       <section id="examples" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           {/* Section header */}
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -955,17 +840,17 @@ const BusinessAutomationPage = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Real-World Automation Examples
+              Strategic Business Transformation Examples
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              See how RTILA AI automation transforms different business functions
+              See how strategic process optimization creates competitive advantages across different business functions
             </p>
           </motion.div>
 
           {/* Use Cases */}
           <div className="space-y-8">
             {useCases.map((useCase, index) => (
-              <motion.div
+              <motion.div 
                 key={index}
                 className="use-case grid md:grid-cols-12 gap-8 items-center"
                 initial={{opacity: 0, x: -30}}
@@ -974,52 +859,51 @@ const BusinessAutomationPage = () => {
                 viewport={{once: true}}
               >
                 <div className="md:col-span-2 flex justify-center">
-                  <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center"
+                  <div 
+                    className="w-20 h-20 rounded-full flex items-center justify-center" 
                     style={{backgroundColor: useCase.color}}
                   >
                     <SafeIcon icon={useCase.icon} className="w-8 h-8 text-white" />
                   </div>
                 </div>
                 <div className="md:col-span-10">
-                  <div
-                    className="rounded-xl p-8"
-                    style={{
-                      backgroundColor: useCase.bg,
-                      borderColor: useCase.color,
-                      borderWidth: "1px"
-                    }}
+                  <div 
+                    className="rounded-xl p-8" 
+                    style={{backgroundColor: useCase.bg, borderColor: useCase.color, borderWidth: "1px"}}
                   >
                     <h3 className="text-2xl font-bold text-primary-dark mb-4">
                       {useCase.title}
                     </h3>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="font-bold text-primary-dark mb-2">Challenge:</h4>
+                        <h4 className="font-bold text-primary-dark mb-2">Business Challenge:</h4>
                         <p className="text-slate-600 mb-4">{useCase.challenge}</p>
-                        <h4 className="font-bold text-primary-dark mb-2">Solution:</h4>
+                        <h4 className="font-bold text-primary-dark mb-2">Strategic Solution:</h4>
                         <p className="text-slate-600">{useCase.solution}</p>
                       </div>
                       <div>
-                        <h4 className="font-bold text-primary-dark mb-3">Results:</h4>
+                        <h4 className="font-bold text-primary-dark mb-3">Business Outcomes:</h4>
                         <ul className="space-y-2 mb-4">
                           {useCase.results.map((result, i) => (
                             <li key={i} className="flex items-start">
-                              <SafeIcon
-                                icon={FiCheckCircle}
-                                className="w-4 h-4 mr-2 mt-0.5"
-                                style={{color: useCase.color}}
+                              <SafeIcon 
+                                icon={FiCheckCircle} 
+                                className="w-4 h-4 mr-2 mt-0.5" 
+                                style={{color: useCase.color}} 
                               />
                               <span className="text-slate-600 text-sm">{result}</span>
                             </li>
                           ))}
                         </ul>
-                        <div
-                          className="p-3 rounded-lg"
+                        <div 
+                          className="p-3 rounded-lg" 
                           style={{backgroundColor: `${useCase.color}15`}}
                         >
-                          <p className="font-bold" style={{color: useCase.color}}>
-                            ROI: {useCase.roi}
+                          <p 
+                            className="font-bold" 
+                            style={{color: useCase.color}}
+                          >
+                            Strategic ROI: {useCase.roi}
                           </p>
                         </div>
                       </div>
@@ -1035,7 +919,7 @@ const BusinessAutomationPage = () => {
       {/* Get Started CTA Section */}
       <section id="automation-assessment" className="py-20 bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] text-white">
         <div className="container mx-auto px-6">
-          <motion.div
+          <motion.div 
             className="max-w-4xl mx-auto text-center"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
@@ -1043,29 +927,29 @@ const BusinessAutomationPage = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold mb-4">
-              Ready to Automate Your Business?
+              Ready to Transform Your Business Processes?
             </h2>
             <p className="text-xl text-purple-100 mb-8">
-              Get your free automation assessment and discover how RTILA AI can transform your business operations
+              Get your free process optimization strategy session and discover how RTILA AI can transform your business operations
             </p>
-            <motion.div
+            <motion.div 
               className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.6, delay: 0.2}}
               viewport={{once: true}}
             >
-              <h3 className="text-2xl font-bold mb-4">🤖 Free Business Automation Assessment</h3>
+              <h3 className="text-2xl font-bold mb-4">🤖 Free Process Optimization Strategy Session</h3>
               <div className="mb-6">
-                <p className="font-semibold mb-3">Comprehensive Automation Opportunity Analysis</p>
+                <p className="font-semibold mb-3">Comprehensive Business Process Analysis</p>
                 <ul className="grid md:grid-cols-2 gap-y-2 gap-x-4 text-left">
                   <li className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-purple-200 mr-2" />
-                    <span>Current process analysis and automation potential identification</span>
+                    <span>Current process analysis and bottleneck identification</span>
                   </li>
                   <li className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-purple-200 mr-2" />
-                    <span>Custom AI agent recommendations for your specific workflows</span>
+                    <span>Strategic automation opportunity mapping</span>
                   </li>
                   <li className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-purple-200 mr-2" />
@@ -1073,11 +957,11 @@ const BusinessAutomationPage = () => {
                   </li>
                   <li className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-purple-200 mr-2" />
-                    <span>RTILA AI platform demonstration and capabilities overview</span>
+                    <span>Competitive advantage creation strategy</span>
                   </li>
                   <li className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-purple-200 mr-2" />
-                    <span>90-day automation roadmap with quick wins</span>
+                    <span>90-day strategic roadmap with quick wins</span>
                   </li>
                 </ul>
               </div>
@@ -1085,14 +969,14 @@ const BusinessAutomationPage = () => {
                 Value: $3,000 | Your Investment: $0
               </p>
             </motion.div>
-            <motion.div
+            <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.6, delay: 0.3}}
               viewport={{once: true}}
             >
-              <motion.a
+              <motion.a 
                 href="#contact"
                 className="bg-white text-[#7c3aed] px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
                 whileHover={{scale: 1.05}}
@@ -1102,20 +986,20 @@ const BusinessAutomationPage = () => {
                   document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
                 }}
               >
-                Get Your Free Automation Assessment
+                Get Your Free Process Optimization Strategy
               </motion.a>
-              <motion.a
+              <motion.a 
                 href="tel:+12362350919"
                 className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-[#7c3aed] transition-colors duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
                 <SafeIcon icon={FiPhone} className="w-5 h-5" />
-                <span>Call Josh: 236-235-0919</span>
+                <span>Strategic Consultation: 236-235-0919</span>
               </motion.a>
             </motion.div>
             <p className="text-purple-100 text-sm mt-4">
-              RTILA AI Master Agent • No obligation • Immediate automation insights
+              RTILA AI Master Agent • No obligation • Immediate strategic insights
             </p>
           </motion.div>
         </div>
@@ -1126,34 +1010,34 @@ const BusinessAutomationPage = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column - Contact Form */}
-            <motion.div
+            <motion.div 
               initial={{opacity: 0, x: -30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <h2 className="text-3xl font-bold mb-6">Schedule Your Automation Assessment</h2>
+              <h2 className="text-3xl font-bold mb-6">Schedule Your Process Optimization Strategy Session</h2>
               <p className="text-slate-300 mb-8">
-                Fill out the form below to schedule your free automation assessment with Josh and discover how RTILA AI can transform your business operations.
+                Fill out the form below to schedule your free process optimization strategy session with Josh to identify growth opportunities and create competitive advantages through strategic automation.
               </p>
 
               {/* Success Message */}
               {formStatus.isSuccess && (
-                <motion.div
+                <motion.div 
                   className="bg-green-500 text-white p-4 rounded-lg mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
                   <div className="flex items-center">
                     <SafeIcon icon={FiCheckCircle} className="w-5 h-5 mr-2" />
-                    <span>Thank you! Your automation assessment request has been submitted successfully. Josh will contact you within 24 hours.</span>
+                    <span>Thank you! Your process optimization strategy request has been submitted successfully. Josh will contact you within 24 hours to discuss how we can transform your business processes into strategic competitive advantages.</span>
                   </div>
                 </motion.div>
               )}
 
               {/* Error Message */}
               {formStatus.error && (
-                <motion.div
+                <motion.div 
                   className="bg-red-500 text-white p-4 rounded-lg mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
@@ -1163,7 +1047,7 @@ const BusinessAutomationPage = () => {
               )}
 
               {/* Netlify Form */}
-              <form
+              <form 
                 name="automation-assessment-contact"
                 method="POST"
                 data-netlify="true"
@@ -1173,13 +1057,13 @@ const BusinessAutomationPage = () => {
               >
                 {/* Netlify form detection */}
                 <input type="hidden" name="form-name" value="automation-assessment-contact" />
-
+                
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-slate-300 mb-1">
                       First Name <span className="text-red-400">*</span>
                     </label>
-                    <input
+                    <input 
                       type="text"
                       id="firstName"
                       name="firstName"
@@ -1194,7 +1078,7 @@ const BusinessAutomationPage = () => {
                     <label htmlFor="lastName" className="block text-sm font-medium text-slate-300 mb-1">
                       Last Name <span className="text-red-400">*</span>
                     </label>
-                    <input
+                    <input 
                       type="text"
                       id="lastName"
                       name="lastName"
@@ -1206,12 +1090,12 @@ const BusinessAutomationPage = () => {
                     />
                   </div>
                 </div>
-
+                
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">
                     Email Address <span className="text-red-400">*</span>
                   </label>
-                  <input
+                  <input 
                     type="email"
                     id="email"
                     name="email"
@@ -1222,12 +1106,12 @@ const BusinessAutomationPage = () => {
                     placeholder="your.email@example.com"
                   />
                 </div>
-
+                
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">
                     Phone Number
                   </label>
-                  <input
+                  <input 
                     type="tel"
                     id="phone"
                     name="phone"
@@ -1237,12 +1121,12 @@ const BusinessAutomationPage = () => {
                     placeholder="Your phone number"
                   />
                 </div>
-
+                
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">
                     Company Name <span className="text-red-400">*</span>
                   </label>
-                  <input
+                  <input 
                     type="text"
                     id="company"
                     name="company"
@@ -1253,26 +1137,26 @@ const BusinessAutomationPage = () => {
                     placeholder="Your company name"
                   />
                 </div>
-
+                
                 <div>
                   <label htmlFor="automationNeeds" className="block text-sm font-medium text-slate-300 mb-1">
-                    What processes would you like to automate?
+                    What business outcomes are you trying to achieve through process optimization?
                   </label>
-                  <textarea
+                  <textarea 
                     id="automationNeeds"
                     name="automationNeeds"
                     value={formData.automationNeeds}
                     onChange={handleInputChange}
                     rows="4"
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
-                    placeholder="Tell us about the manual processes you'd like to automate..."
+                    placeholder="Describe your growth goals and current process challenges..."
                   ></textarea>
                 </div>
-
+                
                 {/* reCAPTCHA */}
                 <div data-netlify-recaptcha="true"></div>
-
-                <motion.button
+                
+                <motion.button 
                   type="submit"
                   disabled={formStatus.isSubmitting}
                   className="w-full bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
@@ -1285,14 +1169,14 @@ const BusinessAutomationPage = () => {
                       Submitting...
                     </>
                   ) : (
-                    'Schedule My Automation Assessment'
+                    'Schedule My Process Optimization Strategy Session'
                   )}
                 </motion.button>
               </form>
             </motion.div>
 
             {/* Right Column - Master Agent Profile */}
-            <motion.div
+            <motion.div 
               className="text-center"
               initial={{opacity: 0, x: 30}}
               whileInView={{opacity: 1, x: 0}}
@@ -1301,44 +1185,44 @@ const BusinessAutomationPage = () => {
             >
               <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
                 <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#7c3aed]">
-                  <img
-                    src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp"
-                    alt="Josh Olayemi"
+                  <img 
+                    src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp" 
+                    alt="Josh Olayemi" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
-                <p className="text-[#7c3aed] font-semibold mb-2">RTILA AI Master Agent</p>
-                <p className="text-slate-300 mb-4">VP of Digital Transformation</p>
+                <p className="text-[#7c3aed] font-semibold mb-2">Strategic Technology Consultant</p>
+                <p className="text-slate-300 mb-4">Process Optimization Expert</p>
                 <div className="bg-[#7c3aed]/20 p-4 rounded-lg mb-6">
-                  <h4 className="font-bold text-[#c4b5fd] mb-2">🏆 Master Agent Exclusive Benefits:</h4>
+                  <h4 className="font-bold text-[#c4b5fd] mb-2">🏆 Strategic Advantages:</h4>
                   <ul className="text-slate-300 space-y-2 text-sm">
                     <li className="flex items-center justify-center">
                       <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-[#7c3aed] mr-2" />
-                      <span>Direct RTILA AI platform access</span>
+                      <span>Strategic process optimization expertise</span>
                     </li>
                     <li className="flex items-center justify-center">
                       <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-[#7c3aed] mr-2" />
-                      <span>Custom AI agent development</span>
+                      <span>Growth bottleneck elimination</span>
                     </li>
                     <li className="flex items-center justify-center">
                       <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-[#7c3aed] mr-2" />
-                      <span>Priority support and training</span>
+                      <span>Competitive advantage creation</span>
                     </li>
                     <li className="flex items-center justify-center">
                       <SafeIcon icon={FiCheckCircle} className="w-4 h-4 text-[#7c3aed] mr-2" />
-                      <span>Advanced automation strategies</span>
+                      <span>Enterprise-grade strategic automation</span>
                     </li>
                   </ul>
                 </div>
                 <blockquote className="text-slate-300 italic mb-6 text-sm">
-                  "As a RTILA AI Master Agent, I bring enterprise-grade automation capabilities to growing businesses. Let's transform your operations with AI that actually works."
+                  "I help businesses transform manual processes into strategic competitive advantages through intelligent automation that drives measurable business results."
                 </blockquote>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
                     <SafeIcon icon={FiPhone} className="w-5 h-5 text-[#7c3aed]" />
-                    <a
-                      href="tel:+12362350919"
+                    <a 
+                      href="tel:+12362350919" 
                       className="text-slate-300 hover:text-white"
                     >
                       236-235-0919
@@ -1347,7 +1231,7 @@ const BusinessAutomationPage = () => {
                 </div>
                 <div className="border-t border-slate-700 pt-6">
                   <p className="text-slate-400 text-sm">
-                    Available for automation consultations Monday-Friday, 9 AM - 6 PM PST
+                    Available for strategic consultations Monday-Friday, 9 AM - 6 PM PST
                   </p>
                 </div>
               </div>

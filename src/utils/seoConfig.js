@@ -1,14 +1,14 @@
 export const seoConfig = {
   home: {
-    title: "Handvantage - Digital Transformation Expert | Josh Olayemi VP",
-    description: "Transform your business with enterprise-grade technology solutions. Digital transformation, cybersecurity, cloud infrastructure, and AI automation powered by Microsoft CSP, RTILA AI, and industry-leading partnerships.",
-    keywords: "digital transformation, cybersecurity, cloud infrastructure, business automation, Microsoft CSP, RTILA AI, IRONSCALES, Check Point, Josh Olayemi, enterprise technology, small business IT, managed services",
+    title: "Strategic Technology Consulting | Eliminate Growth Bottlenecks | Handvantage",
+    description: "Strategic technology consulting for growing businesses. Eliminate technology bottlenecks that limit growth and create competitive advantages. 20+ years Fortune 500 expertise.",
+    keywords: "strategic technology consulting, growth bottlenecks, competitive advantages, business strategy, technology strategy, strategic planning, Josh Olayemi, enterprise expertise, business transformation",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Handvantage",
       "url": "https://pages.handvantage.com",
-      "description": "Digital transformation expert providing enterprise-grade technology solutions",
+      "description": "Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://pages.handvantage.com/search?q={search_term_string}",
@@ -16,19 +16,18 @@ export const seoConfig = {
       }
     }
   },
-
   about: {
-    title: "About Josh Olayemi - Digital Transformation Expert | 20+ Years Experience",
-    description: "Meet Josh Olayemi, VP of Digital Transformation with 20+ years experience at Amazon, Oracle, and AWS. Expert in cybersecurity, cloud infrastructure, and business automation for growing businesses.",
-    keywords: "Josh Olayemi, digital transformation expert, AWS consultant, Oracle consultant, Amazon security consultant, cybersecurity expert, cloud infrastructure specialist, VP digital transformation",
+    title: "About Josh Olayemi - Strategic Technology Consultant | 20+ Years Experience",
+    description: "Meet Josh Olayemi, strategic technology consultant with 20+ years experience at Amazon, Oracle, and AWS. Expert in eliminating growth bottlenecks and creating competitive advantages.",
+    keywords: "Josh Olayemi, strategic technology consultant, business growth strategist, AWS consultant, Oracle consultant, Amazon consultant, growth bottleneck expert, competitive advantage",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
       "mainEntity": {
         "@type": "Person",
         "name": "Josh Olayemi",
-        "jobTitle": "VP of Digital Transformation",
-        "description": "Digital transformation expert with 20+ years experience at Amazon, Oracle, and AWS",
+        "jobTitle": "Strategic Technology Consultant",
+        "description": "Strategic technology consultant with 20+ years experience at Amazon, Oracle, and AWS",
         "image": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp",
         "worksFor": {
           "@type": "Organization",
@@ -37,112 +36,105 @@ export const seoConfig = {
       }
     }
   },
-
   digitalTransformation: {
-    title: "Digital Transformation Services | Strategic Technology Consulting",
-    description: "Complete digital transformation services with Microsoft CSP, RTILA AI automation, and enterprise partnerships. Strategic consulting for growing businesses seeking technology-driven growth.",
-    keywords: "digital transformation services, Microsoft CSP, RTILA AI, business automation, enterprise technology consulting, strategic technology planning, digital strategy",
+    title: "Strategic Technology Planning | Business Growth Consulting | Handvantage",
+    description: "Strategic technology planning that eliminates growth bottlenecks and creates competitive advantages for growing businesses. Enterprise expertise applied to your unique business challenges.",
+    keywords: "strategic technology planning, business growth consulting, growth bottlenecks, competitive advantage, strategic planning, technology strategy, business transformation",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Digital Transformation Services",
-      "description": "Strategic digital transformation consulting and implementation",
+      "name": "Strategic Technology Planning",
+      "description": "Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages",
       "provider": {
         "@type": "Organization",
         "name": "Handvantage"
       }
     }
   },
-
   cybersecurity: {
-    title: "Cybersecurity Solutions | IRONSCALES, Check Point & Enterprise Security",
-    description: "Comprehensive cybersecurity protection with IRONSCALES email security, Check Point firewalls, Vanta compliance, and Swif.ai device management. Enterprise-grade security for growing businesses.",
-    keywords: "cybersecurity solutions, IRONSCALES email security, Check Point firewall, Vanta compliance, Swif.ai device management, enterprise security, email protection, network security",
+    title: "Business Protection Strategy | Cybersecurity Consulting | Handvantage",
+    description: "Comprehensive business protection strategy that safeguards your growth potential while creating competitive advantages. Enterprise-grade security approach for growing businesses.",
+    keywords: "business protection strategy, cybersecurity consulting, risk mitigation, business continuity, strategic security planning, enterprise security, security strategy",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Cybersecurity Solutions",
-      "description": "Enterprise-grade cybersecurity protection with industry-leading partnerships",
+      "name": "Business Protection Strategy",
+      "description": "Strategic business protection consulting that safeguards growth while creating competitive advantages",
       "provider": {
         "@type": "Organization",
         "name": "Handvantage"
       }
     }
   },
-
   cloudInfrastructure: {
-    title: "Cloud Infrastructure Services | Microsoft CSP & Azure Solutions",
-    description: "Microsoft Cloud Solution Provider (CSP) services including Microsoft 365, Azure infrastructure, and Pax8 marketplace solutions. Expert cloud migration and optimization for growing businesses.",
-    keywords: "Microsoft CSP, cloud infrastructure, Microsoft 365, Azure cloud, Pax8 marketplace, cloud migration, cloud optimization, Microsoft cloud solution provider",
+    title: "Scalable Infrastructure Strategy | Cloud Consulting | Handvantage",
+    description: "Strategic infrastructure planning that creates a scalable foundation for sustainable business growth. Eliminate technology limitations with enterprise-grade solutions.",
+    keywords: "scalable infrastructure strategy, cloud consulting, strategic planning, business growth, infrastructure optimization, scalability planning, enterprise cloud strategy",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Cloud Infrastructure Services",
-      "description": "Microsoft CSP cloud solutions and infrastructure optimization",
+      "name": "Scalable Infrastructure Strategy",
+      "description": "Strategic infrastructure planning that creates a scalable foundation for sustainable business growth",
       "provider": {
         "@type": "Organization",
         "name": "Handvantage"
       }
     }
   },
-
   businessAutomation: {
-    title: "Business Automation Services | RTILA AI Master Agent",
-    description: "AI-powered business automation with RTILA AI platform. Custom AI agents, workflow automation, and process optimization to increase productivity and reduce manual work.",
-    keywords: "business automation, RTILA AI, AI automation, workflow automation, process automation, AI agents, business process optimization, artificial intelligence",
+    title: "Process Optimization Strategy | Automation Consulting | Handvantage",
+    description: "Strategic process optimization that eliminates operational bottlenecks and creates competitive advantages through intelligent automation and workflow design.",
+    keywords: "process optimization strategy, automation consulting, operational efficiency, business workflow, strategic automation, productivity improvement, competitive advantage",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Business Automation Services",
-      "description": "AI-powered business automation with RTILA AI platform",
+      "name": "Process Optimization Strategy",
+      "description": "Strategic process optimization that eliminates operational bottlenecks and creates competitive advantages",
       "provider": {
         "@type": "Organization",
         "name": "Handvantage"
       }
     }
   },
-
   assessment: {
-    title: "Free Digital Transformation Assessment | Business Technology Evaluation",
-    description: "Take our free 20-question digital transformation assessment. Evaluate your technology readiness, security posture, and automation opportunities with expert recommendations.",
-    keywords: "digital transformation assessment, technology assessment, business technology evaluation, free assessment, digital readiness evaluation",
+    title: "Strategic Growth Assessment | Business Technology Evaluation | Handvantage",
+    description: "Free strategic growth assessment that identifies technology bottlenecks limiting your business potential. Get expert recommendations for creating competitive advantages.",
+    keywords: "strategic growth assessment, technology bottleneck analysis, business evaluation, competitive advantage assessment, strategic planning, growth strategy",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Digital Transformation Assessment",
-      "description": "Free assessment to evaluate business technology readiness",
+      "name": "Strategic Growth Assessment",
+      "description": "Free assessment to identify technology bottlenecks limiting business growth",
       "applicationCategory": "BusinessApplication"
     }
   },
-
   securityAssessment: {
-    title: "Free Cybersecurity Risk Assessment | Security Vulnerability Analysis",
-    description: "Comprehensive 25-question cybersecurity risk assessment across 5 security domains. Identify vulnerabilities, compliance gaps, and security improvement opportunities.",
-    keywords: "cybersecurity assessment, security risk assessment, vulnerability assessment, security evaluation, cybersecurity audit, free security assessment",
+    title: "Business Protection Assessment | Risk Analysis | Handvantage",
+    description: "Comprehensive business protection assessment that identifies security vulnerabilities threatening your growth and provides strategic protection recommendations.",
+    keywords: "business protection assessment, security risk analysis, vulnerability assessment, strategic protection planning, business continuity, risk mitigation strategy",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Cybersecurity Risk Assessment",
-      "description": "Comprehensive security evaluation across multiple domains",
+      "name": "Business Protection Assessment",
+      "description": "Comprehensive evaluation of business protection needs and strategic recommendations",
       "applicationCategory": "BusinessApplication"
     }
   },
-
   roiCalculator: {
-    title: "Digital Transformation ROI Calculator | Investment Return Analysis",
-    description: "Calculate your digital transformation ROI with our interactive calculator. Analyze savings, payback period, and 3-year value from partnership-powered solutions including Microsoft CSP, RTILA AI, and security partnerships.",
-    keywords: "ROI calculator, digital transformation ROI, investment return calculator, business transformation calculator, Microsoft CSP savings, RTILA AI ROI, automation savings calculator",
+    title: "Strategic Investment Calculator | Business Impact Analysis | Handvantage",
+    description: "Calculate the strategic business impact of eliminating technology bottlenecks. Analyze ROI, payback period, and competitive advantages from strategic technology investments.",
+    keywords: "strategic investment calculator, business impact analysis, ROI calculator, technology investment, growth strategy, competitive advantage analysis, strategic planning",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Digital Transformation ROI Calculator",
-      "description": "Interactive calculator for analyzing digital transformation return on investment",
+      "name": "Strategic Investment Calculator",
+      "description": "Interactive calculator for analyzing business impact of strategic technology investments",
       "applicationCategory": "BusinessApplication",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Free ROI calculation with detailed analysis report"
+        "description": "Free business impact analysis with detailed strategic roadmap"
       }
     }
   }

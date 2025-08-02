@@ -1,25 +1,25 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import Logo from './Logo';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const { FiPhone, FiMail, FiMapPin, FiLinkedin, FiGlobe, FiZap, FiShield, FiCloud, FiBot } = FiIcons;
+const {FiPhone, FiMail, FiMapPin, FiLinkedin, FiGlobe, FiZap, FiShield, FiCloud, FiBot} = FiIcons;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: 'Digital Transformation', link: '/services/digital-transformation', icon: FiZap },
-    { name: 'Cybersecurity Solutions', link: '/services/cybersecurity', icon: FiShield },
-    { name: 'Cloud Infrastructure', link: '/services/cloud-infrastructure', icon: FiCloud },
-    { name: 'Business Automation', link: '/services/business-automation', icon: FiBot }
+    {name: 'Strategic Technology Planning', link: '/services/digital-transformation', icon: FiZap},
+    {name: 'Business Protection Strategy', link: '/services/cybersecurity', icon: FiShield},
+    {name: 'Scalable Infrastructure Strategy', link: '/services/cloud-infrastructure', icon: FiCloud},
+    {name: 'Process Optimization Strategy', link: '/services/business-automation', icon: FiBot}
   ];
 
   const assessments = [
-    { name: 'Digital Transformation Assessment', link: '/assessment', icon: FiZap },
-    { name: 'Cybersecurity Risk Assessment', link: '/security-assessment', icon: FiShield }
+    {name: 'Digital Transformation Assessment', link: '/assessment', icon: FiZap},
+    {name: 'Cybersecurity Risk Assessment', link: '/security-assessment', icon: FiShield}
   ];
 
   const partners = [
@@ -35,7 +35,7 @@ const Footer = () => {
     if (href.includes('#')) {
       const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({behavior: 'smooth'});
       }
     }
   };
@@ -47,10 +47,10 @@ const Footer = () => {
           {/* Company Info */}
           <motion.div
             className="col-span-1"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6}}
+            viewport={{once: true}}
           >
             <Link to="/" className="inline-block mb-4">
               <div className="flex items-center space-x-3">
@@ -63,7 +63,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-slate-300 mb-4">
-              Transforming businesses through enterprise-grade technology partnerships and expert consultation.
+              Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages for growing businesses.
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
@@ -80,12 +80,12 @@ const Footer = () => {
 
           {/* Services */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6, delay: 0.1}}
+            viewport={{once: true}}
           >
-            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Services</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Strategic Services</h4>
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>
@@ -103,12 +103,12 @@ const Footer = () => {
 
           {/* Assessments & Partners */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6, delay: 0.2}}
+            viewport={{once: true}}
           >
-            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Assessments</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Growth Tools</h4>
             <ul className="space-y-2 mb-6">
               {assessments.map((assessment, index) => (
                 <li key={index}>
@@ -122,8 +122,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            
-            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Partners</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Strategic Partners</h4>
             <ul className="space-y-2">
               {partners.slice(0, 3).map((partner, index) => (
                 <li key={index}>
@@ -140,12 +139,12 @@ const Footer = () => {
 
           {/* Contact & Social */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
+            initial={{opacity: 0, y: 30}}
+            whileInView={{opacity: 1, y: 0}}
+            transition={{duration: 0.6, delay: 0.3}}
+            viewport={{once: true}}
           >
-            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Connect</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Strategic Consultation</h4>
             <div className="space-y-4">
               <Link
                 to="/about"
@@ -169,8 +168,11 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
               >
-                Schedule Consultation
+                Schedule Strategic Consultation
               </a>
+              <p className="text-sm text-slate-400 mt-2">
+                Ready to eliminate the technology bottlenecks limiting your growth?
+              </p>
             </div>
           </motion.div>
         </div>
@@ -178,10 +180,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <motion.div
           className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          initial={{opacity: 0, y: 30}}
+          whileInView={{opacity: 1, y: 0}}
+          transition={{duration: 0.6, delay: 0.4}}
+          viewport={{once: true}}
         >
           <p className="text-slate-400 text-sm mb-4 md:mb-0">
             © {currentYear} Handvantage. All rights reserved.
@@ -189,7 +191,7 @@ const Footer = () => {
           <div className="flex items-center space-x-6 text-sm text-slate-400">
             <button className="hover:text-white transition-colors">Privacy Policy</button>
             <button className="hover:text-white transition-colors">Terms of Service</button>
-            <span>Built with expertise and partnerships</span>
+            <span>Strategic expertise and enterprise partnerships</span>
           </div>
         </motion.div>
       </div>
