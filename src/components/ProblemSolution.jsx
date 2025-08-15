@@ -30,33 +30,33 @@ const ProblemSolution=()=> {
 
   const solutions=[ 
     {icon: FiBot,
-     title: 'RTILA AI Automation',
-     description: 'Strategic consulting + cutting-edge business automation',
-     badge: 'Master Agent',
+     title: 'Intelligent Process Automation',
+     description: 'Strategic automation that eliminates manual bottlenecks and accelerates growth',
+     badge: 'Expert Implementation',
      color: 'green'},
     
     {icon: FiShield,
-     title: 'Complete Security',
-     description: 'IRONSCALES + Check Point + Microsoft + Swif.ai protection',
-     badge: '16,000+ Orgs',
+     title: 'Enterprise-Grade Security',
+     description: 'Comprehensive multi-layered protection that scales with your business',
+     badge: 'Fortune 500 Quality',
      color: 'green'},
     
     {icon: FiCheckCircle,
-     title: 'Compliance Automation',
-     description: 'Vanta + Swif.ai automated SOC 2,HIPAA,ISO 27001',
-     badge: '14 Days',
+     title: 'Automated Compliance',
+     description: 'Streamlined compliance management for SOC 2, HIPAA, ISO 27001',
+     badge: 'Rapid Deployment',
      color: 'green'},
     
     {icon: FiCloud,
-     title: 'Cloud Infrastructure',
-     description: 'Microsoft CSP + Pax8 marketplace + Intermedia',
-     badge: 'Direct Support',
+     title: 'Scalable Cloud Infrastructure',
+     description: 'Future-ready infrastructure with preferred pricing and direct support',
+     badge: 'Enterprise Access',
      color: 'green'},
     
     {icon: FiStar,
-     title: 'Single Partner',
-     description: 'Complete technology ecosystem through one relationship',
-     badge: 'Integrated',
+     title: 'Unified Technology Strategy',
+     description: 'Complete technology ecosystem through strategic planning and implementation',
+     badge: 'Single Source',
      color: 'green'} 
   ];
 

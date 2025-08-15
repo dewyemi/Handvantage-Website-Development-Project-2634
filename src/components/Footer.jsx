@@ -22,13 +22,13 @@ const Footer = () => {
     {name: 'Cybersecurity Risk Assessment', link: '/security-assessment', icon: FiShield}
   ];
 
-  const partners = [
-    'Microsoft CSP',
-    'RTILA AI',
-    'Check Point',
-    'IRONSCALES',
-    'Pax8',
-    'Vanta'
+  const technologyCapabilities = [
+    'Cloud Infrastructure',
+    'Security Management', 
+    'Process Automation',
+    'Compliance Systems',
+    'Communication Platforms',
+    'Device Management'
   ];
 
   const handleSmoothScroll = (href) => {
@@ -122,15 +122,15 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Strategic Partners</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary-blue">Technology Capabilities</h4>
             <ul className="space-y-2">
-              {partners.slice(0, 3).map((partner, index) => (
+              {technologyCapabilities.slice(0, 3).map((capability, index) => (
                 <li key={index}>
                   <button
                     onClick={() => handleSmoothScroll('/#partnerships')}
                     className="text-slate-300 hover:text-white transition-colors text-left"
                   >
-                    {partner}
+                    {capability}
                   </button>
                 </li>
               ))}

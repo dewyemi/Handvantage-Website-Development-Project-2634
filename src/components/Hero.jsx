@@ -8,11 +8,11 @@ import {seoConfig} from '../utils/seoConfig';
 const {FiCloud,FiShield,FiMail,FiCpu,FiPhone,FiUser}=FiIcons;
 
 const Hero=()=> {
-  const partnerships=[ 
-    {name: 'Microsoft CSP',icon: FiCloud},
-    {name: 'Check Point',icon: FiShield},
-    {name: 'IRONSCALES',icon: FiMail},
-    {name: 'RTILA AI',icon: FiCpu} 
+  const coreCapabilities=[ 
+    {name: 'Cloud Infrastructure Strategy',icon: FiCloud},
+    {name: 'Advanced Security Solutions',icon: FiShield},
+    {name: 'Email & Communication Security',icon: FiMail},
+    {name: 'Business Process Automation',icon: FiCpu} 
   ];
 
   return ( 
@@ -71,15 +71,15 @@ const Hero=()=> {
                 </motion.a> 
               </motion.div> 
             </motion.div> 
-            {/* Right Column - Partnership Showcase */} 
+            {/* Right Column - Core Capabilities Showcase */} 
             <motion.aside className="relative" initial={{opacity: 0,x: 50}} animate={{opacity: 1,x: 0}} transition={{duration: 0.8,delay: 0.2}} > 
               <div className="bg-gradient-to-r from-primary-blue to-primary-purple rounded-2xl p-8 text-white"> 
-                <h3 className="text-2xl font-bold mb-6">Partnership Ecosystem</h3> 
+                <h3 className="text-2xl font-bold mb-6">Core Capabilities</h3> 
                 <div className="grid grid-cols-2 gap-4"> 
-                  {partnerships.map((partner,index)=> ( 
+                  {coreCapabilities.map((capability,index)=> ( 
                     <motion.div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center" initial={{opacity: 0,scale: 0.8}} animate={{opacity: 1,scale: 1}} transition={{delay: 0.8 + index * 0.1}} whileHover={{scale: 1.05}} > 
-                      <SafeIcon icon={partner.icon} className="w-8 h-8 mx-auto mb-2" /> 
-                      <p className="text-sm font-medium">{partner.name}</p> 
+                      <SafeIcon icon={capability.icon} className="w-8 h-8 mx-auto mb-2" /> 
+                      <p className="text-sm font-medium">{capability.name}</p> 
                     </motion.div> 
                   ))} 
                 </div> 

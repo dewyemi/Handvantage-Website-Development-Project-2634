@@ -60,36 +60,36 @@ const Partnerships = () => {
     }
   ];
 
-  // Small vendor logos section - minimized but still present
-  const vendorLogos = [
+  // Technology focus areas - replacing vendor logos
+  const technologyFocus = [
     {
       icon: FiCloud,
-      name: 'Microsoft CSP',
+      name: 'Cloud Solutions',
       color: '#2563eb'
     },
     {
       icon: FiBot,
-      name: 'RTILA AI',
+      name: 'AI Automation',
       color: '#7c3aed'
     },
     {
       icon: FiShield,
-      name: 'Check Point',
+      name: 'Network Security',
       color: '#dc2626'
     },
     {
       icon: FiMail,
-      name: 'IRONSCALES',
+      name: 'Email Protection',
       color: '#f59e0b'
     },
     {
       icon: FiCheckCircle,
-      name: 'Vanta',
+      name: 'Compliance Management',
       color: '#16a34a'
     },
     {
       icon: FiLock,
-      name: 'Swif.ai',
+      name: 'Device Management',
       color: '#2563eb'
     }
   ];
@@ -174,7 +174,7 @@ const Partnerships = () => {
           </div>
         </motion.div>
 
-        {/* Small vendor logos section - minimized but still present */}
+        {/* Technology focus areas section */}
         <motion.div 
           className="mt-16 pt-10 border-t border-slate-700"
           initial={{ opacity: 0, y: 30 }}
@@ -182,9 +182,9 @@ const Partnerships = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-center text-sm text-slate-400 mb-6">Powered by enterprise partnerships</p>
+          <p className="text-center text-sm text-slate-400 mb-6">Strategic expertise and enterprise capabilities</p>
           <div className="flex flex-wrap justify-center gap-6">
-            {vendorLogos.map((vendor, index) => (
+            {technologyFocus.map((focus, index) => (
               <motion.div
                 key={index}
                 className="flex items-center"
@@ -194,11 +194,11 @@ const Partnerships = () => {
                 viewport={{ once: true }}
               >
                 <SafeIcon 
-                  icon={vendor.icon} 
+                  icon={focus.icon} 
                   className="w-5 h-5 mr-2" 
-                  style={{ color: vendor.color }} 
+                  style={{ color: focus.color }} 
                 />
-                <span className="text-sm text-slate-400">{vendor.name}</span>
+                <span className="text-sm text-slate-400">{focus.name}</span>
               </motion.div>
             ))}
           </div>

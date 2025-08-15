@@ -12,8 +12,8 @@ const About=()=> {
     'Former Oracle Technology Consultant',
     'Former AWS Security Consultant',
     'MSP Owner with hands-on experience',
-    'RTILA AI Master Agent',
-    'Microsoft Cloud Solution Provider' 
+    'Advanced Business Automation Expert',
+    'Cloud Infrastructure Specialist' 
   ];
 
   return ( 

@@ -11,7 +11,7 @@ const ROICalculatorLanding = () => {
     {icon: FiDollarSign, title: "Quantify Your Growth Potential", description: "Calculate exact business impact from strategic technology investments"},
     {icon: FiClock, title: "Strategic Investment Timeline", description: "See exactly when your transformation investments will deliver positive returns"},
     {icon: FiTrendingUp, title: "3-Year Growth Projections", description: "Understand long-term value creation and compound business benefits"},
-    {icon: FiTarget, title: "Strategic Partnership Value", description: "Quantify business advantages from Microsoft CSP, RTILA AI, and security partnerships"},
+    {icon: FiTarget, title: "Strategic Technology Value", description: "Quantify business advantages from cloud infrastructure, automation, and security solutions"},
     {icon: FiBarChart, title: "Competitive Advantage Metrics", description: "Measure how technology investments create sustainable competitive advantages"},
     {icon: FiShield, title: "Risk Mitigation Value", description: "Calculate the business impact of improved protection and compliance"}
   ];
@@ -23,11 +23,11 @@ const ROICalculatorLanding = () => {
     {icon: FiDownload, title: "Executive Roadmap", description: "15-page comprehensive analysis with strategic implementation plan", color: "#f59e0b"}
   ];
 
-  const partnershipValue = [
-    {partner: "Microsoft CSP", icon: FiCloud, value: "40% IT cost reduction", description: "Direct Microsoft support with preferred pricing", color: "#2563eb"},
-    {partner: "RTILA AI", icon: FiBot, value: "70% productivity increase", description: "Strategic process automation and optimization", color: "#7c3aed"},
-    {partner: "IRONSCALES", icon: FiShield, value: "Business continuity protection", description: "Advanced protection for 16,000+ organizations", color: "#dc2626"},
-    {partner: "Vanta", icon: FiCheckCircle, value: "14-day compliance", description: "Automated compliance that accelerates growth", color: "#16a34a"}
+  const technologyValue = [
+    {solution: "Cloud Infrastructure", icon: FiCloud, value: "40% IT cost reduction", description: "Enterprise cloud solutions with preferred pricing", color: "#2563eb"},
+    {solution: "Process Automation", icon: FiBot, value: "70% productivity increase", description: "Strategic process automation and optimization", color: "#7c3aed"},
+    {solution: "Advanced Security", icon: FiShield, value: "Business continuity protection", description: "Enterprise protection for thousands of organizations", color: "#dc2626"},
+    {solution: "Compliance Automation", icon: FiCheckCircle, value: "14-day compliance", description: "Automated compliance that accelerates growth", color: "#16a34a"}
   ];
 
   const testimonials = [
@@ -39,14 +39,14 @@ const ROICalculatorLanding = () => {
       roi: "320% ROI"
     },
     {
-      quote: "The calculator identified strategic advantages we never considered. The RTILA AI implementation alone eliminated 25 hours of manual work weekly, allowing us to scale revenue without adding headcount.",
+      quote: "The calculator identified strategic advantages we never considered. The AI automation implementation alone eliminated 25 hours of manual work weekly, allowing us to scale revenue without adding headcount.",
       author: "Mike Rodriguez",
       title: "Operations Director",
       company: "Manufacturing, 85 employees",
       roi: "280% ROI"
     },
     {
-      quote: "The partnership value analysis completely changed our technology investment strategy. The Microsoft CSP savings alone funded our entire digital transformation while creating sustainable competitive advantages.",
+      quote: "The technology value analysis completely changed our investment strategy. The cloud infrastructure savings alone funded our entire digital transformation while creating sustainable competitive advantages.",
       author: "Lisa Thompson",
       title: "VP Operations",
       company: "Professional Services, 120 employees",
@@ -236,7 +236,7 @@ const ROICalculatorLanding = () => {
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {partnershipValue.map((partnership, index) => (
+            {technologyValue.map((technology, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
@@ -247,18 +247,18 @@ const ROICalculatorLanding = () => {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{backgroundColor: partnership.color}}
+                  style={{backgroundColor: technology.color}}
                 >
-                  <SafeIcon icon={partnership.icon} className="w-8 h-8 text-white" />
+                  <SafeIcon icon={technology.icon} className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{partnership.partner}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{technology.solution}</h3>
                 <div
                   className="text-2xl font-bold mb-2"
-                  style={{color: partnership.color}}
+                  style={{color: technology.color}}
                 >
-                  {partnership.value}
+                  {technology.value}
                 </div>
-                <p className="text-sm text-gray-600">{partnership.description}</p>
+                <p className="text-sm text-gray-600">{technology.description}</p>
               </motion.div>
             ))}
           </div>
