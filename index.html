@@ -145,6 +145,17 @@
   <!-- AI Sales Bot Integration -->
   <script src="https://app.noem.ai/js/ChatBot.js"></script>
   <script>
-  let currentUser={userId: null,displayName: 'user',profilePic: null,email: null};let nbOptions={"inputMessagePlaceHolderText": "Type your message here...","disableCSS": false,"disableFabButton": false};const bot=new ChatBot('Njg4YzFjZjNjMjg0ODY2ZDcyZTFkZWFm',currentUser,null,nbOptions);bot.onEventTriggered=(event,data)=> {console.log(event,data);};bot.init();</script>
+  try {
+    if (typeof ChatBot !== 'undefined') {
+      let currentUser={userId: null,displayName: 'user',profilePic: null,email: null};
+      let nbOptions={"inputMessagePlaceHolderText": "Type your message here...","disableCSS": false,"disableFabButton": false};
+      const bot=new ChatBot('Njg4YzFjZjNjMjg0ODY2ZDcyZTFkZWFm',currentUser,null,nbOptions);
+      bot.onEventTriggered=(event,data)=> {console.log(event,data);};
+      bot.init();
+    }
+  } catch (error) {
+    console.log('ChatBot not available, continuing without chat support');
+  }
+  </script>
 </body>
 </html>
