@@ -21,12 +21,12 @@ const DigitalTransformationPage = () => {
     error: null
   });
 
-  // Partnership items
+  // Core solution areas
   const partnerships = [
-    {icon: FiCloud, title: "Microsoft CSP", badge: "Direct Support", color: "#2563eb"},
-    {icon: FiBot, title: "RTILA AI", badge: "Master Agent", color: "#7c3aed"},
-    {icon: FiBuilding, title: "Pax8", badge: "Cloud Marketplace", color: "#16a34a"},
-    {icon: FiShield, title: "Vanta", badge: "Compliance", color: "#f59e0b"}
+    {icon: FiCloud, title: "Cloud Infrastructure", badge: "Enterprise-Grade", color: "#2563eb"},
+    {icon: FiBot, title: "Process Automation", badge: "AI-Powered", color: "#7c3aed"},
+    {icon: FiBuilding, title: "Technology Ecosystem", badge: "Integrated Solutions", color: "#16a34a"},
+    {icon: FiShield, title: "Security & Compliance", badge: "Multi-Layered", color: "#f59e0b"}
   ];
 
   // What digital transformation is NOT
@@ -42,9 +42,9 @@ const DigitalTransformationPage = () => {
   const isItems = [
     "Strategic business transformation using technology",
     "Integrated ecosystem of enterprise solutions",
-    "Process optimization with measurable ROI",
+    "Process optimization with measurable ROI", 
     "Scalable foundation for sustainable growth",
-    "Partnership-powered enterprise capabilities"
+    "Expert-guided enterprise capabilities"
   ];
 
   // Methodology steps
@@ -59,7 +59,7 @@ const DigitalTransformationPage = () => {
         "Business process mapping",
         "Security posture assessment",
         "Growth bottleneck identification",
-        "Partnership opportunity analysis"
+        "Strategic opportunity analysis"
       ]
     },
     {
@@ -70,7 +70,7 @@ const DigitalTransformationPage = () => {
       items: [
         "Business objective alignment",
         "Technology architecture design",
-        "Partnership solution mapping",
+        "Enterprise solution mapping",
         "ROI projections & milestones",
         "Risk mitigation strategies"
       ]
@@ -81,9 +81,9 @@ const DigitalTransformationPage = () => {
       subtitle: "Core Infrastructure",
       color: "#f59e0b",
       items: [
-        "Microsoft 365 & Azure deployment",
+        "Cloud platform deployment",
         "Security framework implementation",
-        "Compliance foundation (Vanta)",
+        "Compliance foundation setup",
         "User access management",
         "Data migration & backup"
       ]
@@ -91,7 +91,7 @@ const DigitalTransformationPage = () => {
     {
       number: "04",
       title: "Process Automation",
-      subtitle: "RTILA AI Implementation",
+      subtitle: "AI-Powered Optimization",
       color: "#7c3aed",
       items: [
         "Workflow automation design",
@@ -107,9 +107,9 @@ const DigitalTransformationPage = () => {
       subtitle: "Complete Protection",
       color: "#dc2626",
       items: [
-        "IRONSCALES email security",
-        "Check Point network protection",
-        "Swif.ai device management",
+        "Advanced email security",
+        "Network protection deployment",
+        "Device management systems",
         "Compliance automation (SOC 2, HIPAA)",
         "Security awareness training"
       ]
@@ -129,65 +129,65 @@ const DigitalTransformationPage = () => {
     }
   ];
 
-  // Partnership solution categories
+  // Solution categories
   const solutionCategories = [
     {
       icon: FiCloud,
-      title: "Microsoft Cloud Solution Provider (CSP)",
+      title: "Enterprise Cloud Infrastructure",
       color: "#2563eb",
-      subtitle: "Direct Microsoft Partnership for Enterprise Solutions",
-      description: "As a Microsoft Cloud Solution Provider, we offer direct access to the complete Microsoft ecosystem with enterprise-grade support and preferred pricing.",
+      subtitle: "Scalable Cloud Solutions with Enterprise Support",
+      description: "Complete cloud infrastructure solutions with enterprise-grade support, advanced security features, and direct access to leading cloud platforms.",
       benefits: [
-        "Microsoft 365 with direct CSP support",
-        "Azure cloud infrastructure with expert implementation",
-        "Advanced security features (Defender, Sentinel)",
-        "Compliance tools (Purview, Information Protection)",
+        "Complete cloud platform deployment with expert support",
+        "Advanced infrastructure with scalable architecture",
+        "Enterprise security features and compliance tools",
+        "Information protection and data governance",
         "Direct escalation path for critical issues",
-        "Preferred pricing and licensing flexibility"
+        "Preferred pricing and licensing optimization"
       ]
     },
     {
       icon: FiBot,
-      title: "RTILA AI Master Agent",
+      title: "Advanced Business Automation",
       color: "#7c3aed",
-      subtitle: "Cutting-Edge Business Automation Platform",
-      description: "As a RTILA AI Master Agent, we provide access to the most advanced business automation platform available, with expert implementation and ongoing optimization.",
+      subtitle: "AI-Powered Process Optimization Platform",
+      description: "Cutting-edge business automation solutions with custom AI development, intelligent workflow optimization, and seamless system integration.",
       benefits: [
-        "Custom AI agent development for your specific workflows",
+        "Custom AI agent development for specific workflows",
         "Integration with existing business systems",
         "Intelligent document processing and data extraction",
         "Automated customer service and support workflows",
         "Revenue optimization through process automation",
-        "Dedicated Master Agent support and training"
+        "Dedicated expert support and training"
       ]
     },
     {
       icon: FiShield,
-      title: "Complete Security Partnership Ecosystem",
+      title: "Comprehensive Security Ecosystem",
       color: "#dc2626",
-      subtitle: "Integrated Security Through Multiple Partnerships",
-      description: "Our partnerships with IRONSCALES, Check Point, Vanta, and Swif.ai create a complete security ecosystem that protects every aspect of your business.",
+      subtitle: "Multi-Layered Protection Through Integrated Solutions",
+      description: "Complete security ecosystem that protects every aspect of your business through enterprise-grade email security, network protection, and compliance automation.",
       benefits: [
-        "IRONSCALES email security (protecting 16,000+ organizations)",
-        "Check Point next-generation firewall and network protection",
-        "Vanta automated compliance for SOC 2, HIPAA, ISO 27001",
-        "Swif.ai AI-powered device management and Shadow IT visibility",
+        "Advanced email security protecting thousands of organizations",
+        "Next-generation firewall and network protection",
+        "Automated compliance for SOC 2, HIPAA, ISO 27001",
+        "AI-powered device management and Shadow IT visibility",
         "Integrated security dashboard and reporting",
         "Coordinated incident response across all platforms"
       ]
     },
     {
       icon: FiBuilding,
-      title: "Pax8 Cloud Marketplace Partnership",
+      title: "Integrated Technology Ecosystem",
       color: "#16a34a",
-      subtitle: "Access to 200+ Cloud Solutions Through Preferred Partner",
-      description: "Our Pax8 partnership provides access to the cloud marketplace preferred by MSPs globally, with streamlined procurement and management.",
+      subtitle: "Access to 200+ Enterprise Solutions",
+      description: "Complete technology ecosystem with access to hundreds of pre-vetted enterprise solutions, streamlined management, and expert guidance.",
       benefits: [
-        "Access to 200+ pre-vetted cloud solutions",
+        "Access to 200+ pre-vetted enterprise solutions",
         "Simplified billing and license management",
-        "Preferred partner pricing and support",
+        "Enterprise pricing and dedicated support",
         "Rapid deployment of new solutions",
-        "Integrated marketplace for all your cloud needs",
+        "Integrated ecosystem for all technology needs",
         "Expert guidance on solution selection and optimization"
       ]
     }
@@ -195,8 +195,8 @@ const DigitalTransformationPage = () => {
 
   // ROI metrics
   const roiMetrics = [
-    {number: "40%", label: "Productivity Increase", detail: "Through RTILA AI automation", color: "#16a34a"},
-    {number: "60%", label: "Faster Deployment", detail: "With partnership solutions", color: "#2563eb"},
+    {number: "40%", label: "Productivity Increase", detail: "Through AI automation", color: "#16a34a"},
+    {number: "60%", label: "Faster Deployment", detail: "With enterprise solutions", color: "#2563eb"},
     {number: "25%", label: "Cost Reduction", detail: "Through process optimization", color: "#7c3aed"},
     {number: "90%", label: "Security Improvement", detail: "With integrated protection", color: "#f59e0b"}
   ];

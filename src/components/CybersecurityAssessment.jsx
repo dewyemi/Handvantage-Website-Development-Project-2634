@@ -76,7 +76,7 @@ const CybersecurityAssessment = () => {
         { text: "Standard antivirus email scanning", points: 1, risk: "High" },
         { text: "Enhanced spam filtering with basic threat detection", points: 2, risk: "Moderate" },
         { text: "Advanced threat protection with sandboxing", points: 3, risk: "Low" },
-        { text: "Enterprise-grade email security (IRONSCALES level)", points: 4, risk: "Secure" }
+        { text: "Enterprise-grade email security with advanced threat protection", points: 4, risk: "Secure" }
       ]
     },
     {
@@ -143,7 +143,7 @@ const CybersecurityAssessment = () => {
         { text: "Standard stateful firewall", points: 1, risk: "High" },
         { text: "Managed firewall with basic rules", points: 2, risk: "Moderate" },
         { text: "Next-generation firewall with threat intelligence", points: 3, risk: "Low" },
-        { text: "Enterprise firewall (Check Point level) with advanced threat prevention", points: 4, risk: "Secure" }
+        { text: "Next-generation firewall with advanced threat prevention capabilities", points: 4, risk: "Secure" }
       ]
     },
     {
@@ -210,7 +210,7 @@ const CybersecurityAssessment = () => {
         { text: "Basic device policies with manual enforcement", points: 1, risk: "High" },
         { text: "Mobile Device Management (MDM) for company devices", points: 2, risk: "Moderate" },
         { text: "Comprehensive MDM with BYOD policies", points: 3, risk: "Low" },
-        { text: "Advanced endpoint management (Swif.ai level) with AI monitoring", points: 4, risk: "Secure" }
+        { text: "Advanced endpoint management with AI-powered monitoring and control", points: 4, risk: "Secure" }
       ]
     },
     {
@@ -290,7 +290,7 @@ const CybersecurityAssessment = () => {
         { text: "Basic understanding of sensitive data", points: 1, risk: "High" },
         { text: "Informal data handling procedures", points: 2, risk: "Moderate" },
         { text: "Formal data classification with handling procedures", points: 3, risk: "Low" },
-        { text: "Automated data classification (Vanta level) with policy enforcement", points: 4, risk: "Secure" }
+        { text: "Automated data classification with policy enforcement and monitoring", points: 4, risk: "Secure" }
       ]
     },
     {
@@ -528,16 +528,16 @@ const CybersecurityAssessment = () => {
         
         switch (index) {
           case 0: // Email Security
-            solution = "IRONSCALES email security implementation";
+            solution = "Advanced email security implementation";
             break;
           case 1: // Network Security
-            solution = "Check Point next-generation firewall deployment";
+            solution = "Next-generation firewall deployment";
             break;
           case 2: // Endpoint Protection
-            solution = "Swif.ai device management and endpoint protection";
+            solution = "Intelligent device management and endpoint protection";
             break;
           case 3: // Compliance & Governance
-            solution = "Vanta compliance automation and monitoring";
+            solution = "Automated compliance and monitoring systems";
             break;
           case 4: // Business Continuity
             solution = "Comprehensive backup and disaster recovery planning";
@@ -557,14 +557,14 @@ const CybersecurityAssessment = () => {
     return vulnerabilities.sort((a, b) => a.score - b.score);
   };
 
-  const getPartnershipRecommendations = (domainScores) => {
+  const getSecurityRecommendations = (domainScores) => {
     const recommendations = [];
     
     if (domainScores[0] < 70) { // Email Security
       recommendations.push({
-        partner: "IRONSCALES",
+        category: "Email Protection",
         solution: "Advanced Email Security",
-        description: "AI-powered email security protecting 16,000+ organizations worldwide",
+        description: "AI-powered email security protecting thousands of organizations worldwide",
         priority: domainScores[0] < 40 ? "Critical" : "High",
         timeline: "2-4 weeks",
         benefits: [
@@ -578,7 +578,7 @@ const CybersecurityAssessment = () => {
 
     if (domainScores[1] < 70) { // Network Security
       recommendations.push({
-        partner: "Check Point",
+        category: "Network Protection",
         solution: "Next-Generation Firewall",
         description: "Industry-leading network security with advanced threat prevention",
         priority: domainScores[1] < 40 ? "Critical" : "High",
@@ -594,7 +594,7 @@ const CybersecurityAssessment = () => {
 
     if (domainScores[2] < 70) { // Endpoint Protection
       recommendations.push({
-        partner: "Swif.ai",
+        category: "Endpoint Management",
         solution: "AI-Powered Device Management",
         description: "Complete device visibility and management with Shadow IT discovery",
         priority: domainScores[2] < 40 ? "Critical" : "High",
@@ -610,7 +610,7 @@ const CybersecurityAssessment = () => {
 
     if (domainScores[3] < 70) { // Compliance & Governance
       recommendations.push({
-        partner: "Vanta",
+        category: "Compliance Automation",
         solution: "Automated Compliance",
         description: "Continuous compliance monitoring for SOC 2, HIPAA, ISO 27001",
         priority: domainScores[3] < 40 ? "Critical" : "High", 
@@ -697,7 +697,7 @@ const CybersecurityAssessment = () => {
     const riskLevel = getRiskLevel(riskScore.total);
     const domainScores = securityDomains.map((_, index) => getDomainScore(index));
     const vulnerabilities = getVulnerabilities(domainScores);
-    const recommendations = getPartnershipRecommendations(domainScores);
+    const recommendations = getSecurityRecommendations(domainScores);
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 to-red-900 py-12">
@@ -822,7 +822,7 @@ const CybersecurityAssessment = () => {
                   <div key={index} className="bg-slate-700 rounded-lg p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-white mb-2">{rec.partner} - {rec.solution}</h3>
+                        <h3 className="font-semibold text-white mb-2">{rec.category} - {rec.solution}</h3>
                         <p className="text-gray-300 mb-4">{rec.description}</p>
                         <div className="flex items-center space-x-4 text-sm mb-4">
                           <span className={`px-2 py-1 rounded-full text-xs font-medium ${
