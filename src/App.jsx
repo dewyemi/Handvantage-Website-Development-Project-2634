@@ -15,6 +15,7 @@ import DigitalTransformationPage from './components/DigitalTransformationPage';
 import CybersecurityPage from './components/CybersecurityPage';
 import CloudInfrastructurePage from './components/CloudInfrastructurePage';
 import BusinessAutomationPage from './components/BusinessAutomationPage';
+import ManagedSecurityPage from './components/ManagedSecurityPage';
 
 import AssessmentLanding from './components/AssessmentLanding';
 import AssessmentTool from './components/AssessmentTool';
@@ -75,6 +76,13 @@ function App() {
             <>
               <SEOHead {...seoConfig.cybersecurity} />
               <CybersecurityPage />
+            </>
+          } />
+          
+          <Route path="/services/managed-security" element={
+            <>
+              <SEOHead {...seoConfig.managedSecurity} />
+              <ManagedSecurityPage />
             </>
           } />
           
