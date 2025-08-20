@@ -25,6 +25,11 @@ import CybersecurityAssessment from './components/CybersecurityAssessment';
 import ROICalculatorLanding from './components/ROICalculatorLanding';
 import ROICalculator from './components/ROICalculator';
 
+import SecurityMaturityAssessment from './components/SecurityMaturityAssessment';
+import ComplianceAssessment from './components/ComplianceAssessment';
+import BudgetPlanner from './components/BudgetPlanner';
+import VendorEvaluation from './components/VendorEvaluation';
+
 import SEOHead from './components/SEOHead';
 import { seoConfig } from './utils/seoConfig';
 import { trackPageView } from './utils/analytics';
@@ -117,6 +122,14 @@ function App() {
           } />
           
           <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
+          
+          <Route path="/security-maturity-assessment" element={<SecurityMaturityAssessment />} />
+          
+          <Route path="/compliance-assessment" element={<ComplianceAssessment />} />
+          
+          <Route path="/budget-planner" element={<BudgetPlanner />} />
+          
+          <Route path="/vendor-evaluation" element={<VendorEvaluation />} />
           
           <Route path="/roi-calculator" element={
             <>

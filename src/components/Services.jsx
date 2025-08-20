@@ -92,7 +92,7 @@ const Services=()=> {
      description: 'Comprehensive security posture evaluation with personalized recommendations and industry benchmarking',
      features: ['Security maturity scoring','Personalized improvement roadmap','Industry peer comparison'],
      buttonText: 'Start Security Assessment',
-     buttonLink: '/security-assessment',
+     buttonLink: '/security-maturity-assessment',
      color: 'red',
      bgColor: 'bg-red-50',
      iconBg: 'bg-red-100',
