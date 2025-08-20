@@ -178,25 +178,25 @@ const ManagedSecurityPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <motion.a
-                    href="https://handvantage.co/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Start Your Security Assessment
-                  </motion.a>
-                  <motion.a
-                    href="#service-tiers"
-                    className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span>Download Our Service Guide</span>
-                    <SafeIcon icon={FiArrowRight} className="w-5 h-5" />
-                  </motion.a>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Link
+                      to="/security-assessment"
+                      className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center"
+                    >
+                      Start Your Security Assessment
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <a
+                      href="https://handvantage.co/contact"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300"
+                    >
+                      <span>Contact for Service Guide</span>
+                      <SafeIcon icon={FiArrowRight} className="w-5 h-5" />
+                    </a>
+                  </motion.div>
                 </motion.div>
               </motion.div>
 
