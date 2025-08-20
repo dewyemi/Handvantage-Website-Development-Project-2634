@@ -208,7 +208,7 @@ const AboutPage = () => {
                     viewport={{once: true}}
                   >
                     <h1 className="text-3xl font-bold text-primary-dark mb-2">Josh Olayemi</h1>
-                    <p className="text-xl text-primary-blue font-semibold mb-2">VP of Digital Transformation</p>
+                    <p className="text-xl text-primary-blue font-semibold mb-2">VP of Digital Transformation • Managed Security Services Specialist</p>
                     <p className="text-slate-600">20+ Years Technology Leadership</p>
                   </motion.div>
                 </div>
@@ -229,7 +229,7 @@ const AboutPage = () => {
                   transition={{delay: 0.3}}
                   viewport={{once: true}}
                 >
-                  Meet Your Digital Transformation Expert
+                  Meet Your Cybersecurity Transformation Expert
                 </motion.div>
                 
                 <motion.header
@@ -239,7 +239,7 @@ const AboutPage = () => {
                   transition={{delay: 0.4}}
                   viewport={{once: true}}
                 >
-                  <h2>The Complete Technology Expert You've Been Looking For</h2>
+                  <h2>Transforming Cybersecurity for Growing Businesses</h2>
                 </motion.header>
                 
                 <motion.div
@@ -249,14 +249,21 @@ const AboutPage = () => {
                   transition={{delay: 0.5}}
                   viewport={{once: true}}
                 >
+                  <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-primary-blue mb-6">
+                    <h3 className="font-semibold text-primary-dark mb-2">Company Mission</h3>
+                    <p className="font-medium text-primary-dark">
+                      HandVantage exists to transform cybersecurity from a growth barrier into a competitive advantage for growing businesses. We apply Fortune 500 security expertise and vendor relationships to deliver enterprise-grade protection that scales with your success.
+                    </p>
+                  </div>
+                  
                   <p>
-                    Josh brings something rare to growing businesses: the strategic thinking of Fortune 500 enterprises combined with hands-on experience serving companies just like yours.
+                    Josh brings something rare to growing businesses: Fortune 500 cybersecurity expertise combined with hands-on experience serving companies just like yours.
                   </p>
                   <p>
-                    His unique background spans Amazon, Oracle, and AWS enterprise implementations, plus practical MSP ownership experience with 50+ growing businesses. This combination enables him to deliver enterprise-quality results without enterprise complexity and cost.
+                    His unique background spans Amazon, Oracle, and AWS security implementations, plus practical MSP ownership experience with growing businesses. This combination enables him to deliver enterprise-grade security capabilities without enterprise complexity and cost.
                   </p>
                   <p>
-                    Josh's approach is different from typical IT consultants. Instead of focusing on technology features, he identifies the business bottlenecks that limit growth and designs strategic solutions that turn technology into competitive advantage.
+                    Josh's approach is different from typical security providers. Instead of focusing on technology features, he identifies the business bottlenecks that limit growth and designs strategic security solutions that turn cybersecurity into competitive advantage.
                   </p>
                 </motion.div>
                 
@@ -273,8 +280,8 @@ const AboutPage = () => {
                       <SafeIcon icon={FiCheckCircle} className="w-6 h-6 text-primary-success" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg text-primary-dark">Enterprise Experience, SME Understanding</h3>
-                      <p className="text-slate-600">Worked at Amazon, Oracle, AWS + owned an MSP serving growing businesses</p>
+                      <h3 className="font-semibold text-lg text-primary-dark">Strategic Security Focus</h3>
+                      <p className="text-slate-600">Unlike traditional MSSPs that focus on technology, we focus on business outcomes and security enablement</p>
                     </div>
                   </div>
                   

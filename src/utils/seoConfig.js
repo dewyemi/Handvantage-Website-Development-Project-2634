@@ -51,6 +51,23 @@ export const seoConfig = {
       }
     }
   },
+  managedSecurity: {
+    title: "Managed Security Services | Business-Aligned Cybersecurity | Handvantage",
+    description: "Managed security services that scale with your growth. Transform cybersecurity from business constraint into competitive advantage. Enterprise-grade protection for growing businesses.",
+    keywords: "managed security services, business cybersecurity, enterprise security, managed security provider, cybersecurity consulting, business protection strategy, security as a service",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Managed Security Services",
+      "description": "Strategic managed security services that transform cybersecurity from growth barrier into competitive advantage",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      },
+      "serviceType": "Managed Security Services",
+      "category": "Cybersecurity Services"
+    }
+  },
   cybersecurity: {
     title: "Business Protection Strategy | Cybersecurity Consulting | Handvantage",
     description: "Comprehensive business protection strategy that safeguards your growth potential while creating competitive advantages. Enterprise-grade security approach for growing businesses.",
