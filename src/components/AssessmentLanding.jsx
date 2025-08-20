@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const {FiCheckCircle, FiClock, FiTarget, FiTrendingUp, FiShield, FiCloud, FiSettings, FiBarChart, FiUser, FiPhone, FiStar, FiZap, FiAward} = FiIcons;
+const {FiCheckCircle, FiClock, FiTarget, FiTrendingUp, FiShield, FiCloud, FiSettings, FiBarChart, FiUser, FiPhone, FiZap, FiAward} = FiIcons;
 
 const AssessmentLanding = () => {
   const benefits = [
@@ -28,27 +28,6 @@ const AssessmentLanding = () => {
     {range: "40-59 Points", level: "Growth Stage", description: "Good foundation with strategic improvement needs", color: "#f97316", icon: FiTrendingUp},
     {range: "20-39 Points", level: "Foundation Building", description: "Core systems need upgrades for growth support", color: "#eab308", icon: FiSettings},
     {range: "0-19 Points", level: "Transformation Critical", description: "Comprehensive overhaul needed for competitiveness", color: "#dc2626", icon: FiTarget}
-  ];
-
-  const testimonials = [
-    {
-      quote: "Josh's assessment revealed operational bottlenecks we'd been blind to for years. Implementing his recommendations unlocked $50K in annual savings and eliminated the barriers that were holding back our growth.",
-      author: "Sarah Chen",
-      title: "CEO",
-      company: "Technology Firm, 50 employees"
-    },
-    {
-      quote: "The assessment identified critical vulnerabilities in our business protection strategy. Josh's strategic approach transformed our security from a cost center into a competitive advantage that we now showcase to clients.",
-      author: "Mike Rodriguez",
-      title: "Operations Director",
-      company: "Manufacturing, 120 employees"
-    },
-    {
-      quote: "The strategic roadmap from our assessment completely transformed how we operate. We've increased productivity by 40%, reduced costs by 25%, and can now scale without adding headcount.",
-      author: "Lisa Thompson",
-      title: "VP Operations",
-      company: "Professional Services, 85 employees"
-    }
   ];
 
   return (
@@ -249,52 +228,6 @@ const AssessmentLanding = () => {
                   {range.level}
                 </div>
                 <p className="text-sm text-gray-600">{range.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{opacity: 0, y: 30}}
-            whileInView={{opacity: 1, y: 0}}
-            transition={{duration: 0.6}}
-            viewport={{once: true}}
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Real Business Transformation Results
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how other businesses have used their assessment results to drive strategic growth
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-blue-50 rounded-xl p-6 border border-blue-100"
-                initial={{opacity: 0, y: 30}}
-                whileInView={{opacity: 1, y: 0}}
-                transition={{duration: 0.6, delay: index * 0.1}}
-                viewport={{once: true}}
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <SafeIcon key={i} icon={FiStar} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 italic">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div>
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.title}</div>
-                  <div className="text-sm text-blue-600">{testimonial.company}</div>
-                </div>
               </motion.div>
             ))}
           </div>

@@ -33,6 +33,7 @@ const Header = () => {
       dropdownItems: [
         { label: 'Digital Transformation', href: '/services/digital-transformation' },
         { label: 'Cybersecurity', href: '/services/cybersecurity' },
+        { label: 'Managed Security Services', href: '/services/managed-security' },
         { label: 'Cloud Infrastructure', href: '/services/cloud-infrastructure' },
         { label: 'Business Automation', href: '/services/business-automation' },
       ]
@@ -46,6 +47,10 @@ const Header = () => {
       dropdownItems: [
         { label: 'Digital Transformation Assessment', href: '/assessment' },
         { label: 'Cybersecurity Risk Assessment', href: '/security-assessment' },
+        { label: 'Security Maturity Assessment', href: '/security-maturity-assessment' },
+        { label: 'Compliance Readiness Assessment', href: '/compliance-assessment' },
+        { label: 'Security Budget Planner', href: '/budget-planner' },
+        { label: 'Vendor Evaluation Matrix', href: '/vendor-evaluation' },
         { label: 'ROI Calculator', href: '/roi-calculator' },
       ]
     },
@@ -60,6 +65,10 @@ const Header = () => {
          location.pathname === '/assessment/start' || 
          location.pathname === '/security-assessment' || 
          location.pathname === '/security-assessment/start' ||
+         location.pathname === '/security-maturity-assessment' ||
+         location.pathname === '/compliance-assessment' ||
+         location.pathname === '/budget-planner' ||
+         location.pathname === '/vendor-evaluation' ||
          location.pathname === '/roi-calculator' ||
          location.pathname === '/roi-calculator/start') && item.label === 'Tools') return true;
     return false;

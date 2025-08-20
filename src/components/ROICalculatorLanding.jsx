@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const {FiCalculator, FiTrendingUp, FiDollarSign, FiClock, FiTarget, FiBarChart, FiCheckCircle, FiZap, FiShield, FiCloud, FiBot, FiPhone, FiDownload, FiStar} = FiIcons;
+const {FiCalculator, FiTrendingUp, FiDollarSign, FiClock, FiTarget, FiBarChart, FiCheckCircle, FiZap, FiShield, FiCloud, FiBot, FiPhone, FiDownload} = FiIcons;
 
 const ROICalculatorLanding = () => {
   const benefits = [
@@ -28,30 +28,6 @@ const ROICalculatorLanding = () => {
     {solution: "Process Automation", icon: FiBot, value: "70% productivity increase", description: "Strategic process automation and optimization", color: "#7c3aed"},
     {solution: "Advanced Security", icon: FiShield, value: "Business continuity protection", description: "Enterprise protection for thousands of organizations", color: "#dc2626"},
     {solution: "Compliance Automation", icon: FiCheckCircle, value: "14-day compliance", description: "Automated compliance that accelerates growth", color: "#16a34a"}
-  ];
-
-  const testimonials = [
-    {
-      quote: "The ROI calculator revealed $180K in growth opportunities we'd been missing. Josh's strategic recommendations eliminated our operational bottlenecks and transformed how we compete in the market.",
-      author: "Sarah Chen",
-      title: "CFO",
-      company: "Technology Firm, 45 employees",
-      roi: "320% ROI"
-    },
-    {
-      quote: "The calculator identified strategic advantages we never considered. The AI automation implementation alone eliminated 25 hours of manual work weekly, allowing us to scale revenue without adding headcount.",
-      author: "Mike Rodriguez",
-      title: "Operations Director",
-      company: "Manufacturing, 85 employees",
-      roi: "280% ROI"
-    },
-    {
-      quote: "The technology value analysis completely changed our investment strategy. The cloud infrastructure savings alone funded our entire digital transformation while creating sustainable competitive advantages.",
-      author: "Lisa Thompson",
-      title: "VP Operations",
-      company: "Professional Services, 120 employees",
-      roi: "425% ROI"
-    }
   ];
 
   const industryExamples = [
@@ -307,53 +283,6 @@ const ROICalculatorLanding = () => {
                     <div className="text-lg font-semibold text-purple-600">{example.roi}</div>
                     <div className="text-xs text-gray-500">3-Year Business ROI</div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{opacity: 0, y: 30}}
-            whileInView={{opacity: 1, y: 0}}
-            transition={{duration: 0.6}}
-            viewport={{once: true}}
-          >
-            <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Real Business Transformation Results
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how other businesses achieved strategic growth through our partnership-powered solutions
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 border border-gray-200"
-                initial={{opacity: 0, y: 30}}
-                whileInView={{opacity: 1, y: 0}}
-                transition={{duration: 0.6, delay: index * 0.1}}
-                viewport={{once: true}}
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <SafeIcon key={i} icon={FiStar} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-gray-700 mb-4 italic">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="border-t pt-4">
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.title}</div>
-                  <div className="text-sm text-blue-600">{testimonial.company}</div>
-                  <div className="text-lg font-bold text-green-600 mt-2">{testimonial.roi}</div>
                 </div>
               </motion.div>
             ))}
