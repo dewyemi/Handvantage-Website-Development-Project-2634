@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
+// Critical components (loaded immediately)
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
@@ -9,25 +10,39 @@ import About from './components/About';
 import Partnerships from './components/Partnerships';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import Breadcrumbs from './components/Breadcrumbs';
 
-import AboutPage from './components/AboutPage';
-import DigitalTransformationPage from './components/DigitalTransformationPage';
-import CybersecurityPage from './components/CybersecurityPage';
-import CloudInfrastructurePage from './components/CloudInfrastructurePage';
-import BusinessAutomationPage from './components/BusinessAutomationPage';
-import ManagedSecurityPage from './components/ManagedSecurityPage';
+// Lazy load non-critical page components for better performance
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const DigitalTransformationPage = lazy(() => import('./components/DigitalTransformationPage'));
+const CybersecurityPage = lazy(() => import('./components/CybersecurityPage'));
+const CloudInfrastructurePage = lazy(() => import('./components/CloudInfrastructurePage'));
+const BusinessAutomationPage = lazy(() => import('./components/BusinessAutomationPage'));
+const ManagedSecurityPage = lazy(() => import('./components/ManagedSecurityPage'));
 
-import AssessmentLanding from './components/AssessmentLanding';
-import AssessmentTool from './components/AssessmentTool';
-import CybersecurityAssessmentLanding from './components/CybersecurityAssessmentLanding';
-import CybersecurityAssessment from './components/CybersecurityAssessment';
+const AssessmentLanding = lazy(() => import('./components/AssessmentLanding'));
+const AssessmentTool = lazy(() => import('./components/AssessmentTool'));
+const CybersecurityAssessmentLanding = lazy(() => import('./components/CybersecurityAssessmentLanding'));
+const CybersecurityAssessment = lazy(() => import('./components/CybersecurityAssessment'));
 
-import ROICalculatorLanding from './components/ROICalculatorLanding';
-import ROICalculator from './components/ROICalculator';
+const ROICalculatorLanding = lazy(() => import('./components/ROICalculatorLanding'));
+const ROICalculator = lazy(() => import('./components/ROICalculator'));
 
-import SecurityMaturityAssessment from './components/SecurityMaturityAssessment';
-import CyberMaturityRoadmap from './components/CyberMaturityRoadmap';
-import ComplianceAssessment from './components/ComplianceAssessment';
+const SecurityMaturityAssessment = lazy(() => import('./components/SecurityMaturityAssessment'));
+const CyberMaturityRoadmap = lazy(() => import('./components/CyberMaturityRoadmap'));
+const ComplianceAssessment = lazy(() => import('./components/ComplianceAssessment'));
+
+// Loading component for Suspense fallback
+const LoadingSpinner = () => (
+  <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="flex flex-col items-center space-y-4">
+      <div className="relative">
+        <div className="w-12 h-12 border-4 border-primary-blue border-t-transparent rounded-full animate-spin"></div>
+      </div>
+      <p className="text-lg font-medium text-primary-dark">Loading...</p>
+    </div>
+  </div>
+);
 import BudgetPlanner from './components/BudgetPlanner';
 import VendorEvaluation from './components/VendorEvaluation';
 
@@ -57,7 +72,9 @@ function App() {
       <div className="min-h-screen bg-white">
         <PageTracker />
         <Header />
-        <Routes>
+        <Breadcrumbs />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
           <Route path="/" element={
             <main>
               <Hero />
@@ -184,6 +201,7 @@ function App() {
             </div>
           } />
         </Routes>
+        </Suspense>
         <Footer />
       </div>
     </Router>

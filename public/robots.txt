@@ -1,18 +1,59 @@
+# Robots.txt for Handvantage Website
+# Optimized for AI crawler accessibility including ChatGPT, Claude, and other AI platforms
+
 User-agent: *
+Allow: /
+
+# AI-specific crawlers - Explicit permissions for major AI platforms
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 # Sitemap location
 Sitemap: https://pages.handvantage.com/sitemap.xml
 
-# Allow search engines to crawl all pages
+# Allow search engines and AI crawlers to access all public pages
 Crawl-delay: 1
 
-# Specific pages to prioritize
+# Specific pages to prioritize for AI understanding
 Allow: /about
 Allow: /services/
 Allow: /assessment
 Allow: /security-assessment
+Allow: /digital-transformation
+Allow: /roi-calculator
+Allow: /maturity-roadmap
+Allow: /compliance-assessment
 
-# Block any admin or private areas (if they exist)
+# Block any admin or private areas
 Disallow: /admin/
 Disallow: /.netlify/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
+
+# Host directive
+Host: pages.handvantage.com

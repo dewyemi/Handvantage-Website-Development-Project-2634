@@ -16,12 +16,30 @@
   <meta name="author" content="Josh Olayemi">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://pages.handvantage.com/">
+  
+  <!-- AI Platform Specific Meta Tags -->
+  <meta name="ai:title" content="Strategic Technology Consulting | Eliminate Growth Bottlenecks | Handvantage">
+  <meta name="ai:description" content="Strategic technology consulting for growing businesses. Eliminate technology bottlenecks that limit growth and create competitive advantages. 20+ years Fortune 500 expertise.">
+  <meta name="ai:keywords" content="strategic technology consulting, growth bottlenecks, competitive advantages, business strategy, technology strategy, strategic planning, Josh Olayemi, enterprise expertise, business transformation">
+  <meta name="ai:category" content="Business Technology Consulting">
+  <meta name="ai:expertise" content="Digital Transformation, Cybersecurity, Cloud Infrastructure, Business Automation">
+  <meta name="ai:service_area" content="Canada, North America">
+  <meta name="ai:experience" content="20+ years Fortune 500 expertise">
+  
+  <!-- Enhanced Performance Meta Tags -->
+  <meta name="theme-color" content="#1e40af">
+  <meta name="msapplication-TileColor" content="#1e40af">
+  <meta name="format-detection" content="telephone=no">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pages.handvantage.com/">
   <meta property="og:title" content="Strategic Technology Consulting | Eliminate Growth Bottlenecks | Handvantage">
   <meta property="og:description" content="Strategic technology consulting for growing businesses. Eliminate technology bottlenecks that limit growth and create competitive advantages. 20+ years Fortune 500 expertise.">
   <meta property="og:image" content="https://pages.handvantage.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Handvantage Strategic Technology Consulting">
   <meta property="og:site_name" content="Handvantage">
   <meta property="og:locale" content="en_US">
   <!-- Twitter -->
@@ -30,12 +48,19 @@
   <meta property="twitter:title" content="Strategic Technology Consulting | Eliminate Growth Bottlenecks | Handvantage">
   <meta property="twitter:description" content="Strategic technology consulting for growing businesses. Eliminate technology bottlenecks that limit growth and create competitive advantages.">
   <meta property="twitter:image" content="https://pages.handvantage.com/og-image.jpg">
+  <meta property="twitter:image:alt" content="Handvantage Strategic Technology Consulting">
   <meta property="twitter:creator" content="@joshhandvantage">
+  <meta property="twitter:site" content="@handvantage">
+  
   <!-- Business/Local SEO -->
   <meta name="geo.region" content="CA-BC">
   <meta name="geo.placename" content="Vancouver">
   <meta name="geo.position" content="49.2827;-123.1207">
   <meta name="ICBM" content="49.2827,-123.1207">
+  
+  <!-- Performance Optimization Meta Tags -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="referrer" content="no-referrer-when-downgrade">
   <!-- Structured Data for Organization -->
   <script type="application/ld+json">
   {"@context": "https://schema.org","@type": "Organization","name": "Handvantage","url": "https://pages.handvantage.com","logo": "https://pages.handvantage.com/logo.png","description": "Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages for growing businesses.","address": {"@type": "PostalAddress","addressLocality": "Vancouver","addressRegion": "BC","addressCountry": "CA"},"contactPoint": {"@type": "ContactPoint","telephone": "+1-236-235-0919","contactType": "customer service","availableLanguage": "English"},"founder": {"@type": "Person","name": "Josh Olayemi","jobTitle": "Strategic Technology Consultant","description": "20+ years experience in strategic technology consulting, former AWS, Oracle, and Amazon consultant"},"sameAs": [ "https://linkedin.com/in/josh-olayemi","https://handvantage.co" ],"service": [ {"@type": "Service","name": "Strategic Technology Planning","description": "Strategic technology planning that eliminates growth bottlenecks"},{"@type": "Service","name": "Business Protection Strategy","description": "Comprehensive business protection strategy that safeguards growth potential"},{"@type": "Service","name": "Scalable Infrastructure Strategy","description": "Strategic infrastructure planning for sustainable business growth"},{"@type": "Service","name": "Process Optimization Strategy","description": "Strategic process optimization that eliminates operational bottlenecks"} ]}
@@ -59,15 +84,26 @@
   clickRankAi.async = true;
   document.head.appendChild(clickRankAi);
   </script>
-  <!-- Preconnect to external domains -->
+  <!-- Preconnect to external domains for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com">
-  <!-- DNS Prefetch -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://js.clickrank.ai">
+  <link rel="preconnect" href="https://app.noem.ai">
+  
+  <!-- DNS Prefetch for performance -->
   <link rel="dns-prefetch" href="//handvantage.co">
   <link rel="dns-prefetch" href="//linkedin.com">
+  <link rel="dns-prefetch" href="//google-analytics.com">
+  <link rel="dns-prefetch" href="//googletagmanager.com">
+  
   <!-- Preload critical resources -->
   <link rel="preload" href="/src/main.jsx" as="script">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Module preload for faster loading -->
+  <link rel="modulepreload" href="/src/main.jsx">
 </head>
 <body>
   <!-- Netlify Forms Detection -->
@@ -162,6 +198,55 @@
     }
   } catch (error) {
     console.log('ChatBot not available, continuing without chat support');
+  }
+  </script>
+  
+  <!-- Service Worker Registration for Performance -->
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('Service Worker registered successfully:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    });
+  }
+  </script>
+  
+  <!-- Performance monitoring and Critical CSS -->
+  <script>
+  // Performance monitoring
+  window.addEventListener('load', () => {
+    if ('performance' in window) {
+      const perfData = performance.getEntriesByType('navigation')[0];
+      console.log('Page Load Time:', perfData.loadEventEnd - perfData.fetchStart, 'ms');
+    }
+  });
+  
+  // Lazy load non-critical resources
+  const lazyLoad = () => {
+    const lazyElements = document.querySelectorAll('[data-lazy]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.lazy;
+          img.classList.remove('lazy');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+    
+    lazyElements.forEach(img => imageObserver.observe(img));
+  };
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', lazyLoad);
+  } else {
+    lazyLoad();
   }
   </script>
 </body>
