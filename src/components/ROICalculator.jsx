@@ -852,10 +852,10 @@ const ROICalculator = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-primary-dark mb-4">
-              Digital Transformation ROI Calculator
+              Managed Security Services ROI Calculator
             </h1>
             <p className="text-lg text-slate-600">
-              Calculate your potential return on investment with our partnership-powered solutions
+              Calculate the financial benefits of managed security services compared to internal teams and traditional approaches
             </p>
           </div>
 
