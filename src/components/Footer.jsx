@@ -19,7 +19,8 @@ const Footer = () => {
 
   const assessments = [
     {name: 'Digital Transformation Assessment', link: '/assessment', icon: FiZap},
-    {name: 'Cybersecurity Risk Assessment', link: '/security-assessment', icon: FiShield}
+    {name: 'Cybersecurity Risk Assessment', link: '/security-assessment', icon: FiShield},
+    {name: 'Maturity Roadmap Generator', link: '/maturity-roadmap', icon: FiShield}
   ];
 
   const technologyCapabilities = [
