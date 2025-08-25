@@ -34,24 +34,29 @@ const ROICalculator = () => {
   
   // User data state
   const [userData, setUserData] = useState({
-    // Business Profile
-    companySize: 25,
+    // Business Profile Inputs
+    companySize: 50,
     industry: '',
-    annualRevenue: 2000000,
-    techBudgetPercent: 5,
+    annualRevenue: 5000000,
+    currentITBudget: 250000,
+    geographicComplexity: 'single', // single, multi-location, international
     
-    // Current State
-    manualHoursWeekly: 40,
-    avgHourlyCost: 35,
-    downtimeHours: 8,
-    itSupportCosts: 5000,
-    securityIncidents: 2,
+    // Current Security Spending
+    existingSecurityTools: 50000,
+    internalSecurityStaff: 2,
+    avgStaffSalary: 175000,
+    securityTrainingCosts: 20000,
+    complianceAuditCosts: 30000,
+    incidentResponseCosts: 40000,
+    securityRelatedDelays: 10, // hours per month
     
-    // Automation Potential
-    automationPercent: 60,
-    timeSavingsPercent: 70,
-    errorReductionPercent: 85,
-    complianceValue: 25000,
+    // Risk Profile Assessment
+    industryRiskLevel: 'medium', // low, medium, high, critical
+    regulatoryRequirements: [], // hipaa, sox, gdpr, pci, iso27001
+    historicalIncidents: 1,
+    averageIncidentCost: 75000,
+    businessContinuityReqs: 'standard', // basic, standard, high
+    dataSensitivity: 'medium', // low, medium, high, critical
     
     // Contact Info
     firstName: '',
@@ -63,14 +68,41 @@ const ROICalculator = () => {
 
   // Results state
   const [results, setResults] = useState({
-    annualTimeSavings: 0,
-    costSavings: 0,
-    securityROI: 0,
-    complianceSavings: 0,
+    // Cost Comparison Analysis
+    internalSecurityCosts: 0,
+    traditionalMSSPCosts: 0,
+    handVantageSecurityCosts: 0,
+    
+    // Direct Cost Savings
+    toolSavings: 0,
+    staffingCostAvoidance: 0,
+    trainingCostAvoidance: 0,
+    infrastructureOptimization: 0,
+    
+    // Operational Efficiency Gains
+    itProductivityImprovement: 0,
+    fasterIncidentResponse: 0,
+    automatedCompliance: 0,
+    strategicGuidanceValue: 0,
+    
+    // Risk Reduction Value
+    breachCostAvoidance: 0,
+    compliancePenaltyAvoidance: 0,
+    businessContinuityProtection: 0,
+    reputationProtection: 0,
+    
+    // Business Enablement Benefits
+    fasterTimeToMarket: 0,
+    growthFacilitation: 0,
+    competitiveAdvantage: 0,
+    strategicFocus: 0,
+    
+    // Summary Metrics
+    totalAnnualSavings: 0,
     totalROI: 0,
     paybackPeriod: 0,
     threeYearValue: 0,
-    partnershipBreakdown: {}
+    fiveYearNPV: 0
   });
 
   const [formStatus, setFormStatus] = useState({
@@ -79,39 +111,98 @@ const ROICalculator = () => {
     error: null
   });
 
-  // Industry options with default values
+  // Industry options with security-focused values
   const industries = [
-    { value: 'technology', label: 'Technology', hourlyMultiplier: 1.2, incidentCost: 50000 },
-    { value: 'healthcare', label: 'Healthcare', hourlyMultiplier: 1.1, incidentCost: 75000 },
-    { value: 'financial', label: 'Financial Services', hourlyMultiplier: 1.3, incidentCost: 100000 },
-    { value: 'manufacturing', label: 'Manufacturing', hourlyMultiplier: 0.9, incidentCost: 40000 },
-    { value: 'professional', label: 'Professional Services', hourlyMultiplier: 1.0, incidentCost: 35000 },
-    { value: 'retail', label: 'Retail/E-commerce', hourlyMultiplier: 0.8, incidentCost: 30000 },
-    { value: 'education', label: 'Education', hourlyMultiplier: 0.7, incidentCost: 25000 },
-    { value: 'other', label: 'Other', hourlyMultiplier: 1.0, incidentCost: 40000 }
+    { 
+      value: 'technology', 
+      label: 'Technology', 
+      riskMultiplier: 1.2, 
+      avgIncidentCost: 4850000,
+      complianceComplexity: 'medium',
+      regulatoryReqs: ['gdpr', 'iso27001']
+    },
+    { 
+      value: 'healthcare', 
+      label: 'Healthcare', 
+      riskMultiplier: 1.5, 
+      avgIncidentCost: 7800000,
+      complianceComplexity: 'high',
+      regulatoryReqs: ['hipaa', 'gdpr']
+    },
+    { 
+      value: 'financial', 
+      label: 'Financial Services', 
+      riskMultiplier: 1.8, 
+      avgIncidentCost: 5720000,
+      complianceComplexity: 'critical',
+      regulatoryReqs: ['sox', 'gdpr', 'pci', 'iso27001']
+    },
+    { 
+      value: 'manufacturing', 
+      label: 'Manufacturing', 
+      riskMultiplier: 1.1, 
+      avgIncidentCost: 4280000,
+      complianceComplexity: 'medium',
+      regulatoryReqs: ['iso27001']
+    },
+    { 
+      value: 'professional', 
+      label: 'Professional Services', 
+      riskMultiplier: 1.0, 
+      avgIncidentCost: 3730000,
+      complianceComplexity: 'low',
+      regulatoryReqs: ['gdpr']
+    },
+    { 
+      value: 'retail', 
+      label: 'Retail/E-commerce', 
+      riskMultiplier: 1.3, 
+      avgIncidentCost: 3280000,
+      complianceComplexity: 'medium',
+      regulatoryReqs: ['pci', 'gdpr']
+    },
+    { 
+      value: 'education', 
+      label: 'Education', 
+      riskMultiplier: 0.9, 
+      avgIncidentCost: 2730000,
+      complianceComplexity: 'low',
+      regulatoryReqs: ['gdpr']
+    },
+    { 
+      value: 'government', 
+      label: 'Government/Public Sector', 
+      riskMultiplier: 1.4, 
+      avgIncidentCost: 4420000,
+      complianceComplexity: 'critical',
+      regulatoryReqs: ['gdpr', 'iso27001']
+    },
+    { 
+      value: 'other', 
+      label: 'Other', 
+      riskMultiplier: 1.0, 
+      avgIncidentCost: 4000000,
+      complianceComplexity: 'medium',
+      regulatoryReqs: ['gdpr']
+    }
   ];
 
-  // Calculation steps
+  // Security assessment steps
   const steps = [
     {
       title: 'Business Profile',
       icon: FiBuilding,
-      description: 'Tell us about your company'
+      description: 'Company details and current IT environment'
     },
     {
-      title: 'Current State',
-      icon: FiActivity,
-      description: 'Assess your current operations'
+      title: 'Current Security Spending',
+      icon: FiDollarSign,
+      description: 'Existing security investments and costs'
     },
     {
-      title: 'Automation Potential',
-      icon: FiZap,
-      description: 'Identify improvement opportunities'
-    },
-    {
-      title: 'Partnership Benefits',
-      icon: FiTarget,
-      description: 'Calculate partnership value'
+      title: 'Risk Profile Assessment',
+      icon: FiShield,
+      description: 'Security risks and compliance requirements'
     }
   ];
 
@@ -122,62 +213,172 @@ const ROICalculator = () => {
     { value: 'aggressive', label: 'Aggressive', multiplier: 1.3 }
   ];
 
-  // Calculate ROI
+  // Calculate MSS ROI based on prompt requirements
   const calculateROI = () => {
     const selectedIndustry = industries.find(ind => ind.value === userData.industry) || industries[4];
     const modeMultiplier = projectionModes.find(mode => mode.value === projectionMode)?.multiplier || 1.0;
     
-    // Time savings calculation
-    const weeklyTimeSavings = (userData.manualHoursWeekly * userData.automationPercent / 100 * userData.timeSavingsPercent / 100);
-    const annualTimeSavings = weeklyTimeSavings * 52;
+    // === Cost Comparison Analysis ===
     
-    // Cost savings
-    const adjustedHourlyCost = userData.avgHourlyCost * selectedIndustry.hourlyMultiplier;
-    const annualCostSavings = annualTimeSavings * adjustedHourlyCost * modeMultiplier;
+    // 1. Internal Security Team Costs
+    const securityProfessionalCost = userData.internalSecurityStaff * userData.avgStaffSalary * 1.3; // Include benefits (30%)
+    const trainingCostPerPerson = 12500; // $10K-$15K average
+    const totalTrainingCosts = userData.internalSecurityStaff * trainingCostPerPerson;
+    const securityToolsRetailPrice = userData.existingSecurityTools; // 100% of list price
+    const managementOverhead = (securityProfessionalCost + totalTrainingCosts) * 0.25; // 20-30% average
+    const recruitmentCosts = userData.internalSecurityStaff * 37500; // $25K-$50K per hire average
     
-    // Security ROI
-    const incidentCost = selectedIndustry.incidentCost;
-    const securityInvestment = 15000; // Annual security investment
-    const incidentReduction = 0.8; // 80% reduction
-    const securitySavings = (userData.securityIncidents * incidentCost * incidentReduction) - securityInvestment;
+    const internalSecurityCosts = securityProfessionalCost + totalTrainingCosts + securityToolsRetailPrice + managementOverhead + recruitmentCosts;
     
-    // Compliance savings
-    const complianceSavings = userData.complianceValue * 0.6 * modeMultiplier; // 60% automation efficiency
+    // 2. Traditional MSSP Costs
+    const endpointCount = userData.companySize * 2; // Estimate 2 endpoints per employee
+    const basicMonitoringCost = endpointCount * 75 * 12; // $50-$100 per endpoint per month, using $75 average
+    const additionalServicesPremium = basicMonitoringCost * 0.375; // 25-50% premium, using 37.5% average
+    const vendorManagementOverhead = (basicMonitoringCost + additionalServicesPremium) * 0.15; // Management complexity
     
-    // Partnership-specific savings
-    const microsoftSavings = userData.annualRevenue * 0.002; // 0.2% of revenue in licensing savings
-    const rtilaSavings = annualCostSavings * 0.4; // 40% of automation savings from RTILA
-    const ironscalesSavings = securitySavings * 0.5; // 50% of security savings from IRONSCALES
-    const vantaSavings = complianceSavings * 0.7; // 70% of compliance savings from Vanta
+    const traditionalMSSPCosts = basicMonitoringCost + additionalServicesPremium + vendorManagementOverhead;
     
-    // Total investment
-    const totalInvestment = 50000; // Annual transformation investment
+    // 3. HandVantage Managed Services Costs
+    let handVantageBaseCost;
+    if (userData.companySize <= 50) {
+      handVantageBaseCost = userData.companySize * 200 * 12; // $175-225 average = $200
+    } else if (userData.companySize <= 200) {
+      handVantageBaseCost = userData.companySize * 300 * 12; // $275-325 average = $300
+    } else {
+      handVantageBaseCost = userData.companySize * 412.5 * 12; // $375-450 average = $412.5
+    }
     
-    // Total savings
-    const totalSavings = annualCostSavings + securitySavings + complianceSavings;
+    const handVantageSecurityCosts = handVantageBaseCost;
     
-    // ROI calculation
-    const roiPercent = ((totalSavings - totalInvestment) / totalInvestment) * 100;
-    const paybackMonths = totalInvestment / (totalSavings / 12);
-    const threeYearValue = totalSavings * 3 - totalInvestment;
+    // === Direct Cost Savings ===
+    
+    // Vendor consolidation savings (25-40% of security tool costs)
+    const toolSavings = userData.existingSecurityTools * 0.325 * modeMultiplier; // Using 32.5% average
+    
+    // Staffing cost avoidance
+    const staffingCostAvoidance = (internalSecurityCosts - handVantageSecurityCosts) > 0 ? 
+      (internalSecurityCosts - handVantageSecurityCosts) : 0;
+    
+    // Training cost avoidance
+    const trainingCostAvoidance = totalTrainingCosts * 0.9; // 90% of training costs avoided
+    
+    // Infrastructure cost optimization (right-sizing)
+    const infrastructureOptimization = userData.currentITBudget * 0.15 * modeMultiplier; // 15% optimization
+    
+    // === Operational Efficiency Gains ===
+    
+    // IT team productivity improvement (40-60% reduction in security management time)
+    const securityManagementHours = userData.currentITBudget / 100000 * 20; // Estimate 20 hours per week per $100K budget
+    const productivityGainHours = securityManagementHours * 0.5 * 52; // 50% reduction, annualized
+    const itProductivityImprovement = productivityGainHours * 75 * modeMultiplier; // $75/hour average IT rate
+    
+    // Faster incident response (reduced business impact)
+    const incidentImpactReduction = userData.historicalIncidents * userData.averageIncidentCost * 0.6 * modeMultiplier; // 60% faster response
+    
+    // Automated compliance (reduced manual effort)
+    const complianceEfficiencyGain = userData.complianceAuditCosts * 0.6 * modeMultiplier; // 60% automation efficiency
+    
+    // Strategic guidance value
+    const strategicGuidanceValue = userData.annualRevenue * 0.005 * modeMultiplier; // 0.5% of revenue from better decisions
+    
+    // === Risk Reduction Value ===
+    
+    // Breach cost avoidance (industry-average breach costs by company size)
+    const breachProbability = selectedIndustry.riskMultiplier * 0.1; // 10% base probability adjusted by industry
+    const scaledIncidentCost = selectedIndustry.avgIncidentCost * (userData.companySize / 1000); // Scale by company size
+    const breachCostAvoidance = breachProbability * scaledIncidentCost * 0.8 * modeMultiplier; // 80% reduction in probability
+    
+    // Compliance penalty avoidance
+    const compliancePenaltyRisk = userData.regulatoryRequirements.length * 50000; // $50K average penalty per regulation
+    const compliancePenaltyAvoidance = compliancePenaltyRisk * 0.7 * modeMultiplier; // 70% reduction in penalty risk
+    
+    // Business continuity protection
+    const downtimeReduction = userData.securityRelatedDelays * 12 * 500 * modeMultiplier; // $500/hour of downtime avoided
+    
+    // Reputation protection (estimated value)
+    const reputationProtection = userData.annualRevenue * 0.002 * modeMultiplier; // 0.2% of revenue
+    
+    // === Business Enablement Benefits ===
+    
+    // Faster time-to-market (reduced security-related project delays)
+    const projectAcceleration = userData.annualRevenue * 0.003 * modeMultiplier; // 0.3% of revenue from faster projects
+    
+    // Growth facilitation (security that scales)
+    const growthFacilitation = userData.annualRevenue * 0.002 * modeMultiplier; // 0.2% of revenue
+    
+    // Competitive advantage (enterprise-grade capabilities)
+    const competitiveAdvantage = userData.annualRevenue * 0.001 * modeMultiplier; // 0.1% of revenue
+    
+    // Strategic focus (IT resources on business-enabling projects)
+    const strategicFocus = itProductivityImprovement * 0.5; // 50% of IT productivity gains
+    
+    // === Summary Calculations ===
+    
+    const totalDirectSavings = toolSavings + staffingCostAvoidance + trainingCostAvoidance + infrastructureOptimization;
+    const totalOperationalGains = itProductivityImprovement + incidentImpactReduction + complianceEfficiencyGain + strategicGuidanceValue;
+    const totalRiskReduction = breachCostAvoidance + compliancePenaltyAvoidance + downtimeReduction + reputationProtection;
+    const totalBusinessEnablement = projectAcceleration + growthFacilitation + competitiveAdvantage + strategicFocus;
+    
+    const totalAnnualSavings = totalDirectSavings + totalOperationalGains + totalRiskReduction + totalBusinessEnablement;
+    const totalInvestment = handVantageSecurityCosts;
+    const netBenefit = totalAnnualSavings - totalInvestment;
+    
+    // ROI calculations
+    const roiPercent = (netBenefit / totalInvestment) * 100;
+    const paybackMonths = totalInvestment / (netBenefit / 12);
+    const threeYearValue = (netBenefit * 3);
+    const fiveYearNPV = calculateNPV(netBenefit, 5, 0.08); // 8% discount rate
     
     return {
-      annualTimeSavings: Math.round(annualTimeSavings),
-      costSavings: Math.round(annualCostSavings),
-      securityROI: Math.round(securitySavings),
-      complianceSavings: Math.round(complianceSavings),
+      // Cost Comparison
+      internalSecurityCosts: Math.round(internalSecurityCosts),
+      traditionalMSSPCosts: Math.round(traditionalMSSPCosts),
+      handVantageSecurityCosts: Math.round(handVantageSecurityCosts),
+      
+      // Direct Cost Savings
+      toolSavings: Math.round(toolSavings),
+      staffingCostAvoidance: Math.round(staffingCostAvoidance),
+      trainingCostAvoidance: Math.round(trainingCostAvoidance),
+      infrastructureOptimization: Math.round(infrastructureOptimization),
+      
+      // Operational Efficiency Gains
+      itProductivityImprovement: Math.round(itProductivityImprovement),
+      fasterIncidentResponse: Math.round(incidentImpactReduction),
+      automatedCompliance: Math.round(complianceEfficiencyGain),
+      strategicGuidanceValue: Math.round(strategicGuidanceValue),
+      
+      // Risk Reduction Value
+      breachCostAvoidance: Math.round(breachCostAvoidance),
+      compliancePenaltyAvoidance: Math.round(compliancePenaltyAvoidance),
+      businessContinuityProtection: Math.round(downtimeReduction),
+      reputationProtection: Math.round(reputationProtection),
+      
+      // Business Enablement Benefits
+      fasterTimeToMarket: Math.round(projectAcceleration),
+      growthFacilitation: Math.round(growthFacilitation),
+      competitiveAdvantage: Math.round(competitiveAdvantage),
+      strategicFocus: Math.round(strategicFocus),
+      
+      // Summary Metrics
+      totalAnnualSavings: Math.round(totalAnnualSavings),
       totalROI: Math.round(roiPercent),
       paybackPeriod: Math.round(paybackMonths * 10) / 10,
       threeYearValue: Math.round(threeYearValue),
-      partnershipBreakdown: {
-        microsoft: Math.round(microsoftSavings),
-        rtila: Math.round(rtilaSavings),
-        ironscales: Math.round(ironscalesSavings),
-        vanta: Math.round(vantaSavings)
-      },
-      totalSavings: Math.round(totalSavings),
-      totalInvestment
+      fiveYearNPV: Math.round(fiveYearNPV),
+      
+      // Compatibility with existing display logic
+      totalSavings: Math.round(totalAnnualSavings),
+      totalInvestment: Math.round(totalInvestment)
     };
+  };
+  
+  // Helper function to calculate Net Present Value
+  const calculateNPV = (annualCashFlow, years, discountRate) => {
+    let npv = 0;
+    for (let year = 1; year <= years; year++) {
+      npv += annualCashFlow / Math.pow(1 + discountRate, year);
+    }
+    return npv;
   };
 
   // Handle input changes
