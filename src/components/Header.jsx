@@ -48,6 +48,7 @@ const Header = () => {
         { label: 'Digital Transformation Assessment', href: '/assessment' },
         { label: 'Cybersecurity Risk Assessment', href: '/security-assessment' },
         { label: 'Security Maturity Assessment', href: '/security-maturity-assessment' },
+        { label: 'Maturity Roadmap Generator', href: '/maturity-roadmap' },
         { label: 'Compliance Readiness Assessment', href: '/compliance-assessment' },
         { label: 'Security Budget Planner', href: '/budget-planner' },
         { label: 'Vendor Evaluation Matrix', href: '/vendor-evaluation' },
@@ -66,6 +67,7 @@ const Header = () => {
          location.pathname === '/security-assessment' || 
          location.pathname === '/security-assessment/start' ||
          location.pathname === '/security-maturity-assessment' ||
+         location.pathname === '/maturity-roadmap' ||
          location.pathname === '/compliance-assessment' ||
          location.pathname === '/budget-planner' ||
          location.pathname === '/vendor-evaluation' ||

@@ -26,6 +26,7 @@ import ROICalculatorLanding from './components/ROICalculatorLanding';
 import ROICalculator from './components/ROICalculator';
 
 import SecurityMaturityAssessment from './components/SecurityMaturityAssessment';
+import CyberMaturityRoadmap from './components/CyberMaturityRoadmap';
 import ComplianceAssessment from './components/ComplianceAssessment';
 import BudgetPlanner from './components/BudgetPlanner';
 import VendorEvaluation from './components/VendorEvaluation';
@@ -124,6 +125,8 @@ function App() {
           <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
           
           <Route path="/security-maturity-assessment" element={<SecurityMaturityAssessment />} />
+          
+          <Route path="/maturity-roadmap" element={<CyberMaturityRoadmap />} />
           
           <Route path="/compliance-assessment" element={<ComplianceAssessment />} />
           
