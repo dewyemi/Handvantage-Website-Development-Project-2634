@@ -180,7 +180,7 @@ const ManagedSecurityPage = () => {
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Link
-                      to="/security-assessment"
+                      to="/security-maturity-assessment"
                       className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center"
                     >
                       Start Your Security Assessment
