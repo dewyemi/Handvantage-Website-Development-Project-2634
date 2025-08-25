@@ -8,33 +8,33 @@ const {FiCalculator, FiTrendingUp, FiDollarSign, FiClock, FiTarget, FiBarChart, 
 
 const ROICalculatorLanding = () => {
   const benefits = [
-    {icon: FiDollarSign, title: "Quantify Your Growth Potential", description: "Calculate exact business impact from strategic technology investments"},
-    {icon: FiClock, title: "Strategic Investment Timeline", description: "See exactly when your transformation investments will deliver positive returns"},
-    {icon: FiTrendingUp, title: "3-Year Growth Projections", description: "Understand long-term value creation and compound business benefits"},
-    {icon: FiTarget, title: "Strategic Technology Value", description: "Quantify business advantages from cloud infrastructure, automation, and security solutions"},
-    {icon: FiBarChart, title: "Competitive Advantage Metrics", description: "Measure how technology investments create sustainable competitive advantages"},
-    {icon: FiShield, title: "Risk Mitigation Value", description: "Calculate the business impact of improved protection and compliance"}
+    {icon: FiDollarSign, title: "Security Investment Optimization", description: "Calculate cost savings from vendor consolidation and strategic partnerships (25-40% tool savings)"},
+    {icon: FiClock, title: "Payback Period Analysis", description: "See exactly when managed security investments deliver positive returns"},
+    {icon: FiTrendingUp, title: "3-Year Security ROI", description: "Understand long-term value creation from comprehensive security protection"},
+    {icon: FiTarget, title: "Risk Reduction Value", description: "Quantify business impact of reduced security incidents and downtime"},
+    {icon: FiBarChart, title: "Operational Efficiency Gains", description: "Measure 40-60% reduction in IT security management burden"},
+    {icon: FiShield, title: "Business Enablement Benefits", description: "Calculate value of faster growth without security constraints"}
   ];
 
   const calculatorFeatures = [
-    {icon: FiCalculator, title: "Strategic Assessment", description: "Comprehensive 4-section evaluation of your business growth potential", color: "#2563eb"},
-    {icon: FiBarChart, title: "Business Impact Analysis", description: "Interactive visualizations showing specific business outcomes and ROI", color: "#16a34a"},
-    {icon: FiTarget, title: "Partnership-Specific Benefits", description: "Detailed breakdown of strategic value from each partnership", color: "#7c3aed"},
-    {icon: FiDownload, title: "Executive Roadmap", description: "15-page comprehensive analysis with strategic implementation plan", color: "#f59e0b"}
+    {icon: FiCalculator, title: "Security Profile Assessment", description: "Comprehensive evaluation of current security spending and risk profile", color: "#2563eb"},
+    {icon: FiBarChart, title: "Cost Comparison Analysis", description: "Internal vs MSSP vs HandVantage security cost comparisons", color: "#16a34a"},
+    {icon: FiTarget, title: "Risk-Adjusted ROI", description: "Security investment returns adjusted for incident probability and impact", color: "#7c3aed"},
+    {icon: FiDownload, title: "Executive Security Report", description: "Detailed security ROI analysis with strategic implementation roadmap", color: "#f59e0b"}
   ];
 
-  const technologyValue = [
-    {solution: "Cloud Infrastructure", icon: FiCloud, value: "40% IT cost reduction", description: "Enterprise cloud solutions with preferred pricing", color: "#2563eb"},
-    {solution: "Process Automation", icon: FiBot, value: "70% productivity increase", description: "Strategic process automation and optimization", color: "#7c3aed"},
-    {solution: "Advanced Security", icon: FiShield, value: "Business continuity protection", description: "Enterprise protection for thousands of organizations", color: "#dc2626"},
-    {solution: "Compliance Automation", icon: FiCheckCircle, value: "14-day compliance", description: "Automated compliance that accelerates growth", color: "#16a34a"}
+  const securityValue = [
+    {solution: "Vendor Consolidation", icon: FiDollarSign, value: "25-40% cost savings", description: "Enterprise pricing on security tools through strategic partnerships", color: "#2563eb"},
+    {solution: "Expert Management", icon: FiTarget, value: "40-60% IT burden reduction", description: "Security professionals equivalent to 2-3 FTE", color: "#7c3aed"},
+    {solution: "Incident Prevention", icon: FiShield, value: "80% incident reduction", description: "Advanced threat detection and response capabilities", color: "#dc2626"},
+    {solution: "Compliance Automation", icon: FiCheckCircle, value: "60% efficiency gain", description: "Automated compliance monitoring and reporting", color: "#16a34a"}
   ];
 
   const industryExamples = [
-    {industry: "Technology", companySize: "50 employees", annualSavings: "$165,000", paybackPeriod: "8 months", roi: "340%"},
-    {industry: "Healthcare", companySize: "75 employees", annualSavings: "$210,000", paybackPeriod: "6 months", roi: "420%"},
-    {industry: "Professional Services", companySize: "100 employees", annualSavings: "$275,000", paybackPeriod: "7 months", roi: "380%"},
-    {industry: "Manufacturing", companySize: "150 employees", annualSavings: "$320,000", paybackPeriod: "9 months", roi: "295%"}
+    {industry: "Technology", companySize: "50 employees", annualSavings: "$185,000", paybackPeriod: "7 months", roi: "385%"},
+    {industry: "Healthcare", companySize: "75 employees", annualSavings: "$240,000", paybackPeriod: "5 months", roi: "460%"},
+    {industry: "Professional Services", companySize: "100 employees", annualSavings: "$295,000", paybackPeriod: "6 months", roi: "420%"},
+    {industry: "Financial Services", companySize: "150 employees", annualSavings: "$380,000", paybackPeriod: "8 months", roi: "340%"}
   ];
 
   return (
@@ -52,12 +52,12 @@ const ROICalculatorLanding = () => {
             >
               <div>
                 <motion.div
-                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+                  className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"
                   initial={{opacity: 0, y: 20}}
                   animate={{opacity: 1, y: 0}}
                   transition={{delay: 0.2}}
                 >
-                  💰 Free Business Impact Calculator
+                  🛡️ Free Security ROI Calculator
                 </motion.div>
                 <motion.h1
                   className="text-4xl lg:text-5xl font-bold text-primary-dark leading-tight mb-6"
@@ -65,9 +65,9 @@ const ROICalculatorLanding = () => {
                   animate={{opacity: 1, y: 0}}
                   transition={{delay: 0.3}}
                 >
-                  Calculate Your Strategic{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-                    Business Impact
+                  Calculate Your Managed Security{' '}
+                  <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
+                    Services ROI
                   </span>
                 </motion.h1>
                 <motion.p
@@ -76,7 +76,7 @@ const ROICalculatorLanding = () => {
                   animate={{opacity: 1, y: 0}}
                   transition={{delay: 0.4}}
                 >
-                  Interactive calculator that shows exactly how our partnership-powered solutions eliminate growth bottlenecks and create sustainable competitive advantages for your business.
+                  Interactive calculator that shows the exact financial benefits of managed security services compared to internal security teams and traditional approaches.
                 </motion.p>
               </div>
               {/* Quick Stats */}
@@ -87,16 +87,16 @@ const ROICalculatorLanding = () => {
                 transition={{delay: 0.5}}
               >
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">4</div>
-                  <div className="text-sm text-gray-600">Assessment Sections</div>
+                  <div className="text-3xl font-bold text-red-600 mb-1">3</div>
+                  <div className="text-sm text-gray-600">Security Sections</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-1">15</div>
-                  <div className="text-sm text-gray-600">Minute Calculator</div>
+                  <div className="text-3xl font-bold text-green-600 mb-1">10</div>
+                  <div className="text-sm text-gray-600">Minute Assessment</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600 mb-1">15</div>
-                  <div className="text-sm text-gray-600">Page Report</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-1">3</div>
+                  <div className="text-sm text-gray-600">Year Projections</div>
                 </div>
               </motion.div>
               {/* CTA Button */}
@@ -107,12 +107,12 @@ const ROICalculatorLanding = () => {
               >
                 <Link
                   to="/roi-calculator/start"
-                  className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg"
+                  className="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 shadow-lg"
                 >
-                  Calculate Your Business Impact <SafeIcon icon={FiCalculator} className="w-5 h-5 ml-2" />
+                  Calculate Your Security ROI <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </Link>
                 <p className="text-sm text-gray-500 mt-3">
-                  No email required to start • Get detailed results in minutes
+                  No email required to start • Get detailed security analysis in minutes
                 </p>
               </motion.div>
             </motion.div>
@@ -125,8 +125,8 @@ const ROICalculatorLanding = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-primary-dark mb-2">Calculator Features</h3>
-                  <p className="text-gray-600">Comprehensive business impact analysis tool</p>
+                  <h3 className="text-2xl font-bold text-primary-dark mb-2">Security ROI Features</h3>
+                  <p className="text-gray-600">Comprehensive security impact analysis tool</p>
                 </div>
                 <div className="space-y-4">
                   {calculatorFeatures.map((feature, index) => (
@@ -170,7 +170,7 @@ const ROICalculatorLanding = () => {
               What You'll Discover
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our ROI calculator provides detailed insights into your strategic business transformation potential
+              Our security ROI calculator provides detailed insights into the financial benefits of managed security services
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -183,8 +183,8 @@ const ROICalculatorLanding = () => {
                 transition={{duration: 0.6, delay: index * 0.1}}
                 viewport={{once: true}}
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <SafeIcon icon={benefit.icon} className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                  <SafeIcon icon={benefit.icon} className="w-6 h-6 text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
@@ -205,14 +205,14 @@ const ROICalculatorLanding = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Strategic Partnership Business Impact
+              Managed Security Services Value
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See exactly how each strategic partnership creates competitive advantages for your business
+              See exactly how managed security services create cost savings and operational efficiencies for your business
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {technologyValue.map((technology, index) => (
+            {securityValue.map((security, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
@@ -223,18 +223,18 @@ const ROICalculatorLanding = () => {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{backgroundColor: technology.color}}
+                  style={{backgroundColor: security.color}}
                 >
-                  <SafeIcon icon={technology.icon} className="w-8 h-8 text-white" />
+                  <SafeIcon icon={security.icon} className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{technology.solution}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{security.solution}</h3>
                 <div
                   className="text-2xl font-bold mb-2"
-                  style={{color: technology.color}}
+                  style={{color: security.color}}
                 >
-                  {technology.value}
+                  {security.value}
                 </div>
-                <p className="text-sm text-gray-600">{technology.description}</p>
+                <p className="text-sm text-gray-600">{security.description}</p>
               </motion.div>
             ))}
           </div>
@@ -252,17 +252,17 @@ const ROICalculatorLanding = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Real Business Impact by Industry
+              Real Security ROI by Industry
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See typical strategic transformation results for companies similar to yours
+              See typical managed security services ROI results for companies similar to yours
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {industryExamples.map((example, index) => (
               <motion.div
                 key={index}
-                className="bg-blue-50 rounded-xl p-6 text-center"
+                className="bg-red-50 rounded-xl p-6 text-center"
                 initial={{opacity: 0, y: 30}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: 0.6, delay: index * 0.1}}
@@ -273,15 +273,15 @@ const ROICalculatorLanding = () => {
                 <div className="space-y-2">
                   <div>
                     <div className="text-2xl font-bold text-green-600">{example.annualSavings}</div>
-                    <div className="text-xs text-gray-500">Annual Business Impact</div>
+                    <div className="text-xs text-gray-500">Annual Security Savings</div>
                   </div>
                   <div>
                     <div className="text-lg font-semibold text-blue-600">{example.paybackPeriod}</div>
-                    <div className="text-xs text-gray-500">Strategic Payback Period</div>
+                    <div className="text-xs text-gray-500">Security Payback Period</div>
                   </div>
                   <div>
-                    <div className="text-lg font-semibold text-purple-600">{example.roi}</div>
-                    <div className="text-xs text-gray-500">3-Year Business ROI</div>
+                    <div className="text-lg font-semibold text-red-600">{example.roi}</div>
+                    <div className="text-xs text-gray-500">3-Year Security ROI</div>
                   </div>
                 </div>
               </motion.div>
@@ -291,7 +291,7 @@ const ROICalculatorLanding = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-red-600 to-blue-600 text-white">
         <div className="container mx-auto px-6">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -301,10 +301,10 @@ const ROICalculatorLanding = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold mb-6">
-              Ready to Calculate Your Strategic Impact?
+              Ready to Calculate Your Security ROI?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              See exactly how our partnership-powered solutions can eliminate your growth bottlenecks and create sustainable competitive advantages.
+              See exactly how managed security services can reduce costs while improving protection and enabling business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <motion.div
@@ -313,14 +313,14 @@ const ROICalculatorLanding = () => {
               >
                 <Link
                   to="/roi-calculator/start"
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
+                  className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
-                  Calculate Business Impact <SafeIcon icon={FiCalculator} className="w-5 h-5 ml-2" />
+                  Calculate Security ROI <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </Link>
               </motion.div>
               <motion.a
                 href="tel:+12362350919"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-flex items-center"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors duration-300 inline-flex items-center"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
@@ -329,13 +329,13 @@ const ROICalculatorLanding = () => {
             </div>
             <div className="flex items-center justify-center space-x-6 text-sm opacity-75">
               <div className="flex items-center">
-                <SafeIcon icon={FiClock} className="w-4 h-4 mr-1" /> 15 minutes
+                <SafeIcon icon={FiClock} className="w-4 h-4 mr-1" /> 10 minutes
               </div>
               <div className="flex items-center">
                 <SafeIcon icon={FiCheckCircle} className="w-4 h-4 mr-1" /> No obligation
               </div>
               <div className="flex items-center">
-                <SafeIcon icon={FiDownload} className="w-4 h-4 mr-1" /> Strategic roadmap
+                <SafeIcon icon={FiDownload} className="w-4 h-4 mr-1" /> Security roadmap
               </div>
             </div>
           </motion.div>
