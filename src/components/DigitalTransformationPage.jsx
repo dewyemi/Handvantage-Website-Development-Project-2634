@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {motion} from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
