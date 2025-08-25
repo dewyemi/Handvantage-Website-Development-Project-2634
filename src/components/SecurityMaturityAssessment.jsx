@@ -278,6 +278,65 @@ const SecurityMaturityAssessment = () => {
     return { level: 'Initial Stage', color: 'text-red-600', description: 'Immediate attention required' };
   };
 
+  const getSectionScore = (sectionIndex) => {
+    const section = assessmentSections[sectionIndex];
+    const sectionResponses = section.questions.filter(q => responses[q.id]);
+    if (sectionResponses.length === 0) return 0;
+    
+    const sectionTotal = sectionResponses.reduce((total, question) => {
+      return total + (responses[question.id] || 0);
+    }, 0);
+    
+    const maxPossible = sectionResponses.length * 4;
+    return Math.round((sectionTotal / maxPossible) * 100);
+  };
+
+  const downloadReport = () => {
+    const score = calculateScore();
+    const maturity = getMaturityLevel(score);
+    
+    // Create report content
+    const reportContent = `
+CYBERSECURITY MATURITY ASSESSMENT REPORT
+Generated on: ${new Date().toLocaleDateString()}
+
+OVERALL MATURITY SCORE: ${score}%
+MATURITY LEVEL: ${maturity.level}
+DESCRIPTION: ${maturity.description}
+
+SECTION SCORES:
+${assessmentSections.map((section, index) => {
+  const sectionScore = getSectionScore(index);
+  return `${section.title}: ${sectionScore}%`;
+}).join('\n')}
+
+PRIORITY RECOMMENDATIONS:
+• Immediate Actions (30-60 days): Implement basic endpoint protection and establish incident response procedures.
+• Short-term Initiatives (3-6 months): Deploy comprehensive monitoring and enhance email security capabilities.
+• Strategic Projects (6-12 months): Implement managed security services and develop comprehensive compliance program.
+
+NEXT STEPS:
+Schedule a strategic consultation to discuss your personalized security roadmap and implementation plan.
+
+Contact: HandVantage
+Phone: 236-235-0919
+Email: contact@handvantage.co
+Website: https://handvantage.co
+    `.trim();
+
+    // Create and download file
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = `cybersecurity-maturity-assessment-report-${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  };
+
   const handleResponse = (questionId, value) => {
     setResponses(prev => ({
       ...prev,
@@ -288,14 +347,17 @@ const SecurityMaturityAssessment = () => {
   const nextSection = () => {
     if (currentSection < assessmentSections.length - 1) {
       setCurrentSection(currentSection + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setShowResults(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const prevSection = () => {
     if (currentSection > 0) {
       setCurrentSection(currentSection - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -416,6 +478,7 @@ const SecurityMaturityAssessment = () => {
                   <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
                 </motion.a>
                 <motion.button
+                  onClick={downloadReport}
                   className="border-2 border-primary-blue text-primary-blue px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

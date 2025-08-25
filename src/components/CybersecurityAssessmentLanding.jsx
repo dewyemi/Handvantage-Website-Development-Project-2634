@@ -322,7 +322,7 @@ const CybersecurityAssessmentLanding = () => {
             <p className="text-xl mb-8 opacity-90">
               Take our comprehensive business protection assessment and get your personalized strategic roadmap today.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <motion.div
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}

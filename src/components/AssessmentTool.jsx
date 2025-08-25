@@ -435,8 +435,10 @@ const AssessmentTool = () => {
       } else if (currentSection < sections.length - 1) {
         setCurrentSection(currentSection + 1);
         setCurrentQuestion(0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setShowLeadCapture(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }, 500);
   };
@@ -918,6 +920,7 @@ const AssessmentTool = () => {
                 } else if (currentSection > 0) {
                   setCurrentSection(currentSection - 1);
                   setCurrentQuestion(4); // Last question of previous section
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
               disabled={currentSection === 0 && currentQuestion === 0}
@@ -940,8 +943,10 @@ const AssessmentTool = () => {
                 } else if (currentSection < sections.length - 1) {
                   setCurrentSection(currentSection + 1);
                   setCurrentQuestion(0);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                   setShowLeadCapture(true);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
               disabled={!answers[currentQuestionIndex]}

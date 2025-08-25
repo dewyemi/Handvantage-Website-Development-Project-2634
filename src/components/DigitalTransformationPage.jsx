@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {motion} from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
@@ -767,14 +768,14 @@ const DigitalTransformationPage = () => {
               transition={{duration: 0.6, delay: 0.3}}
               viewport={{once: true}}
             >
-              <motion.button
-                onClick={() => handleSmoothScroll('contact')}
-                className="bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
-                whileHover={{scale: 1.05}}
-                whileTap={{scale: 0.95}}
-              >
-                Identify Your Growth Bottlenecks
-              </motion.button>
+              <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
+                <Link
+                  to="/assessment"
+                  className="bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300 inline-block"
+                >
+                  Identify Your Growth Bottlenecks
+                </Link>
+              </motion.div>
               <motion.a 
                 href="tel:+12362350919"
                 className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-primary-blue transition-colors duration-300"
