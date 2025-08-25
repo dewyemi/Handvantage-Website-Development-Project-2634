@@ -23,26 +23,26 @@ const CloudInfrastructurePage = () => {
 
   // Cloud partners showcase
   const cloudPartners = [
-    {icon: FiCloud, title: "Microsoft CSP", badge: "Direct Support", color: "#0078d4"},
-    {icon: FiBuilding, title: "Pax8", badge: "Cloud Marketplace", color: "#16a34a"},
-    {icon: FiPhone, title: "Intermedia", badge: "Unified Comms", color: "#7c3aed"},
-    {icon: FiServer, title: "AWS Trained", badge: "Multi-Cloud", color: "#ff9900"}
+    {icon: FiCloud, title: "Multi-Cloud", badge: "Platform Agnostic", color: "#0078d4"},
+    {icon: FiBuilding, title: "Enterprise Partners", badge: "Best-of-Breed Solutions", color: "#16a34a"},
+    {icon: FiPhone, title: "Unified Communications", badge: "Vendor Neutral", color: "#7c3aed"},
+    {icon: FiServer, title: "Hybrid Infrastructure", badge: "Flexible Deployment", color: "#ff9900"}
   ];
 
-  // Microsoft solutions
-  const microsoftSolutions = [
+  // Cloud infrastructure solutions
+  const cloudSolutions = [
     {
       icon: FiUsers,
-      title: "Microsoft 365",
-      subtitle: "Complete Productivity & Collaboration Platform",
-      description: "Transform your business with the complete Microsoft 365 suite, including advanced security, compliance, and productivity tools.",
+      title: "Productivity & Collaboration",
+      subtitle: "Modern Workplace Solutions",
+      description: "Transform your business with enterprise productivity suites, including collaboration tools, security, and compliance features tailored to your needs.",
       features: [
-        "Office 365 apps (Word, Excel, PowerPoint, Outlook)",
-        "Microsoft Teams for collaboration and communication",
-        "SharePoint and OneDrive for document management",
-        "Advanced security with Defender and Purview",
-        "Power Platform for business automation",
-        "Exchange Online with advanced email protection"
+        "Professional office productivity applications",
+        "Team collaboration and communication platforms",
+        "Document management and file sharing",
+        "Advanced security and compliance tools",
+        "Business process automation platforms",
+        "Enterprise email with threat protection"
       ],
       color: "#0078d4",
       bg: "#f0f9ff",
@@ -50,15 +50,15 @@ const CloudInfrastructurePage = () => {
     },
     {
       icon: FiCloud,
-      title: "Azure Cloud Platform",
-      subtitle: "Enterprise Cloud Infrastructure & Services",
-      description: "Build, deploy, and scale applications with Microsoft Azure's comprehensive cloud platform and enterprise-grade infrastructure.",
+      title: "Cloud Platform Solutions",
+      subtitle: "Scalable Infrastructure & Services",
+      description: "Build, deploy, and scale applications with enterprise-grade cloud platforms, selecting the best infrastructure for your specific workloads and requirements.",
       features: [
-        "Virtual machines and container services",
-        "Azure SQL Database and storage solutions",
-        "Azure Active Directory for identity management",
+        "Virtual machines and container orchestration",
+        "Managed database and storage solutions",
+        "Identity and access management systems",
         "Application services and API management",
-        "AI and machine learning services",
+        "AI and machine learning capabilities",
         "Backup and disaster recovery solutions"
       ],
       color: "#0072c6",
@@ -67,16 +67,16 @@ const CloudInfrastructurePage = () => {
     },
     {
       icon: FiShield,
-      title: "Microsoft Security",
-      subtitle: "Integrated Security Across Your Environment",
-      description: "Protect your business with Microsoft's comprehensive security suite, integrated across all your Microsoft services.",
+      title: "Enterprise Security Solutions",
+      subtitle: "Comprehensive Protection Across Your Environment",
+      description: "Protect your business with integrated security suites that provide comprehensive protection across all your cloud and on-premises systems.",
       features: [
-        "Microsoft Defender for endpoint protection",
-        "Azure Sentinel for security information and event management",
-        "Microsoft Purview for information protection and compliance",
-        "Conditional access and identity protection",
-        "Cloud App Security for SaaS protection",
-        "Advanced threat protection across all services"
+        "Advanced endpoint protection and detection",
+        "Security information and event management (SIEM)",
+        "Data loss prevention and compliance tools",
+        "Multi-factor authentication and conditional access",
+        "Cloud security and application protection",
+        "Threat intelligence and automated response"
       ],
       color: "#dc2626",
       bg: "#fef2f2",
@@ -84,15 +84,15 @@ const CloudInfrastructurePage = () => {
     },
     {
       icon: FiZap,
-      title: "Power Platform",
-      subtitle: "Low-Code Business Automation & Analytics",
-      description: "Empower your team to build custom applications and automate processes with Microsoft's Power Platform suite.",
+      title: "Business Automation Platform",
+      subtitle: "Low-Code Business Process & Analytics Platform",
+      description: "Empower your team to build custom applications and automate processes with low-code/no-code business automation platforms.",
       features: [
-        "Power Apps for custom application development",
-        "Power Automate for workflow automation",
-        "Power BI for business intelligence and analytics",
-        "Power Virtual Agents for chatbot creation",
-        "Integration with Microsoft 365 and third-party services",
+        "Custom application development platforms",
+        "Workflow automation and process optimization",
+        "Business intelligence and analytics tools",
+        "Chatbot and AI assistant creation",
+        "Integration with productivity suites and third-party services",
         "Citizen developer enablement and governance"
       ],
       color: "#7c3aed",
@@ -282,7 +282,7 @@ const CloudInfrastructurePage = () => {
                 transition={{delay: 0.4}}
                 viewport={{once: true}}
               >
-                Most businesses struggle with cloud complexity and vendor lock-in. As a Microsoft Cloud Solution Provider with Pax8 marketplace access, Josh delivers enterprise-grade cloud infrastructure with the flexibility and support your growing business needs.
+                Most businesses struggle with cloud complexity and vendor lock-in. With partnerships across leading cloud providers and access to multiple cloud marketplaces, Josh delivers enterprise-grade cloud infrastructure solutions tailored to your business needs, with the flexibility to choose the best platform for each workload.
               </motion.p>
 
               {/* Cloud benefits */}
@@ -295,15 +295,15 @@ const CloudInfrastructurePage = () => {
               >
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
-                  <span className="text-gray-700">Microsoft CSP direct support and preferred pricing</span>
+                  <span className="text-gray-700">Platform-agnostic solutions tailored to your needs</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
-                  <span className="text-gray-700">Pax8 marketplace access to 200+ cloud solutions</span>
+                  <span className="text-gray-700">Access to best-of-breed cloud solutions across providers</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
-                  <span className="text-gray-700">AWS-trained expertise for multi-cloud strategies</span>
+                  <span className="text-gray-700">Multi-cloud expertise for optimal workload placement</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <SafeIcon icon={FiCheckCircle} className="w-5 h-5 text-primary-success" />
@@ -384,7 +384,7 @@ const CloudInfrastructurePage = () => {
         </div>
       </section>
 
-      {/* Microsoft 365 & Azure Ecosystem Section */}
+      {/* Enterprise Cloud Infrastructure Solutions Section */}
       <section id="solutions" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           {/* Section header */}
@@ -396,16 +396,16 @@ const CloudInfrastructurePage = () => {
             viewport={{once: true}}
           >
             <h2 className="text-4xl font-bold text-primary-dark mb-4">
-              Complete Microsoft Cloud Ecosystem
+              Enterprise Cloud Infrastructure Solutions
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              As a Microsoft Cloud Solution Provider, we deliver the complete Microsoft ecosystem with enterprise support
+              Comprehensive cloud solutions designed to meet your specific business requirements with platform flexibility and enterprise support
             </p>
           </motion.div>
 
-          {/* Microsoft Solutions Grid */}
+          {/* Cloud Solutions Grid */}
           <div className="grid md:grid-cols-2 gap-8">
-            {microsoftSolutions.map((solution, index) => (
+            {cloudSolutions.map((solution, index) => (
               <motion.div 
                 key={index}
                 className="microsoft-solution"

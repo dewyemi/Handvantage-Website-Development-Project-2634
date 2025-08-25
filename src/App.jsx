@@ -124,15 +124,40 @@ function App() {
           
           <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
           
-          <Route path="/security-maturity-assessment" element={<SecurityMaturityAssessment />} />
+          <Route path="/security-maturity-assessment" element={
+            <>
+              <SEOHead {...seoConfig.securityMaturityAssessment} />
+              <SecurityMaturityAssessment />
+            </>
+          } />
           
-          <Route path="/maturity-roadmap" element={<CyberMaturityRoadmap />} />
+          <Route path="/maturity-roadmap" element={
+            <>
+              <SEOHead {...seoConfig.maturityRoadmap} />
+              <CyberMaturityRoadmap />
+            </>
+          } />
           
-          <Route path="/compliance-assessment" element={<ComplianceAssessment />} />
+          <Route path="/compliance-assessment" element={
+            <>
+              <SEOHead {...seoConfig.complianceAssessment} />
+              <ComplianceAssessment />
+            </>
+          } />
           
-          <Route path="/budget-planner" element={<BudgetPlanner />} />
+          <Route path="/budget-planner" element={
+            <>
+              <SEOHead {...seoConfig.budgetPlanner} />
+              <BudgetPlanner />
+            </>
+          } />
           
-          <Route path="/vendor-evaluation" element={<VendorEvaluation />} />
+          <Route path="/vendor-evaluation" element={
+            <>
+              <SEOHead {...seoConfig.vendorEvaluation} />
+              <VendorEvaluation />
+            </>
+          } />
           
           <Route path="/roi-calculator" element={
             <>

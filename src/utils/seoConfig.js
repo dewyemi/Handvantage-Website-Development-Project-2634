@@ -154,5 +154,80 @@ export const seoConfig = {
         "description": "Free business impact analysis with detailed strategic roadmap"
       }
     }
+  },
+  securityMaturityAssessment: {
+    title: "Cybersecurity Maturity Assessment | Security Posture Evaluation | Handvantage",
+    description: "Comprehensive cybersecurity maturity assessment to evaluate your current security posture and receive personalized recommendations for improvement.",
+    keywords: "cybersecurity maturity assessment, security posture evaluation, security assessment, cyber maturity, security recommendations, vulnerability assessment",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Cybersecurity Maturity Assessment",
+      "description": "Comprehensive evaluation of your cybersecurity maturity level with personalized recommendations",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
+  },
+  maturityRoadmap: {
+    title: "Cybersecurity Maturity Roadmap Generator | Strategic Security Planning | Handvantage",
+    description: "Generate a customized cybersecurity maturity roadmap based on your assessment results to guide your security improvement journey.",
+    keywords: "cybersecurity roadmap, security maturity roadmap, security planning, cyber security strategy, security improvement plan",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Cybersecurity Maturity Roadmap",
+      "description": "Customized roadmap for improving your cybersecurity maturity level",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
+  },
+  complianceAssessment: {
+    title: "Compliance Readiness Assessment | Regulatory Compliance Evaluation | Handvantage",
+    description: "Evaluate your organization's readiness for various compliance frameworks including SOC 2, HIPAA, PCI DSS, and others.",
+    keywords: "compliance assessment, regulatory compliance, SOC 2, HIPAA, PCI DSS, compliance readiness, compliance evaluation",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Compliance Readiness Assessment",
+      "description": "Comprehensive evaluation of your compliance readiness across multiple frameworks",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
+  },
+  budgetPlanner: {
+    title: "Security Budget Planner | IT Security Budget Planning Tool | Handvantage",
+    description: "Plan and optimize your cybersecurity budget with our comprehensive security budget planning tool and expert guidance.",
+    keywords: "security budget planner, cybersecurity budget, IT security budget, security investment planning, budget optimization",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Security Budget Planner",
+      "description": "Strategic planning tool for optimizing your cybersecurity budget and investments",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
+  },
+  vendorEvaluation: {
+    title: "Vendor Evaluation Matrix | Security Vendor Assessment Tool | Handvantage",
+    description: "Comprehensive vendor evaluation matrix to help you select the best cybersecurity and technology vendors for your business needs.",
+    keywords: "vendor evaluation, security vendor assessment, vendor selection, technology vendor evaluation, vendor comparison matrix",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Vendor Evaluation Matrix",
+      "description": "Strategic tool for evaluating and selecting the best technology and security vendors",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
   }
 };
