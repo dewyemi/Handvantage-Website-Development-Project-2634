@@ -181,9 +181,18 @@ const ManagedSecurityPage = () => {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Link
                       to="/security-maturity-assessment"
-                      className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center"
+                      className="flex items-center justify-center bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300"
                     >
                       Start Your Security Assessment
+                    </Link>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Link
+                      to="/roi-calculator"
+                      className="flex items-center justify-center space-x-2 bg-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors duration-300"
+                    >
+                      <span>Calculate Security ROI</span>
+                      <SafeIcon icon={FiTrendingUp} className="w-5 h-5" />
                     </Link>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
