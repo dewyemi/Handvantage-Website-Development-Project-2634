@@ -39,7 +39,7 @@ const ManagedSecurityPage = () => {
     {
       icon: FiDollarSign,
       title: "Cost Optimization",
-      description: "Vendor consolidation and strategic partnerships reduce total security costs by 20-30%"
+      description: "Vendor consolidation and strategic partnerships may help reduce total security costs"
     },
     {
       icon: FiZap,
@@ -49,12 +49,12 @@ const ManagedSecurityPage = () => {
     {
       icon: FiShield,
       title: "Risk Reduction",
-      description: "Comprehensive protection minimizes business disruption from security incidents"
+      description: "Comprehensive protection designed to help minimize business disruption from security incidents"
     },
     {
       icon: FiTrendingUp,
       title: "Scalable Growth",
-      description: "Security infrastructure that grows seamlessly with your business expansion"
+      description: "Security infrastructure designed to grow with your business expansion"
     }
   ];
 
@@ -107,7 +107,7 @@ const ManagedSecurityPage = () => {
       name: "Enterprise Growth Security",
       tier: "Tier 3",
       target: "200+ employees",
-      description: "Enterprise-grade security for unlimited growth",
+      description: "Enterprise-grade security capabilities designed to scale with growing organizations",
       investment: "$375-450 per user/month",
       features: [
         "Premium threat hunting and analysis",
@@ -156,9 +156,9 @@ const ManagedSecurityPage = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <h1 className="text-4xl lg:text-6xl font-bold text-primary-dark leading-tight">
-                    Managed Security Services That{' '}
+                    Managed Security Services Designed to{' '}
                     <span className="bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent">
-                      Scale With Your Growth
+                      Support Your Growth
                     </span>
                   </h1>
                 </motion.header>
@@ -169,7 +169,7 @@ const ManagedSecurityPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  Transform cybersecurity from a business constraint into a competitive advantage with our strategic approach to managed security services
+                  Transform cybersecurity challenges into competitive opportunities with our strategic approach to managed security services designed to help growing businesses enhance their security posture
                 </motion.p>
 
                 <motion.div

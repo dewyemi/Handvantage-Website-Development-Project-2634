@@ -9,41 +9,41 @@ const ProblemSolution=()=> {
   const problems=[ 
     {icon: FiZap,
      title: 'Digital Transformation Complexity',
-     description: 'Technology decisions that worked at 20 employees break at 50+ - creating growth bottlenecks instead of enabling expansion'},
+     description: 'Technology solutions that work well for smaller teams may become less effective as your business grows, potentially creating operational bottlenecks'},
     
     {icon: FiShield,
-     title: 'Cybersecurity Threats',
-     description: 'Growing businesses become attractive targets but lack enterprise-grade protection - one incident could destroy everything you\'ve built'},
+     title: 'Cybersecurity Concerns',
+     description: 'As businesses grow, they often face increased security challenges while balancing protection needs with operational requirements and budget constraints'},
     
     {icon: FiCpu,
      title: 'Manual Processes',
-     description: 'Manual processes that worked before become bottlenecks - your team spends time on repetitive tasks instead of growing the business'},
+     description: 'Processes that may be manageable with smaller teams can become increasingly time-consuming as your business scales, potentially affecting productivity'},
     
     {icon: FiBuilding,
      title: 'Multiple Vendors',
-     description: 'Technology vendors that don\'t talk to each other - creating complexity, higher costs, and integration nightmares'},
+     description: 'Managing multiple technology vendors can create integration challenges, administrative overhead, and potential inefficiencies in growing organizations'},
     
     {icon: FiGlobe,
-     title: 'Lack of Strategy',
-     description: 'Reactive technology decisions instead of strategic planning - limiting your ability to scale and compete effectively'} 
+     title: 'Strategic Planning',
+     description: 'Growing businesses often face challenges in developing comprehensive technology strategies that align with their evolving business objectives'} 
   ];
 
   const solutions=[ 
     {icon: FiBot,
      title: 'Intelligent Process Automation',
-     description: 'Strategic automation that eliminates manual bottlenecks and accelerates growth',
+     description: 'Strategic automation designed to help reduce manual bottlenecks and support business growth',
      badge: 'Expert Implementation',
      color: 'green'},
     
     {icon: FiShield,
      title: 'Enterprise-Grade Security',
-     description: 'Comprehensive multi-layered protection that scales with your business',
+     description: 'Comprehensive multi-layered protection designed to scale with your business',
      badge: 'Fortune 500 Quality',
      color: 'green'},
     
     {icon: FiCheckCircle,
      title: 'Automated Compliance',
-     description: 'Streamlined compliance management for SOC 2, HIPAA, ISO 27001',
+     description: 'Streamlined compliance management designed to support SOC 2, HIPAA, ISO 27001 requirements',
      badge: 'Rapid Deployment',
      color: 'green'},
     
@@ -66,10 +66,10 @@ const ProblemSolution=()=> {
         {/* Header */} 
         <motion.div className="text-center mb-16" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{duration: 0.6}} viewport={{once: true}} > 
           <h2 className="text-4xl font-bold text-primary-dark mb-4"> 
-            The Challenges Growing Businesses Face 
+            Common Technology Challenges for Growing Businesses 
           </h2> 
           <p className="text-xl text-slate-600 max-w-3xl mx-auto"> 
-            We solve the complex technology challenges that hold your business back 
+            We help address technology challenges that many growing businesses encounter 
           </p> 
         </motion.div> 
         
@@ -89,10 +89,10 @@ const ProblemSolution=()=> {
         {/* Solution Header */} 
         <motion.div className="text-center mb-16" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{duration: 0.6}} viewport={{once: true}} > 
           <h2 className="text-4xl font-bold text-primary-dark mb-4"> 
-            Strategic Technology Solutions That Eliminate Growth Bottlenecks 
+            Strategic Technology Solutions Designed to Support Growth 
           </h2> 
           <p className="text-xl text-slate-600 max-w-3xl mx-auto"> 
-            Comprehensive strategic consulting that transforms technology from growth barrier into competitive advantage 
+            Comprehensive strategic consulting designed to help transform technology challenges into competitive opportunities 
           </p> 
         </motion.div> 
         

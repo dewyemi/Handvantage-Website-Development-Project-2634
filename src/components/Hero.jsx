@@ -30,15 +30,15 @@ const Hero=()=> {
               {/* Headline */} 
               <motion.header initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.3}} > 
                 <h1 className="text-4xl lg:text-6xl font-bold text-primary-dark leading-tight"> 
-                  Transform Cybersecurity From Growth Barrier Into{' '} 
+                  Transform Technology Challenges Into{' '} 
                   <span className="bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent"> 
-                    Competitive Advantage 
+                    Business Opportunities 
                   </span> 
                 </h1> 
               </motion.header> 
               {/* Subheadline */} 
               <motion.p className="text-xl text-slate-600 leading-relaxed" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.4}} > 
-                Fortune 500 cybersecurity expertise applied to growing businesses (20-500 employees) through strategic managed security services 
+                Strategic technology consulting designed to help growing businesses (20-500 employees) optimize their security posture and technology infrastructure 
               </motion.p> 
               {/* Josh's Credentials */} 
               <motion.div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.5}} > 
@@ -53,17 +53,17 @@ const Hero=()=> {
               {/* Experience Badges */} 
               <motion.div className="flex flex-wrap gap-2" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.6}} > 
                 <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm border">
-                  20+ years implementing Fortune 500 security solutions for growing businesses
+                  Experience with enterprise security implementations
                 </span>
               </motion.div>
               {/* Enhanced Description */}
               <motion.p className="text-slate-600 text-sm" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.7}}>
-                Josh brings enterprise-grade cybersecurity expertise to growing businesses. His unique background spans Amazon, Oracle, and AWS security implementations, plus practical MSP ownership experience. This enables him to deliver Fortune 500 security capabilities without enterprise complexity and cost.
+                Josh brings significant cybersecurity expertise to growing businesses. His background includes work with major enterprise organizations and practical experience helping businesses implement effective security solutions.
               </motion.p>
               {/* CTA Buttons */} 
               <motion.div className="flex flex-col sm:flex-row gap-4" initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.7}} > 
-                <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Get Your Security Strategy Assessment" > 
-                  Get Your Security Strategy Assessment 
+                <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Schedule Strategic Consultation" > 
+                  Schedule Strategic Consultation 
                 </motion.a> 
                 <motion.a href="#/services/managed-security" className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Learn About Our Approach" > 
                   <span>Learn About Our Approach</span> 
