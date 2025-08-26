@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-slate-300 mb-4">
-              Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages for growing businesses.
+              Strategic technology consulting designed to help address growth challenges and enhance competitive positioning for growing businesses.
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-3">
@@ -172,11 +172,26 @@ const Footer = () => {
                 Schedule Strategic Consultation
               </a>
               <p className="text-sm text-slate-400 mt-2">
-                Ready to eliminate the technology bottlenecks limiting your growth?
+                Ready to address the technology challenges that may be affecting your growth?
               </p>
             </div>
           </motion.div>
         </div>
+
+        {/* Global Disclaimer */}
+        <motion.div
+          className="border-t border-slate-700 pt-8 pb-8"
+          initial={{opacity: 0, y: 30}}
+          whileInView={{opacity: 1, y: 0}}
+          transition={{duration: 0.6, delay: 0.4}}
+          viewport={{once: true}}
+        >
+          <div className="max-w-6xl mx-auto">
+            <p className="text-sm text-slate-400 leading-relaxed">
+              <strong className="text-slate-300">Important:</strong> The information provided on this website, including descriptions of services, tools, and potential outcomes, is for general informational purposes only. Results from services and tools will vary based on your specific business environment, implementation approach, and other factors. Any examples, estimates, or potential outcomes are provided for illustrative purposes only and are not guarantees of specific results. We recommend consulting with a qualified professional to discuss your specific needs and circumstances.
+            </p>
+          </div>
+        </motion.div>
 
         {/* Bottom Bar */}
         <motion.div

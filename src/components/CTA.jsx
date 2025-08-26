@@ -24,7 +24,7 @@ const CTA = () => {
             transition={{delay: 0.2}}
             viewport={{once: true}}
           >
-            Ready to Eliminate Your Growth Bottlenecks?
+            Ready to Address Your Technology Challenges?
           </motion.h2>
           
           {/* Description */}
@@ -35,7 +35,7 @@ const CTA = () => {
             transition={{delay: 0.3}}
             viewport={{once: true}}
           >
-            Get your free growth bottleneck assessment and discover how our strategic partnership approach can create sustainable competitive advantages
+            Get your free strategic technology assessment and discover how our consulting approach can help address challenges and enhance competitive positioning
           </motion.p>
           
           {/* CTA Buttons */}

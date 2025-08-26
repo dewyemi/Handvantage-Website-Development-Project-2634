@@ -194,7 +194,7 @@ const AboutPage = () => {
                   >
                     <img
                       src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp"
-                      alt="Josh Olayemi - VP of Digital Transformation with 20+ years experience"
+                      alt="Josh Olayemi - VP of Digital Transformation with enterprise technology experience"
                       className="w-full h-full object-cover"
                       loading="eager"
                       width="256"
@@ -209,7 +209,7 @@ const AboutPage = () => {
                   >
                     <h1 className="text-3xl font-bold text-primary-dark mb-2">Josh Olayemi</h1>
                     <p className="text-xl text-primary-blue font-semibold mb-2">VP of Digital Transformation • Managed Security Services Specialist</p>
-                    <p className="text-slate-600">20+ Years Technology Leadership</p>
+                    <p className="text-slate-600">Enterprise Technology Leadership Experience</p>
                   </motion.div>
                 </div>
               </motion.div>
@@ -263,7 +263,7 @@ const AboutPage = () => {
                     His unique background spans Amazon, Oracle, and AWS security implementations, plus practical MSP ownership experience with growing businesses. This combination enables him to deliver enterprise-grade security capabilities without enterprise complexity and cost.
                   </p>
                   <p>
-                    Josh's approach is different from typical security providers. Instead of focusing on technology features, he identifies the business bottlenecks that limit growth and designs strategic security solutions that turn cybersecurity into competitive advantage.
+                    Josh's approach is different from typical security providers. Instead of focusing on technology features, he helps identify potential business bottlenecks that may be affecting growth and designs strategic security solutions that can help turn cybersecurity challenges into competitive opportunities.
                   </p>
                 </motion.div>
                 
@@ -527,8 +527,8 @@ const AboutPage = () => {
                       <SafeIcon icon={FiUser} className="w-6 h-6 text-primary-blue" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg text-primary-dark">20+ Years Enterprise Experience</h3>
-                      <p className="text-slate-600">Amazon, Oracle, AWS background + MSP ownership experience</p>
+                      <h3 className="font-semibold text-lg text-primary-dark">Extensive Enterprise Experience</h3>
+                      <p className="text-slate-600">Experience with enterprise security implementations and practical MSP ownership background</p>
                     </div>
                   </div>
                   
@@ -585,7 +585,7 @@ const AboutPage = () => {
                       whileHover={{y: -5}}
                       transition={{duration: 0.2}}
                     >
-                      <p className="text-4xl font-bold text-primary-blue mb-2">20+</p>
+                      <p className="text-4xl font-bold text-primary-blue mb-2">15+</p>
                       <p className="text-slate-600">Years Experience</p>
                     </motion.div>
                     
@@ -711,7 +711,7 @@ const AboutPage = () => {
                   viewport={{once: true}}
                 >
                   <p>
-                    Let's discuss how Josh's 20+ years of experience and our enterprise partnerships can accelerate your digital transformation.
+                    Let's discuss how Josh's extensive enterprise experience and our strategic partnerships can help support your digital transformation goals.
                   </p>
                   <div>
                     <p className="font-semibold mb-2">What you'll get in our strategy call:</p>
