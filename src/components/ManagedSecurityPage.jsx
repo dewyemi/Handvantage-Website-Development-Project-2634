@@ -157,7 +157,7 @@ const ManagedSecurityPage = () => {
                 >
                   <h1 className="text-4xl lg:text-6xl font-bold text-primary-dark leading-tight">
                     Managed Security Services Designed to{' '}
-                    <span className="bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent">
+                    <span className="text-primary-blue bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent">
                       Support Your Growth
                     </span>
                   </h1>

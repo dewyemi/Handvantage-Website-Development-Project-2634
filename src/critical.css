@@ -185,3 +185,35 @@ img {
 .skip-link:focus {
   top: 6px;
 }
+
+/* Fallback for motion components - ensure content is visible if JS fails */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Ensure motion elements are visible by default in case JS fails */
+.motion-safe-fallback {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Critical fix: Ensure all main content is visible regardless of JS state */
+main, main > *, main > * > *, main > * > * > * {
+  opacity: 1 !important;
+}
+
+/* Specific fallback for sections */
+section {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure headings and text are always visible */
+h1, h2, h3, h4, h5, h6, p, div, span {
+  opacity: 1 !important;
+  color: inherit !important;
+}

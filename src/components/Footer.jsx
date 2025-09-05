@@ -57,7 +57,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Logo size="default" variant="icon-only" />
                 <div className="flex flex-col">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  <h3 className="text-2xl font-bold text-blue-400 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     Handvantage
                   </h3>
                 </div>

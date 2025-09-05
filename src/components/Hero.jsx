@@ -22,7 +22,7 @@ const Hero=()=> {
         <div className="container mx-auto px-6 py-20"> 
           <div className="grid lg:grid-cols-2 gap-12 items-center"> 
             {/* Left Column - Content */} 
-            <motion.div className="space-y-8" initial={{opacity: 0,x: -50}} animate={{opacity: 1,x: 0}} transition={{duration: 0.8}} > 
+            <motion.div className="space-y-8 opacity-100" initial={{opacity: 0,x: -50}} animate={{opacity: 1,x: 0}} transition={{duration: 0.8}} > 
               {/* Badge */} 
               <motion.div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold" initial={{opacity: 0,y: 20}} animate={{opacity: 1,y: 0}} transition={{delay: 0.2}} > 
                 Managed Security Services Expert 
@@ -31,7 +31,7 @@ const Hero=()=> {
               <motion.header initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.3}} > 
                 <h1 className="text-4xl lg:text-6xl font-bold text-primary-dark leading-tight"> 
                   Transform Technology Challenges Into{' '} 
-                  <span className="bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent"> 
+                  <span className="text-primary-blue bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent"> 
                     Business Opportunities 
                   </span> 
                 </h1> 

@@ -59,7 +59,7 @@ const AssessmentLanding = () => {
                   transition={{delay: 0.3}}
                 >
                   Discover Your Business's{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  <span className="text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                     Transformation Potential
                   </span>
                 </motion.h1>
