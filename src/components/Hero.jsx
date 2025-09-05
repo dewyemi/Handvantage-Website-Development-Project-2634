@@ -1,5 +1,6 @@
 import React from 'react';
 import {motion} from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import SEOHead from './SEOHead';
@@ -65,9 +66,11 @@ const Hero=()=> {
                 <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Schedule Strategic Consultation" > 
                   Schedule Strategic Consultation 
                 </motion.a> 
-                <motion.a href="#/services/managed-security" className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Learn About Our Approach" > 
-                  <span>Learn About Our Approach</span> 
-                </motion.a> 
+                <Link to="/services/managed-security">
+                  <motion.div className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} aria-label="Learn About Our Approach" >
+                    <span>Learn About Our Approach</span> 
+                  </motion.div>
+                </Link> 
               </motion.div> 
             </motion.div> 
             {/* Right Column - Core Capabilities Showcase */} 
