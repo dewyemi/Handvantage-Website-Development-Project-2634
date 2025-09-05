@@ -10,7 +10,7 @@ const SEOHead = ({
   schemaData = null 
 }) => {
   const location = useLocation();
-  const baseUrl = 'https://pages.handvantage.com';
+  const baseUrl = 'https://handvantage.co';
   const fullUrl = `${baseUrl}${location.pathname}`;
 
   useEffect(() => {
