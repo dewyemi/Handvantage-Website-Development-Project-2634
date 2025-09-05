@@ -31,7 +31,7 @@ const Hero=()=> {
               <motion.header initial={{opacity: 0,y: 30}} animate={{opacity: 1,y: 0}} transition={{delay: 0.3}} > 
                 <h1 className="text-4xl lg:text-6xl font-bold text-primary-dark leading-tight"> 
                   Transform Technology Challenges Into{' '} 
-                  <span className="bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent"> 
+                  <span className="text-primary-blue bg-gradient-to-r from-primary-blue to-primary-purple bg-clip-text text-transparent"> 
                     Business Opportunities 
                   </span> 
                 </h1> 

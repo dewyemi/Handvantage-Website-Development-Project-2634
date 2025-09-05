@@ -66,7 +66,7 @@ const ROICalculatorLanding = () => {
                   transition={{delay: 0.3}}
                 >
                   Calculate Your Managed Security{' '}
-                  <span className="bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
+                  <span className="text-red-600 bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
                     Services ROI
                   </span>
                 </motion.h1>

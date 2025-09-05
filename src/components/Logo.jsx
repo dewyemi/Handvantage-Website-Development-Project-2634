@@ -70,7 +70,7 @@ const Logo = ({ size = 'default', variant = 'default' }) => {
       
       {/* Company Name */}
       <div className="flex flex-col">
-        <h1 className={`${currentSize.text} font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent leading-tight`}>
+        <h1 className={`${currentSize.text} font-bold text-blue-600 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent leading-tight`}>
           Handvantage
         </h1>
         {size === 'large' && (

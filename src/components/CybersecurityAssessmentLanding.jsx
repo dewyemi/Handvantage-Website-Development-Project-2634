@@ -73,7 +73,7 @@ const CybersecurityAssessmentLanding = () => {
                   transition={{delay: 0.3}}
                 >
                   Identify Business
-                  <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                  <span className="text-red-400 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
                     {' '}Protection Gaps
                   </span>
                 </motion.h1>
