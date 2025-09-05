@@ -34,6 +34,8 @@ const ComplianceAssessment = lazy(() => import('./components/ComplianceAssessmen
 
 const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'));
 const TermsConditionsPage = lazy(() => import('./components/TermsConditionsPage'));
+const BudgetPlanner = lazy(() => import('./components/BudgetPlanner'));
+const VendorEvaluation = lazy(() => import('./components/VendorEvaluation'));
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
@@ -46,8 +48,6 @@ const LoadingSpinner = () => (
     </div>
   </div>
 );
-import BudgetPlanner from './components/BudgetPlanner';
-import VendorEvaluation from './components/VendorEvaluation';
 
 import SEOHead from './components/SEOHead';
 import { seoConfig } from './utils/seoConfig';
