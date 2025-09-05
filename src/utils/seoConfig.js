@@ -229,5 +229,35 @@ export const seoConfig = {
         "name": "Handvantage"
       }
     }
+  },
+  privacyPolicy: {
+    title: "Privacy Policy | Data Protection & Privacy | Handvantage",
+    description: "Our privacy policy explains how we collect, use, and protect your information when you use our website and services, including text messaging.",
+    keywords: "privacy policy, data protection, personal information, cookies, data security, GDPR, privacy rights",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy",
+      "description": "Privacy policy explaining how we collect, use, and protect your information",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
+  },
+  termsConditions: {
+    title: "Terms and Conditions | Legal Terms | Handvantage",
+    description: "Terms and conditions governing your use of our website and services, including text messaging and all digital services.",
+    keywords: "terms and conditions, legal terms, terms of service, user agreement, website terms, service terms",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms and Conditions",
+      "description": "Terms and conditions governing the use of our website and services",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      }
+    }
   }
 };
