@@ -45,7 +45,7 @@ const About=()=> {
             </motion.div> 
             {/* CTA Buttons */} 
             <motion.div className="flex flex-col sm:flex-row gap-4" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{delay: 0.8}} viewport={{once: true}} > 
-              <motion.a href="#contact" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} > 
+              <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} > 
                 Schedule Call with Josh 
               </motion.a> 
               <Link to="/about" className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" > 

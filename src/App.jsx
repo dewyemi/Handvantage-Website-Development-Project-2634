@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 
 // Critical components (loaded immediately)
 import Header from './components/Header';
@@ -198,12 +198,12 @@ function App() {
               <div className="text-center">
                 <h1 className="text-4xl font-bold text-primary-dark mb-4">Page Not Found</h1>
                 <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
-                <a
-                  href="/#"
+                <Link
+                  to="/"
                   className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
                 >
                   Return Home
-                </a>
+                </Link>
               </div>
             </div>
           } />
