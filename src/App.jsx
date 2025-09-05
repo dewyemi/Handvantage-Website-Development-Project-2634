@@ -32,6 +32,9 @@ const SecurityMaturityAssessment = lazy(() => import('./components/SecurityMatur
 const CyberMaturityRoadmap = lazy(() => import('./components/CyberMaturityRoadmap'));
 const ComplianceAssessment = lazy(() => import('./components/ComplianceAssessment'));
 
+const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'));
+const TermsConditionsPage = lazy(() => import('./components/TermsConditionsPage'));
+
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-white">
@@ -184,6 +187,10 @@ function App() {
           } />
           
           <Route path="/roi-calculator/start" element={<ROICalculator />} />
+          
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          
+          <Route path="/terms-conditions" element={<TermsConditionsPage />} />
           
           {/* Catch all route - redirect to home */}
           <Route path="*" element={

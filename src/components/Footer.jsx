@@ -205,8 +205,8 @@ const Footer = () => {
             © {currentYear} Handvantage. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 text-sm text-slate-400">
-            <button className="hover:text-white transition-colors">Privacy Policy</button>
-            <button className="hover:text-white transition-colors">Terms of Service</button>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-conditions" className="hover:text-white transition-colors">Terms of Service</Link>
             <span>Strategic expertise and enterprise partnerships</span>
           </div>
         </motion.div>
