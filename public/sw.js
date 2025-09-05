@@ -117,8 +117,8 @@ self.addEventListener('fetch', event => {
       .then(response => {
         const responseClone = response.clone();
         
-        // Cache successful responses
-        if (response.status === 200) {
+        // Cache successful responses - but only for GET requests
+        if (response.status === 200 && request.method === 'GET') {
           caches.open(DYNAMIC_CACHE)
             .then(cache => {
               cache.put(request, responseClone);

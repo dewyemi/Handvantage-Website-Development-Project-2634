@@ -7,11 +7,11 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Handvantage",
-      "url": "https://pages.handvantage.com",
+      "url": "https://handvantage.co",
       "description": "Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://pages.handvantage.com/search?q={search_term_string}",
+        "target": "https://handvantage.co/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }

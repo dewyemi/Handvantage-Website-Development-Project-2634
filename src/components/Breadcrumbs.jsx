@@ -38,7 +38,7 @@ const Breadcrumbs = () => {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://pages.handvantage.com${item.href}`
+      "item": `https://handvantage.co${item.href}`
     }))
   };
 
