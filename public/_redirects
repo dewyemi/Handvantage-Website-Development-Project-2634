@@ -1,3 +1,23 @@
 # Netlify redirects for SPA routing
-# All requests that don't match a static file should be served the index.html
+# Serve static assets directly
+/assets/*    /assets/:splat   200
+/*.js        /:splat.js       200
+/*.css       /:splat.css      200
+/*.woff2     /:splat.woff2    200
+/*.woff      /:splat.woff     200
+/*.ttf       /:splat.ttf      200
+/*.png       /:splat.png      200
+/*.jpg       /:splat.jpg      200
+/*.jpeg      /:splat.jpeg     200
+/*.svg       /:splat.svg      200
+/*.ico       /:splat.ico      200
+/*.webp      /:splat.webp     200
+/*.gif       /:splat.gif      200
+/sw.js       /sw.js           200
+/robots.txt  /robots.txt      200
+/sitemap.xml /sitemap.xml     200
+/site.webmanifest /site.webmanifest 200
+/favicon.ico /favicon.ico     200
+
+# All other requests that don't match a static file should be served the index.html
 /*    /index.html   200
