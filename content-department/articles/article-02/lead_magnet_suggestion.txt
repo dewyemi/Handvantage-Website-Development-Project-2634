@@ -1,0 +1,1 @@
+The SAIL Data Source Checklist: A checklist of essential data sources (e.g., EDR, IAM, Cloud, Network) that should be integrated into a SAIL for effective security analytics.
