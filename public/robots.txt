@@ -1,19 +1,45 @@
 # Robots.txt for Handvantage Website
-# Optimized for AI crawler accessibility including ChatGPT, Claude, and other AI platforms
+# Optimized for search engines AND AI platform discoverability (ChatGPT, Claude, Perplexity, etc.)
 
 User-agent: *
 Allow: /
 
-# AI-specific crawlers - Explicit permissions for major AI platforms
+# ===========================================
+# SEARCH ENGINE CRAWLERS
+# ===========================================
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# ===========================================
+# AI PLATFORM CRAWLERS - Explicit permissions
+# ===========================================
+
+# OpenAI / ChatGPT
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
-Allow: /
-
+# Anthropic / Claude
 User-agent: Claude-Web
 Allow: /
 
@@ -23,37 +49,72 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+# Google AI (Bard/Gemini)
 User-agent: Google-Extended
 Allow: /
 
+# Common Crawl (used by many AI models)
+User-agent: CCBot
+Allow: /
+
+# Facebook / Meta AI
 User-agent: FacebookBot
+Allow: /
+
+# Apple AI
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
 
-# Sitemap location
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Microsoft Copilot
+User-agent: Copilot
+Allow: /
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+
+# ===========================================
+# SITEMAP LOCATION
+# ===========================================
 Sitemap: https://pages.handvantage.com/sitemap.xml
 
-# Allow search engines and AI crawlers to access all public pages
+# ===========================================
+# CRAWL DIRECTIVES
+# ===========================================
 Crawl-delay: 1
 
-# Specific pages to prioritize for AI understanding
+# High-priority pages for AI understanding
+Allow: /
 Allow: /about
+Allow: /manifesto
 Allow: /services/
 Allow: /assessment
 Allow: /security-assessment
-Allow: /digital-transformation
 Allow: /roi-calculator
-Allow: /maturity-roadmap
-Allow: /compliance-assessment
 
-# Block any admin or private areas
+# ===========================================
+# BLOCKED PATHS
+# ===========================================
 Disallow: /admin/
 Disallow: /.netlify/
 Disallow: /private/
 Disallow: /api/
 Disallow: /*.json$
+Disallow: /src/
+Disallow: /node_modules/
 
-# Host directive
-Host: pages.handvantage.com
+# ===========================================
+# HOST DIRECTIVE
+# ===========================================
+Host: https://pages.handvantage.com
