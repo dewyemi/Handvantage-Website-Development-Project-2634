@@ -62,25 +62,25 @@ const Header = () => {
     if (item.path === '/about' && location.pathname === '/about') return true;
     if (item.path === '/' && location.pathname === '/') return true;
     if (location.pathname.includes('/services/') && item.label === 'Services') return true;
-    if ((location.pathname === '/assessment' || 
-         location.pathname === '/assessment/start' || 
-         location.pathname === '/security-assessment' || 
-         location.pathname === '/security-assessment/start' ||
-         location.pathname === '/security-maturity-assessment' ||
-         location.pathname === '/maturity-roadmap' ||
-         location.pathname === '/compliance-assessment' ||
-         location.pathname === '/budget-planner' ||
-         location.pathname === '/vendor-evaluation' ||
-         location.pathname === '/roi-calculator' ||
-         location.pathname === '/roi-calculator/start') && item.label === 'Tools') return true;
+    if ((location.pathname === '/assessment' ||
+      location.pathname === '/assessment/start' ||
+      location.pathname === '/security-assessment' ||
+      location.pathname === '/security-assessment/start' ||
+      location.pathname === '/security-maturity-assessment' ||
+      location.pathname === '/maturity-roadmap' ||
+      location.pathname === '/compliance-assessment' ||
+      location.pathname === '/budget-planner' ||
+      location.pathname === '/vendor-evaluation' ||
+      location.pathname === '/roi-calculator' ||
+      location.pathname === '/roi-calculator/start') && item.label === 'Tools') return true;
     return false;
   };
 
   const isActiveSubItem = (href) => {
-    return location.pathname === href || 
-           (href === '/assessment' && location.pathname === '/assessment/start') ||
-           (href === '/security-assessment' && location.pathname === '/security-assessment/start') ||
-           (href === '/roi-calculator' && location.pathname === '/roi-calculator/start');
+    return location.pathname === href ||
+      (href === '/assessment' && location.pathname === '/assessment/start') ||
+      (href === '/security-assessment' && location.pathname === '/security-assessment/start') ||
+      (href === '/roi-calculator' && location.pathname === '/roi-calculator/start');
   };
 
   const handleNavClick = (href, external) => {
@@ -105,21 +105,20 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'glass-premium shadow-premium py-2'
-          : isHomepage
-            ? 'bg-transparent py-6'
-            : 'glass-medium shadow-lg py-4'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? 'glass-premium shadow-premium py-2'
+        : isHomepage
+          ? 'bg-transparent py-6'
+          : 'glass-medium shadow-lg py-4'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center gap-16">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="flex-shrink-0"
@@ -152,50 +151,47 @@ const Header = () => {
                   <div className="relative">
                     <button
                       onClick={() => handleNavClick(item.href)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center group-hover:bg-white/5 ${
-                        isActive(item) 
-                          ? 'text-viability-primary text-glow-mild bg-white/5' 
-                          : 'text-slate-300 hover:text-white'
-                      }`}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center group-hover:bg-white/5 ${isActive(item)
+                        ? 'text-viability-primary text-glow-mild bg-white/5'
+                        : 'text-slate-300 hover:text-white'
+                        }`}
                     >
                       {item.label}
-                      <SafeIcon icon={FiChevronDown} className={`w-4 h-4 ml-1 transition-transform duration-300 ${
-                        (item.label === 'Services' && isServicesOpen) || (item.label === 'Tools' && isAssessmentsOpen) 
-                          ? 'rotate-180 text-viability-primary' : ''
-                      }`} />
+                      <SafeIcon icon={FiChevronDown} className={`w-4 h-4 ml-1 transition-transform duration-300 ${(item.label === 'Services' && isServicesOpen) || (item.label === 'Tools' && isAssessmentsOpen)
+                        ? 'rotate-180 text-viability-primary' : ''
+                        }`} />
                     </button>
-                    
+
                     {/* Premium Dropdown Menu */}
                     <AnimatePresence>
-                      {((item.label === 'Services' && isServicesOpen) || 
+                      {((item.label === 'Services' && isServicesOpen) ||
                         (item.label === 'Tools' && isAssessmentsOpen)) && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 5, scale: 0.98 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 glass-dark border border-white/10 rounded-xl py-2 w-72 shadow-xl overflow-hidden backdrop-blur-xl"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
-                          {item.dropdownItems.map((dropdownItem, i) => (
-                            <Link
-                              key={i}
-                              to={dropdownItem.href}
-                              className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 ${
-                                isActiveSubItem(dropdownItem.href)
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 5, scale: 0.98 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 mt-2 glass-dark border border-white/10 rounded-xl py-2 w-72 shadow-xl overflow-hidden backdrop-blur-xl"
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+                            {item.dropdownItems.map((dropdownItem, i) => (
+                              <Link
+                                key={i}
+                                to={dropdownItem.href}
+                                className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 ${isActiveSubItem(dropdownItem.href)
                                   ? 'border-viability-primary bg-white/5 text-viability-primary'
                                   : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5 hover:border-slate-500'
-                              }`}
-                              onClick={() => {
-                                setIsServicesOpen(false);
-                                setIsAssessmentsOpen(false);
-                              }}
-                            >
-                              {dropdownItem.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
+                                  }`}
+                                onClick={() => {
+                                  setIsServicesOpen(false);
+                                  setIsAssessmentsOpen(false);
+                                }}
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
                     </AnimatePresence>
                   </div>
                 ) : (
@@ -203,11 +199,10 @@ const Header = () => {
                     to={item.href}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block hover:bg-white/5 ${
-                      isActive(item)
-                        ? 'text-viability-primary text-glow-mild bg-white/5'
-                        : 'text-slate-300 hover:text-white'
-                    }`}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block hover:bg-white/5 ${isActive(item)
+                      ? 'text-viability-primary text-glow-mild bg-white/5'
+                      : 'text-slate-300 hover:text-white'
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -218,7 +213,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <motion.div
-            className="hidden lg:flex items-center space-x-4"
+            className="hidden lg:flex items-center space-x-4 ml-auto"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
@@ -233,7 +228,7 @@ const Header = () => {
                 ROI Calculator
               </span>
             </Link>
-            
+
             <a
               href="https://handvantage.co/contact"
               target="_blank"
@@ -246,7 +241,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+            className="lg:hidden p-2 text-white/80 hover:text-white transition-colors ml-auto"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className="w-6 h-6" />
@@ -272,44 +267,41 @@ const Header = () => {
                             if (item.label === 'Services') setIsServicesOpen(!isServicesOpen);
                             if (item.label === 'Tools') setIsAssessmentsOpen(!isAssessmentsOpen);
                           }}
-                          className={`flex items-center justify-between w-full p-3 rounded-lg transition-colors ${
-                            isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
-                          }`}
+                          className={`flex items-center justify-between w-full p-3 rounded-lg transition-colors ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                            }`}
                         >
                           <span className="font-medium">{item.label}</span>
                           <SafeIcon
                             icon={FiChevronDown}
-                            className={`w-4 h-4 transition-transform duration-300 ${
-                              (item.label === 'Services' && isServicesOpen) || 
+                            className={`w-4 h-4 transition-transform duration-300 ${(item.label === 'Services' && isServicesOpen) ||
                               (item.label === 'Tools' && isAssessmentsOpen) ? 'rotate-180' : ''
-                            }`}
+                              }`}
                           />
                         </button>
                         <AnimatePresence>
-                          {((item.label === 'Services' && isServicesOpen) || 
+                          {((item.label === 'Services' && isServicesOpen) ||
                             (item.label === 'Tools' && isAssessmentsOpen)) && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 space-y-1 mt-1 border-l border-white/10 ml-3"
-                            >
-                              {item.dropdownItems.map((dropdownItem, i) => (
-                                <Link
-                                  key={i}
-                                  to={dropdownItem.href}
-                                  className={`block py-2 px-3 rounded-md text-sm transition-colors ${
-                                    isActiveSubItem(dropdownItem.href) 
-                                      ? 'text-viability-primary bg-white/5' 
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="pl-4 space-y-1 mt-1 border-l border-white/10 ml-3"
+                              >
+                                {item.dropdownItems.map((dropdownItem, i) => (
+                                  <Link
+                                    key={i}
+                                    to={dropdownItem.href}
+                                    className={`block py-2 px-3 rounded-md text-sm transition-colors ${isActiveSubItem(dropdownItem.href)
+                                      ? 'text-viability-primary bg-white/5'
                                       : 'text-slate-400 hover:text-white hover:bg-white/5'
-                                  }`}
-                                  onClick={() => setIsMenuOpen(false)}
-                                >
-                                  {dropdownItem.label}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
+                                      }`}
+                                    onClick={() => setIsMenuOpen(false)}
+                                  >
+                                    {dropdownItem.label}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
                         </AnimatePresence>
                       </div>
                     ) : (
@@ -317,9 +309,8 @@ const Header = () => {
                         to={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
-                        className={`block p-3 rounded-lg font-medium transition-colors ${
-                          isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
-                        }`}
+                        className={`block p-3 rounded-lg font-medium transition-colors ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                          }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -327,7 +318,7 @@ const Header = () => {
                     )}
                   </div>
                 ))}
-                
+
                 <div className="pt-4 space-y-3 mt-4 border-t border-white/10">
                   <Link
                     to="/roi-calculator"
