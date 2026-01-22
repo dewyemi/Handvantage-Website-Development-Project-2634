@@ -45,14 +45,14 @@ const Header = () => {
       path: '/',
       hasDropdown: true,
       dropdownItems: [
-        { label: 'Digital Transformation Assessment', href: '/assessment' },
-        { label: 'Cybersecurity Risk Assessment', href: '/security-assessment' },
-        { label: 'Security Maturity Assessment', href: '/security-maturity-assessment' },
-        { label: 'Maturity Roadmap Generator', href: '/maturity-roadmap' },
-        { label: 'Compliance Readiness Assessment', href: '/compliance-assessment' },
-        { label: 'Security Budget Planner', href: '/budget-planner' },
-        { label: 'Vendor Evaluation Matrix', href: '/vendor-evaluation' },
-        { label: 'ROI Calculator', href: '/roi-calculator' },
+        { label: 'Digital Transformation Assessment', href: 'https://secvantages.com', external: true },
+        { label: 'Cybersecurity Risk Assessment', href: 'https://secvantages.com', external: true },
+        { label: 'Security Maturity Assessment', href: 'https://secvantages.com', external: true },
+        { label: 'Maturity Roadmap Generator', href: 'https://secvantages.com', external: true },
+        { label: 'Compliance Readiness Assessment', href: 'https://secvantages.com', external: true },
+        { label: 'Security Budget Planner', href: 'https://secvantages.com', external: true },
+        { label: 'Vendor Evaluation Matrix', href: 'https://secvantages.com', external: true },
+        { label: 'ROI Calculator', href: 'https://secvantages.com', external: true },
       ]
     },
     { label: 'Contact', href: 'https://handvantage.co/contact', path: '/', external: true }
@@ -175,20 +175,36 @@ const Header = () => {
                           >
                             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                             {item.dropdownItems.map((dropdownItem, i) => (
-                              <Link
-                                key={i}
-                                to={dropdownItem.href}
-                                className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 ${isActiveSubItem(dropdownItem.href)
-                                  ? 'border-viability-primary bg-white/5 text-viability-primary'
-                                  : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5 hover:border-slate-500'
-                                  }`}
-                                onClick={() => {
-                                  setIsServicesOpen(false);
-                                  setIsAssessmentsOpen(false);
-                                }}
-                              >
-                                {dropdownItem.label}
-                              </Link>
+                              dropdownItem.external ? (
+                                <a
+                                  key={i}
+                                  href={dropdownItem.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 hover:border-slate-500`}
+                                  onClick={() => {
+                                    setIsServicesOpen(false);
+                                    setIsAssessmentsOpen(false);
+                                  }}
+                                >
+                                  {dropdownItem.label}
+                                </a>
+                              ) : (
+                                <Link
+                                  key={i}
+                                  to={dropdownItem.href}
+                                  className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 ${isActiveSubItem(dropdownItem.href)
+                                    ? 'border-viability-primary bg-white/5 text-viability-primary'
+                                    : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5 hover:border-slate-500'
+                                    }`}
+                                  onClick={() => {
+                                    setIsServicesOpen(false);
+                                    setIsAssessmentsOpen(false);
+                                  }}
+                                >
+                                  {dropdownItem.label}
+                                </Link>
+                              )
                             ))}
                           </motion.div>
                         )}
@@ -288,17 +304,30 @@ const Header = () => {
                                 className="pl-4 space-y-1 mt-1 border-l border-white/10 ml-3"
                               >
                                 {item.dropdownItems.map((dropdownItem, i) => (
-                                  <Link
-                                    key={i}
-                                    to={dropdownItem.href}
-                                    className={`block py-2 px-3 rounded-md text-sm transition-colors ${isActiveSubItem(dropdownItem.href)
-                                      ? 'text-viability-primary bg-white/5'
-                                      : 'text-slate-400 hover:text-white hover:bg-white/5'
-                                      }`}
-                                    onClick={() => setIsMenuOpen(false)}
-                                  >
-                                    {dropdownItem.label}
-                                  </Link>
+                                  dropdownItem.external ? (
+                                    <a
+                                      key={i}
+                                      href={dropdownItem.href}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className={`block py-2 px-3 rounded-md text-sm transition-colors text-slate-400 hover:text-white hover:bg-white/5`}
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {dropdownItem.label}
+                                    </a>
+                                  ) : (
+                                    <Link
+                                      key={i}
+                                      to={dropdownItem.href}
+                                      className={`block py-2 px-3 rounded-md text-sm transition-colors ${isActiveSubItem(dropdownItem.href)
+                                        ? 'text-viability-primary bg-white/5'
+                                        : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                        }`}
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {dropdownItem.label}
+                                    </Link>
+                                  )
                                 ))}
                               </motion.div>
                             )}

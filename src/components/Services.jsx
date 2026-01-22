@@ -91,7 +91,8 @@ const Services = () => {
       description: 'Strategic business assessment designed to help identify potential technology bottlenecks that may be affecting your growth and explore opportunities for competitive advantage',
       features: ['Potential growth bottleneck identification', 'Competitive advantage opportunity exploration', 'Strategic technology roadmap'],
       buttonText: 'Start Assessment',
-      buttonLink: '/assessment',
+      buttonLink: 'https://secvantages.com',
+      external: true,
       color: 'blue',
       bgColor: 'bg-blue-50',
       iconBg: 'bg-blue-100',
@@ -105,7 +106,8 @@ const Services = () => {
       description: 'Comprehensive security posture evaluation designed to provide personalized recommendations and compare your approach with industry practices',
       features: ['Security maturity evaluation', 'Personalized improvement suggestions', 'Industry practice comparison'],
       buttonText: 'Start Security Assessment',
-      buttonLink: '/security-maturity-assessment',
+      buttonLink: 'https://secvantages.com',
+      external: true,
       color: 'red',
       bgColor: 'bg-red-50',
       iconBg: 'bg-red-100',
@@ -119,7 +121,8 @@ const Services = () => {
       description: 'Interactive calculator designed to estimate potential financial considerations when comparing managed security services with internal security teams',
       features: ['Cost comparison analysis', 'Estimated ROI projection', 'Potential vendor consolidation savings'],
       buttonText: 'Estimate Potential Impact',
-      buttonLink: '/roi-calculator',
+      buttonLink: 'https://secvantages.com',
+      external: true,
       color: 'green',
       bgColor: 'bg-green-50',
       iconBg: 'bg-green-100',
@@ -133,7 +136,8 @@ const Services = () => {
       description: 'Evaluation tool designed to help assess your current status regarding common compliance frameworks including SOC 2, HIPAA, PCI-DSS, and GDPR',
       features: ['Multi-framework assessment', 'Gap analysis and prioritization', 'Implementation roadmap suggestions'],
       buttonText: 'Check Compliance Status',
-      buttonLink: '/compliance-assessment',
+      buttonLink: 'https://secvantages.com',
+      external: true,
       color: 'purple',
       bgColor: 'bg-purple-50',
       iconBg: 'bg-purple-100',
@@ -147,7 +151,8 @@ const Services = () => {
       description: 'Strategic budget allocation calculator designed to help align security investments with your risk profile and business objectives',
       features: ['Industry benchmark comparisons', 'Investment prioritization guidance', 'ROI estimation'],
       buttonText: 'Plan Your Budget',
-      buttonLink: '/budget-planner',
+      buttonLink: 'https://secvantages.com',
+      external: true,
       color: 'indigo',
       bgColor: 'bg-indigo-50',
       iconBg: 'bg-indigo-100',
@@ -161,7 +166,8 @@ const Services = () => {
       description: 'Systematic vendor comparison framework designed to help evaluate cybersecurity solutions based on your specific business needs',
       features: ['Weighted scoring system', 'Business alignment criteria', 'Vendor comparison framework'],
       buttonText: 'Evaluate Vendors',
-      buttonLink: '/vendor-evaluation',
+      buttonLink: 'https://secvantages.com',
+      external: true,
       color: 'cyan',
       bgColor: 'bg-cyan-50',
       iconBg: 'bg-cyan-100',
@@ -334,10 +340,17 @@ const Services = () => {
 
               {/* CTA Button */}
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Link to={assessment.buttonLink} className={`w-full ${assessment.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`} >
-                  <span>{assessment.buttonText}</span>
-                  <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
-                </Link>
+                {assessment.external ? (
+                  <a href={assessment.buttonLink} target="_blank" rel="noopener noreferrer" className={`w-full ${assessment.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}>
+                    <span>{assessment.buttonText}</span>
+                    <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
+                  </a>
+                ) : (
+                  <Link to={assessment.buttonLink} className={`w-full ${assessment.buttonBg} text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center`}>
+                    <span>{assessment.buttonText}</span>
+                    <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
+                  </Link>
+                )}
               </motion.div>
             </motion.div>
           ))}
