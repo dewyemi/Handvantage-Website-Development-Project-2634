@@ -18,9 +18,9 @@ const Footer = () => {
   ];
 
   const assessments = [
-    { name: 'Digital Transformation Assessment', link: '/assessment', icon: FiZap },
-    { name: 'Cybersecurity Risk Assessment', link: '/security-assessment', icon: FiShield },
-    { name: 'Maturity Roadmap Generator', link: '/maturity-roadmap', icon: FiShield }
+    { name: 'Digital Transformation Assessment', link: 'https://secvantages.com', icon: FiZap, external: true },
+    { name: 'Cybersecurity Risk Assessment', link: 'https://secvantages.com', icon: FiShield, external: true },
+    { name: 'Maturity Roadmap Generator', link: 'https://secvantages.com', icon: FiShield, external: true }
   ];
 
   const technologyCapabilities = [
@@ -122,13 +122,25 @@ const Footer = () => {
             <ul className="space-y-3 mb-8">
               {assessments.map((assessment, index) => (
                 <li key={index}>
-                  <Link
-                    to={assessment.link}
-                    className="text-slate-400 hover:text-factory-400 transition-colors flex items-center group"
-                  >
-                    <SafeIcon icon={assessment.icon} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-factory-400 transition-colors" />
-                    {assessment.name}
-                  </Link>
+                  {assessment.external ? (
+                    <a
+                      href={assessment.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-factory-400 transition-colors flex items-center group"
+                    >
+                      <SafeIcon icon={assessment.icon} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-factory-400 transition-colors" />
+                      {assessment.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={assessment.link}
+                      className="text-slate-400 hover:text-factory-400 transition-colors flex items-center group"
+                    >
+                      <SafeIcon icon={assessment.icon} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-factory-400 transition-colors" />
+                      {assessment.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
