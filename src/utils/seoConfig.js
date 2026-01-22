@@ -1,8 +1,8 @@
 export const seoConfig = {
   home: {
-    title: "Strategic Technology Consulting | Eliminate Growth Bottlenecks | Handvantage",
-    description: "Strategic technology consulting for growing businesses. Eliminate technology bottlenecks that limit growth and create competitive advantages. 20+ years Fortune 500 expertise.",
-    keywords: "strategic technology consulting, growth bottlenecks, competitive advantages, business strategy, technology strategy, strategic planning, Josh Olayemi, enterprise expertise, business transformation",
+    title: "Viability Engineering | Handvantage - Balance Security & Speed",
+    description: "Security is a commodity. Viability is the asset. We engineer the balance between the Fortress (security) and the Factory (speed). Run your free Viability Diagnostic.",
+    keywords: "viability engineering, dual squeeze, security speed balance, fortress factory, managed security services, business automation, cybersecurity strategy, Josh Olayemi, enterprise security, strategic technology consulting",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -258,6 +258,31 @@ export const seoConfig = {
         "@type": "Organization",
         "name": "Handvantage"
       }
+    }
+  },
+  manifesto: {
+    title: "The Dual Squeeze Manifesto | Handvantage",
+    description: "Why 'good security' is killing your business and how Viability Engineering solves the conflict between security pressure and speed pressure.",
+    keywords: "dual squeeze manifesto, viability engineering, fortress vs factory, security speed balance, cybersecurity manifesto, business security strategy",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Dual Squeeze Manifesto: Why Good Security is Killing Your Business",
+      "description": "An exploration of how modern firms are crushed between security pressure (The Fortress) and speed pressure (The Factory), and how Viability Engineering provides the solution",
+      "author": {
+        "@type": "Organization",
+        "name": "Handvantage"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Handvantage",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://handvantage.co/logo.svg"
+        }
+      },
+      "datePublished": "2026-01-22",
+      "articleBody": "The Dual Squeeze Manifesto explains how modern businesses are crushed between two opposing forces: The Fortress (pressure to be secure) and The Factory (pressure to be fast). Viability Engineering is the solution that harmonizes these forces."
     }
   }
 };

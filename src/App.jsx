@@ -12,6 +12,10 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Breadcrumbs from './components/Breadcrumbs';
 
+// New components for Viability Engineering
+import ViabilityOSSection from './components/ViabilityOSSection';
+import ProofSection from './components/ProofSection';
+
 // Lazy load non-critical page components for better performance
 const AboutPage = lazy(() => import('./components/AboutPage'));
 const DigitalTransformationPage = lazy(() => import('./components/DigitalTransformationPage'));
@@ -36,6 +40,7 @@ const PrivacyPolicyPage = lazy(() => import('./components/PrivacyPolicyPage'));
 const TermsConditionsPage = lazy(() => import('./components/TermsConditionsPage'));
 const BudgetPlanner = lazy(() => import('./components/BudgetPlanner'));
 const VendorEvaluation = lazy(() => import('./components/VendorEvaluation'));
+const ManifestoPage = lazy(() => import('./components/ManifestoPage'));
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
@@ -82,12 +87,16 @@ function App() {
             <main>
               <Hero />
               <ProblemSolution />
+              <ViabilityOSSection />
+              <ProofSection />
               <Services />
               <About />
               <Partnerships />
               <CTA />
             </main>
           } />
+
+          <Route path="/manifesto" element={<ManifestoPage />} />
           
           <Route path="/about" element={<AboutPage />} />
           

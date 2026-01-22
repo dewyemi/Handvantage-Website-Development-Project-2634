@@ -101,10 +101,17 @@ const Header = () => {
     }
   };
 
+  // Check if on homepage
+  const isHomepage = location.pathname === '/';
+
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-white'
+        isScrolled
+          ? 'bg-slate-900/95 backdrop-blur-lg shadow-lg border-b border-white/10'
+          : isHomepage
+            ? 'bg-transparent'
+            : 'bg-slate-900/95 backdrop-blur-lg border-b border-white/10'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -145,8 +152,12 @@ const Header = () => {
                   <div className="group">
                     <button
                       onClick={() => handleNavClick(item.href)}
-                      className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 flex items-center ${
-                        isActive(item) ? 'text-primary-blue' : ''
+                      className={`font-medium transition-colors duration-300 flex items-center ${
+                        isHomepage && !isScrolled
+                          ? 'text-white hover:text-viability-glow'
+                          : 'text-slate-600 hover:text-viability-primary'
+                      } ${
+                        isActive(item) ? (isHomepage && !isScrolled ? 'text-viability-glow' : 'text-viability-primary') : ''
                       }`}
                     >
                       {item.label}
@@ -181,8 +192,12 @@ const Header = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
-                      isActive(item) ? 'text-primary-blue' : ''
+                    className={`font-medium transition-colors duration-300 ${
+                      isHomepage && !isScrolled
+                        ? 'text-white hover:text-viability-glow'
+                        : 'text-slate-600 hover:text-viability-primary'
+                    } ${
+                      isActive(item) ? (isHomepage && !isScrolled ? 'text-viability-glow' : 'text-viability-primary') : ''
                     }`}
                   >
                     {item.label}
@@ -190,8 +205,12 @@ const Header = () => {
                 ) : item.href.startsWith('/') && !item.href.includes('#') ? (
                   <Link
                     to={item.href}
-                    className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
-                      isActive(item) ? 'text-primary-blue' : ''
+                    className={`font-medium transition-colors duration-300 ${
+                      isHomepage && !isScrolled
+                        ? 'text-white hover:text-viability-glow'
+                        : 'text-slate-600 hover:text-viability-primary'
+                    } ${
+                      isActive(item) ? (isHomepage && !isScrolled ? 'text-viability-glow' : 'text-viability-primary') : ''
                     }`}
                   >
                     {item.label}
@@ -199,7 +218,11 @@ const Header = () => {
                 ) : (
                   <button
                     onClick={() => handleNavClick(item.href)}
-                    className={`text-slate-600 hover:text-primary-blue font-medium transition-colors duration-300 ${
+                    className={`font-medium transition-colors duration-300 ${
+                      isHomepage && !isScrolled
+                        ? 'text-white hover:text-viability-glow'
+                        : 'text-slate-600 hover:text-viability-primary'
+                    } ${
                       isActive(item) ? 'text-primary-blue' : ''
                     }`}
                   >
@@ -238,7 +261,7 @@ const Header = () => {
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className="w-6 h-6 text-primary-dark" />
+            <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className={`w-6 h-6 ${isHomepage && !isScrolled ? 'text-white' : 'text-primary-dark'}`} />
           </button>
         </div>
 
