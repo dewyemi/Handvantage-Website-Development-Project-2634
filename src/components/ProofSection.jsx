@@ -124,6 +124,9 @@ const ProofSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
+          <p className="text-viability-primary font-mono text-sm uppercase tracking-widest mb-6">
+            03 // THE PROMISE
+          </p>
           <h2 className="text-5xl md:text-6xl font-bold text-primary-dark mb-8">
             WE PAY FOR OURSELVES.
           </h2>

@@ -3,104 +3,111 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import SEOHead from './SEOHead';
-import { seoConfig } from '../utils/seoConfig';
 
-const { FiAlertCircle, FiTarget, FiCheckCircle } = FiIcons;
+const { FiUser, FiCheckCircle, FiHeart } = FiIcons;
 
 const ManifestoPage = () => {
+  const tenets = [
+    {
+      id: '01',
+      title: 'PILOT > PLANE',
+      icon: FiUser,
+      description: 'A bad pilot crashes a good plane. A good pilot can fly anything. We focus on the operator, not the machine.',
+      gradient: 'from-viability-primary to-purple-600'
+    },
+    {
+      id: '02',
+      title: 'OUTCOMES > ALERTS',
+      icon: FiCheckCircle,
+      description: 'An alert is a problem. A resolved ticket is a solution. We sell solutions.',
+      gradient: 'from-blue-500 to-cyan-500'
+    },
+    {
+      id: '03',
+      title: 'AGNOSTIC > RESELLER',
+      icon: FiHeart,
+      description: 'We never take a commission to sell you a tool you don\'t need. Our loyalty is to your budget.',
+      gradient: 'from-green-500 to-emerald-500'
+    }
+  ];
+
   return (
     <>
-      <SEOHead {...seoConfig.manifesto} />
+      <SEOHead
+        title="The Doctrine - The Pilot's Code | Handvantage"
+        description="The philosophy behind the service. PILOT > PLANE. OUTCOMES > ALERTS. AGNOSTIC > RESELLER."
+      />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-slate-950 overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
+      <section className="pt-32 pb-24 bg-slate-950 min-h-screen">
+        <div className="container mx-auto px-6">
+          {/* Hero */}
           <motion.div
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-24 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
-              THE PILOT'S CODE
+              THE PILOT'S CODE.
             </h1>
-            <p className="text-xl text-slate-400 font-light mb-4 tracking-wide">
-              Why we exist. Why the old model is broken. Why you need a Pilot.
+            <p className="text-xl text-slate-400 font-light">
+              The philosophy behind the service.
             </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Core Tenets */}
-      <section className="py-20 bg-slate-950">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto space-y-24">
-            {/* Tenet 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-viability-glow transition-colors duration-300">
-                1. THE "PILOT VS. PLANE" FALLACY
-              </h2>
-              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-viability-primary transition-colors duration-300">
-                <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                  The industry wants you to believe that if you buy a better plane (Tool), you won't crash. This is a lie. A Ferrari driven by an amateur will crash faster than a Toyota driven by a pro. <strong className="text-white font-bold">We believe in the Driver.</strong>
-                </p>
-              </div>
-            </motion.div>
+          {/* Tenets */}
+          <div className="max-w-5xl mx-auto space-y-16">
+            {tenets.map((tenet, i) => (
+              <motion.div
+                key={tenet.id}
+                className="relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {/* Glow background */}
+                <div className={`absolute -inset-1 bg-gradient-to-r ${tenet.gradient} rounded-3xl blur-xl opacity-20`} />
 
-            {/* Tenet 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-factory-400 transition-colors duration-300">
-                2. THE "INTERNAL HIRE" TRAP
-              </h2>
-              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-factory-400 transition-colors duration-300">
-                <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                  Hiring a CISO for $180k to watch a screen is a waste of capital. Humans sleep. Humans churn. Humans have bias. <strong className="text-white font-bold">We believe in the Hive Mind.</strong> A 24/7 team that never sleeps and learns from 500+ clients instantly.
-                </p>
-              </div>
-            </motion.div>
+                <div className="relative bg-slate-900 border border-slate-800 rounded-2xl p-10 md:p-14">
+                  <div className="flex flex-col md:flex-row md:items-center gap-8">
+                    {/* Number and Icon */}
+                    <div className="flex-shrink-0 text-center md:text-left">
+                      <div className={`w-20 h-20 mx-auto md:mx-0 bg-gradient-to-br ${tenet.gradient} rounded-2xl flex items-center justify-center mb-4`}>
+                        <SafeIcon icon={tenet.icon} className="w-10 h-10 text-white" />
+                      </div>
+                      <p className="text-slate-600 font-mono text-sm">TENET {tenet.id}</p>
+                    </div>
 
-            {/* Tenet 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors duration-300">
-                3. THE "AGNOSTIC" PLEDGE
-              </h2>
-              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-blue-400 transition-colors duration-300">
-                <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                  We will never sell you a tool just because we get a commission. We sit on <strong className="text-white font-bold">YOUR</strong> side of the table. If your current stack works, we keep it. If it sucks, we tell you. <strong className="text-white font-bold">We believe in Truth.</strong>
-                </p>
-              </div>
-            </motion.div>
+                    {/* Content */}
+                    <div className="flex-grow text-center md:text-left">
+                      <h2 className={`text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r ${tenet.gradient} bg-clip-text text-transparent`}>
+                        {tenet.title}
+                      </h2>
+                      <p className="text-xl text-slate-300 leading-relaxed">
+                        {tenet.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* Signature */}
-      <section className="py-20 bg-slate-950 border-t border-slate-900">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-slate-500 font-mono text-sm tracking-widest uppercase mb-8">
-            END OF TRANSMISSION
-          </p>
-          <div className="inline-block border border-slate-800 px-8 py-4 rounded-lg">
-            <span className="text-viability-glow font-bold tracking-wider">HANDVANTAGE</span>
-          </div>
+          {/* Signature */}
+          <motion.div
+            className="mt-24 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block bg-slate-900 border border-slate-800 rounded-full px-8 py-4">
+              <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
+                END OF TRANSMISSION
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>

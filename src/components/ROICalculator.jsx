@@ -3,33 +3,33 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiDollarSign, FiUsers, FiLock, FiArrowRight } = FiIcons;
+const { FiArrowRight, FiDollarSign, FiTool, FiPieChart } = FiIcons;
 
 const ROICalculator = () => {
   const [inputs, setInputs] = useState({
     internalTeamCost: '',
-    securityBudget: '',
-    wastePercentage: '30'
+    numSecurityTools: '',
+    securityBudget: ''
   });
   const [result, setResult] = useState(null);
 
   const calculateSavings = () => {
-    // Logic from v2 Master Copy
-    // Default Internal Cost (if empty) = 540000 ($180k x 3)
-    const internalCost = parseFloat(inputs.internalTeamCost) || 540000;
-    const budget = parseFloat(inputs.securityBudget) || 0;
-    const wastePercent = parseFloat(inputs.wastePercentage) || 30;
+    // Logic from v3 Master Copy
+    const internalCost = parseFloat(inputs.internalTeamCost) || 180000;
+    const numTools = parseFloat(inputs.numSecurityTools) || 5;
+    const budget = parseFloat(inputs.securityBudget) || 500000;
 
     // Handvantage Fee (Hidden Variable: ~30% of Internal Cost)
     const handvantageFee = internalCost * 0.30;
 
     // Savings Calculation
     const teamSavings = internalCost - handvantageFee;
-    const toolSavings = budget * (wastePercent / 100);
-    const totalSavings = teamSavings + toolSavings;
+    const toolSavings = budget * 0.25; // Assume 25% waste cut
+    const efficiencySavings = numTools * 5000; // $5k efficiency per tool managed
+    const totalSavings = teamSavings + toolSavings + efficiencySavings;
 
-    // Engineering Hires Equivalent ($120k avg salary estimate)
-    const engineerHires = Math.floor(totalSavings / 120000);
+    // Engineering Hires Equivalent ($150k avg salary estimate)
+    const engineerHires = Math.floor(totalSavings / 150000);
 
     setResult({
       savings: totalSavings,
@@ -40,97 +40,130 @@ const ROICalculator = () => {
   return (
     <section className="py-24 bg-slate-950 min-h-screen flex items-center">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-5xl mx-auto">
 
-          {/* Left Column: Text */}
-          <div className="text-left">
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
+          {/* Hero Header */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
               THE COST OF SLEEP.
             </h1>
-            <p className="text-xl text-slate-400 font-light mb-8">
-              Calculate how much you save by hiring a Pilot instead of a CISO.
+            <p className="text-xl text-slate-400 font-light">
+              Calculate your "Service Gap" cost.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Calculator */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
-            <div className="space-y-6">
-
+          {/* Calculator Card */}
+          <motion.div
+            className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="grid md:grid-cols-3 gap-8 mb-10">
               {/* Input 1 */}
               <div>
-                <label className="block text-sm font-semibold text-slate-400 mb-2">Annual Cost of Internal Team</label>
+                <label className="block text-sm font-semibold text-slate-400 mb-3">
+                  Annual Cost of Internal Security Team ($)
+                </label>
                 <div className="relative">
-                  <span className="absolute left-4 top-3.5 text-slate-500">$</span>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <SafeIcon icon={FiDollarSign} className="w-5 h-5 text-slate-500" />
+                  </div>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-8 pr-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
-                    placeholder="540,000 (Defaults to $180k x 3)"
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    placeholder="e.g. 180000"
                     value={inputs.internalTeamCost}
                     onChange={(e) => setInputs({ ...inputs, internalTeamCost: e.target.value })}
                   />
                 </div>
-                <p className="text-xs text-slate-600 mt-1">Cost for 24/7 coverage (3 FTEs)</p>
               </div>
 
               {/* Input 2 */}
               <div>
-                <label className="block text-sm font-semibold text-slate-400 mb-2">Annual Security Tool Budget</label>
+                <label className="block text-sm font-semibold text-slate-400 mb-3">
+                  Number of Security Tools
+                </label>
                 <div className="relative">
-                  <span className="absolute left-4 top-3.5 text-slate-500">$</span>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <SafeIcon icon={FiTool} className="w-5 h-5 text-slate-500" />
+                  </div>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-8 pr-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
-                    placeholder="200,000"
-                    value={inputs.securityBudget}
-                    onChange={(e) => setInputs({ ...inputs, securityBudget: e.target.value })}
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    placeholder="e.g. 5"
+                    value={inputs.numSecurityTools}
+                    onChange={(e) => setInputs({ ...inputs, numSecurityTools: e.target.value })}
                   />
                 </div>
               </div>
 
               {/* Input 3 */}
               <div>
-                <label className="block text-sm font-semibold text-slate-400 mb-2">Est. SaaS Waste %</label>
+                <label className="block text-sm font-semibold text-slate-400 mb-3">
+                  Annual Security Budget ($)
+                </label>
                 <div className="relative">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <SafeIcon icon={FiPieChart} className="w-5 h-5 text-slate-500" />
+                  </div>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
-                    placeholder="30"
-                    value={inputs.wastePercentage}
-                    onChange={(e) => setInputs({ ...inputs, wastePercentage: e.target.value })}
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    placeholder="e.g. 500000"
+                    value={inputs.securityBudget}
+                    onChange={(e) => setInputs({ ...inputs, securityBudget: e.target.value })}
                   />
-                  <span className="absolute right-4 top-3.5 text-slate-500">%</span>
                 </div>
               </div>
-
-              {/* Button */}
-              <button
-                onClick={calculateSavings}
-                className="w-full bg-gradient-to-r from-viability-primary to-viability-glow text-white font-bold py-4 rounded-lg hover:shadow-lg hover:shadow-viability-primary/20 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                CALCULATE SAVINGS
-                <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
-              </button>
-
-              {/* Result Area */}
-              {result && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-8 pt-8 border-t border-slate-800 text-center"
-                >
-                  <p className="text-slate-500 text-sm font-mono uppercase tracking-widest mb-2">You save by switching to Handvantage:</p>
-                  <p className="text-4xl font-black text-green-400 mb-2">
-                    ${result.savings.toLocaleString(undefined, { maximumFractionDigits: 0 })}/year
-                  </p>
-                  <p className="text-sm text-viability-glow italic">
-                    "That is <strong className="text-white not-italic font-bold">{result.engineers}</strong> extra engineers you could hire to build your product."
-                  </p>
-                </motion.div>
-              )}
-
             </div>
-          </div>
 
+            {/* Button */}
+            <button
+              onClick={calculateSavings}
+              className="w-full bg-gradient-to-r from-viability-primary to-viability-glow text-white font-bold py-5 rounded-xl hover:shadow-lg hover:shadow-viability-primary/20 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+            >
+              CALCULATE MY SAVINGS
+              <SafeIcon icon={FiArrowRight} className="w-5 h-5" />
+            </button>
+
+            {/* Result Area */}
+            {result && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-12 pt-12 border-t border-slate-800"
+              >
+                <div className="text-center">
+                  <p className="text-slate-500 text-sm font-mono uppercase tracking-widest mb-4">
+                    YOUR POTENTIAL SAVINGS
+                  </p>
+                  <p className="text-6xl md:text-7xl font-black text-green-400 mb-6">
+                    ${result.savings.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                  </p>
+                  <p className="text-xl text-slate-300 mb-10">
+                    That is enough to hire <strong className="text-white">{result.engineers}</strong> extra engineers.
+                  </p>
+
+                  {/* CTA */}
+                  <a
+                    href="https://handvantage.co/contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-colors text-lg"
+                  >
+                    BOOK A BRIEFING TO CLAIM THIS
+                    <SafeIcon icon={FiArrowRight} className="w-5 h-5 ml-2" />
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
       </div>
     </section>

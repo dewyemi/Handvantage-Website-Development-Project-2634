@@ -6,13 +6,49 @@ import { Link } from 'react-router-dom';
 import SecurityOperationsVisual from './svg/SecurityOperationsVisual';
 import AutomationEngineVisual from './svg/AutomationEngineVisual';
 
-const { FiShield, FiZap, FiCheck, FiArrowRight } = FiIcons;
+const { FiShield, FiZap, FiArrowRight, FiEye, FiClock, FiTarget, FiPackage, FiRefreshCw, FiTrendingDown } = FiIcons;
 
 const Services = () => {
+  const pilotFeatures = [
+    {
+      icon: FiEye,
+      title: 'HUMAN INTELLIGENCE',
+      description: "We don't rely on AI alone. Expert analysts review every critical alert."
+    },
+    {
+      icon: FiClock,
+      title: '15-MINUTE RESPONSE',
+      description: "We don't just email you; we isolate the host and kill the process."
+    },
+    {
+      icon: FiTarget,
+      title: 'THREAT HUNTING',
+      description: 'We proactively search for threats that bypassed your EDR.'
+    }
+  ];
+
+  const mechanicFeatures = [
+    {
+      icon: FiPackage,
+      title: 'ZERO-TOUCH ONBOARDING',
+      description: 'New laptops are shipped, secured, and ready to work on Day 1.'
+    },
+    {
+      icon: FiRefreshCw,
+      title: 'PATCH MANAGEMENT',
+      description: 'We patch 3rd party apps (Chrome, Zoom) automatically.'
+    },
+    {
+      icon: FiTrendingDown,
+      title: 'SAAS OPTIMIZATION',
+      description: 'We identify unused licenses and cut your software bill.'
+    }
+  ];
+
   return (
     <section id="services" className="py-32 bg-slate-50 min-h-screen">
       <div className="container mx-auto px-6">
-        {/* Header */}
+        {/* Hero Header */}
         <motion.div
           className="text-center mb-24 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -20,13 +56,10 @@ const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl md:text-7xl font-black text-primary-dark mb-8 tracking-tight">
-            WE FLY ANY JET.
+            THE ELITE SERVICE LAYER.
           </h1>
-          <p className="text-2xl font-bold text-slate-800 mb-4">
-            You own the stack. We own the outcome.
-          </p>
-          <p className="text-xl text-slate-500 leading-relaxed font-light">
-            We are the "Service Layer" that sits on top of your existing tools to provide 24/7 protection and operational speed.
+          <p className="text-2xl text-slate-600 font-light">
+            We don't replace your tools. <span className="font-semibold text-viability-primary">We make them lethal.</span>
           </p>
         </motion.div>
 
@@ -42,41 +75,38 @@ const Services = () => {
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-viability-primary/10 to-transparent" />
 
-            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-viability-primary rounded-xl flex items-center justify-center">
                     <SafeIcon icon={FiShield} className="w-6 h-6 text-white" />
                   </div>
-                  <h2 className="text-3xl font-bold">The Pilot <span className="text-viability-primary">(Security Operations)</span></h2>
+                  <h2 className="text-3xl font-bold">THE PILOT</h2>
                 </div>
 
-                <h3 className="text-4xl font-black mb-6">"The 24/7 Human Shield"</h3>
+                <h3 className="text-4xl font-black mb-10 text-viability-glow">24/7 EYES ON GLASS</h3>
 
-                <div className="prose prose-lg prose-invert mb-8">
-                  <p className="text-xl italic text-slate-300 mb-6">"Tools don't catch hackers. People do."</p>
-                  <p className="text-slate-400">
-                    Your MDR (Arctic Wolf, CrowdStrike) is just a sensor. It beeps when it sees smoke. <strong className="text-white">We are the Fire Department.</strong>
-                  </p>
-                  <p className="text-slate-400">
-                    We don't just forward the alert; we kick down the door, put out the fire, and rebuild the wall before you even wake up.
-                  </p>
+                {/* Features */}
+                <div className="space-y-8">
+                  {pilotFeatures.map((feature, i) => (
+                    <motion.div
+                      key={i}
+                      className="flex gap-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="w-12 h-12 bg-viability-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <SafeIcon icon={feature.icon} className="w-6 h-6 text-viability-primary" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-white mb-1">{feature.title}</h4>
+                        <p className="text-slate-400">{feature.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-
-                <ul className="space-y-4">
-                  <li className="flex items-start text-lg text-slate-200">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3 flex-shrink-0 mt-1" />
-                    <span><strong>24/7 Eyes on Glass:</strong> Real humans, not bots.</span>
-                  </li>
-                  <li className="flex items-start text-lg text-slate-200">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3 flex-shrink-0 mt-1" />
-                    <span><strong>15-Minute Response:</strong> Guaranteed.</span>
-                  </li>
-                  <li className="flex items-start text-lg text-slate-200">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3 flex-shrink-0 mt-1" />
-                    <span><strong>Vendor Agnostic:</strong> We speak every language (SentinelOne, Defender, Vanta).</span>
-                  </li>
-                </ul>
               </div>
 
               <div className="hidden md:block">
@@ -95,7 +125,7 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
               <div className="order-2 md:order-1 hidden md:block">
                 <AutomationEngineVisual />
               </div>
@@ -105,32 +135,32 @@ const Services = () => {
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                     <SafeIcon icon={FiZap} className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h2 className="text-3xl font-bold text-primary-dark">The Mechanic <span className="text-blue-600">(IT Automation)</span></h2>
+                  <h2 className="text-3xl font-bold text-primary-dark">THE MECHANIC</h2>
                 </div>
 
-                <h3 className="text-4xl font-black text-slate-900 mb-6">"The Efficiency Engine"</h3>
+                <h3 className="text-4xl font-black text-blue-600 mb-10">AUTOMATED EFFICIENCY</h3>
 
-                <div className="prose prose-lg mb-8">
-                  <p className="text-xl italic text-slate-500 mb-6">"Security shouldn't slow you down. It should speed you up."</p>
-                  <p className="text-slate-600">
-                    We don't just watch the screen; we tune the engine. We automate the "boring work" that burns out your internal team.
-                  </p>
+                {/* Features */}
+                <div className="space-y-8">
+                  {mechanicFeatures.map((feature, i) => (
+                    <motion.div
+                      key={i}
+                      className="flex gap-4"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <SafeIcon icon={feature.icon} className="w-6 h-6 text-blue-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-slate-800 mb-1">{feature.title}</h4>
+                        <p className="text-slate-500">{feature.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-
-                <ul className="space-y-4">
-                  <li className="flex items-start text-lg text-slate-700">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
-                    <span><strong>Zero-Touch Onboarding:</strong> New hires are productive on Minute 1.</span>
-                  </li>
-                  <li className="flex items-start text-lg text-slate-700">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
-                    <span><strong>Automated Patching:</strong> We close the holes so you don't have to.</span>
-                  </li>
-                  <li className="flex items-start text-lg text-slate-700">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
-                    <span><strong>Compliance Evidence:</strong> We collect the screenshots for the auditor.</span>
-                  </li>
-                </ul>
               </div>
             </div>
           </motion.div>
@@ -145,7 +175,7 @@ const Services = () => {
           viewport={{ once: true }}
         >
           <p className="text-lg text-slate-500 mb-8 font-mono uppercase tracking-widest">
-            Ready to upgrade your flight crew?
+            Ready for elite operations?
           </p>
           <a
             href="https://handvantage.co/contact"

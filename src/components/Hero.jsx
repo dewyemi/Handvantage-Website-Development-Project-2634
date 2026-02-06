@@ -130,7 +130,7 @@ const Hero = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-viability-primary opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-viability-primary"></span>
                   </span>
-                  <span className="font-semibold tracking-wide uppercase text-xs">SECURE THE FORTRESS. SPEED UP THE FACTORY.</span>
+                  <span className="font-semibold tracking-wide uppercase text-xs">SERVICE-FIRST SECURITY OPERATIONS</span>
                 </div>
               </div>
             </motion.div>
@@ -151,7 +151,7 @@ const Hero = () => {
                 className="overflow-hidden"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               >
                 <span className="block relative">
                   <span className="relative inline-block text-white">
@@ -162,6 +162,16 @@ const Hero = () => {
                   </span>
                 </span>
               </motion.div>
+              <motion.div
+                className="overflow-hidden"
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span className="block bg-clip-text text-transparent bg-gradient-to-b from-white/80 to-white/40 pt-2">
+                  SERVICE IS THE ASSET.
+                </span>
+              </motion.div>
             </h1>
 
             {/* Subheadline */}
@@ -170,7 +180,6 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Service Is The Asset.</h2>
               <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
                 You have the tools (MDR, EDR, Compliance). But do you have the 24/7 team to run them? <br className="hidden md:block" />
                 We are the <span className="text-viability-glow font-medium text-glow-mild">Elite Service Layer</span> that makes your security stack actually work.
@@ -190,7 +199,7 @@ const Hero = () => {
               >
                 <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#8B5CF6_0%,#06B6D4_50%,#8B5CF6_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-8 py-1 text-base font-semibold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900">
-                  CALCULATE YOUR SAVINGS
+                  CALCULATE SAVINGS
                   <SafeIcon icon={FiArrowRight} className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
@@ -202,7 +211,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">Read The Doctrine</span>
+                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">READ THE DOCTRINE</span>
                 </motion.div>
               </Link>
             </motion.div>
@@ -215,25 +224,21 @@ const Hero = () => {
               See how much you save by replacing the $180k Internal Hire.
             </motion.p>
 
-            {/* Trust Signals */}
+            {/* Trust Signals - Tool Logos */}
             <motion.div
-              className="mt-20 pt-10 border-t border-white/5 flex flex-wrap justify-center gap-x-12 gap-y-6"
+              className="mt-20 pt-10 border-t border-white/5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              {[
-                { icon: FiStar, text: "Fortune 500 Trusted", color: "text-[#fbbf24]" },
-                { icon: FiShield, text: "Zero Breaches", color: "text-[#06b6d4]" },
-                { icon: FiCheckCircle, text: "$0 Ransomware Payouts", color: "text-[#a78bfa]" }
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 group opacity-60 hover:opacity-100 transition-opacity">
-                  <div className={`p-2 rounded-full bg-white/5 ${item.color.replace('text-', 'bg-')}/10`}>
-                    <SafeIcon icon={item.icon} className={`w-4 h-4 ${item.color}`} />
+              <p className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-6">TRUSTED BY TEAMS USING:</p>
+              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                {['CrowdStrike', 'SentinelOne', 'Vanta', 'Microsoft', 'Drata'].map((tool, i) => (
+                  <div key={i} className="text-slate-400 font-semibold text-sm md:text-base opacity-60 hover:opacity-100 transition-opacity">
+                    {tool}
                   </div>
-                  <span className="text-sm font-medium text-slate-300">{item.text}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </motion.div>
           </div>
         </motion.div>

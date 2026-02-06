@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import SEOHead from './SEOHead';
-import { seoConfig } from '../utils/seoConfig';
 
-const { FiPlus, FiMinus, FiHelpCircle } = FiIcons;
+const { FiPlus, FiMinus } = FiIcons;
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {
     return (
@@ -27,9 +26,9 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
             >
-                <div className="pb-8 text-xl text-slate-300 leading-relaxed max-w-3xl">
+                <p className="pb-8 text-xl text-slate-300 leading-relaxed max-w-3xl">
                     {answer}
-                </div>
+                </p>
             </motion.div>
         </div>
     );
@@ -40,34 +39,25 @@ const FAQPage = () => {
 
     const faqs = [
         {
-            question: "\"Do you replace my IT team?\"",
-            answer: (
-                <>
-                    <strong className="text-viability-glow">No. We liberate them.</strong> We take the "Night Watch" and the "Grunt Work" so they can focus on strategic projects. <strong className="text-white">We make them look like heroes.</strong>
-                </>
-            )
+            question: "Do you replace my IT team?",
+            answer: "No. We liberate them. We handle the 24/7 monitoring and grunt work so they can focus on strategic projects."
         },
         {
-            question: "\"Do I need to switch tools?\"",
-            answer: (
-                <>
-                    <strong className="text-viability-glow">Rarely.</strong> We are agnostic. We likely support what you already have. If you are using "Shelf-Ware," we will help you cut it.
-                </>
-            )
+            question: "Do I need to switch my EDR?",
+            answer: "Likely not. We support CrowdStrike, SentinelOne, Defender, and more. We fly the jet you already own."
         },
         {
-            question: "\"Are you an MSP?\"",
-            answer: (
-                <>
-                    <strong className="text-viability-glow">No.</strong> An MSP fixes printers and forwards emails. We are a <strong className="text-white">Service Layer.</strong> We are the <strong className="text-white">Special Forces</strong> that handle the high-stakes operations (Security & Automation).
-                </>
-            )
+            question: "How is this different from an MSP?",
+            answer: "MSPs fix printers. We hunt hackers. We are a specialized Security Operations unit, not a general IT helpdesk."
         }
     ];
 
     return (
         <>
-            <SEOHead title="FAQ - Clearing The Air | Handvantage" description="Objection Killers. The things you are thinking but haven't asked." />
+            <SEOHead
+                title="FAQ - Common Questions | Handvantage"
+                description="Common questions about Handvantage services. Do you replace my IT team? Do I need to switch my EDR? How is this different from an MSP?"
+            />
 
             <section className="pt-32 pb-24 bg-slate-950 min-h-screen">
                 <div className="container mx-auto px-6">
@@ -79,12 +69,12 @@ const FAQPage = () => {
                     >
                         {/* Header */}
                         <div className="text-center mb-16">
-                            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
-                                CLEARING THE AIR.
-                            </h1>
-                            <p className="text-xl text-slate-400 font-light">
-                                Objection Killers. The things you are thinking but haven't asked.
+                            <p className="text-viability-primary font-mono text-sm uppercase tracking-widest mb-6">
+                                COMMON QUESTIONS
                             </p>
+                            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
+                                FAQ
+                            </h1>
                         </div>
 
                         {/* FAQ Accordion */}
