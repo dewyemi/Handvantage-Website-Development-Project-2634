@@ -35,61 +35,59 @@ const ManifestoPage = () => {
       <section className="py-20 bg-slate-950">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto space-y-24">
-            <div className="max-w-5xl mx-auto space-y-24">
-              {/* Tenet 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-viability-glow transition-colors duration-300">
-                  1. THE "PILOT VS. PLANE" FALLACY
-                </h2>
-                <div className="pl-6 border-l-2 border-slate-800 group-hover:border-viability-primary transition-colors duration-300">
-                  <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                    The industry wants you to believe that if you buy a better plane (Tool), you won't crash. This is a lie. A Ferrari driven by an amateur will crash faster than a Toyota driven by a pro. <strong className="text-white font-bold">We believe in the Driver.</strong>
-                  </p>
-                </div>
-              </motion.div>
+            {/* Tenet 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-viability-glow transition-colors duration-300">
+                1. THE "PILOT VS. PLANE" FALLACY
+              </h2>
+              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-viability-primary transition-colors duration-300">
+                <p className="text-2xl text-slate-300 leading-relaxed font-light">
+                  The industry wants you to believe that if you buy a better plane (Tool), you won't crash. This is a lie. A Ferrari driven by an amateur will crash faster than a Toyota driven by a pro. <strong className="text-white font-bold">We believe in the Driver.</strong>
+                </p>
+              </div>
+            </motion.div>
 
-              {/* Tenet 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-factory-400 transition-colors duration-300">
-                  2. THE "INTERNAL HIRE" TRAP
-                </h2>
-                <div className="pl-6 border-l-2 border-slate-800 group-hover:border-factory-400 transition-colors duration-300">
-                  <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                    Hiring a CISO for $180k to watch a screen is a waste of capital. Humans sleep. Humans churn. Humans have bias. <strong className="text-white font-bold">We believe in the Hive Mind.</strong> A 24/7 team that never sleeps and learns from 500+ clients instantly.
-                  </p>
-                </div>
-              </motion.div>
+            {/* Tenet 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-factory-400 transition-colors duration-300">
+                2. THE "INTERNAL HIRE" TRAP
+              </h2>
+              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-factory-400 transition-colors duration-300">
+                <p className="text-2xl text-slate-300 leading-relaxed font-light">
+                  Hiring a CISO for $180k to watch a screen is a waste of capital. Humans sleep. Humans churn. Humans have bias. <strong className="text-white font-bold">We believe in the Hive Mind.</strong> A 24/7 team that never sleeps and learns from 500+ clients instantly.
+                </p>
+              </div>
+            </motion.div>
 
-              {/* Tenet 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors duration-300">
-                  3. THE "AGNOSTIC" PLEDGE
-                </h2>
-                <div className="pl-6 border-l-2 border-slate-800 group-hover:border-blue-400 transition-colors duration-300">
-                  <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                    We will never sell you a tool just because we get a commission. We sit on <strong className="text-white font-bold">YOUR</strong> side of the table. If your current stack works, we keep it. If it sucks, we tell you. <strong className="text-white font-bold">We believe in Truth.</strong>
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+            {/* Tenet 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors duration-300">
+                3. THE "AGNOSTIC" PLEDGE
+              </h2>
+              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-blue-400 transition-colors duration-300">
+                <p className="text-2xl text-slate-300 leading-relaxed font-light">
+                  We will never sell you a tool just because we get a commission. We sit on <strong className="text-white font-bold">YOUR</strong> side of the table. If your current stack works, we keep it. If it sucks, we tell you. <strong className="text-white font-bold">We believe in Truth.</strong>
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

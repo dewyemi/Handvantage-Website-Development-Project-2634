@@ -192,7 +192,7 @@ function App() {
             <Route path="/roi-calculator" element={
               <>
                 <SEOHead {...seoConfig.roiCalculator} />
-                <ROICalculatorLanding />
+                <ROICalculator />
               </>
             } />
 

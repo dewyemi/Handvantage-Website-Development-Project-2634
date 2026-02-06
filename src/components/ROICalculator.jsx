@@ -123,7 +123,7 @@ const ROICalculator = () => {
                     ${result.savings.toLocaleString(undefined, { maximumFractionDigits: 0 })}/year
                   </p>
                   <p className="text-sm text-viability-glow italic">
-                    "That is {result.engineers} extra engineers you could hire to build your product."
+                    "That is <strong className="text-white not-italic font-bold">{result.engineers}</strong> extra engineers you could hire to build your product."
                   </p>
                 </motion.div>
               )}

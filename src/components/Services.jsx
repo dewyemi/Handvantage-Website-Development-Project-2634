@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { Link } from 'react-router-dom';
+import SecurityOperationsVisual from './svg/SecurityOperationsVisual';
+import AutomationEngineVisual from './svg/AutomationEngineVisual';
 
 const { FiShield, FiZap, FiCheck, FiArrowRight } = FiIcons;
 
@@ -62,33 +64,23 @@ const Services = () => {
                 </div>
 
                 <ul className="space-y-4">
-                  <li className="flex items-center text-lg text-slate-200">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3" />
-                    <strong>24/7 Eyes on Glass:</strong>&nbsp;Real humans, not bots.
+                  <li className="flex items-start text-lg text-slate-200">
+                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3 flex-shrink-0 mt-1" />
+                    <span><strong>24/7 Eyes on Glass:</strong> Real humans, not bots.</span>
                   </li>
-                  <li className="flex items-center text-lg text-slate-200">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3" />
-                    <strong>15-Minute Response:</strong>&nbsp;Guaranteed.
+                  <li className="flex items-start text-lg text-slate-200">
+                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3 flex-shrink-0 mt-1" />
+                    <span><strong>15-Minute Response:</strong> Guaranteed.</span>
                   </li>
-                  <li className="flex items-center text-lg text-slate-200">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3" />
-                    <strong>Vendor Agnostic:</strong>&nbsp;We speak every language (SentinelOne, Defender, Vanta).
+                  <li className="flex items-start text-lg text-slate-200">
+                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-viability-primary mr-3 flex-shrink-0 mt-1" />
+                    <span><strong>Vendor Agnostic:</strong> We speak every language (SentinelOne, Defender, Vanta).</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="hidden md:flex justify-center">
-                {/* Visual Placeholder for Pilot/Cockpit - can be replaced with Image later */}
-                <div className="w-full h-96 bg-gradient-to-br from-slate-800 to-slate-950 rounded-2xl border border-slate-700 flex items-center justify-center p-8 relative">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">👨‍✈️</div>
-                    <div className="font-mono text-sm text-slate-500 uppercase tracking-widest">Live Operations Center</div>
-                  </div>
-                  {/* Decorative UI elements */}
-                  <div className="absolute bottom-6 left-6 right-6 h-2 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-viability-primary w-2/3 animate-pulse" />
-                  </div>
-                </div>
+              <div className="hidden md:block">
+                <SecurityOperationsVisual />
               </div>
             </div>
           </motion.div>
@@ -104,14 +96,8 @@ const Services = () => {
             viewport={{ once: true }}
           >
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1 hidden md:flex justify-center">
-                {/* Visual Placeholder for Mechanic/Engine */}
-                <div className="w-full h-96 bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl border border-slate-200 flex items-center justify-center p-8">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">⚙️</div>
-                    <div className="font-mono text-sm text-slate-400 uppercase tracking-widest">Automation Engine</div>
-                  </div>
-                </div>
+              <div className="order-2 md:order-1 hidden md:block">
+                <AutomationEngineVisual />
               </div>
 
               <div className="order-1 md:order-2">
@@ -132,17 +118,17 @@ const Services = () => {
                 </div>
 
                 <ul className="space-y-4">
-                  <li className="flex items-center text-lg text-slate-700">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3" />
-                    <strong>Zero-Touch Onboarding:</strong>&nbsp;New hires are productive on Minute 1.
+                  <li className="flex items-start text-lg text-slate-700">
+                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                    <span><strong>Zero-Touch Onboarding:</strong> New hires are productive on Minute 1.</span>
                   </li>
-                  <li className="flex items-center text-lg text-slate-700">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3" />
-                    <strong>Automated Patching:</strong>&nbsp;We close the holes so you don't have to.
+                  <li className="flex items-start text-lg text-slate-700">
+                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                    <span><strong>Automated Patching:</strong> We close the holes so you don't have to.</span>
                   </li>
-                  <li className="flex items-center text-lg text-slate-700">
-                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3" />
-                    <strong>Compliance Evidence:</strong>&nbsp;We collect the screenshots for the auditor.
+                  <li className="flex items-start text-lg text-slate-700">
+                    <SafeIcon icon={FiCheck} className="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" />
+                    <span><strong>Compliance Evidence:</strong> We collect the screenshots for the auditor.</span>
                   </li>
                 </ul>
               </div>
