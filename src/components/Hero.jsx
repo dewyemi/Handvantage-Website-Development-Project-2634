@@ -202,7 +202,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">Read the Manifesto</span>
+                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">Read The Doctrine</span>
                 </motion.div>
               </Link>
             </motion.div>

@@ -24,8 +24,8 @@ const ManifestoPage = () => {
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
               THE PILOT'S CODE
             </h1>
-            <p className="text-xl text-slate-400 font-light mb-4 tracking-wide uppercase">
-              Operational Doctrine v1.0
+            <p className="text-xl text-slate-400 font-light mb-4 tracking-wide">
+              Why we exist. Why the old model is broken. Why you need a Pilot.
             </p>
           </motion.div>
         </div>
@@ -35,59 +35,61 @@ const ManifestoPage = () => {
       <section className="py-20 bg-slate-950">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto space-y-24">
-            {/* Tenet 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-viability-glow transition-colors duration-300">
-                1. PILOT &gt; PLANE.
-              </h2>
-              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-viability-primary transition-colors duration-300">
-                <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                  A bad pilot will crash a new Gulfstream. A great pilot can fly anything. We don't obsession over the "plane" (the tool stack). We obsess over the "pilot" (the human operator).
-                </p>
-              </div>
-            </motion.div>
+            <div className="max-w-5xl mx-auto space-y-24">
+              {/* Tenet 1 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-viability-glow transition-colors duration-300">
+                  1. THE "PILOT VS. PLANE" FALLACY
+                </h2>
+                <div className="pl-6 border-l-2 border-slate-800 group-hover:border-viability-primary transition-colors duration-300">
+                  <p className="text-2xl text-slate-300 leading-relaxed font-light">
+                    The industry wants you to believe that if you buy a better plane (Tool), you won't crash. This is a lie. A Ferrari driven by an amateur will crash faster than a Toyota driven by a pro. <strong className="text-white font-bold">We believe in the Driver.</strong>
+                  </p>
+                </div>
+              </motion.div>
 
-            {/* Tenet 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-factory-400 transition-colors duration-300">
-                2. OUTCOMES &gt; ALERTS.
-              </h2>
-              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-factory-400 transition-colors duration-300">
-                <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                  An alert is not work. It is noise. "Resolved" is the only metric that matters. We do not report on "events blocked." We report on "money saved" and "sleep restored."
-                </p>
-              </div>
-            </motion.div>
+              {/* Tenet 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-factory-400 transition-colors duration-300">
+                  2. THE "INTERNAL HIRE" TRAP
+                </h2>
+                <div className="pl-6 border-l-2 border-slate-800 group-hover:border-factory-400 transition-colors duration-300">
+                  <p className="text-2xl text-slate-300 leading-relaxed font-light">
+                    Hiring a CISO for $180k to watch a screen is a waste of capital. Humans sleep. Humans churn. Humans have bias. <strong className="text-white font-bold">We believe in the Hive Mind.</strong> A 24/7 team that never sleeps and learns from 500+ clients instantly.
+                  </p>
+                </div>
+              </motion.div>
 
-            {/* Tenet 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors duration-300">
-                3. AGNOSTIC &gt; RESELLER.
-              </h2>
-              <div className="pl-6 border-l-2 border-slate-800 group-hover:border-blue-400 transition-colors duration-300">
-                <p className="text-2xl text-slate-300 leading-relaxed font-light">
-                  We are not resellers. We do not take kickbacks. We sit on YOUR side of the table. If a tool works, we keep it. If it's shelfware, we kill it. We are loyal to the mission, not the vendor.
-                </p>
-              </div>
-            </motion.div>
+              {/* Tenet 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors duration-300">
+                  3. THE "AGNOSTIC" PLEDGE
+                </h2>
+                <div className="pl-6 border-l-2 border-slate-800 group-hover:border-blue-400 transition-colors duration-300">
+                  <p className="text-2xl text-slate-300 leading-relaxed font-light">
+                    We will never sell you a tool just because we get a commission. We sit on <strong className="text-white font-bold">YOUR</strong> side of the table. If your current stack works, we keep it. If it sucks, we tell you. <strong className="text-white font-bold">We believe in Truth.</strong>
+                  </p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>

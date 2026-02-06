@@ -7,23 +7,34 @@ const { FiDollarSign, FiUsers, FiLock, FiArrowRight } = FiIcons;
 
 const ROICalculator = () => {
   const [inputs, setInputs] = useState({
-    annualRevenue: '',
-    employeeCount: '',
-    securitySpend: ''
+    internalTeamCost: '',
+    securityBudget: '',
+    wastePercentage: '30'
   });
-  const [savings, setSavings] = useState(null);
+  const [result, setResult] = useState(null);
 
   const calculateSavings = () => {
-    // Simplified logic for demo purposes based on inputs
-    // Assuming 30% waste cut + $180k headcount avoidance
-    const revenue = parseFloat(inputs.annualRevenue) || 0;
-    const spend = parseFloat(inputs.securitySpend) || 0;
+    // Logic from v2 Master Copy
+    // Default Internal Cost (if empty) = 540000 ($180k x 3)
+    const internalCost = parseFloat(inputs.internalTeamCost) || 540000;
+    const budget = parseFloat(inputs.securityBudget) || 0;
+    const wastePercent = parseFloat(inputs.wastePercentage) || 30;
 
-    const saasCut = spend * 0.30;
-    const headcountAvoided = 180000;
-    const totalPotential = saasCut + headcountAvoided;
+    // Handvantage Fee (Hidden Variable: ~30% of Internal Cost)
+    const handvantageFee = internalCost * 0.30;
 
-    setSavings(totalPotential);
+    // Savings Calculation
+    const teamSavings = internalCost - handvantageFee;
+    const toolSavings = budget * (wastePercent / 100);
+    const totalSavings = teamSavings + toolSavings;
+
+    // Engineering Hires Equivalent ($120k avg salary estimate)
+    const engineerHires = Math.floor(totalSavings / 120000);
+
+    setResult({
+      savings: totalSavings,
+      engineers: engineerHires
+    });
   };
 
   return (
@@ -34,10 +45,10 @@ const ROICalculator = () => {
           {/* Left Column: Text */}
           <div className="text-left">
             <h1 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-              THE SAAS WASTE CALCULATOR.
+              THE COST OF SLEEP.
             </h1>
             <p className="text-xl text-slate-400 font-light mb-8">
-              Most companies burn 30% of their security budget on shelfware and unused seats. See what you could save.
+              Calculate how much you save by hiring a Pilot instead of a CISO.
             </p>
           </div>
 
@@ -47,46 +58,47 @@ const ROICalculator = () => {
 
               {/* Input 1 */}
               <div>
-                <label className="block text-sm font-semibold text-slate-400 mb-2">Annual Revenue</label>
+                <label className="block text-sm font-semibold text-slate-400 mb-2">Annual Cost of Internal Team</label>
                 <div className="relative">
                   <span className="absolute left-4 top-3.5 text-slate-500">$</span>
                   <input
                     type="number"
                     className="w-full bg-slate-800 border border-slate-700 text-white pl-8 pr-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
-                    placeholder="5,000,000"
-                    value={inputs.annualRevenue}
-                    onChange={(e) => setInputs({ ...inputs, annualRevenue: e.target.value })}
+                    placeholder="540,000 (Defaults to $180k x 3)"
+                    value={inputs.internalTeamCost}
+                    onChange={(e) => setInputs({ ...inputs, internalTeamCost: e.target.value })}
                   />
                 </div>
+                <p className="text-xs text-slate-600 mt-1">Cost for 24/7 coverage (3 FTEs)</p>
               </div>
 
               {/* Input 2 */}
               <div>
-                <label className="block text-sm font-semibold text-slate-400 mb-2">Employee Count</label>
+                <label className="block text-sm font-semibold text-slate-400 mb-2">Annual Security Tool Budget</label>
                 <div className="relative">
-                  <span className="absolute left-4 top-3.5 text-slate-500"><SafeIcon icon={FiUsers} className="w-4 h-4" /></span>
+                  <span className="absolute left-4 top-3.5 text-slate-500">$</span>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-10 pr-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
-                    placeholder="50"
-                    value={inputs.employeeCount}
-                    onChange={(e) => setInputs({ ...inputs, employeeCount: e.target.value })}
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-8 pr-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
+                    placeholder="200,000"
+                    value={inputs.securityBudget}
+                    onChange={(e) => setInputs({ ...inputs, securityBudget: e.target.value })}
                   />
                 </div>
               </div>
 
               {/* Input 3 */}
               <div>
-                <label className="block text-sm font-semibold text-slate-400 mb-2">Current Security Spend (Est.)</label>
+                <label className="block text-sm font-semibold text-slate-400 mb-2">Est. SaaS Waste %</label>
                 <div className="relative">
-                  <span className="absolute left-4 top-3.5 text-slate-500">$</span>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-8 pr-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
-                    placeholder="150,000"
-                    value={inputs.securitySpend}
-                    onChange={(e) => setInputs({ ...inputs, securitySpend: e.target.value })}
+                    className="w-full bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-viability-primary transition-colors"
+                    placeholder="30"
+                    value={inputs.wastePercentage}
+                    onChange={(e) => setInputs({ ...inputs, wastePercentage: e.target.value })}
                   />
+                  <span className="absolute right-4 top-3.5 text-slate-500">%</span>
                 </div>
               </div>
 
@@ -100,18 +112,18 @@ const ROICalculator = () => {
               </button>
 
               {/* Result Area */}
-              {savings !== null && (
+              {result && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-8 pt-8 border-t border-slate-800 text-center"
                 >
-                  <p className="text-slate-500 text-sm font-mono uppercase tracking-widest mb-2">Potential Annual Savings</p>
-                  <p className="text-4xl font-black text-green-400">
-                    ${savings.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                  <p className="text-slate-500 text-sm font-mono uppercase tracking-widest mb-2">You save by switching to Handvantage:</p>
+                  <p className="text-4xl font-black text-green-400 mb-2">
+                    ${result.savings.toLocaleString(undefined, { maximumFractionDigits: 0 })}/year
                   </p>
-                  <p className="text-xs text-slate-500 mt-2">
-                    *Includes estimated SaaS waste reduction & headcount avoidance.
+                  <p className="text-sm text-viability-glow italic">
+                    "That is {result.engineers} extra engineers you could hire to build your product."
                   </p>
                 </motion.div>
               )}

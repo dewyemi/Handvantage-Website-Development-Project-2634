@@ -41,6 +41,7 @@ const TermsConditionsPage = lazy(() => import('./components/TermsConditionsPage'
 const BudgetPlanner = lazy(() => import('./components/BudgetPlanner'));
 const VendorEvaluation = lazy(() => import('./components/VendorEvaluation'));
 const ManifestoPage = lazy(() => import('./components/ManifestoPage'));
+const FAQPage = lazy(() => import('./components/FAQPage'));
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
@@ -92,7 +93,11 @@ function App() {
               </main>
             } />
 
+            <Route path="/services" element={<Services />} />
+
             <Route path="/manifesto" element={<ManifestoPage />} />
+
+            <Route path="/faq" element={<FAQPage />} />
 
             <Route path="/about" element={<AboutPage />} />
 

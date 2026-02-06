@@ -24,38 +24,10 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: 'Home', href: '/', path: '/' },
-    {
-      label: 'Services',
-      href: '/#services',
-      path: '/',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Digital Transformation', href: '/services/digital-transformation' },
-        { label: 'Cybersecurity', href: '/services/cybersecurity' },
-        { label: 'Managed Security Services', href: '/services/managed-security' },
-        { label: 'Cloud Infrastructure', href: '/services/cloud-infrastructure' },
-        { label: 'Business Automation', href: '/services/business-automation' },
-      ]
-    },
-    { label: 'About', href: '/about', path: '/about' },
-    {
-      label: 'Tools',
-      href: '/#assessments',
-      path: '/',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Digital Transformation Assessment', href: 'https://secvantages.com', external: true },
-        { label: 'Cybersecurity Risk Assessment', href: 'https://secvantages.com', external: true },
-        { label: 'Security Maturity Assessment', href: 'https://secvantages.com', external: true },
-        { label: 'Maturity Roadmap Generator', href: 'https://secvantages.com', external: true },
-        { label: 'Compliance Readiness Assessment', href: 'https://secvantages.com', external: true },
-        { label: 'Security Budget Planner', href: 'https://secvantages.com', external: true },
-        { label: 'Vendor Evaluation Matrix', href: 'https://secvantages.com', external: true },
-        { label: 'ROI Calculator', href: 'https://secvantages.com', external: true },
-      ]
-    },
-    { label: 'Contact', href: 'https://handvantage.co/contact', path: '/', external: true }
+    { label: 'THE SERVICE', href: '/services', path: '/services' },
+    { label: 'THE DOCTRINE', href: '/manifesto', path: '/manifesto' },
+    { label: 'THE MATH', href: '/roi-calculator', path: '/roi-calculator' },
+    { label: 'BOOK BRIEFING', href: 'https://handvantage.co/contact', path: '', external: true }
   ];
 
   const isActive = (item) => {
@@ -131,98 +103,18 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item, index) => (
-              <div
-                key={item.label}
-                className="relative group px-1"
-                onMouseEnter={() => {
-                  if (item.hasDropdown) {
-                    if (item.label === 'Services') setIsServicesOpen(true);
-                    if (item.label === 'Tools') setIsAssessmentsOpen(true);
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (item.hasDropdown) {
-                    if (item.label === 'Services') setIsServicesOpen(false);
-                    if (item.label === 'Tools') setIsAssessmentsOpen(false);
-                  }
-                }}
-              >
-                {item.hasDropdown ? (
-                  <div className="relative">
-                    <button
-                      onClick={() => handleNavClick(item.href)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center group-hover:bg-white/5 ${isActive(item)
-                        ? 'text-viability-primary text-glow-mild bg-white/5'
-                        : 'text-slate-300 hover:text-white'
-                        }`}
-                    >
-                      {item.label}
-                      <SafeIcon icon={FiChevronDown} className={`w-4 h-4 ml-1 transition-transform duration-300 ${(item.label === 'Services' && isServicesOpen) || (item.label === 'Tools' && isAssessmentsOpen)
-                        ? 'rotate-180 text-viability-primary' : ''
-                        }`} />
-                    </button>
-
-                    {/* Premium Dropdown Menu */}
-                    <AnimatePresence>
-                      {((item.label === 'Services' && isServicesOpen) ||
-                        (item.label === 'Tools' && isAssessmentsOpen)) && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 5, scale: 0.98 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 mt-2 glass-dark border border-white/10 rounded-xl py-2 w-72 shadow-xl overflow-hidden backdrop-blur-xl"
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
-                            {item.dropdownItems.map((dropdownItem, i) => (
-                              dropdownItem.external ? (
-                                <a
-                                  key={i}
-                                  href={dropdownItem.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-white/5 hover:border-slate-500`}
-                                  onClick={() => {
-                                    setIsServicesOpen(false);
-                                    setIsAssessmentsOpen(false);
-                                  }}
-                                >
-                                  {dropdownItem.label}
-                                </a>
-                              ) : (
-                                <Link
-                                  key={i}
-                                  to={dropdownItem.href}
-                                  className={`relative block px-5 py-3 text-sm transition-all duration-200 border-l-2 ${isActiveSubItem(dropdownItem.href)
-                                    ? 'border-viability-primary bg-white/5 text-viability-primary'
-                                    : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5 hover:border-slate-500'
-                                    }`}
-                                  onClick={() => {
-                                    setIsServicesOpen(false);
-                                    setIsAssessmentsOpen(false);
-                                  }}
-                                >
-                                  {dropdownItem.label}
-                                </Link>
-                              )
-                            ))}
-                          </motion.div>
-                        )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    to={item.href}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noopener noreferrer" : undefined}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 block hover:bg-white/5 ${isActive(item)
-                      ? 'text-viability-primary text-glow-mild bg-white/5'
-                      : 'text-slate-300 hover:text-white'
-                      }`}
-                  >
-                    {item.label}
-                  </Link>
-                )}
+              <div key={item.label} className="relative group px-1">
+                <Link
+                  to={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className={`px-4 py-2 rounded-full text-sm font-bold tracking-wider transition-all duration-300 block hover:bg-white/5 ${isActive(item)
+                    ? 'text-viability-primary text-glow-mild bg-white/5'
+                    : 'text-slate-300 hover:text-white'
+                    }`}
+                >
+                  {item.label}
+                </Link>
               </div>
             ))}
           </nav>
@@ -275,76 +167,17 @@ const Header = () => {
             >
               <nav className="flex flex-col space-y-2">
                 {navItems.map((item, index) => (
-                  <div key={item.label} className="overflow-hidden">
-                    {item.hasDropdown ? (
-                      <div>
-                        <button
-                          onClick={() => {
-                            if (item.label === 'Services') setIsServicesOpen(!isServicesOpen);
-                            if (item.label === 'Tools') setIsAssessmentsOpen(!isAssessmentsOpen);
-                          }}
-                          className={`flex items-center justify-between w-full p-3 rounded-lg transition-colors ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
-                            }`}
-                        >
-                          <span className="font-medium">{item.label}</span>
-                          <SafeIcon
-                            icon={FiChevronDown}
-                            className={`w-4 h-4 transition-transform duration-300 ${(item.label === 'Services' && isServicesOpen) ||
-                              (item.label === 'Tools' && isAssessmentsOpen) ? 'rotate-180' : ''
-                              }`}
-                          />
-                        </button>
-                        <AnimatePresence>
-                          {((item.label === 'Services' && isServicesOpen) ||
-                            (item.label === 'Tools' && isAssessmentsOpen)) && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="pl-4 space-y-1 mt-1 border-l border-white/10 ml-3"
-                              >
-                                {item.dropdownItems.map((dropdownItem, i) => (
-                                  dropdownItem.external ? (
-                                    <a
-                                      key={i}
-                                      href={dropdownItem.href}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className={`block py-2 px-3 rounded-md text-sm transition-colors text-slate-400 hover:text-white hover:bg-white/5`}
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {dropdownItem.label}
-                                    </a>
-                                  ) : (
-                                    <Link
-                                      key={i}
-                                      to={dropdownItem.href}
-                                      className={`block py-2 px-3 rounded-md text-sm transition-colors ${isActiveSubItem(dropdownItem.href)
-                                        ? 'text-viability-primary bg-white/5'
-                                        : 'text-slate-400 hover:text-white hover:bg-white/5'
-                                        }`}
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {dropdownItem.label}
-                                    </Link>
-                                  )
-                                ))}
-                              </motion.div>
-                            )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        to={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
-                        className={`block p-3 rounded-lg font-medium transition-colors ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
-                          }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    )}
+                  <div key={item.label}>
+                    <Link
+                      to={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className={`block p-3 rounded-lg font-medium transition-colors uppercase tracking-widest ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                        }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
                   </div>
                 ))}
 
