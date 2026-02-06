@@ -241,7 +241,7 @@ const Header = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-viability-primary to-factory-400 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 bg-white/20 group-hover:bg-white/30 transition-colors duration-300" />
               <span className="relative text-white flex items-center gap-2">
-                ROI Calculator
+                Calculate Savings
               </span>
             </Link>
 
@@ -354,7 +354,7 @@ const Header = () => {
                     className="block w-full bg-gradient-to-r from-viability-primary to-factory-400 text-white px-6 py-3 rounded-lg font-semibold text-center shadow-lg shadow-viability-primary/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    ROI Calculator
+                    Calculate Savings
                   </Link>
                   <a
                     href="https://handvantage.co/contact"

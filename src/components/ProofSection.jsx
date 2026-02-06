@@ -1,16 +1,16 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {motion, useInView} from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import DecorativeCircuit from './svg/DecorativeCircuit';
 
-const {FiTrendingDown, FiTrendingUp, FiClock, FiDollarSign} = FiIcons;
+const { FiTrendingDown, FiTrendingUp, FiClock, FiDollarSign, FiShield } = FiIcons;
 
 // Animated counter component
-const AnimatedCounter = ({value, duration = 2}) => {
+const AnimatedCounter = ({ value, duration = 2 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, {once: true});
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!isInView) return;
@@ -48,29 +48,32 @@ const AnimatedCounter = ({value, duration = 2}) => {
 const ProofSection = () => {
   const metrics = [
     {
-      icon: FiTrendingDown,
-      value: '-80%',
-      label: 'Risk Reduction',
-      color: 'text-viability-glow'
+      icon: FiDollarSign,
+      value: '$180k/yr',
+      label: 'Headcount Saved',
+      subtitle: '(Per Client)',
+      color: 'text-green-400'
     },
     {
-      icon: FiTrendingUp,
-      value: '+15%',
-      label: 'Revenue Impact',
-      subtitle: 'Faster Deal Closing',
-      color: 'text-factory-400'
+      icon: FiTrendingDown,
+      value: '30%',
+      label: 'SaaS Waste Cut',
+      subtitle: '(Per Stack)',
+      color: 'text-red-400'
     },
     {
       icon: FiClock,
-      value: '12,000+',
-      label: 'Hours Reclaimed Annually',
-      color: 'text-viability-secondary'
+      value: '15 Min',
+      label: 'Response Time',
+      subtitle: '(Guaranteed)',
+      color: 'text-blue-400'
     },
     {
-      icon: FiDollarSign,
-      value: '$0',
-      label: 'Ransomware Payouts',
-      color: 'text-gold'
+      icon: FiShield,
+      value: '100%',
+      label: 'Sleep Restored',
+      subtitle: '(For IT Directors)',
+      color: 'text-viability-glow'
     }
   ];
 
@@ -116,23 +119,26 @@ const ProofSection = () => {
         {/* Header */}
         <motion.div
           className="text-center mb-16"
-          initial={{opacity: 0, y: 30}}
-          whileInView={{opacity: 1, y: 0}}
-          transition={{duration: 0.6}}
-          viewport={{once: true}}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-primary-dark mb-8">
-            From "At Risk" to "Market Leader"
+            WE PAY FOR OURSELVES.
           </h2>
+          <p className="text-xl text-slate-500 max-w-3xl mx-auto">
+            Math, not Magic.
+          </p>
         </motion.div>
 
         {/* Testimonial Card with 3D depth */}
         <motion.div
           className="max-w-4xl mx-auto mb-20 perspective-1000"
-          initial={{opacity: 0, y: 50, rotateX: 10}}
-          whileInView={{opacity: 1, y: 0, rotateX: 0}}
-          transition={{duration: 0.8, delay: 0.2}}
-          viewport={{once: true}}
+          initial={{ opacity: 0, y: 50, rotateX: 10 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
         >
           <div className="relative group">
             {/* Glow effect layer */}
@@ -141,23 +147,25 @@ const ProofSection = () => {
             {/* Card content */}
             <div className="relative bg-gradient-to-br from-slate-50 to-white rounded-2xl p-12 border border-slate-200 shadow-2xl backdrop-blur-sm">
               {/* Quote */}
-              <blockquote className="text-3xl md:text-4xl font-light text-slate-700 italic mb-8 leading-relaxed">
-                "We stopped fighting our IT and started using it as a weapon."
+              <blockquote className="text-3xl md:text-3xl font-light text-slate-700 italic mb-8 leading-relaxed">
+                "Handvantage replaced our need for a $180k CISO hire and cut our SaaS bill by 20%. The service literally paid for itself in Month 4."
               </blockquote>
 
               {/* Attribution */}
               <cite className="flex items-center gap-4 not-italic">
                 <motion.div
                   className="relative w-16 h-16 flex-shrink-0"
-                  whileHover={{scale: 1.1, rotate: 5}}
-                  transition={{type: "spring", stiffness: 300}}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-viability-primary to-factory-500 rounded-full blur-md opacity-50" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-viability-primary to-factory-500 rounded-full" />
+                  <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center">
+                    <span className="text-2xl font-bold text-slate-500">CFO</span>
+                  </div>
                 </motion.div>
                 <div>
-                  <div className="text-xl font-bold text-primary-dark">Catherine Sterling</div>
-                  <div className="text-slate-600">Managing Partner</div>
+                  <div className="text-xl font-bold text-primary-dark">CFO</div>
+                  <div className="text-slate-600">SaaS Series B Company</div>
                 </div>
               </cite>
             </div>
@@ -174,15 +182,15 @@ const ProofSection = () => {
               <motion.div
                 key={index}
                 className="relative text-center group"
-                initial={{opacity: 0, y: 50, scale: 0.5}}
-                whileInView={{opacity: 1, y: 0, scale: 1}}
+                initial={{ opacity: 0, y: 50, scale: 0.5 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{
                   duration: 0.7,
                   delay: index * 0.15,
                   type: "spring",
                   stiffness: 100
                 }}
-                viewport={{once: true}}
+                viewport={{ once: true }}
               >
                 {/* Enhanced glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-b from-viability-primary/10 via-viability-primary/20 to-factory-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
@@ -191,8 +199,8 @@ const ProofSection = () => {
                 {/* Icon with depth */}
                 <motion.div
                   className="relative w-20 h-20 mx-auto mb-6"
-                  whileHover={{scale: 1.15, rotate: 8, y: -5}}
-                  transition={{type: "spring", stiffness: 400, damping: 10}}
+                  whileHover={{ scale: 1.15, rotate: 8, y: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {/* Icon shadow/glow */}
                   <div className={`absolute inset-0 rounded-2xl blur-md opacity-30 ${metric.color.replace('text-', 'bg-')}`} />
@@ -205,19 +213,19 @@ const ProofSection = () => {
                   {/* Animated ring on hover */}
                   <motion.div
                     className="absolute inset-0 rounded-2xl border-2 border-viability-primary/30"
-                    initial={{scale: 1, opacity: 0}}
-                    whileHover={{scale: 1.2, opacity: 0}}
-                    transition={{duration: 0.5}}
+                    initial={{ scale: 1, opacity: 0 }}
+                    whileHover={{ scale: 1.2, opacity: 0 }}
+                    transition={{ duration: 0.5 }}
                   />
                 </motion.div>
 
                 {/* Animated Value with counter */}
                 <motion.div
                   className="text-5xl md:text-6xl font-black mb-3 bg-gradient-to-r from-factory-500 via-viability-primary to-viability-glow bg-clip-text text-transparent"
-                  initial={{opacity: 0, scale: 0.5}}
-                  whileInView={{opacity: 1, scale: 1}}
-                  transition={{duration: 0.6, delay: 0.4 + index * 0.15}}
-                  viewport={{once: true}}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
+                  viewport={{ once: true }}
                 >
                   <AnimatedCounter value={metric.value} duration={2} />
                 </motion.div>
@@ -232,10 +240,10 @@ const ProofSection = () => {
                   {metric.subtitle && (
                     <motion.div
                       className="text-sm text-slate-500 mt-2 font-medium"
-                      initial={{opacity: 0}}
-                      whileInView={{opacity: 1}}
-                      transition={{delay: 0.6 + index * 0.15}}
-                      viewport={{once: true}}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.6 + index * 0.15 }}
+                      viewport={{ once: true }}
                     >
                       {metric.subtitle}
                     </motion.div>

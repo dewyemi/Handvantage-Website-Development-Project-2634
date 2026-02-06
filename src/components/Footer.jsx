@@ -70,8 +70,8 @@ const Footer = () => {
                 </div>
               </div>
             </Link>
-            <p className="text-slate-400 mb-6 leading-relaxed">
-              Strategic technology consulting designed to help address growth challenges and enhance competitive positioning for growing businesses.
+            <p className="text-slate-400 mb-6 leading-relaxed font-bold tracking-wide">
+              HANDVANTAGE: THE SERVICE LAYER.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 group">
@@ -95,19 +95,37 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-6 text-white border-l-4 border-viability-primary pl-3">Strategic Services</h4>
+            <h4 className="text-lg font-semibold mb-6 text-white border-l-4 border-viability-primary pl-3">Navigation</h4>
             <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <Link
-                    to={service.link}
-                    className="text-slate-400 hover:text-viability-primary transition-colors flex items-center group"
-                  >
-                    <SafeIcon icon={service.icon} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-viability-primary transition-colors" />
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/manifesto"
+                  className="text-slate-400 hover:text-viability-primary transition-colors flex items-center group"
+                >
+                  <SafeIcon icon={FiShield} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-viability-primary transition-colors" />
+                  The Doctrine
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/roi-calculator"
+                  className="text-slate-400 hover:text-viability-primary transition-colors flex items-center group"
+                >
+                  <SafeIcon icon={FiZap} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-viability-primary transition-colors" />
+                  The Calculator
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://handvantage.co/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-viability-primary transition-colors flex items-center group"
+                >
+                  <SafeIcon icon={FiPhone} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-viability-primary transition-colors" />
+                  The Briefing
+                </a>
+              </li>
             </ul>
           </motion.div>
 
@@ -118,32 +136,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-6 text-white border-l-4 border-factory-500 pl-3">Growth Tools</h4>
-            <ul className="space-y-3 mb-8">
-              {assessments.map((assessment, index) => (
-                <li key={index}>
-                  {assessment.external ? (
-                    <a
-                      href={assessment.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-factory-400 transition-colors flex items-center group"
-                    >
-                      <SafeIcon icon={assessment.icon} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-factory-400 transition-colors" />
-                      {assessment.name}
-                    </a>
-                  ) : (
-                    <Link
-                      to={assessment.link}
-                      className="text-slate-400 hover:text-factory-400 transition-colors flex items-center group"
-                    >
-                      <SafeIcon icon={assessment.icon} className="w-4 h-4 mr-3 text-slate-500 group-hover:text-factory-400 transition-colors" />
-                      {assessment.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+            {/* Removed Growth Tools section to simplify footer as per master copy */}
             <h4 className="text-lg font-semibold mb-4 text-white border-l-4 border-slate-600 pl-3">Capabilities</h4>
             <ul className="space-y-2">
               {technologyCapabilities.slice(0, 3).map((capability, index) => (

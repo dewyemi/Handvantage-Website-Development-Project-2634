@@ -83,140 +83,136 @@ function App() {
         <Breadcrumbs />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-          <Route path="/" element={
-            <main>
-              <Hero />
-              <ProblemSolution />
-              <ViabilityOSSection />
-              <ProofSection />
-              <Services />
-              <About />
-              <Partnerships />
-              <CTA />
-            </main>
-          } />
+            <Route path="/" element={
+              <main>
+                <Hero />
+                <ProblemSolution />
+                <Partnerships />
+                <ProofSection />
+              </main>
+            } />
 
-          <Route path="/manifesto" element={<ManifestoPage />} />
-          
-          <Route path="/about" element={<AboutPage />} />
-          
-          <Route path="/services/digital-transformation" element={
-            <>
-              <SEOHead {...seoConfig.digitalTransformation} />
-              <DigitalTransformationPage />
-            </>
-          } />
-          
-          <Route path="/services/cybersecurity" element={
-            <>
-              <SEOHead {...seoConfig.cybersecurity} />
-              <CybersecurityPage />
-            </>
-          } />
-          
-          <Route path="/services/managed-security" element={
-            <>
-              <SEOHead {...seoConfig.managedSecurity} />
-              <ManagedSecurityPage />
-            </>
-          } />
-          
-          <Route path="/services/cloud-infrastructure" element={
-            <>
-              <SEOHead {...seoConfig.cloudInfrastructure} />
-              <CloudInfrastructurePage />
-            </>
-          } />
-          
-          <Route path="/services/business-automation" element={
-            <>
-              <SEOHead {...seoConfig.businessAutomation} />
-              <BusinessAutomationPage />
-            </>
-          } />
-          
-          <Route path="/assessment" element={
-            <>
-              <SEOHead {...seoConfig.assessment} />
-              <AssessmentLanding />
-            </>
-          } />
-          
-          <Route path="/assessment/start" element={<AssessmentTool />} />
-          
-          <Route path="/security-assessment" element={
-            <>
-              <SEOHead {...seoConfig.securityAssessment} />
-              <CybersecurityAssessmentLanding />
-            </>
-          } />
-          
-          <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
-          
-          <Route path="/security-maturity-assessment" element={
-            <>
-              <SEOHead {...seoConfig.securityMaturityAssessment} />
-              <SecurityMaturityAssessment />
-            </>
-          } />
-          
-          <Route path="/maturity-roadmap" element={
-            <>
-              <SEOHead {...seoConfig.maturityRoadmap} />
-              <CyberMaturityRoadmap />
-            </>
-          } />
-          
-          <Route path="/compliance-assessment" element={
-            <>
-              <SEOHead {...seoConfig.complianceAssessment} />
-              <ComplianceAssessment />
-            </>
-          } />
-          
-          <Route path="/budget-planner" element={
-            <>
-              <SEOHead {...seoConfig.budgetPlanner} />
-              <BudgetPlanner />
-            </>
-          } />
-          
-          <Route path="/vendor-evaluation" element={
-            <>
-              <SEOHead {...seoConfig.vendorEvaluation} />
-              <VendorEvaluation />
-            </>
-          } />
-          
-          <Route path="/roi-calculator" element={
-            <>
-              <SEOHead {...seoConfig.roiCalculator} />
-              <ROICalculatorLanding />
-            </>
-          } />
-          
-          <Route path="/roi-calculator/start" element={<ROICalculator />} />
-          
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          
-          <Route path="/terms-conditions" element={<TermsConditionsPage />} />
-          
-          {/* Catch all route - redirect to home */}
-          <Route path="*" element={
-            <div className="pt-20 min-h-screen flex items-center justify-center">
-              <div className="text-center">
-                <h1 className="text-4xl font-bold text-primary-dark mb-4">Page Not Found</h1>
-                <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
-                <Link
-                  to="/"
-                  className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Return Home
-                </Link>
+            <Route path="/manifesto" element={<ManifestoPage />} />
+
+            <Route path="/about" element={<AboutPage />} />
+
+            <Route path="/services/digital-transformation" element={
+              <>
+                <SEOHead {...seoConfig.digitalTransformation} />
+                <DigitalTransformationPage />
+              </>
+            } />
+
+            <Route path="/services/cybersecurity" element={
+              <>
+                <SEOHead {...seoConfig.cybersecurity} />
+                <CybersecurityPage />
+              </>
+            } />
+
+            <Route path="/services/managed-security" element={
+              <>
+                <SEOHead {...seoConfig.managedSecurity} />
+                <ManagedSecurityPage />
+              </>
+            } />
+
+            <Route path="/services/cloud-infrastructure" element={
+              <>
+                <SEOHead {...seoConfig.cloudInfrastructure} />
+                <CloudInfrastructurePage />
+              </>
+            } />
+
+            <Route path="/services/business-automation" element={
+              <>
+                <SEOHead {...seoConfig.businessAutomation} />
+                <BusinessAutomationPage />
+              </>
+            } />
+
+            <Route path="/assessment" element={
+              <>
+                <SEOHead {...seoConfig.assessment} />
+                <AssessmentLanding />
+              </>
+            } />
+
+            <Route path="/assessment/start" element={<AssessmentTool />} />
+
+            <Route path="/security-assessment" element={
+              <>
+                <SEOHead {...seoConfig.securityAssessment} />
+                <CybersecurityAssessmentLanding />
+              </>
+            } />
+
+            <Route path="/security-assessment/start" element={<CybersecurityAssessment />} />
+
+            <Route path="/security-maturity-assessment" element={
+              <>
+                <SEOHead {...seoConfig.securityMaturityAssessment} />
+                <SecurityMaturityAssessment />
+              </>
+            } />
+
+            <Route path="/maturity-roadmap" element={
+              <>
+                <SEOHead {...seoConfig.maturityRoadmap} />
+                <CyberMaturityRoadmap />
+              </>
+            } />
+
+            <Route path="/compliance-assessment" element={
+              <>
+                <SEOHead {...seoConfig.complianceAssessment} />
+                <ComplianceAssessment />
+              </>
+            } />
+
+            <Route path="/budget-planner" element={
+              <>
+                <SEOHead {...seoConfig.budgetPlanner} />
+                <BudgetPlanner />
+              </>
+            } />
+
+            <Route path="/vendor-evaluation" element={
+              <>
+                <SEOHead {...seoConfig.vendorEvaluation} />
+                <VendorEvaluation />
+              </>
+            } />
+
+            <Route path="/roi-calculator" element={
+              <>
+                <SEOHead {...seoConfig.roiCalculator} />
+                <ROICalculatorLanding />
+              </>
+            } />
+
+            <Route path="/roi-calculator/start" element={<ROICalculator />} />
+
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+
+            <Route path="/terms-conditions" element={<TermsConditionsPage />} />
+
+            {/* Catch all route - redirect to home */}
+            <Route path="*" element={
+              <div className="pt-20 min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                  <h1 className="text-4xl font-bold text-primary-dark mb-4">Page Not Found</h1>
+                  <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
+                  <Link
+                    to="/"
+                    className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+                  >
+                    Return Home
+                  </Link>
+                </div>
               </div>
-            </div>
-          } />
-        </Routes>
+            } />
+          </Routes>
         </Suspense>
         <Footer />
       </div>
