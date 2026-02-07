@@ -1,17 +1,21 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const SEOHead = ({ 
-  title, 
-  description, 
-  keywords, 
-  canonical, 
+const SEOHead = ({
+  title,
+  description,
+  keywords,
+  canonical,
   ogImage = '/og-image.jpg',
-  schemaData = null 
+  schemaData = null
 }) => {
   const location = useLocation();
   const baseUrl = 'https://handvantage.co';
-  const fullUrl = `${baseUrl}${location.pathname}`;
+  // Normalize path by removing trailing slash for canonical URL
+  const cleanPath = location.pathname.endsWith('/') && location.pathname.length > 1
+    ? location.pathname.slice(0, -1)
+    : location.pathname;
+  const fullUrl = `${baseUrl}${cleanPath}`;
 
   useEffect(() => {
     // Update document title

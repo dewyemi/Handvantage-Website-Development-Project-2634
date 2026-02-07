@@ -4,12 +4,12 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://pages.handvantage.com/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://pages.handvantage.com/og-image.jpg</image:loc>
+      <image:loc>https://handvantage.co/og-image.jpg</image:loc>
       <image:title>Handvantage Viability Engineering</image:title>
       <image:caption>Security is a Commodity. Viability is the Asset.</image:caption>
     </image:image>
@@ -17,8 +17,8 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://pages.handvantage.com/about</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/about</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -30,120 +30,120 @@
 
   <!-- Manifesto Page -->
   <url>
-    <loc>https://pages.handvantage.com/manifesto</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/manifesto</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Digital Transformation Services -->
   <url>
-    <loc>https://pages.handvantage.com/services/digital-transformation</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/services/digital-transformation</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Cybersecurity Services -->
   <url>
-    <loc>https://pages.handvantage.com/services/cybersecurity</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/services/cybersecurity</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Cloud Infrastructure Services -->
   <url>
-    <loc>https://pages.handvantage.com/services/cloud-infrastructure</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/services/cloud-infrastructure</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Business Automation Services -->
   <url>
-    <loc>https://pages.handvantage.com/services/business-automation</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/services/business-automation</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Managed Security Services -->
   <url>
-    <loc>https://pages.handvantage.com/services/managed-security</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/services/managed-security</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Assessment Tools (Landing Pages) -->
   <url>
-    <loc>https://pages.handvantage.com/assessment</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/assessment</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/security-assessment</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/security-assessment</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/security-maturity-assessment</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/security-maturity-assessment</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/roi-calculator</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/roi-calculator</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/maturity-roadmap</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/maturity-roadmap</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/compliance-assessment</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/compliance-assessment</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/budget-planner</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/budget-planner</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/vendor-evaluation</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/vendor-evaluation</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://pages.handvantage.com/privacy-policy</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/privacy-policy</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://pages.handvantage.com/terms-conditions</loc>
-    <lastmod>2026-01-22</lastmod>
+    <loc>https://handvantage.co/terms-conditions</loc>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

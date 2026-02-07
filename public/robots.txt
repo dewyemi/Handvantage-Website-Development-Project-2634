@@ -87,7 +87,7 @@ Allow: /
 # ===========================================
 # SITEMAP LOCATION
 # ===========================================
-Sitemap: https://pages.handvantage.com/sitemap.xml
+Sitemap: https://handvantage.co/sitemap.xml
 
 # ===========================================
 # CRAWL DIRECTIVES
@@ -117,4 +117,4 @@ Disallow: /node_modules/
 # ===========================================
 # HOST DIRECTIVE
 # ===========================================
-Host: https://pages.handvantage.com
+Host: https://handvantage.co
