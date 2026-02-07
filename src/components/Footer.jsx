@@ -139,16 +139,21 @@ const Footer = () => {
             {/* Removed Growth Tools section to simplify footer as per master copy */}
             <h4 className="text-lg font-semibold mb-4 text-white border-l-4 border-slate-600 pl-3">Capabilities</h4>
             <ul className="space-y-2">
-              {technologyCapabilities.slice(0, 3).map((capability, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => handleSmoothScroll('/#partnerships')}
-                    className="text-slate-400 hover:text-white transition-colors text-left text-sm"
-                  >
-                    {capability}
-                  </button>
-                </li>
-              ))}
+              <li>
+                <Link to="/services/cloud-infrastructure" className="text-slate-400 hover:text-white transition-colors text-sm block py-1">
+                  Cloud Infrastructure
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/managed-security" className="text-slate-400 hover:text-white transition-colors text-sm block py-1">
+                  Security Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/business-automation" className="text-slate-400 hover:text-white transition-colors text-sm block py-1">
+                  Process Automation
+                </Link>
+              </li>
             </ul>
           </motion.div>
 

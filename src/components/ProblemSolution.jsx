@@ -41,7 +41,7 @@ const ProblemSolution = () => {
             viewport={{ once: true }}
           >
             <p className="text-viability-primary font-mono text-sm uppercase tracking-widest mb-6">
-              01 // THE SERVICE GAP
+              THE SERVICE GAP
             </p>
             <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tight">
               THE "EMPTY SEAT" PROBLEM
@@ -170,7 +170,7 @@ const ProblemSolution = () => {
             {/* Section Header */}
             <div className="text-center mb-16">
               <p className="text-viability-primary font-mono text-sm uppercase tracking-widest mb-6">
-                02 // THE AGNOSTIC PLEDGE
+                THE AGNOSTIC PLEDGE
               </p>
               <h2 className="text-5xl md:text-7xl font-black text-primary-dark mb-8 tracking-tight">
                 WE FLY ANY JET.
