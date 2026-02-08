@@ -127,24 +127,24 @@ const Hero = () => {
                 <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2E8F0_0%,#0F172A_50%,#E2E8F0_100%)]" />
                 <div className="relative inline-flex items-center gap-2 bg-slate-900/90 backdrop-blur-3xl text-sm text-slate-300 px-5 py-2 rounded-full border border-white/5">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-viability-primary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-viability-primary"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="font-semibold tracking-wide uppercase text-xs">SERVICE-FIRST SECURITY OPERATIONS</span>
+                  <span className="font-semibold tracking-wide uppercase text-xs">THE DUAL DNA — PILOT + ENGINEER</span>
                 </div>
               </div>
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-[1.1]">
               <motion.div
                 className="overflow-hidden"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <span className="block bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 pb-2">
-                  DON'T BUY THE JET.
+                <span className="block bg-clip-text text-transparent bg-gradient-to-b from-red-500 to-red-600/80 pb-2">
+                  Stop Paying Ransomware Gangs.
                 </span>
               </motion.div>
               <motion.div
@@ -155,21 +155,11 @@ const Hero = () => {
               >
                 <span className="block relative">
                   <span className="relative inline-block text-white">
-                    <span className="absolute -inset-1 bg-gradient-to-r from-viability-primary via-factory-400 to-viability-glow blur-2xl opacity-20" />
-                    <span className="relative bg-gradient-to-r from-viability-primary via-factory-300 to-viability-glow bg-clip-text text-transparent">
-                      HIRE THE PILOT.
+                    <span className="absolute -inset-1 bg-gradient-to-r from-viability-primary via-factory-400 to-viability-glow blur-2xl opacity-30" />
+                    <span className="relative bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-400 bg-clip-text text-transparent">
+                      Start Automating Your Profit.
                     </span>
                   </span>
-                </span>
-              </motion.div>
-              <motion.div
-                className="overflow-hidden"
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="block bg-clip-text text-transparent bg-gradient-to-b from-white/80 to-white/40 pt-2">
-                  SERVICE IS THE ASSET.
                 </span>
               </motion.div>
             </h1>
@@ -180,9 +170,9 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-                You have the tools (MDR, EDR, Compliance). But do you have the 24/7 team to run them? <br className="hidden md:block" />
-                We are the <span className="text-viability-glow font-medium text-glow-mild">Elite Service Layer</span> that makes your security stack actually work.
+              <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed mb-12 max-w-4xl mx-auto">
+                Most MSPs just watch your screens. We secure your <span className="text-blue-400 font-semibold">fortress</span> <span className="text-slate-500 italic">and</span> rebuild your <span className="text-cyan-400 font-semibold">factory</span>. <br className="hidden md:block" />
+                Get the 24/7 Security Operations Center (SOC) that <span className="text-emerald-400 font-medium">pays for itself</span> by automating your busiest workflows.
               </p>
             </motion.div>
 
@@ -195,46 +185,46 @@ const Hero = () => {
             >
               <Link
                 to="/roi-calculator"
-                className="group relative inline-flex h-14 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-viability-primary focus:ring-offset-2 focus:ring-offset-slate-900 w-full sm:w-auto"
+                className="group relative inline-flex h-16 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900 w-full sm:w-auto"
               >
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#8B5CF6_0%,#06B6D4_50%,#8B5CF6_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-8 py-1 text-base font-semibold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900">
-                  CALCULATE SAVINGS
-                  <SafeIcon icon={FiArrowRight} className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#10b981_0%,#06b6d4_50%,#10b981_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 px-10 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:from-emerald-500 group-hover:to-emerald-400 shadow-xl shadow-emerald-500/30">
+                  Secure My Business & Automate My Work
+                  <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
-              <p className="text-xs text-slate-500 mt-2 block sm:hidden">See how much you save by replacing the $180k Internal Hire.</p>
 
               <Link to="/manifesto">
                 <motion.div
-                  className="px-8 py-4 rounded-full text-slate-300 font-medium hover:text-white hover:bg-white/5 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center"
+                  className="px-8 py-4 rounded-full text-slate-300 font-medium hover:text-white hover:bg-white/5 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center border border-white/10 hover:border-white/20"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">READ THE DOCTRINE</span>
+                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">See The "Dual DNA" Model</span>
                 </motion.div>
               </Link>
             </motion.div>
             <motion.p
-              className="text-xs text-slate-500 mt-4 hidden sm:block"
+              className="text-sm text-slate-400 mt-6 font-mono italic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 }}
             >
-              See how much you save by replacing the $180k Internal Hire.
+              Vendor Agnostic. 15-Minute Response Guarantee. Zero "Tool Tax."
             </motion.p>
 
-            {/* Trust Signals - Tool Logos */}
+            {/* Trust Signals - Vendor Agnostic Partners */}
             <motion.div
               className="mt-20 pt-10 border-t border-white/5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              <p className="text-xs text-slate-500 font-mono uppercase tracking-widest mb-6">TRUSTED BY TEAMS USING:</p>
-              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-                {['CrowdStrike', 'SentinelOne', 'Vanta', 'Microsoft', 'Drata'].map((tool, i) => (
-                  <div key={i} className="text-slate-400 font-semibold text-sm md:text-base opacity-60 hover:opacity-100 transition-opacity">
+              <p className="text-sm text-slate-400 font-semibold mb-2">Trusted to Protect & Automate Millions in Revenue</p>
+              <p className="text-xs text-slate-500 italic mb-8">"We work with the best, but answer only to you."</p>
+              <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
+                {['CrowdStrike', 'Microsoft', 'SentinelOne', 'Vanta', 'Drata'].map((tool, i) => (
+                  <div key={i} className="text-slate-300 font-bold text-base md:text-lg opacity-70 hover:opacity-100 transition-opacity">
                     {tool}
                   </div>
                 ))}

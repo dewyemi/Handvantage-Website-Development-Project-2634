@@ -89,8 +89,9 @@ const ViabilityOSSection = () => {
               We Install an OS.
             </span>
           </motion.h2>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light">
-            We deploy a fleet of AI Agents designed to solve specific business friction points. From Sales to Delivery to Operations.
+          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto font-light leading-relaxed">
+            Security protects your downside. Automation explodes your upside. <br className="hidden md:block"/>
+            We turn your "cost center" IT into a <span className="text-emerald-400 font-semibold">"profit center"</span> engine.
           </p>
         </motion.div>
 

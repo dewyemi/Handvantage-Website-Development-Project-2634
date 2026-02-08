@@ -125,14 +125,83 @@ const ProofSection = () => {
           viewport={{ once: true }}
         >
           <p className="text-viability-primary font-mono text-sm uppercase tracking-widest mb-6">
-            THE PROMISE
+            THE $180K PROBLEM
           </p>
-          <h2 className="text-5xl md:text-6xl font-bold text-primary-dark mb-8">
-            WE PAY FOR OURSELVES.
+          <h2 className="text-5xl md:text-7xl font-black text-primary-dark mb-6 tracking-tight">
+            The Math Doesn't Lie.
           </h2>
-          <p className="text-xl text-slate-500 max-w-3xl mx-auto">
-            Math, not Magic.
+          <p className="text-2xl text-slate-600 font-semibold max-w-3xl mx-auto">
+            Why hire one "Security Guy" when you can have an entire army?
           </p>
+        </motion.div>
+
+        {/* Comparison Table */}
+        <motion.div
+          className="max-w-6xl mx-auto mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Internal Hire Column */}
+            <div className="bg-white border-2 border-red-200 rounded-3xl p-8 md:p-10 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 text-sm font-bold uppercase tracking-wide rounded-bl-2xl">
+                Old Way
+              </div>
+              <h3 className="text-3xl font-black text-red-600 mb-8 mt-4">The "Internal Hire"</h3>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-1">Cost</p>
+                  <p className="text-2xl font-bold text-slate-800">$180,000/year</p>
+                  <p className="text-sm text-slate-500">(Salary + Benefits)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-1">Availability</p>
+                  <p className="text-2xl font-bold text-slate-800">9-to-5, Mon-Fri</p>
+                  <p className="text-sm text-slate-500">(40 hours/week)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-1">Skillset</p>
+                  <p className="text-2xl font-bold text-slate-800">Generalist</p>
+                  <p className="text-sm text-slate-500">(Jack of all trades)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-1">Outcome</p>
+                  <p className="text-2xl font-bold text-red-600">Burns out in 6 months.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Handvantage Column */}
+            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 border-2 border-emerald-400 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-emerald-500 text-white px-6 py-2 text-sm font-bold uppercase tracking-wide rounded-bl-2xl">
+                New Way
+              </div>
+              <h3 className="text-3xl font-black text-emerald-600 mb-8 mt-4">The Handvantage Partner</h3>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm text-slate-600 font-semibold uppercase tracking-wide mb-1">Cost</p>
+                  <p className="text-2xl font-bold text-emerald-600">Fraction of the price.</p>
+                  <p className="text-sm text-slate-600">(Starting at $3,500/mo)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-600 font-semibold uppercase tracking-wide mb-1">Availability</p>
+                  <p className="text-2xl font-bold text-emerald-600">24/7/365</p>
+                  <p className="text-sm text-slate-600">(8,760 hours/year)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-600 font-semibold uppercase tracking-wide mb-1">Skillset</p>
+                  <p className="text-2xl font-bold text-emerald-600">Specialist Platoon</p>
+                  <p className="text-sm text-slate-600">(SOC, Automation, Compliance)</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-600 font-semibold uppercase tracking-wide mb-1">Outcome</p>
+                  <p className="text-2xl font-bold text-emerald-600">Gets smarter every single day.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Testimonial Card with 3D depth */}

@@ -40,20 +40,18 @@ const ProblemSolution = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-viability-primary font-mono text-sm uppercase tracking-widest mb-6">
-              THE SERVICE GAP
+            <p className="text-red-400 font-mono text-sm uppercase tracking-widest mb-6">
+              THE DUAL SQUEEZE
             </p>
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tight">
-              THE "EMPTY SEAT" PROBLEM
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+              The Two Forces<br />
+              <span className="bg-gradient-to-r from-red-500 via-amber-500 to-red-500 bg-clip-text text-transparent">
+                Killing Your Margins
+              </span>
             </h2>
-            <div className="max-w-3xl mx-auto space-y-6 text-lg md:text-xl text-slate-400 font-light leading-relaxed">
+            <div className="max-w-3xl mx-auto text-lg md:text-xl text-slate-300 font-light leading-relaxed mb-16">
               <p>
-                Buying a Ferrari (Top-Tier MDR) doesn't make you a race car driver.
-                If you hand the keys to an amateur (Internal Hire) or a mailbox (Bad MSP), you will crash.
-              </p>
-              <p>
-                A tool without a master is just a noise generator.
-                You are drowning in alerts because you lack the human layer to filter them.
+                You're caught between <span className="text-blue-400 font-semibold">the need to be secure</span> and <span className="text-amber-400 font-semibold">the pressure to be fast</span>. Most companies pick one. <span className="text-white font-semibold">You need both.</span>
               </p>
             </div>
           </motion.div>
@@ -71,27 +69,33 @@ const ProblemSolution = () => {
             >
               <div className="absolute -inset-1 bg-gradient-to-br from-red-600 to-slate-900 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
 
-              <div className="relative h-full bg-slate-900 border border-slate-800 rounded-2xl p-10 flex flex-col">
+              <div className="relative h-full bg-slate-900 border border-red-500/30 rounded-2xl p-10 flex flex-col">
                 <div className="mb-8">
-                  <div className="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-6">
-                    <SafeIcon icon={FiShield} className="w-8 h-8 text-red-500" />
+                  <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-red-500/40">
+                    <SafeIcon icon={FiShield} className="w-8 h-8 text-red-400" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">THE FEAR <span className="text-red-400">(SECURITY)</span></h3>
+                  <h3 className="text-4xl font-black text-white mb-4">
+                    You Are One Click Away<br />
+                    <span className="text-red-400">From Bankruptcy.</span>
+                  </h3>
                 </div>
 
-                <p className="text-2xl font-bold text-slate-200 mb-4">
-                  "Who is watching the screen at 3 AM on Christmas?"
-                </p>
-                <p className="text-slate-400 leading-relaxed text-lg mb-8">
-                  If the answer is "No one" or "My IT Director," you are already breached.
-                  We provide the 24/7 Human Shield.
+                <p className="text-slate-300 leading-relaxed text-lg mb-6">
+                  Your firewall isn't enough. Your antivirus is asleep. The threat isn't a "virus"—it's a <span className="text-white font-semibold">human adversary</span> who works while you sleep.
                 </p>
 
+                <div className="bg-slate-800/50 border border-red-500/20 rounded-xl p-6 mb-6">
+                  <p className="text-blue-300 font-semibold text-xl mb-2">The Handvantage Promise:</p>
+                  <p className="text-slate-300 leading-relaxed">
+                    We are the <span className="text-blue-400 font-bold">Pilot</span>. We fly the plane 24/7. We don't just "alert" you to a crash; we <span className="text-white font-semibold">land the bird safely</span>.
+                  </p>
+                </div>
+
                 {/* Status Indicator */}
-                <div className="mt-auto pt-6 border-t border-slate-800">
+                <div className="mt-auto pt-6 border-t border-red-500/20">
                   <div className="flex items-center justify-between">
-                    <span className="text-red-400 font-mono text-sm uppercase tracking-wider">
-                      THREAT LEVEL: CRITICAL
+                    <span className="text-red-400 font-mono text-sm uppercase tracking-wider font-bold">
+                      ⚠ THREAT LEVEL: CRITICAL
                     </span>
                     <div className="flex gap-1">
                       <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
@@ -114,32 +118,38 @@ const ProblemSolution = () => {
             >
               <div className="absolute -inset-1 bg-gradient-to-br from-amber-500 to-slate-900 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
 
-              <div className="relative h-full bg-slate-900 border border-slate-800 rounded-2xl p-10 flex flex-col">
+              <div className="relative h-full bg-slate-900 border border-amber-500/30 rounded-2xl p-10 flex flex-col">
                 <div className="mb-8">
-                  <div className="w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6">
-                    <SafeIcon icon={FiZap} className="w-8 h-8 text-amber-500" />
+                  <div className="w-16 h-16 bg-amber-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-amber-500/40">
+                    <SafeIcon icon={FiZap} className="w-8 h-8 text-amber-400" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">THE GREED <span className="text-amber-400">(EFFICIENCY)</span></h3>
+                  <h3 className="text-4xl font-black text-white mb-4">
+                    You Are Burning Cash<br />
+                    <span className="text-amber-400">on Manual Labor.</span>
+                  </h3>
                 </div>
 
-                <p className="text-2xl font-bold text-slate-200 mb-4">
-                  "Why pay $180k for an internal hire who sleeps?"
-                </p>
-                <p className="text-slate-400 leading-relaxed text-lg mb-8">
-                  We automate the grunt work (patching, onboarding) and replace the expensive headcount.
-                  We pay for ourselves.
+                <p className="text-slate-300 leading-relaxed text-lg mb-6">
+                  Your smartest people are stuck resetting passwords and copy-pasting data. That's not "work"—that's <span className="text-white font-semibold">waste</span>.
                 </p>
 
+                <div className="bg-slate-800/50 border border-amber-500/20 rounded-xl p-6 mb-6">
+                  <p className="text-cyan-300 font-semibold text-xl mb-2">The Handvantage Promise:</p>
+                  <p className="text-slate-300 leading-relaxed">
+                    We are the <span className="text-cyan-400 font-bold">Engineer</span>. We rebuild the engine while it runs. We automate the grunt work so your team can <span className="text-white font-semibold">build the future</span>.
+                  </p>
+                </div>
+
                 {/* Status Indicator */}
-                <div className="mt-auto pt-6 border-t border-slate-800">
+                <div className="mt-auto pt-6 border-t border-amber-500/20">
                   <div className="flex items-center justify-between">
-                    <span className="text-amber-400 font-mono text-sm uppercase tracking-wider">
-                      OPERATIONAL STATUS: DEGRADED
+                    <span className="text-amber-400 font-mono text-sm uppercase tracking-wider font-bold">
+                      💰 PROFIT LEAK: ACTIVE
                     </span>
                     <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
                       <div className="w-2 h-2 bg-amber-500 rounded-full" />
-                      <div className="w-2 h-2 bg-amber-500 rounded-full" />
-                      <div className="w-2 h-2 bg-slate-600 rounded-full" />
                     </div>
                   </div>
                 </div>
