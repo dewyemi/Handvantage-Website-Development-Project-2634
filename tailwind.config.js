@@ -47,20 +47,43 @@ export default {
           100: '#f1f5f9',
           50: '#f8fafc'
         },
-        gold: '#fbbf24'
+        gold: '#fbbf24',
+        // Cinematic Palette - The "Elite Operations" Theme
+        obsidian: {
+          DEFAULT: '#050505',
+          50: '#1a1a1a',
+          100: '#0a0a0a',
+        },
+        signal: {
+          DEFAULT: '#00ff41', // Terminal green
+          50: '#e6fff0',
+          100: '#00ff41',
+          200: '#00cc34',
+          300: '#009926',
+        },
+        arc: {
+          DEFAULT: '#0ea5e9', // Electric blue
+          50: '#e0f2fe',
+          100: '#0ea5e9',
+          200: '#0284c7',
+          300: '#0369a1',
+        }
       },
       fontFamily: {
-        display: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['Space Grotesk', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Monaco', 'Courier New', 'monospace']
+        mono: ['JetBrains Mono', 'Monaco', 'Courier New', 'monospace'],
+        editorial: ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {
-        'hero': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
-        'hero-mobile': ['2.5rem', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
-        'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
-        'title': ['2.5rem', { lineHeight: '1.2' }],
+        'hero': ['6rem', { lineHeight: '0.95', letterSpacing: '-0.03em', fontWeight: '700' }], // Larger, tighter
+        'hero-mobile': ['3rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '600' }], // Editorial headlines
+        'title': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
         'subtitle': ['1.5rem', { lineHeight: '1.4' }],
         'body-large': ['1.25rem', { lineHeight: '1.6' }],
+        'technical': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.05em', fontWeight: '500' }], // New: monospace data
+        'label': ['0.75rem', { lineHeight: '1.25', letterSpacing: '0.1em', fontWeight: '600' }], // New: uppercase labels
       },
       spacing: {
         'section-sm': '5rem',

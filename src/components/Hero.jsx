@@ -7,6 +7,10 @@ import SEOHead from './SEOHead';
 import { seoConfig } from '../utils/seoConfig';
 import HeroPattern from './svg/HeroPattern';
 import LiveStatusBoard from './LiveStatusBoard';
+import TerminalText, { TerminalLabel, TerminalBadge } from './TerminalText';
+import DataDisplay, { DataGrid, StatCard } from './DataDisplay';
+import HUDOverlay, { CornerBrackets, ScanLine } from './HUDOverlay';
+import RadarScan from './svg/RadarScan';
 
 const { FiStar, FiShield, FiCheckCircle, FiArrowRight } = FiIcons;
 
@@ -114,134 +118,194 @@ const Hero = () => {
           />
         ))}
 
-        {/* Content */}
-        <motion.div style={{ opacity, y }} className="container mx-auto px-6 py-20 relative z-20">
-          <div className="max-w-5xl mx-auto text-center perspective-1000">
-            {/* Badge */}
-            <motion.div
-              className="flex justify-center mb-10"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="relative group cursor-pointer overflow-hidden rounded-full p-[1px]">
-                <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2E8F0_0%,#0F172A_50%,#E2E8F0_100%)]" />
-                <div className="relative inline-flex items-center gap-2 bg-slate-900/90 backdrop-blur-3xl text-sm text-slate-300 px-5 py-2 rounded-full border border-white/5">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span className="font-semibold tracking-wide uppercase text-xs">THE DUAL DNA — PILOT + ENGINEER</span>
+        {/* Content - Asymmetric Layout */}
+        <motion.div style={{ opacity, y }} className="container mx-auto px-6 lg:px-20 py-20 relative z-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            {/* Left: Content (60%) */}
+            <div className="lg:col-span-7 space-y-8">
+              {/* Terminal Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <TerminalBadge status="operational" pulse={true}>
+                  AGENTIC AI WORKFORCE
+                </TerminalBadge>
+              </motion.div>
+
+              {/* Headline with Editorial Font */}
+              <motion.h1
+                className="font-editorial text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <span className="block text-white mb-3">
+                  Hire an Army of
+                </span>
+                <span className="block">
+                  <span className="text-signal">1,000</span>
+                  <span className="text-white"> for the</span>
+                </span>
+                <span className="block text-white">
+                  Price of <span className="text-arc">One.</span>
+                </span>
+              </motion.h1>
+
+              {/* Subheadline with Terminal Typeout */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="space-y-4"
+              >
+                <div className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-2xl">
+                  <p className="mb-4">
+                    Automation is dead. This is <span className="font-editorial font-bold text-signal">Agentic AI</span>.
+                  </p>
+                  <p className="text-lg text-slate-400">
+                    We deploy autonomous digital workers that prospect, negotiate, research, and execute tasks 24/7.
+                    <span className="block mt-2 text-slate-500 italic">No sleep. No burnout. No overhead.</span>
+                  </p>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Headline */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight leading-[1.1]">
-              <motion.div
-                className="overflow-hidden"
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="block bg-clip-text text-transparent bg-gradient-to-b from-red-500 to-red-600/80 pb-2">
-                  Stop Paying Ransomware Gangs.
-                </span>
               </motion.div>
+
+              {/* CTAs with Signal Green + Arc Blue */}
               <motion.div
-                className="overflow-hidden"
-                initial={{ opacity: 0, y: 100 }}
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: 0.7 }}
               >
-                <span className="block relative">
-                  <span className="relative inline-block text-white">
-                    <span className="absolute -inset-1 bg-gradient-to-r from-viability-primary via-factory-400 to-viability-glow blur-2xl opacity-30" />
-                    <span className="relative bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-400 bg-clip-text text-transparent">
-                      Start Automating Your Profit.
-                    </span>
-                  </span>
-                </span>
-              </motion.div>
-            </h1>
-
-            {/* Subheadline */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed mb-12 max-w-4xl mx-auto">
-                Most MSPs just watch your screens. We secure your <span className="text-blue-400 font-semibold">fortress</span> <span className="text-slate-500 italic">and</span> rebuild your <span className="text-cyan-400 font-semibold">factory</span>. <br className="hidden md:block" />
-                Get the 24/7 Security Operations Center (SOC) that <span className="text-emerald-400 font-medium">pays for itself</span> by automating your busiest workflows.
-              </p>
-            </motion.div>
-
-            {/* Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-5 justify-center items-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              <Link
-                to="/roi-calculator"
-                className="group relative inline-flex h-16 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-900 w-full sm:w-auto"
-              >
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#10b981_0%,#06b6d4_50%,#10b981_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 px-10 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:from-emerald-500 group-hover:to-emerald-400 shadow-xl shadow-emerald-500/30">
-                  Secure My Business & Automate My Work
-                  <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-
-              <Link to="/manifesto">
-                <motion.div
-                  className="px-8 py-4 rounded-full text-slate-300 font-medium hover:text-white hover:bg-white/5 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center border border-white/10 hover:border-white/20"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <Link
+                  to="/roi-calculator"
+                  className="group relative inline-flex overflow-hidden rounded-lg p-[2px] focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
-                  <span className="border-b border-transparent group-hover:border-white/50 transition-colors">See The "Dual DNA" Model</span>
-                </motion.div>
-              </Link>
-            </motion.div>
-            <motion.p
-              className="text-sm text-slate-400 mt-6 font-mono italic"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
-            >
-              Vendor Agnostic. 15-Minute Response Guarantee. Zero "Tool Tax."
-            </motion.p>
+                  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00ff41_0%,#0ea5e9_50%,#00ff41_100%)]" />
+                  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-signal hover:bg-signal/90 px-8 py-4 text-base font-bold text-obsidian backdrop-blur-3xl transition-all shadow-xl shadow-signal/30">
+                    Deploy My AI Workforce
+                    <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
 
-            {/* Trust Signals - Vendor Agnostic Partners */}
+                <Link
+                  to="/services/ai-workforce"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-slate-300 font-semibold hover:text-white border-2 border-arc/30 hover:border-arc hover:bg-arc/10 transition-all"
+                >
+                  See The Agents
+                  <SafeIcon icon={FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+
+              {/* Trust Line */}
+              <motion.div
+                className="terminal-text text-xs text-slate-500 pt-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9 }}
+              >
+                VENDOR AGNOSTIC • 15-MIN RESPONSE • ZERO TOOL TAX
+              </motion.div>
+            </div>
+
+            {/* Right: Floating Status Board (40%) */}
             <motion.div
-              className="mt-20 pt-10 border-t border-white/5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
+              className="lg:col-span-5 relative"
+              initial={{ opacity: 0, x: 40, rotateY: -10 }}
+              animate={{ opacity: 1, x: 0, rotateY: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="text-sm text-slate-400 font-semibold mb-2">Trusted to Protect & Automate Millions in Revenue</p>
-              <p className="text-xs text-slate-500 italic mb-8">"We work with the best, but answer only to you."</p>
-              <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
-                {['CrowdStrike', 'Microsoft', 'SentinelOne', 'Vanta', 'Drata'].map((tool, i) => (
-                  <div key={i} className="text-slate-300 font-bold text-base md:text-lg opacity-70 hover:opacity-100 transition-opacity">
-                    {tool}
+              {/* HUD Container */}
+              <HUDOverlay
+                variant="signal"
+                showCorners={true}
+                showGrid={true}
+                showScanLine={true}
+                showStatus={true}
+                status="operational"
+                label="LIVE METRICS"
+                className="p-8 bg-obsidian/90 backdrop-blur-xl border border-signal/20 rounded-lg"
+              >
+                <div className="space-y-6">
+                  {/* Radar Scan Visual */}
+                  <div className="relative aspect-square max-w-[300px] mx-auto mb-6">
+                    <RadarScan variant="security" className="w-full h-full" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <TerminalLabel className="text-signal">
+                        SYSTEMS ACTIVE
+                      </TerminalLabel>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Live Status Board - Command Center Aesthetic */}
-            <motion.div
-              className="mt-16"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2 }}
-            >
-              <LiveStatusBoard />
+                  {/* Real-time Metrics */}
+                  <DataGrid columns={1} gap="sm">
+                    <DataDisplay
+                      label="THREAT RESPONSE TIME"
+                      value={15}
+                      unit="MIN"
+                      status="operational"
+                      showBar={true}
+                      maxValue={60}
+                    />
+                    <DataDisplay
+                      label="AUTOMATION EFFICIENCY"
+                      value={94}
+                      unit="%"
+                      status="operational"
+                      showBar={true}
+                    />
+                    <DataDisplay
+                      label="ACTIVE AI AGENTS"
+                      value={1247}
+                      unit=""
+                      status="operational"
+                      showScanLine={true}
+                    />
+                  </DataGrid>
+
+                  {/* Status Indicator */}
+                  <div className="pt-4 border-t border-white/10">
+                    <div className="flex items-center justify-between">
+                      <span className="terminal-text text-xs text-slate-400">
+                        UPTIME
+                      </span>
+                      <span className="font-mono text-signal font-bold">
+                        99.97%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </HUDOverlay>
             </motion.div>
           </div>
+
+          {/* Trust Signals - Vendor Agnostic Partners */}
+          <motion.div
+            className="mt-24 pt-12 border-t border-white/5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            <TerminalLabel className="text-slate-500 mb-6 text-center block">
+              TRUSTED TO PROTECT & AUTOMATE MILLIONS IN REVENUE
+            </TerminalLabel>
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
+              {['CrowdStrike', 'Microsoft', 'SentinelOne', 'Vanta', 'Drata'].map((tool, i) => (
+                <motion.div
+                  key={i}
+                  className="font-editorial text-slate-400 font-semibold text-lg opacity-60 hover:opacity-100 hover:text-signal transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 0.6, y: 0 }}
+                  transition={{ delay: 1.3 + i * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {tool}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </section>
     </>

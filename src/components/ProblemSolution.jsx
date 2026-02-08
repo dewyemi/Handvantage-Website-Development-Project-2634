@@ -5,8 +5,13 @@ import SafeIcon from '../common/SafeIcon';
 import { Link } from 'react-router-dom';
 import RadarScan from './svg/RadarScan';
 import ThreatLevelIndicator from './ThreatLevelIndicator';
+import { BentoGrid, BentoCard } from './BentoGrid';
+import { TerminalLabel } from './TerminalText';
+import DataDisplay from './DataDisplay';
+import HUDOverlay, { ScanLine } from './HUDOverlay';
+import ViabilitySymbol from './svg/ViabilitySymbol';
 
-const { FiShield, FiZap, FiCheck, FiArrowRight } = FiIcons;
+const { FiShield, FiZap, FiCheck, FiArrowRight, FiActivity } = FiIcons;
 
 const ProblemSolution = () => {
   const sectionRef = useRef(null);
@@ -58,115 +63,219 @@ const ProblemSolution = () => {
             </div>
           </motion.div>
 
-          {/* Dual Squeeze Cards */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto perspective-1000">
-            {/* Card 1: THE FEAR (SECURITY) */}
-            <motion.div
-              className="relative group"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              style={{ y: fearY }}
+          {/* Bento Grid - Asymmetric Layout */}
+          <BentoGrid columns={12} gap="lg" className="max-w-7xl mx-auto">
+            {/* Fortress Card - Large (7 columns) */}
+            <BentoCard
+              span={12}
+              spanMd={7}
+              hover={true}
+              animate={true}
+              className="bg-obsidian/90 border-2 border-red-500/30 overflow-hidden group"
+              style={{
+                transform: 'rotateX(1deg) rotateY(-1deg)',
+              }}
             >
-              <div className="absolute -inset-1 bg-gradient-to-br from-red-600 to-slate-900 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
-
-              <div className="relative h-full bg-slate-900 border border-red-500/30 rounded-2xl p-10 flex flex-col overflow-hidden">
-                {/* Radar Scan Background */}
-                <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
-                  <RadarScan variant="threat" />
+              <HUDOverlay
+                variant="fortress"
+                showCorners={true}
+                showScanLine={true}
+                label="THREAT LEVEL: CRITICAL"
+                className="h-full p-8 md:p-10"
+              >
+                {/* Background Radar */}
+                <div className="absolute inset-0 opacity-5 pointer-events-none">
+                  <RadarScan variant="threat" className="w-full h-full" />
                 </div>
 
-                <div className="mb-8 relative z-10">
-                  <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-red-500/40 security-pulse">
-                    <SafeIcon icon={FiShield} className="w-8 h-8 text-red-400" />
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Icon and Title */}
+                  <div className="mb-6">
+                    <motion.div
+                      className="w-16 h-16 bg-red-500/20 rounded-lg flex items-center justify-center mb-6 ring-2 ring-red-500/40"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <SafeIcon icon={FiShield} className="w-8 h-8 text-red-400" />
+                    </motion.div>
+                    <TerminalLabel className="text-red-400 mb-4">
+                      THE FORTRESS PROBLEM
+                    </TerminalLabel>
+                    <h3 className="font-editorial text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                      You Are One Click Away<br />
+                      <span className="text-red-400">From Bankruptcy.</span>
+                    </h3>
                   </div>
-                  <h3 className="text-4xl font-black text-white mb-4">
-                    You Are One Click Away<br />
-                    <span className="text-red-400">From Bankruptcy.</span>
-                  </h3>
+
+                  {/* Description */}
+                  <p className="text-slate-300 leading-relaxed text-lg mb-6">
+                    The average cost of downtime is now{' '}
+                    <span className="font-editorial font-bold text-red-400">$9,000 per minute</span>.
+                    You cannot afford to blink.
+                  </p>
+
+                  {/* Data-Driven Stats */}
+                  <div className="space-y-4 mb-6">
+                    <DataDisplay
+                      label="AVG BREACH CONTAINMENT"
+                      value={277}
+                      unit="DAYS"
+                      status="critical"
+                      showBar={true}
+                      maxValue={365}
+                    />
+                    <DataDisplay
+                      label="CYBERSECURITY WORKFORCE GAP"
+                      value={4.8}
+                      unit="M"
+                      status="critical"
+                      showBar={true}
+                      maxValue={10}
+                    />
+                  </div>
+
+                  {/* Solution Box */}
+                  <div className="mt-auto brutal-card bg-fortress-900/60 border border-fortress-accent/30 p-6">
+                    <p className="text-arc font-editorial font-semibold text-lg mb-2">
+                      The Handvantage Solution:
+                    </p>
+                    <p className="text-slate-300 leading-relaxed">
+                      We are the <span className="text-fortress-accent font-bold">Pilot</span>. We don't just "alert" you—we{' '}
+                      <span className="text-white font-semibold">investigate within 15 minutes</span> and kill threats before they spread.
+                    </p>
+                  </div>
+                </div>
+              </HUDOverlay>
+            </BentoCard>
+
+            {/* Factory Card - Medium (5 columns) */}
+            <BentoCard
+              span={12}
+              spanMd={5}
+              hover={true}
+              animate={true}
+              className="bg-obsidian/90 border-2 border-factory-500/30 overflow-hidden"
+              style={{
+                transform: 'rotateX(1deg) rotateY(1deg)',
+              }}
+            >
+              <HUDOverlay
+                variant="arc"
+                showCorners={true}
+                showScanLine={true}
+                label="EFFICIENCY: 42%"
+                className="h-full p-8 md:p-10"
+              >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-5 pointer-events-none">
+                  <RadarScan variant="automation" className="w-full h-full" />
                 </div>
 
-                <p className="text-slate-300 leading-relaxed text-lg mb-6">
-                  Your firewall isn't enough. Your antivirus is asleep. The threat isn't a "virus"—it's a <span className="text-white font-semibold">human adversary</span> who works while you sleep.
-                </p>
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Icon and Title */}
+                  <div className="mb-6">
+                    <motion.div
+                      className="w-16 h-16 bg-factory-500/20 rounded-lg flex items-center justify-center mb-6 ring-2 ring-factory-500/40"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                    >
+                      <SafeIcon icon={FiZap} className="w-8 h-8 text-factory-500" />
+                    </motion.div>
+                    <TerminalLabel className="text-factory-500 mb-4">
+                      THE FACTORY PROBLEM
+                    </TerminalLabel>
+                    <h3 className="font-editorial text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                      You Are Burning Cash<br />
+                      <span className="text-factory-500">on Manual Labor.</span>
+                    </h3>
+                  </div>
 
-                <div className="bg-slate-800/50 border border-red-500/20 rounded-xl p-6 mb-6">
-                  <p className="text-blue-300 font-semibold text-xl mb-2">The Handvantage Promise:</p>
-                  <p className="text-slate-300 leading-relaxed">
-                    We are the <span className="text-blue-400 font-bold">Pilot</span>. We fly the plane 24/7. We don't just "alert" you to a crash; we <span className="text-white font-semibold">land the bird safely</span>.
+                  {/* Description */}
+                  <p className="text-slate-300 leading-relaxed mb-6">
+                    The average enterprise wastes{' '}
+                    <span className="font-editorial font-bold text-factory-500">30% of SaaS spend</span>{' '}
+                    on unused licenses.
+                  </p>
+
+                  {/* Data Stat */}
+                  <div className="mb-6">
+                    <DataDisplay
+                      label="PROFIT LEAK"
+                      value={180}
+                      unit="K+"
+                      status="warning"
+                      showBar={true}
+                      maxValue={200}
+                    />
+                  </div>
+
+                  {/* Solution Box */}
+                  <div className="mt-auto brutal-card bg-factory-500/10 border border-factory-500/30 p-6">
+                    <p className="text-factory-400 font-editorial font-semibold text-lg mb-2">
+                      The Handvantage Solution:
+                    </p>
+                    <p className="text-slate-300 leading-relaxed">
+                      We are the <span className="text-factory-500 font-bold">Engineer</span>. We automate the grunt work so your team can{' '}
+                      <span className="text-white font-semibold">build the future</span>.
+                    </p>
+                  </div>
+                </div>
+              </HUDOverlay>
+            </BentoCard>
+
+            {/* Viability Card - Full Width Accent */}
+            <BentoCard
+              span={12}
+              hover={true}
+              animate={true}
+              className="bg-gradient-to-br from-viability-primary/10 via-obsidian to-obsidian border-2 border-viability-primary/30 overflow-hidden"
+            >
+              <div className="p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+                {/* Icon */}
+                <div className="flex-shrink-0">
+                  <motion.div
+                    className="w-24 h-24 md:w-32 md:h-32"
+                    animate={{
+                      rotate: [0, 360],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  >
+                    <ViabilitySymbol className="w-full h-full" />
+                  </motion.div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 text-center md:text-left">
+                  <TerminalLabel className="text-viability-primary mb-3">
+                    THE HANDVANTAGE SOLUTION
+                  </TerminalLabel>
+                  <h3 className="font-editorial text-3xl md:text-4xl font-bold text-white mb-4">
+                    The <span className="text-viability-primary">Dual DNA</span> Philosophy
+                  </h3>
+                  <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">
+                    You cannot be secure if you are inefficient. You cannot be efficient if you are hacked.{' '}
+                    <span className="text-white font-semibold">We are the only partner who solves both.</span>
                   </p>
                 </div>
 
-                {/* Premium Threat Level Indicator */}
-                <div className="mt-auto pt-6 border-t border-red-500/20 relative z-10">
-                  <ThreatLevelIndicator level="critical" />
+                {/* CTA */}
+                <div className="flex-shrink-0">
+                  <Link
+                    to="/manifesto"
+                    className="group inline-flex items-center gap-2 px-6 py-3 bg-viability-primary hover:bg-viability-primary/90 text-white font-editorial font-semibold rounded-lg transition-all"
+                  >
+                    Learn More
+                    <SafeIcon
+                      icon={FiArrowRight}
+                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    />
+                  </Link>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Card 2: THE GREED (EFFICIENCY) */}
-            <motion.div
-              className="relative group"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              style={{ y: greedY }}
-            >
-              <div className="absolute -inset-1 bg-gradient-to-br from-amber-500 to-slate-900 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
-
-              <div className="relative h-full bg-slate-900 border border-amber-500/30 rounded-2xl p-10 flex flex-col overflow-hidden">
-                {/* Automation Scan Background */}
-                <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
-                  <RadarScan variant="automation" />
-                </div>
-
-                <div className="mb-8 relative z-10">
-                  <div className="w-16 h-16 bg-amber-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-amber-500/40">
-                    <SafeIcon icon={FiZap} className="w-8 h-8 text-amber-400" />
-                  </div>
-                  <h3 className="text-4xl font-black text-white mb-4">
-                    You Are Burning Cash<br />
-                    <span className="text-amber-400">on Manual Labor.</span>
-                  </h3>
-                </div>
-
-                <p className="text-slate-300 leading-relaxed text-lg mb-6">
-                  Your smartest people are stuck resetting passwords and copy-pasting data. That's not "work"—that's <span className="text-white font-semibold">waste</span>.
-                </p>
-
-                <div className="bg-slate-800/50 border border-amber-500/20 rounded-xl p-6 mb-6">
-                  <p className="text-cyan-300 font-semibold text-xl mb-2">The Handvantage Promise:</p>
-                  <p className="text-slate-300 leading-relaxed">
-                    We are the <span className="text-cyan-400 font-bold">Engineer</span>. We rebuild the engine while it runs. We automate the grunt work so your team can <span className="text-white font-semibold">build the future</span>.
-                  </p>
-                </div>
-
-                {/* Efficiency Meter */}
-                <div className="mt-auto pt-6 border-t border-amber-500/20 relative z-10">
-                  <div className="bg-slate-800/60 border border-amber-500/20 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-amber-400 font-mono text-xs uppercase tracking-wider font-bold">
-                        Current Efficiency
-                      </span>
-                      <span className="text-amber-400 font-mono text-xl font-black">42%</span>
-                    </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-amber-600 to-amber-400"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '42%' }}
-                        transition={{ duration: 1.5, delay: 0.5 }}
-                        viewport={{ once: true }}
-                      />
-                    </div>
-                    <p className="text-xs text-slate-400 font-mono mt-2">💰 PROFIT LEAK: $180K+/year</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+            </BentoCard>
+          </BentoGrid>
         </div>
       </section>
 

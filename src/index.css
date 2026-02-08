@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -274,5 +274,100 @@ body {
 
   ::-webkit-scrollbar-thumb:hover {
     background: #475569;
+  }
+
+  /* ==========================
+     CINEMATIC VISUAL UTILITIES
+     ========================== */
+
+  /* Bento Grid System */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+
+  .bento-item {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Editorial Typography */
+  .editorial-text {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .terminal-text {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* HUD/Command Center Aesthetic */
+  .hud-border {
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    box-shadow:
+      0 0 10px rgba(0, 255, 65, 0.1),
+      inset 0 0 10px rgba(0, 255, 65, 0.05);
+  }
+
+  .scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.8), transparent);
+    animation: scan-down 3s linear infinite;
+  }
+
+  @keyframes scan-down {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(calc(100vh + 100%)); opacity: 0; }
+  }
+
+  /* Terminal Typeout Effect */
+  @keyframes terminal-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .terminal-cursor::after {
+    content: '▌';
+    animation: terminal-cursor 1s step-end infinite;
+    color: #00ff41;
+  }
+
+  /* Asymmetric Layout Utilities */
+  .asymmetric-left {
+    padding-left: 10vw;
+    padding-right: 5vw;
+  }
+
+  .asymmetric-right {
+    padding-left: 5vw;
+    padding-right: 10vw;
+  }
+
+  /* Digital Brutalism - Sharp Edges */
+  .brutal-card {
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(5, 5, 5, 1) 100%);
+  }
+
+  /* Scroll Unmask Effect */
+  .unmask-reveal {
+    clip-path: inset(0 100% 0 0);
+    animation: unmask 1s forwards;
+  }
+
+  @keyframes unmask {
+    to { clip-path: inset(0 0 0 0); }
   }
 }
