@@ -6,6 +6,7 @@ import SafeIcon from '../common/SafeIcon';
 import SEOHead from './SEOHead';
 import { seoConfig } from '../utils/seoConfig';
 import HeroPattern from './svg/HeroPattern';
+import LiveStatusBoard from './LiveStatusBoard';
 
 const { FiStar, FiShield, FiCheckCircle, FiArrowRight } = FiIcons;
 
@@ -36,7 +37,7 @@ const Hero = () => {
     <>
       <SEOHead {...seoConfig.home} />
       <section
-        className="relative pt-20 min-h-screen flex items-center overflow-hidden bg-[#020617]"
+        className="relative pt-20 min-h-screen flex items-center overflow-hidden bg-[#020617] noise-texture tactical-grid"
         onMouseMove={handleMouseMove}
       >
         {/* Spotlight Effect */}
@@ -229,6 +230,16 @@ const Hero = () => {
                   </div>
                 ))}
               </div>
+            </motion.div>
+
+            {/* Live Status Board - Command Center Aesthetic */}
+            <motion.div
+              className="mt-16"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.2 }}
+            >
+              <LiveStatusBoard />
             </motion.div>
           </div>
         </motion.div>

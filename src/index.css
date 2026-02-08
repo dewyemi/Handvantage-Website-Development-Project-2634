@@ -172,6 +172,87 @@ body {
       0 8px 10px -6px rgba(0, 0, 0, 0.1);
   }
 
+  /* Noise texture for tactical depth */
+  .noise-texture {
+    position: relative;
+  }
+
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Tactical Grid Overlay */
+  .tactical-grid {
+    background-image:
+      linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Radar Scan Animation */
+  @keyframes radar-scan {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .radar-scan {
+    animation: radar-scan 4s linear infinite;
+  }
+
+  /* Command Center Glow */
+  .command-glow {
+    box-shadow:
+      0 0 20px rgba(6, 182, 212, 0.2),
+      0 0 40px rgba(6, 182, 212, 0.1),
+      inset 0 0 60px rgba(6, 182, 212, 0.05);
+  }
+
+  /* Data Stream Animation */
+  @keyframes data-stream {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  .data-stream {
+    animation: data-stream 3s ease-in-out infinite;
+  }
+
+  /* Security Badge Pulse */
+  @keyframes security-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+  }
+
+  .security-pulse {
+    animation: security-pulse 2s ease-in-out infinite;
+  }
+
   /* Smooth scroll behavior */
   html {
     scroll-behavior: smooth;

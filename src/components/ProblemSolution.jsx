@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { Link } from 'react-router-dom';
+import RadarScan from './svg/RadarScan';
+import ThreatLevelIndicator from './ThreatLevelIndicator';
 
 const { FiShield, FiZap, FiCheck, FiArrowRight } = FiIcons;
 
@@ -19,8 +21,8 @@ const ProblemSolution = () => {
 
   return (
     <>
-      {/* Section 01: THE SERVICE GAP */}
-      <section ref={sectionRef} id="service-gap" className="relative py-24 md:py-32 bg-slate-950 overflow-hidden">
+      {/* Section 01: THE DUAL SQUEEZE */}
+      <section ref={sectionRef} id="dual-squeeze" className="relative py-24 md:py-32 bg-slate-950 overflow-hidden noise-texture">
         {/* Animated background layers */}
         <div className="absolute inset-0">
           <motion.div
@@ -69,9 +71,14 @@ const ProblemSolution = () => {
             >
               <div className="absolute -inset-1 bg-gradient-to-br from-red-600 to-slate-900 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
 
-              <div className="relative h-full bg-slate-900 border border-red-500/30 rounded-2xl p-10 flex flex-col">
-                <div className="mb-8">
-                  <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-red-500/40">
+              <div className="relative h-full bg-slate-900 border border-red-500/30 rounded-2xl p-10 flex flex-col overflow-hidden">
+                {/* Radar Scan Background */}
+                <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
+                  <RadarScan variant="threat" />
+                </div>
+
+                <div className="mb-8 relative z-10">
+                  <div className="w-16 h-16 bg-red-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-red-500/40 security-pulse">
                     <SafeIcon icon={FiShield} className="w-8 h-8 text-red-400" />
                   </div>
                   <h3 className="text-4xl font-black text-white mb-4">
@@ -91,18 +98,9 @@ const ProblemSolution = () => {
                   </p>
                 </div>
 
-                {/* Status Indicator */}
-                <div className="mt-auto pt-6 border-t border-red-500/20">
-                  <div className="flex items-center justify-between">
-                    <span className="text-red-400 font-mono text-sm uppercase tracking-wider font-bold">
-                      ⚠ THREAT LEVEL: CRITICAL
-                    </span>
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
-                    </div>
-                  </div>
+                {/* Premium Threat Level Indicator */}
+                <div className="mt-auto pt-6 border-t border-red-500/20 relative z-10">
+                  <ThreatLevelIndicator level="critical" />
                 </div>
               </div>
             </motion.div>
@@ -118,8 +116,13 @@ const ProblemSolution = () => {
             >
               <div className="absolute -inset-1 bg-gradient-to-br from-amber-500 to-slate-900 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
 
-              <div className="relative h-full bg-slate-900 border border-amber-500/30 rounded-2xl p-10 flex flex-col">
-                <div className="mb-8">
+              <div className="relative h-full bg-slate-900 border border-amber-500/30 rounded-2xl p-10 flex flex-col overflow-hidden">
+                {/* Automation Scan Background */}
+                <div className="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none">
+                  <RadarScan variant="automation" />
+                </div>
+
+                <div className="mb-8 relative z-10">
                   <div className="w-16 h-16 bg-amber-500/20 rounded-2xl flex items-center justify-center mb-6 ring-2 ring-amber-500/40">
                     <SafeIcon icon={FiZap} className="w-8 h-8 text-amber-400" />
                   </div>
@@ -140,17 +143,25 @@ const ProblemSolution = () => {
                   </p>
                 </div>
 
-                {/* Status Indicator */}
-                <div className="mt-auto pt-6 border-t border-amber-500/20">
-                  <div className="flex items-center justify-between">
-                    <span className="text-amber-400 font-mono text-sm uppercase tracking-wider font-bold">
-                      💰 PROFIT LEAK: ACTIVE
-                    </span>
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-                      <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
-                      <div className="w-2 h-2 bg-amber-500 rounded-full" />
+                {/* Efficiency Meter */}
+                <div className="mt-auto pt-6 border-t border-amber-500/20 relative z-10">
+                  <div className="bg-slate-800/60 border border-amber-500/20 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-amber-400 font-mono text-xs uppercase tracking-wider font-bold">
+                        Current Efficiency
+                      </span>
+                      <span className="text-amber-400 font-mono text-xl font-black">42%</span>
                     </div>
+                    <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-amber-600 to-amber-400"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '42%' }}
+                        transition={{ duration: 1.5, delay: 0.5 }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                    <p className="text-xs text-slate-400 font-mono mt-2">💰 PROFIT LEAK: $180K+/year</p>
                   </div>
                 </div>
               </div>
