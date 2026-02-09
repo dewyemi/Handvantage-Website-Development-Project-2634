@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { organizationSchema, faqSchema } from '../utils/seoConfig';
 
 const SEOHead = ({
   title,
@@ -74,8 +75,29 @@ const SEOHead = ({
     updateTwitterTag('twitter:title', title);
     updateTwitterTag('twitter:description', description);
     updateTwitterTag('twitter:image', `${baseUrl}${ogImage}`);
+    updateTwitterTag('twitter:card', 'summary_large_image');
 
-    // Add structured data if provided
+    // Add Organization Schema (Global - AEO)
+    let orgSchemaScript = document.querySelector('#organization-schema');
+    if (!orgSchemaScript) {
+      orgSchemaScript = document.createElement('script');
+      orgSchemaScript.id = 'organization-schema';
+      orgSchemaScript.type = 'application/ld+json';
+      document.head.appendChild(orgSchemaScript);
+    }
+    orgSchemaScript.textContent = JSON.stringify(organizationSchema);
+
+    // Add FAQ Schema (Global - AEO for AI platforms)
+    let faqSchemaScript = document.querySelector('#faq-schema');
+    if (!faqSchemaScript) {
+      faqSchemaScript = document.createElement('script');
+      faqSchemaScript.id = 'faq-schema';
+      faqSchemaScript.type = 'application/ld+json';
+      document.head.appendChild(faqSchemaScript);
+    }
+    faqSchemaScript.textContent = JSON.stringify(faqSchema);
+
+    // Add page-specific structured data if provided
     if (schemaData) {
       let schemaScript = document.querySelector('#page-schema');
       if (!schemaScript) {

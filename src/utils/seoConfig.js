@@ -284,5 +284,210 @@ export const seoConfig = {
       "datePublished": "2026-01-22",
       "articleBody": "The Dual Squeeze Manifesto explains how modern businesses are crushed between two opposing forces: The Fortress (pressure to be secure) and The Factory (pressure to be fast). Viability Engineering is the solution that harmonizes these forces."
     }
+  },
+  aiWorkforce: {
+    title: "AI Workforce - Deploy Autonomous Digital Employees | Handvantage",
+    description: "Don't buy software. Hire digital employees. Deploy autonomous AI agents for sales (SDR), compliance (GRC), and support (L1-L2). Scale infinitely for a fraction of the cost of traditional hiring.",
+    keywords: "AI workforce, agentic AI, digital employees, AI agents, AI SDR, AI compliance, AI support, autonomous agents, business automation AI, AI employees, digital workforce, LLM agents, OpenAI agents, Anthropic Claude agents",
+    canonical: "/services/ai-workforce",
+    schemaData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Workforce - Agentic AI Deployment",
+      "description": "Deploy autonomous AI agents that work 24/7 as digital employees for sales, compliance, and support operations",
+      "provider": {
+        "@type": "Organization",
+        "name": "Handvantage",
+        "url": "https://handvantage.co",
+        "logo": "https://handvantage.co/logo.svg",
+        "sameAs": [
+          "https://linkedin.com/company/handvantage",
+          "https://linkedin.com/in/josh-olayemi"
+        ]
+      },
+      "serviceType": "AI Workforce Deployment",
+      "category": "Artificial Intelligence Services",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "3500",
+        "highPrice": "10000",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "6250",
+          "priceCurrency": "USD",
+          "unitText": "MONTH"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Agent Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Hunter - AI SDR Agent",
+              "description": "Autonomous AI agent that finds leads, researches pain points, writes personalized emails, and books meetings 24/7"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Sentry - AI Compliance Agent",
+              "description": "AI agent that monitors logs in real-time, checks policies, and gathers SOC2/ISO audit evidence automatically"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "The Concierge - AI Support Agent",
+              "description": "L1-L2 support AI agent that triages tickets, resets passwords, provisions access, solving 80% of requests instantly"
+            }
+          }
+        ]
+      }
+    }
   }
+};
+
+// Organization Schema for AEO (AI Engine Optimization)
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Handvantage",
+  "alternateName": "Handvantage AI Workforce Solutions",
+  "url": "https://handvantage.co",
+  "logo": "https://handvantage.co/logo.svg",
+  "description": "Elite cybersecurity and AI workforce solutions provider. We deploy 24/7 SOC teams and autonomous AI agents that replace $180k+ hires. Vendor agnostic. 15-minute response SLA.",
+  "foundingDate": "2020",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Josh Olayemi",
+      "jobTitle": "Founder & Strategic Technology Consultant",
+      "url": "https://linkedin.com/in/josh-olayemi"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US",
+    "addressRegion": "North America"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-236-235-0919",
+    "contactType": "Sales",
+    "areaServed": "US",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://linkedin.com/company/handvantage",
+    "https://linkedin.com/in/josh-olayemi"
+  ],
+  "serviceArea": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Handvantage Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "AI Workforce Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Workforce Deployment",
+              "description": "Deploy autonomous AI agents for sales, compliance, and support"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Managed Security Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "24/7 SOC & MDR",
+              "description": "24/7 Security Operations Center with active remediation and 15-minute response SLA"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "12"
+  }
+};
+
+// FAQ Schema for AI platforms
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Agentic AI and how is it different from automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agentic AI refers to autonomous AI agents that can reason, plan, and execute tasks independently. Unlike traditional automation (like Zapier/Make scripts that follow 'if this, then that' logic), agentic AI agents can adapt to changing conditions, handle edge cases, and make decisions without human intervention. They use large language models (LLMs) to understand context and execute complex workflows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to deploy AI agents compared to hiring employees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A typical internal hire (like a Security Analyst or SDR) costs $180,000+ per year including salary and benefits, works 40 hours per week (2,080 hours/year), and may burn out in 6 months. Handvantage AI agents work 24/7/365 (8,760 hours/year), cost a fraction of the price (starting at $6,250/month), never burn out, and get smarter every day. The ROI is typically 3-5x within the first year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What AI agents does Handvantage offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Handvantage offers three core AI agents: 1) The Hunter (AI SDR) - finds leads, researches pain points, writes personalized emails, books meetings. 2) The Sentry (AI Compliance Agent) - monitors logs, checks policies, gathers SOC2/ISO evidence. 3) The Concierge (AI Support Agent) - triages tickets, resets passwords, provisions access, solves 80% of L1-L2 requests automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Handvantage vendor agnostic for AI platforms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Handvantage builds AI agents on OpenAI (GPT-4), Anthropic (Claude), or open-source models depending on your requirements. We are loyal to outcomes, not vendors. We select the best AI platform for each use case and can integrate with your existing tech stack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to deploy AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our 4-step process typically takes 2-4 weeks: 1) Map - identify human bottlenecks (1 week), 2) Build - code the agents with custom Python + LLMs (1-2 weeks), 3) Train - load your knowledge base (2-3 days), 4) Deploy - agents start working on Day 1. Most clients see ROI within the first month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Handvantage and traditional MSPs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional MSPs resell software and send alerts when something breaks. Handvantage is the service layer - we actively manage your systems 24/7 (we are the Pilot, not the copilot), deploy autonomous AI agents to replace expensive hires, and are vendor agnostic (we work with whatever tools you already have). We guarantee 15-minute response times and focus on outcomes, not tool sales."
+      }
+    }
+  ]
 };
