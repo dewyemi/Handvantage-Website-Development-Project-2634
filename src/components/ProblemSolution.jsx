@@ -63,219 +63,208 @@ const ProblemSolution = () => {
             </div>
           </motion.div>
 
-          {/* Bento Grid - Asymmetric Layout */}
-          <BentoGrid columns={12} gap="lg" className="max-w-7xl mx-auto">
-            {/* Fortress Card - Large (7 columns) */}
-            <BentoCard
-              span={12}
-              spanMd={7}
-              hover={true}
-              animate={true}
-              className="bg-obsidian/90 border-2 border-red-500/30 overflow-hidden group"
-              style={{
-                transform: 'rotateX(1deg) rotateY(-1deg)',
-              }}
+          {/* Split Screen - 50/50 Layout (Copy Deck Spec) */}
+          <div className="grid lg:grid-cols-2 gap-0 min-h-[700px]">
+
+            {/* LEFT SIDE: The Fear (Security) */}
+            <motion.div
+              className="relative flex items-center justify-center p-8 lg:p-16 border-r border-white/5 bg-gradient-to-br from-red-500/5 to-transparent"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <HUDOverlay
-                variant="fortress"
-                showCorners={true}
-                showScanLine={true}
-                label="THREAT LEVEL: CRITICAL"
-                className="h-full p-8 md:p-10"
-              >
-                {/* Background Radar */}
-                <div className="absolute inset-0 opacity-5 pointer-events-none">
-                  <RadarScan variant="threat" className="w-full h-full" />
-                </div>
+              {/* Background Radar */}
+              <div className="absolute inset-0 opacity-5 pointer-events-none">
+                <RadarScan variant="threat" className="w-full h-full" />
+              </div>
 
-                <div className="relative z-10 flex flex-col h-full">
-                  {/* Icon and Title */}
-                  <div className="mb-6">
-                    <motion.div
-                      className="w-16 h-16 bg-red-500/20 rounded-lg flex items-center justify-center mb-6 ring-2 ring-red-500/40"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <SafeIcon icon={FiShield} className="w-8 h-8 text-red-400" />
-                    </motion.div>
-                    <TerminalLabel className="text-red-400 mb-4">
-                      THE FORTRESS PROBLEM
-                    </TerminalLabel>
-                    <h3 className="font-editorial text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                      You Are One Click Away<br />
-                      <span className="text-red-400">From Bankruptcy.</span>
-                    </h3>
-                  </div>
+              {/* Red Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent blur-[100px]" />
 
-                  {/* Description */}
-                  <p className="text-slate-300 leading-relaxed text-lg mb-6">
-                    The average cost of downtime is now{' '}
-                    <span className="font-editorial font-bold text-red-400">$9,000 per minute</span>.
-                    You cannot afford to blink.
-                  </p>
-
-                  {/* Data-Driven Stats */}
-                  <div className="space-y-4 mb-6">
-                    <DataDisplay
-                      label="AVG BREACH CONTAINMENT"
-                      value={277}
-                      unit="DAYS"
-                      status="critical"
-                      showBar={true}
-                      maxValue={365}
-                    />
-                    <DataDisplay
-                      label="CYBERSECURITY WORKFORCE GAP"
-                      value={4.8}
-                      unit="M"
-                      status="critical"
-                      showBar={true}
-                      maxValue={10}
-                    />
-                  </div>
-
-                  {/* Solution Box */}
-                  <div className="mt-auto brutal-card bg-fortress-900/60 border border-fortress-accent/30 p-6">
-                    <p className="text-arc font-editorial font-semibold text-lg mb-2">
-                      The Handvantage Solution:
-                    </p>
-                    <p className="text-slate-300 leading-relaxed">
-                      We are the <span className="text-fortress-accent font-bold">Pilot</span>. We don't just "alert" you—we{' '}
-                      <span className="text-white font-semibold">investigate within 15 minutes</span> and kill threats before they spread.
-                    </p>
-                  </div>
-                </div>
-              </HUDOverlay>
-            </BentoCard>
-
-            {/* Factory Card - Medium (5 columns) */}
-            <BentoCard
-              span={12}
-              spanMd={5}
-              hover={true}
-              animate={true}
-              className="bg-obsidian/90 border-2 border-factory-500/30 overflow-hidden"
-              style={{
-                transform: 'rotateX(1deg) rotateY(1deg)',
-              }}
-            >
-              <HUDOverlay
-                variant="arc"
-                showCorners={true}
-                showScanLine={true}
-                label="EFFICIENCY: 42%"
-                className="h-full p-8 md:p-10"
-              >
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-5 pointer-events-none">
-                  <RadarScan variant="automation" className="w-full h-full" />
-                </div>
-
-                <div className="relative z-10 flex flex-col h-full">
-                  {/* Icon and Title */}
-                  <div className="mb-6">
-                    <motion.div
-                      className="w-16 h-16 bg-factory-500/20 rounded-lg flex items-center justify-center mb-6 ring-2 ring-factory-500/40"
-                      whileHover={{ scale: 1.1, rotate: -5 }}
-                    >
-                      <SafeIcon icon={FiZap} className="w-8 h-8 text-factory-500" />
-                    </motion.div>
-                    <TerminalLabel className="text-factory-500 mb-4">
-                      THE FACTORY PROBLEM
-                    </TerminalLabel>
-                    <h3 className="font-editorial text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                      You Are Burning Cash<br />
-                      <span className="text-factory-500">on Manual Labor.</span>
-                    </h3>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-slate-300 leading-relaxed mb-6">
-                    The average enterprise wastes{' '}
-                    <span className="font-editorial font-bold text-factory-500">30% of SaaS spend</span>{' '}
-                    on unused licenses.
-                  </p>
-
-                  {/* Data Stat */}
-                  <div className="mb-6">
-                    <DataDisplay
-                      label="PROFIT LEAK"
-                      value={180}
-                      unit="K+"
-                      status="warning"
-                      showBar={true}
-                      maxValue={200}
-                    />
-                  </div>
-
-                  {/* Solution Box */}
-                  <div className="mt-auto brutal-card bg-factory-500/10 border border-factory-500/30 p-6">
-                    <p className="text-factory-400 font-editorial font-semibold text-lg mb-2">
-                      The Handvantage Solution:
-                    </p>
-                    <p className="text-slate-300 leading-relaxed">
-                      We are the <span className="text-factory-500 font-bold">Engineer</span>. We automate the grunt work so your team can{' '}
-                      <span className="text-white font-semibold">build the future</span>.
-                    </p>
-                  </div>
-                </div>
-              </HUDOverlay>
-            </BentoCard>
-
-            {/* Viability Card - Full Width Accent */}
-            <BentoCard
-              span={12}
-              hover={true}
-              animate={true}
-              className="bg-gradient-to-br from-viability-primary/10 via-obsidian to-obsidian border-2 border-viability-primary/30 overflow-hidden"
-            >
-              <div className="p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="relative z-10 max-w-lg">
                 {/* Icon */}
-                <div className="flex-shrink-0">
-                  <motion.div
-                    className="w-24 h-24 md:w-32 md:h-32"
-                    animate={{
-                      rotate: [0, 360],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  >
-                    <ViabilitySymbol className="w-full h-full" />
-                  </motion.div>
+                <motion.div
+                  className="w-16 h-16 bg-red-500/20 sharp-edges flex items-center justify-center mb-6 ring-2 ring-red-500/40"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <SafeIcon icon={FiShield} className="w-8 h-8 text-red-400" />
+                </motion.div>
+
+                {/* Label */}
+                <TerminalLabel className="text-red-400 mb-4">
+                  THE FEAR (SECURITY)
+                </TerminalLabel>
+
+                {/* Headline */}
+                <h3 className="font-editorial text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-none tracking-tighter">
+                  You Are One Click Away<br />
+                  <span className="text-red-500">From Bankruptcy.</span>
+                </h3>
+
+                {/* Body */}
+                <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                  Your firewall isn't enough. Your antivirus is asleep. The threat isn't a "virus"—it's a{' '}
+                  <span className="text-white font-semibold">human adversary</span> who works while you sleep.
+                </p>
+
+                {/* Stats */}
+                <div className="space-y-4 mb-8">
+                  <DataDisplay
+                    label="DOWNTIME COST"
+                    value={9000}
+                    unit="/MIN"
+                    status="critical"
+                    showBar={true}
+                    maxValue={10000}
+                  />
+                  <DataDisplay
+                    label="AVG BREACH TIME"
+                    value={277}
+                    unit="DAYS"
+                    status="critical"
+                    showBar={true}
+                    maxValue={365}
+                  />
                 </div>
 
-                {/* Content */}
-                <div className="flex-1 text-center md:text-left">
-                  <TerminalLabel className="text-viability-primary mb-3">
-                    THE HANDVANTAGE SOLUTION
-                  </TerminalLabel>
-                  <h3 className="font-editorial text-3xl md:text-4xl font-bold text-white mb-4">
-                    The <span className="text-viability-primary">Dual DNA</span> Philosophy
-                  </h3>
-                  <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">
-                    You cannot be secure if you are inefficient. You cannot be efficient if you are hacked.{' '}
-                    <span className="text-white font-semibold">We are the only partner who solves both.</span>
+                {/* Promise Box */}
+                <div className="brutal-card bg-red-500/5 border border-red-500/20 p-6">
+                  <p className="text-signal font-editorial font-semibold text-xl mb-3">
+                    The Handvantage Promise:
                   </p>
-                </div>
-
-                {/* CTA */}
-                <div className="flex-shrink-0">
-                  <Link
-                    to="/manifesto"
-                    className="group inline-flex items-center gap-2 px-6 py-3 bg-viability-primary hover:bg-viability-primary/90 text-white font-editorial font-semibold rounded-lg transition-all"
-                  >
-                    Learn More
-                    <SafeIcon
-                      icon={FiArrowRight}
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                    />
-                  </Link>
+                  <p className="text-slate-300 leading-relaxed">
+                    We are the <span className="text-signal font-bold">Pilot</span>. We fly the plane 24/7. We don't just "alert" you to a crash; we{' '}
+                    <span className="text-white font-semibold">land the bird safely</span>.
+                  </p>
                 </div>
               </div>
-            </BentoCard>
-          </BentoGrid>
+            </motion.div>
+
+            {/* RIGHT SIDE: The Greed (Efficiency) */}
+            <motion.div
+              className="relative flex items-center justify-center p-8 lg:p-16 bg-gradient-to-bl from-factory-500/5 to-transparent"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-5 pointer-events-none">
+                <RadarScan variant="automation" className="w-full h-full" />
+              </div>
+
+              {/* Cyan Glow */}
+              <div className="absolute inset-0 bg-gradient-to-bl from-factory-500/10 via-transparent to-transparent blur-[100px]" />
+
+              <div className="relative z-10 max-w-lg">
+                {/* Icon */}
+                <motion.div
+                  className="w-16 h-16 bg-factory-500/20 sharp-edges flex items-center justify-center mb-6 ring-2 ring-factory-500/40"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <SafeIcon icon={FiZap} className="w-8 h-8 text-factory-500" />
+                </motion.div>
+
+                {/* Label */}
+                <TerminalLabel className="text-factory-500 mb-4">
+                  THE GREED (EFFICIENCY)
+                </TerminalLabel>
+
+                {/* Headline */}
+                <h3 className="font-editorial text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-none tracking-tighter">
+                  You Are Burning Cash<br />
+                  <span className="text-factory-500">on Manual Labor.</span>
+                </h3>
+
+                {/* Body */}
+                <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                  Your smartest people are stuck resetting passwords and copy-pasting data. That's not "work"—that's{' '}
+                  <span className="text-white font-semibold">waste</span>.
+                </p>
+
+                {/* Stats */}
+                <div className="space-y-4 mb-8">
+                  <DataDisplay
+                    label="SAAS WASTE"
+                    value={30}
+                    unit="%"
+                    status="warning"
+                    showBar={true}
+                    maxValue={100}
+                  />
+                  <DataDisplay
+                    label="PROFIT LEAK"
+                    value={180}
+                    unit="K+"
+                    status="warning"
+                    showBar={true}
+                    maxValue={200}
+                  />
+                </div>
+
+                {/* Promise Box */}
+                <div className="brutal-card bg-factory-500/5 border border-factory-500/20 p-6">
+                  <p className="text-signal font-editorial font-semibold text-xl mb-3">
+                    The Handvantage Promise:
+                  </p>
+                  <p className="text-slate-300 leading-relaxed">
+                    We are the <span className="text-factory-500 font-bold">Engineer</span>. We rebuild the engine while it runs. We automate the grunt work so your team can{' '}
+                    <span className="text-white font-semibold">build the future</span>.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Dual DNA Bar - Full Width */}
+          <motion.div
+            className="relative bg-gradient-to-r from-viability-primary/10 via-viability-primary/5 to-viability-primary/10 border-y border-viability-primary/20 py-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <motion.div
+                  className="w-20 h-20 md:w-24 md:h-24"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                >
+                  <ViabilitySymbol className="w-full h-full" />
+                </motion.div>
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 text-center md:text-left">
+                <TerminalLabel className="text-viability-primary mb-3">
+                  THE HANDVANTAGE SOLUTION
+                </TerminalLabel>
+                <h3 className="font-editorial text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 leading-none tracking-tighter">
+                  The <span className="text-viability-primary">Dual DNA</span> Philosophy
+                </h3>
+                <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">
+                  You cannot be secure if you are inefficient. You cannot be efficient if you are hacked.{' '}
+                  <span className="text-white font-semibold">We are the only partner who solves both.</span>
+                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="flex-shrink-0">
+                <Link
+                  to="/manifesto"
+                  className="group inline-flex items-center gap-2 px-8 py-4 sharp-edges border-2 border-viability-primary hover:bg-viability-primary text-viability-primary hover:text-white font-editorial font-semibold transition-all"
+                >
+                  Learn More
+                  <SafeIcon icon={FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
