@@ -48,25 +48,32 @@ export default {
           50: '#f8fafc'
         },
         gold: '#fbbf24',
-        // Cinematic Palette - The "Elite Operations" Theme
+        // Cinematic Palette - The "Void" Theme (v6 Cinematic Edition)
+        void: {
+          DEFAULT: '#050505', // Void Black - Darker than standard dark mode
+          surface: '#0A0A0A', // Obsidian - For cards and panels
+        },
         obsidian: {
-          DEFAULT: '#050505',
+          DEFAULT: '#0A0A0A', // Updated to match Void surface
           50: '#1a1a1a',
-          100: '#0a0a0a',
+          100: '#050505', // Void Black
         },
         signal: {
-          DEFAULT: '#00ff41', // Terminal green
+          DEFAULT: '#00FF94', // Terminal Green - High voltage, neon (Updated from #00ff41)
           50: '#e6fff0',
-          100: '#00ff41',
-          200: '#00cc34',
-          300: '#009926',
+          100: '#00FF94',
+          200: '#00cc75',
+          300: '#00995a',
         },
         arc: {
-          DEFAULT: '#0ea5e9', // Electric blue
+          DEFAULT: '#3B82F6', // Electric Blue - Clean, intelligent (Updated from #0ea5e9)
           50: '#e0f2fe',
-          100: '#0ea5e9',
-          200: '#0284c7',
-          300: '#0369a1',
+          100: '#3B82F6',
+          200: '#2563eb',
+          300: '#1d4ed8',
+        },
+        titanium: {
+          DEFAULT: '#EDEDED', // Titanium White - High contrast text
         }
       },
       fontFamily: {
@@ -95,6 +102,10 @@ export default {
         'glow-viability': '0 0 40px rgba(139, 92, 246, 0.4), 0 0 80px rgba(139, 92, 246, 0.2), 0 0 120px rgba(139, 92, 246, 0.1)',
         'glow-factory': '0 0 40px rgba(6, 182, 212, 0.4), 0 0 80px rgba(6, 182, 212, 0.2)',
         'glow-viability-sm': '0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3)',
+        'glow-signal': '0 0 40px rgba(0, 255, 148, 0.4), 0 0 80px rgba(0, 255, 148, 0.2), 0 0 120px rgba(0, 255, 148, 0.1)',
+        'glow-signal-sm': '0 0 20px rgba(0, 255, 148, 0.5), 0 0 40px rgba(0, 255, 148, 0.3)',
+        'glow-arc': '0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(59, 130, 246, 0.2)',
+        'glow-arc-sm': '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3)',
       }
     },
   },

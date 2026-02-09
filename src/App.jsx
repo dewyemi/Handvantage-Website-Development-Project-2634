@@ -15,6 +15,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 // New components for Viability Engineering
 import ViabilityOSSection from './components/ViabilityOSSection';
 import ProofSection from './components/ProofSection';
+import AgentRoster from './components/AgentRoster';
 
 // Lazy load non-critical page components for better performance
 const AboutPage = lazy(() => import('./components/AboutPage'));
@@ -87,6 +88,7 @@ function App() {
             <Route path="/" element={
               <main>
                 <Hero />
+                <AgentRoster />
                 <ProblemSolution />
                 <Partnerships />
                 <ProofSection />

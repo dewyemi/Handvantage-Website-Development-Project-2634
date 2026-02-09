@@ -118,179 +118,187 @@ const Hero = () => {
           />
         ))}
 
-        {/* Content - Asymmetric Layout */}
-        <motion.div style={{ opacity, y }} className="container mx-auto px-6 lg:px-20 py-20 relative z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Content - Split Screen Cinematic Layout */}
+        <motion.div style={{ opacity, y }} className="relative z-20 h-screen flex items-center">
+          {/* Split Screen Container */}
+          <div className="w-full grid lg:grid-cols-2 gap-0 min-h-[600px]">
 
-            {/* Left: Content (60%) */}
-            <div className="lg:col-span-7 space-y-8">
-              {/* Terminal Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <TerminalBadge status="operational" pulse={true}>
-                  AGENTIC AI WORKFORCE
-                </TerminalBadge>
-              </motion.div>
-
-              {/* Headline with Editorial Font */}
-              <motion.h1
-                className="font-editorial text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="block text-white mb-3">
-                  Hire an Army of
-                </span>
-                <span className="block">
-                  <span className="text-signal">1,000</span>
-                  <span className="text-white"> for the</span>
-                </span>
-                <span className="block text-white">
-                  Price of <span className="text-arc">One.</span>
-                </span>
-              </motion.h1>
-
-              {/* Subheadline with Terminal Typeout */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="space-y-4"
-              >
-                <div className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-2xl">
-                  <p className="mb-4">
-                    Automation is dead. This is <span className="font-editorial font-bold text-signal">Agentic AI</span>.
-                  </p>
-                  <p className="text-lg text-slate-400">
-                    We deploy autonomous digital workers that prospect, negotiate, research, and execute tasks 24/7.
-                    <span className="block mt-2 text-slate-500 italic">No sleep. No burnout. No overhead.</span>
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* CTAs with Signal Green + Arc Blue */}
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 pt-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <Link
-                  to="/roi-calculator"
-                  className="group relative inline-flex overflow-hidden rounded-lg p-[2px] focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2 focus:ring-offset-slate-900"
-                >
-                  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00ff41_0%,#0ea5e9_50%,#00ff41_100%)]" />
-                  <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-signal hover:bg-signal/90 px-8 py-4 text-base font-bold text-obsidian backdrop-blur-3xl transition-all shadow-xl shadow-signal/30">
-                    Deploy My AI Workforce
-                    <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Link>
-
-                <Link
-                  to="/services/ai-workforce"
-                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-slate-300 font-semibold hover:text-white border-2 border-arc/30 hover:border-arc hover:bg-arc/10 transition-all"
-                >
-                  See The Agents
-                  <SafeIcon icon={FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-
-              {/* Trust Line */}
-              <motion.div
-                className="terminal-text text-xs text-slate-500 pt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.9 }}
-              >
-                VENDOR AGNOSTIC • 15-MIN RESPONSE • ZERO TOOL TAX
-              </motion.div>
-            </div>
-
-            {/* Right: Floating Status Board (40%) */}
+            {/* LEFT SIDE: The Pilot (Security) - Green Glow */}
             <motion.div
-              className="lg:col-span-5 relative"
-              initial={{ opacity: 0, x: 40, rotateY: -10 }}
-              animate={{ opacity: 1, x: 0, rotateY: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-center justify-center p-8 lg:p-16 border-r border-white/5"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* HUD Container */}
-              <HUDOverlay
-                variant="signal"
-                showCorners={true}
-                showGrid={true}
-                showScanLine={true}
-                showStatus={true}
-                status="operational"
-                label="LIVE METRICS"
-                className="p-8 bg-obsidian/90 backdrop-blur-xl border border-signal/20 rounded-lg"
-              >
-                <div className="space-y-6">
-                  {/* Radar Scan Visual */}
-                  <div className="relative aspect-square max-w-[300px] mx-auto mb-6">
-                    <RadarScan variant="security" className="w-full h-full" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <TerminalLabel className="text-signal">
-                        SYSTEMS ACTIVE
-                      </TerminalLabel>
+              {/* Green Glow Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-signal/20 via-transparent to-transparent blur-[100px]" />
+
+              <div className="relative z-10 max-w-md">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="terminal-text text-signal text-sm mb-4 tracking-widest">THE PILOT</div>
+                  <h2 className="font-editorial text-4xl md:text-5xl font-bold text-white mb-6 leading-none tracking-tighter">
+                    <TerminalText text="Secure The Fortress." speed={50} cursor={true} color="white" />
+                  </h2>
+                  <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                    We don't just watch the radar. We fly the plane 24/7. Active remediation, not just alerts.
+                  </p>
+
+                  {/* Security Stats */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 text-sm">
+                      <div className="w-2 h-2 bg-signal rounded-none"></div>
+                      <span className="terminal-text text-slate-400">24/7 EYES ON GLASS</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <div className="w-2 h-2 bg-signal rounded-none"></div>
+                      <span className="terminal-text text-slate-400">15-MIN RESPONSE SLA</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <div className="w-2 h-2 bg-signal rounded-none"></div>
+                      <span className="terminal-text text-slate-400">VENDOR AGNOSTIC</span>
                     </div>
                   </div>
+                </motion.div>
+              </div>
+            </motion.div>
 
-                  {/* Real-time Metrics */}
-                  <DataGrid columns={1} gap="sm">
-                    <DataDisplay
-                      label="THREAT RESPONSE TIME"
-                      value={15}
-                      unit="MIN"
-                      status="operational"
-                      showBar={true}
-                      maxValue={60}
-                    />
-                    <DataDisplay
-                      label="AUTOMATION EFFICIENCY"
-                      value={94}
-                      unit="%"
-                      status="operational"
-                      showBar={true}
-                    />
-                    <DataDisplay
-                      label="ACTIVE AI AGENTS"
-                      value={1247}
-                      unit=""
-                      status="operational"
-                      showScanLine={true}
-                    />
-                  </DataGrid>
+            {/* RIGHT SIDE: The Fleet (Agents) - Blue Glow */}
+            <motion.div
+              className="relative flex items-center justify-center p-8 lg:p-16"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Blue Glow Background */}
+              <div className="absolute inset-0 bg-gradient-to-bl from-arc/20 via-transparent to-transparent blur-[100px]" />
 
-                  {/* Status Indicator */}
-                  <div className="pt-4 border-t border-white/10">
-                    <div className="flex items-center justify-between">
-                      <span className="terminal-text text-xs text-slate-400">
-                        UPTIME
-                      </span>
-                      <span className="font-mono text-signal font-bold">
-                        99.97%
-                      </span>
+              <div className="relative z-10 max-w-md">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="terminal-text text-arc text-sm mb-4 tracking-widest">THE FLEET</div>
+                  <h2 className="font-editorial text-4xl md:text-5xl font-bold text-white mb-6 leading-none tracking-tighter">
+                    <TerminalText text="Deploy The Fleet." speed={50} cursor={true} color="white" delay={500} />
+                  </h2>
+                  <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                    Autonomous AI agents that work 24/7. Hire 1,000 digital employees for the price of one.
+                  </p>
+
+                  {/* Agent Stats */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 text-sm">
+                      <div className="w-2 h-2 bg-arc rounded-none"></div>
+                      <span className="terminal-text text-slate-400">THE HUNTER • SDR AGENT</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <div className="w-2 h-2 bg-arc rounded-none"></div>
+                      <span className="terminal-text text-slate-400">THE SENTRY • COMPLIANCE</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <div className="w-2 h-2 bg-arc rounded-none"></div>
+                      <span className="terminal-text text-slate-400">THE CONCIERGE • SUPPORT</span>
                     </div>
                   </div>
-                </div>
-              </HUDOverlay>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
 
-          {/* Trust Signals - Vendor Agnostic Partners */}
+          {/* CENTER OVERLAY: The Dual DNA */}
           <motion.div
-            className="mt-24 pt-12 border-t border-white/5"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="relative">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-viability-primary/30 blur-[60px] rounded-none" />
+
+              {/* Content */}
+              <div className="relative backdrop-blur-xl bg-void/90 border border-white/10 p-8 text-center min-w-[300px] sharp-edges">
+                <div className="terminal-text text-viability-primary text-xs mb-3 tracking-widest">THE DUAL DNA</div>
+                <div className="font-editorial text-2xl font-bold text-white leading-tight">
+                  PILOT + FLEET
+                </div>
+                <div className="mt-4 w-12 h-[1px] bg-viability-primary mx-auto"></div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Main Headline - Below Split Screen */}
+        <motion.div
+          className="container mx-auto px-6 py-16 relative z-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Terminal Badge */}
+            <TerminalBadge status="operational" pulse={true} className="mb-8 inline-block">
+              THE BILLION-DOLLAR COMMAND CENTER
+            </TerminalBadge>
+
+            {/* Main Headline */}
+            <h1 className="font-editorial text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-none tracking-tighter">
+              <span className="block mb-4">
+                <span className="text-red-500">Stop Paying</span> Ransomware Gangs.
+              </span>
+              <span className="block">
+                <span className="text-signal">Start Automating</span> Your Profit.
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-12">
+              Most MSPs just watch your screens. We secure your <span className="text-arc font-semibold">fortress</span> <span className="italic">and</span> rebuild your <span className="text-signal font-semibold">factory</span>.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/roi-calculator"
+                className="group relative inline-flex overflow-hidden sharp-edges p-[2px] focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2 focus:ring-offset-void"
+              >
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00FF94_0%,#3B82F6_50%,#00FF94_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center sharp-edges bg-signal hover:bg-signal/90 px-8 py-4 text-base font-bold text-void backdrop-blur-3xl transition-all shadow-glow-signal">
+                  Secure My Business & Automate My Work
+                  <SafeIcon icon={FiArrowRight} className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+
+              <Link
+                to="/manifesto"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 sharp-edges text-slate-300 font-semibold hover:text-white border-2 border-arc/30 hover:border-arc hover:bg-arc/10 transition-all"
+              >
+                See The "Dual DNA" Model
+                <SafeIcon icon={FiArrowRight} className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Micro-copy */}
+            <div className="terminal-text text-xs text-slate-500 mt-8 tracking-widest">
+              VENDOR AGNOSTIC • 15-MIN RESPONSE • ZERO TOOL TAX
+            </div>
+          </div>
+
+          {/* Trust Signals */}
+          <motion.div
+            className="mt-20 pt-12 border-t border-white/5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
-            <TerminalLabel className="text-slate-500 mb-6 text-center block">
+            <div className="terminal-text text-slate-500 text-xs mb-8 text-center tracking-widest">
               TRUSTED TO PROTECT & AUTOMATE MILLIONS IN REVENUE
-            </TerminalLabel>
+            </div>
             <div className="flex flex-wrap justify-center gap-8 md:gap-12 items-center">
               {['CrowdStrike', 'Microsoft', 'SentinelOne', 'Vanta', 'Drata'].map((tool, i) => (
                 <motion.div
@@ -298,7 +306,7 @@ const Hero = () => {
                   className="font-editorial text-slate-400 font-semibold text-lg opacity-60 hover:opacity-100 hover:text-signal transition-all"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 0.6, y: 0 }}
-                  transition={{ delay: 1.3 + i * 0.1 }}
+                  transition={{ delay: 1.6 + i * 0.1 }}
                   whileHover={{ scale: 1.05 }}
                 >
                   {tool}
