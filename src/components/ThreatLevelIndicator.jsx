@@ -67,13 +67,13 @@ const ThreatLevelIndicator = ({ level = 'protected', size = 'md' }) => {
   };
 
   return (
-    <div className="inline-flex items-center gap-3 bg-slate-900/80 border border-white/10 rounded-lg px-4 py-3 backdrop-blur-sm">
+    <div className="inline-flex items-center gap-3 bg-slate-900/80 border border-white/10 sharp-edges px-4 py-3 backdrop-blur-sm">
       {/* Threat Level Bars */}
       <div className="flex items-end gap-1 h-8">
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className={`w-1.5 rounded-sm ${getColorClasses(currentLevel.color, i, currentLevel.bars)}`}
+            className={`w-1.5 sharp-edges ${getColorClasses(currentLevel.color, i, currentLevel.bars)}`}
             style={{ height: `${(i + 1) * 20}%` }}
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
@@ -86,7 +86,7 @@ const ThreatLevelIndicator = ({ level = 'protected', size = 'md' }) => {
       <div className="flex flex-col">
         <div className="flex items-center gap-2">
           <motion.div
-            className={`w-2 h-2 rounded-full ${
+            className={`w-2 h-2 sharp-edges ${
               currentLevel.color === 'emerald' ? 'bg-emerald-500' :
               currentLevel.color === 'red' ? 'bg-red-500' :
               currentLevel.color === 'orange' ? 'bg-orange-500' :

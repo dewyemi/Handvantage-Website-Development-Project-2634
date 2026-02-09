@@ -65,13 +65,13 @@ const LiveStatusBoard = () => {
   };
 
   return (
-    <div className="relative bg-slate-900/90 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+    <div className="relative bg-slate-900/90 border border-white/10 sharp-edges p-6 backdrop-blur-xl">
       {/* Header */}
       <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-            <div className="absolute inset-0 w-3 h-3 bg-emerald-500 rounded-full animate-ping" />
+            <div className="w-3 h-3 bg-emerald-500 sharp-edges animate-pulse" />
+            <div className="absolute inset-0 w-3 h-3 bg-emerald-500 sharp-edges animate-ping" />
           </div>
           <div>
             <h3 className="text-sm font-mono text-white font-bold tracking-wider">LIVE STATUS</h3>
@@ -91,7 +91,7 @@ const LiveStatusBoard = () => {
         {metrics.map((metric, index) => (
           <motion.div
             key={index}
-            className={`relative border rounded-xl p-4 ${getStatusColor(metric.status)}`}
+            className={`relative border sharp-edges p-4 ${getStatusColor(metric.status)}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
@@ -111,7 +111,7 @@ const LiveStatusBoard = () => {
             />
 
             <div className="relative">
-              <div className={`w-8 h-8 ${getColorClasses(metric.color)} rounded-lg flex items-center justify-center mb-3`}>
+              <div className={`w-8 h-8 ${getColorClasses(metric.color)} sharp-edges flex items-center justify-center mb-3`}>
                 <SafeIcon icon={metric.icon} className="w-4 h-4" />
               </div>
               <p className="text-xs text-slate-400 font-mono uppercase mb-1">{metric.label}</p>

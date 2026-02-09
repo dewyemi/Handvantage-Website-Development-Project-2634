@@ -298,7 +298,7 @@ const BudgetPlanner = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
+            <div className="w-24 h-24 mx-auto mb-6 sharp-edges bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
               <SafeIcon icon={FiDollarSign} className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-primary-dark mb-4">Your Security Budget Plan</h1>
@@ -308,7 +308,7 @@ const BudgetPlanner = () => {
           {/* Budget Summary */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 text-center"
+              className="bg-white sharp-edges shadow-lg p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -321,7 +321,7 @@ const BudgetPlanner = () => {
             </motion.div>
             
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 text-center"
+              className="bg-white sharp-edges shadow-lg p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -334,7 +334,7 @@ const BudgetPlanner = () => {
             </motion.div>
             
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 text-center"
+              className="bg-white sharp-edges shadow-lg p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -351,7 +351,7 @@ const BudgetPlanner = () => {
 
           {/* Budget Breakdown */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8 mb-8"
+            className="bg-white sharp-edges shadow-lg p-8 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -367,7 +367,7 @@ const BudgetPlanner = () => {
                   transition={{ delay: 0.5 + index * 0.1 }}
                 >
                   <div 
-                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3"
+                    className="w-16 h-16 sharp-edges flex items-center justify-center mx-auto mb-3"
                     style={{ backgroundColor: `${category.color}20` }}
                   >
                     <SafeIcon icon={category.icon} className="w-8 h-8" style={{ color: category.color }} />
@@ -379,7 +379,7 @@ const BudgetPlanner = () => {
                   <div className="text-sm text-slate-500">{category.percentage}% of budget</div>
                   {category.priority === 'high' && (
                     <div className="mt-2">
-                      <span className="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">
+                      <span className="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 sharp-edges">
                         High Priority
                       </span>
                     </div>
@@ -392,7 +392,7 @@ const BudgetPlanner = () => {
           {/* Implementation Timeline */}
           {budgetResults.timeline.phases.length > 0 && (
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 mb-8"
+              className="bg-white sharp-edges shadow-lg p-8 mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -400,8 +400,8 @@ const BudgetPlanner = () => {
               <h2 className="text-2xl font-bold text-primary-dark mb-8 text-center">Implementation Timeline</h2>
               <div className="space-y-6">
                 {budgetResults.timeline.phases.map((phase, index) => (
-                  <div key={index} className="flex items-center p-6 bg-blue-50 rounded-lg">
-                    <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-6">
+                  <div key={index} className="flex items-center p-6 bg-blue-50 sharp-edges">
+                    <div className="w-12 h-12 bg-blue-600 text-white sharp-edges flex items-center justify-center font-bold mr-6">
                       {index + 1}
                     </div>
                     <div className="flex-1">
@@ -423,7 +423,7 @@ const BudgetPlanner = () => {
 
           {/* Industry Benchmarks */}
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-8 mb-8"
+            className="bg-white sharp-edges shadow-lg p-8 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
@@ -460,7 +460,7 @@ const BudgetPlanner = () => {
 
           {/* CTA */}
           <motion.div
-            className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white text-center"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 sharp-edges shadow-lg p-8 text-white text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
@@ -474,7 +474,7 @@ const BudgetPlanner = () => {
                 href="https://handvantage.co/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+                className="bg-white text-blue-600 px-8 py-4 sharp-edges font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -482,7 +482,7 @@ const BudgetPlanner = () => {
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
               </motion.a>
               <motion.button
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -514,9 +514,9 @@ const BudgetPlanner = () => {
           </p>
           
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+          <div className="w-full bg-gray-200 sharp-edges h-3 mb-4">
             <div 
-              className="bg-blue-600 h-3 rounded-full transition-all duration-500"
+              className="bg-blue-600 h-3 sharp-edges transition-all duration-500"
               style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
             ></div>
           </div>
@@ -527,7 +527,7 @@ const BudgetPlanner = () => {
 
         {/* Current Step */}
         <motion.div
-          className="bg-white rounded-xl shadow-lg p-8"
+          className="bg-white sharp-edges shadow-lg p-8"
           key={currentStep}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -551,7 +551,7 @@ const BudgetPlanner = () => {
                   max="5000"
                   value={formData.companySize}
                   onChange={(e) => handleInputChange('companySize', parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-gray-200 sharp-edges appearance-none cursor-pointer"
                 />
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
                   <span>1</span>
@@ -566,7 +566,7 @@ const BudgetPlanner = () => {
                 <select
                   value={formData.industry}
                   onChange={(e) => handleInputChange('industry', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">Select your industry</option>
                   {industries.map((industry) => (
@@ -588,7 +588,7 @@ const BudgetPlanner = () => {
                   step="100000"
                   value={formData.annualRevenue}
                   onChange={(e) => handleInputChange('annualRevenue', parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-gray-200 sharp-edges appearance-none cursor-pointer"
                 />
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
                   <span>$100K</span>
@@ -607,7 +607,7 @@ const BudgetPlanner = () => {
                     type="number"
                     value={formData.currentSecurityBudget}
                     onChange={(e) => handleInputChange('currentSecurityBudget', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="100000"
                   />
                 </div>
@@ -620,7 +620,7 @@ const BudgetPlanner = () => {
                     step="0.1"
                     value={formData.budgetAsPercentage}
                     onChange={(e) => handleInputChange('budgetAsPercentage', parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="2.0"
                   />
                 </div>
@@ -641,7 +641,7 @@ const BudgetPlanner = () => {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="radio"
@@ -667,7 +667,7 @@ const BudgetPlanner = () => {
                   ].map((compliance) => (
                     <label
                       key={compliance}
-                      className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-3 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="checkbox"
@@ -699,7 +699,7 @@ const BudgetPlanner = () => {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="radio"
@@ -725,7 +725,7 @@ const BudgetPlanner = () => {
                   max="10"
                   value={formData.securityIncidents}
                   onChange={(e) => handleInputChange('securityIncidents', parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-gray-200 sharp-edges appearance-none cursor-pointer"
                 />
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
                   <span>0</span>
@@ -754,7 +754,7 @@ const BudgetPlanner = () => {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="radio"
@@ -780,7 +780,7 @@ const BudgetPlanner = () => {
                   max="50"
                   value={formData.securityTeamSize}
                   onChange={(e) => handleInputChange('securityTeamSize', parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-gray-200 sharp-edges appearance-none cursor-pointer"
                 />
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
                   <span>0</span>
@@ -801,7 +801,7 @@ const BudgetPlanner = () => {
                   ].map((tool) => (
                     <label
                       key={tool}
-                      className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-3 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="checkbox"
@@ -841,7 +841,7 @@ const BudgetPlanner = () => {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="radio"
@@ -865,7 +865,7 @@ const BudgetPlanner = () => {
                   {securityCategories.map((category) => (
                     <label
                       key={category.id}
-                      className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-3 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="checkbox"
@@ -905,7 +905,7 @@ const BudgetPlanner = () => {
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                      className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                     >
                       <input
                         type="radio"
@@ -928,7 +928,7 @@ const BudgetPlanner = () => {
             <motion.button
               onClick={prevStep}
               disabled={currentStep === 0}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors ${
                 currentStep === 0
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -946,7 +946,7 @@ const BudgetPlanner = () => {
             <motion.button
               onClick={nextStep}
               disabled={currentStep === 0 && !formData.industry}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors flex items-center ${
                 (currentStep !== 0 || formData.industry)
                   ? 'bg-blue-600 text-white hover:bg-blue-700'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'

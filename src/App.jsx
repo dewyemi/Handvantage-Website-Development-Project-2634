@@ -16,6 +16,7 @@ import Breadcrumbs from './components/Breadcrumbs';
 import ViabilityOSSection from './components/ViabilityOSSection';
 import ProofSection from './components/ProofSection';
 import AgentRoster from './components/AgentRoster';
+import ComparisonTable from './components/ComparisonTable';
 
 // Lazy load non-critical page components for better performance
 const AboutPage = lazy(() => import('./components/AboutPage'));
@@ -24,6 +25,7 @@ const CybersecurityPage = lazy(() => import('./components/CybersecurityPage'));
 const CloudInfrastructurePage = lazy(() => import('./components/CloudInfrastructurePage'));
 const BusinessAutomationPage = lazy(() => import('./components/BusinessAutomationPage'));
 const ManagedSecurityPage = lazy(() => import('./components/ManagedSecurityPage'));
+const AIWorkforcePage = lazy(() => import('./components/AIWorkforcePage'));
 
 const AssessmentLanding = lazy(() => import('./components/AssessmentLanding'));
 const AssessmentTool = lazy(() => import('./components/AssessmentTool'));
@@ -90,6 +92,7 @@ function App() {
                 <Hero />
                 <AgentRoster />
                 <ProblemSolution />
+                <ComparisonTable />
                 <Partnerships />
                 <ProofSection />
               </main>
@@ -137,6 +140,8 @@ function App() {
                 <BusinessAutomationPage />
               </>
             } />
+
+            <Route path="/services/ai-workforce" element={<AIWorkforcePage />} />
 
             <Route path="/assessment" element={
               <>

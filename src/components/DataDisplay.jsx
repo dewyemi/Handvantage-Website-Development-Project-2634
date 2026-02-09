@@ -134,9 +134,9 @@ const DataDisplay = ({
 
       {/* Progress Bar */}
       {showBar && (
-        <div className={`mt-4 bg-white/5 rounded-full overflow-hidden ${currentSize.bar}`}>
+        <div className={`mt-4 bg-white/5 sharp-edges overflow-hidden ${currentSize.bar}`}>
           <motion.div
-            className={`h-full rounded-full ${
+            className={`h-full sharp-edges ${
               status === 'operational' ? 'bg-signal' :
               status === 'critical' ? 'bg-red-500' :
               status === 'warning' ? 'bg-yellow-500' :

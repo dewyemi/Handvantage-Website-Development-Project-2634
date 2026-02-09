@@ -108,7 +108,7 @@ const Header = () => {
                   to={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
-                  className={`px-4 py-2 rounded-full text-sm font-bold tracking-wider transition-all duration-300 block hover:bg-white/5 ${isActive(item)
+                  className={`px-4 py-2 sharp-edges text-sm font-bold tracking-wider transition-all duration-300 block hover:bg-white/5 ${isActive(item)
                     ? 'text-viability-primary text-glow-mild bg-white/5'
                     : 'text-slate-300 hover:text-white'
                     }`}
@@ -128,7 +128,7 @@ const Header = () => {
           >
             <Link
               to="/roi-calculator"
-              className="relative group px-6 py-2.5 rounded-full font-semibold text-sm overflow-hidden"
+              className="relative group px-6 py-2.5 sharp-edges font-semibold text-sm overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-viability-primary to-factory-400 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 bg-white/20 group-hover:bg-white/30 transition-colors duration-300" />
@@ -141,7 +141,7 @@ const Header = () => {
               href="https://handvantage.co/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-full font-semibold text-sm border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
+              className="px-6 py-2.5 sharp-edges font-semibold text-sm border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
             >
               Contact
             </a>
@@ -172,7 +172,7 @@ const Header = () => {
                       to={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className={`block p-3 rounded-lg font-medium transition-colors uppercase tracking-widest ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                      className={`block p-3 sharp-edges font-medium transition-colors uppercase tracking-widest ${isActive(item) ? 'bg-white/5 text-viability-primary' : 'text-slate-300 hover:bg-white/5 hover:text-white'
                         }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -184,7 +184,7 @@ const Header = () => {
                 <div className="pt-4 space-y-3 mt-4 border-t border-white/10">
                   <Link
                     to="/roi-calculator"
-                    className="block w-full bg-gradient-to-r from-viability-primary to-factory-400 text-white px-6 py-3 rounded-lg font-semibold text-center shadow-lg shadow-viability-primary/20"
+                    className="block w-full bg-gradient-to-r from-viability-primary to-factory-400 text-white px-6 py-3 sharp-edges font-semibold text-center shadow-lg shadow-viability-primary/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Calculate Savings
@@ -193,7 +193,7 @@ const Header = () => {
                     href="https://handvantage.co/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full border border-white/20 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white/5"
+                    className="block w-full border border-white/20 text-white px-6 py-3 sharp-edges font-semibold text-center hover:bg-white/5"
                   >
                     Contact
                   </a>

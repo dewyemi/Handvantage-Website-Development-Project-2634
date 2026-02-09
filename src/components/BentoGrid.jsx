@@ -111,7 +111,7 @@ export const BentoCard = ({
 
   return (
     <BentoItem
-      className={`p-6 md:p-8 rounded-lg border backdrop-blur-xl transition-colors duration-300 ${variants[variant]} ${className}`}
+      className={`p-6 md:p-8 sharp-edges border backdrop-blur-xl transition-colors duration-300 ${variants[variant]} ${className}`}
       {...props}
     >
       {children}

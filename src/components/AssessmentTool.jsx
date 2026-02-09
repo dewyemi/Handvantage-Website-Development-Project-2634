@@ -506,7 +506,7 @@ const AssessmentTool = () => {
           >
             {/* Results Header */}
             <div className="text-center mb-12">
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: category.color }}>
+              <div className="w-24 h-24 mx-auto mb-6 sharp-edges flex items-center justify-center" style={{ backgroundColor: category.color }}>
                 <SafeIcon icon={category.icon} className="w-12 h-12 text-white" />
               </div>
               <h1 className="text-4xl font-bold text-gray-900 mb-4">Your Digital Transformation Score</h1>
@@ -522,22 +522,22 @@ const AssessmentTool = () => {
             </div>
 
             {/* Score Breakdown */}
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div className="bg-white sharp-edges shadow-lg p-8 mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Category Breakdown</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {sections.map((section, index) => {
                   const sectionScore = sectionScores[index];
                   return (
                     <div key={index} className="flex items-center space-x-4">
-                      <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${section.color}20` }}>
+                      <div className="w-12 h-12 sharp-edges flex items-center justify-center" style={{ backgroundColor: `${section.color}20` }}>
                         <SafeIcon icon={section.icon} className="w-6 h-6" style={{ color: section.color }} />
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-gray-900">{section.title}</h3>
                         <div className="flex items-center space-x-2">
-                          <div className="flex-1 bg-gray-200 rounded-full h-2">
+                          <div className="flex-1 bg-gray-200 sharp-edges h-2">
                             <div 
-                              className="h-2 rounded-full transition-all duration-500"
+                              className="h-2 sharp-edges transition-all duration-500"
                               style={{ 
                                 width: `${sectionScore}%`,
                                 backgroundColor: section.color 
@@ -554,17 +554,17 @@ const AssessmentTool = () => {
             </div>
 
             {/* Recommendations */}
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div className="bg-white sharp-edges shadow-lg p-8 mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommended Actions</h2>
               <div className="space-y-4">
                 {recommendations.map((rec, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
+                  <div key={index} className="border border-gray-200 sharp-edges p-4">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <h3 className="font-semibold text-gray-900 mb-2">{rec.title}</h3>
                         <p className="text-gray-600 mb-2">{rec.description}</p>
                         <div className="flex items-center space-x-4 text-sm">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          <span className={`px-2 py-1 sharp-edges text-xs font-medium ${
                             rec.priority === 'Critical' ? 'bg-red-100 text-red-800' :
                             rec.priority === 'High' ? 'bg-orange-100 text-orange-800' :
                             'bg-yellow-100 text-yellow-800'
@@ -584,7 +584,7 @@ const AssessmentTool = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 sharp-edges shadow-lg p-8 text-white text-center">
               <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Business?</h2>
               <p className="text-lg mb-6 opacity-90">
                 Schedule a free 30-minute consultation with Josh to discuss your assessment results and create a custom transformation roadmap.
@@ -592,7 +592,7 @@ const AssessmentTool = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a
                   href="tel:+12362350919"
-                  className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+                  className="bg-white text-blue-600 px-8 py-3 sharp-edges font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -603,7 +603,7 @@ const AssessmentTool = () => {
                   href="https://handvantage.co/contact"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
+                  className="border-2 border-white text-white px-8 py-3 sharp-edges font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -631,9 +631,9 @@ const AssessmentTool = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-white sharp-edges shadow-lg p-8">
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-100 sharp-edges flex items-center justify-center mx-auto mb-4">
                   <SafeIcon icon={FiCheckCircle} className="w-8 h-8 text-blue-600" />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Almost Done!</h2>
@@ -653,7 +653,7 @@ const AssessmentTool = () => {
                       required
                       value={userInfo.firstName}
                       onChange={(e) => setUserInfo({...userInfo, firstName: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Your first name"
                     />
                   </div>
@@ -666,7 +666,7 @@ const AssessmentTool = () => {
                       required
                       value={userInfo.lastName}
                       onChange={(e) => setUserInfo({...userInfo, lastName: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Your last name"
                     />
                   </div>
@@ -681,7 +681,7 @@ const AssessmentTool = () => {
                     required
                     value={userInfo.email}
                     onChange={(e) => setUserInfo({...userInfo, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="your.email@company.com"
                   />
                 </div>
@@ -695,7 +695,7 @@ const AssessmentTool = () => {
                       type="tel"
                       value={userInfo.phone}
                       onChange={(e) => setUserInfo({...userInfo, phone: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -708,7 +708,7 @@ const AssessmentTool = () => {
                       required
                       value={userInfo.company}
                       onChange={(e) => setUserInfo({...userInfo, company: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Your company"
                     />
                   </div>
@@ -722,7 +722,7 @@ const AssessmentTool = () => {
                     <select
                       value={userInfo.companySize}
                       onChange={(e) => setUserInfo({...userInfo, companySize: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Select size</option>
                       {companySizes.map(size => (
@@ -737,7 +737,7 @@ const AssessmentTool = () => {
                     <select
                       value={userInfo.industry}
                       onChange={(e) => setUserInfo({...userInfo, industry: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Select industry</option>
                       {industries.map(industry => (
@@ -752,7 +752,7 @@ const AssessmentTool = () => {
                     <select
                       value={userInfo.revenue}
                       onChange={(e) => setUserInfo({...userInfo, revenue: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 sharp-edges focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Select range</option>
                       {revenueRanges.map(range => (
@@ -770,7 +770,7 @@ const AssessmentTool = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-blue-600 text-white py-4 sharp-edges font-semibold hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
@@ -803,9 +803,9 @@ const AssessmentTool = () => {
             </p>
             
             {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+            <div className="w-full bg-gray-200 sharp-edges h-3 mb-4">
               <motion.div
-                className="bg-blue-600 h-3 rounded-full"
+                className="bg-blue-600 h-3 sharp-edges"
                 initial={{ width: 0 }}
                 animate={{ width: `${totalProgress}%` }}
                 transition={{ duration: 0.5 }}
@@ -821,7 +821,7 @@ const AssessmentTool = () => {
             {sections.map((section, index) => (
               <div
                 key={index}
-                className={`p-4 rounded-lg border-2 transition-all duration-300 ${
+                className={`p-4 sharp-edges border-2 transition-all duration-300 ${
                   index === currentSection
                     ? 'border-blue-500 bg-blue-50'
                     : index < currentSection
@@ -831,7 +831,7 @@ const AssessmentTool = () => {
               >
                 <div className="flex items-center space-x-3">
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    className={`w-8 h-8 sharp-edges flex items-center justify-center ${
                       index === currentSection
                         ? 'bg-blue-500'
                         : index < currentSection
@@ -856,7 +856,7 @@ const AssessmentTool = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${currentSection}-${currentQuestion}`}
-              className="bg-white rounded-xl shadow-lg p-8 mb-8"
+              className="bg-white sharp-edges shadow-lg p-8 mb-8"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
@@ -876,7 +876,7 @@ const AssessmentTool = () => {
                 >
                   <SafeIcon icon={FiHelpCircle} className="w-6 h-6 text-gray-400 hover:text-gray-600" />
                   {showTooltip === currentQuestionIndex && (
-                    <div className="absolute right-0 top-8 w-64 bg-gray-900 text-white p-3 rounded-lg text-sm z-10">
+                    <div className="absolute right-0 top-8 w-64 bg-gray-900 text-white p-3 sharp-edges text-sm z-10">
                       {currentQuestionData.tooltip}
                     </div>
                   )}
@@ -888,7 +888,7 @@ const AssessmentTool = () => {
                   <motion.button
                     key={index}
                     onClick={() => handleAnswer(currentQuestionIndex, option)}
-                    className={`w-full p-4 text-left border-2 rounded-lg transition-all duration-300 ${
+                    className={`w-full p-4 text-left border-2 sharp-edges transition-all duration-300 ${
                       answers[currentQuestionIndex]?.text === option.text
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
@@ -950,7 +950,7 @@ const AssessmentTool = () => {
                 }
               }}
               disabled={!answers[currentQuestionIndex]}
-              className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white sharp-edges hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

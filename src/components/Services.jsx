@@ -66,7 +66,7 @@ const Services = () => {
         {/* Section A: The Pilot */}
         <div className="mb-24">
           <motion.div
-            className="bg-slate-900 rounded-3xl p-10 md:p-16 text-white relative overflow-hidden"
+            className="bg-slate-900 sharp-edges p-10 md:p-16 text-white relative overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -78,7 +78,7 @@ const Services = () => {
             <div className="relative z-10 grid md:grid-cols-2 gap-12 items-start">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-viability-primary rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-viability-primary sharp-edges flex items-center justify-center">
                     <SafeIcon icon={FiShield} className="w-6 h-6 text-white" />
                   </div>
                   <h2 className="text-3xl font-bold">THE PILOT</h2>
@@ -97,7 +97,7 @@ const Services = () => {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div className="w-12 h-12 bg-viability-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-viability-primary/10 sharp-edges flex items-center justify-center flex-shrink-0">
                         <SafeIcon icon={feature.icon} className="w-6 h-6 text-viability-primary" />
                       </div>
                       <div>
@@ -119,7 +119,7 @@ const Services = () => {
         {/* Section B: The Mechanic */}
         <div>
           <motion.div
-            className="bg-white border border-slate-200 rounded-3xl p-10 md:p-16 relative overflow-hidden shadow-xl"
+            className="bg-white border border-slate-200 sharp-edges p-10 md:p-16 relative overflow-hidden shadow-xl"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -132,7 +132,7 @@ const Services = () => {
 
               <div className="order-1 md:order-2">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-blue-100 sharp-edges flex items-center justify-center">
                     <SafeIcon icon={FiZap} className="w-6 h-6 text-blue-600" />
                   </div>
                   <h2 className="text-3xl font-bold text-primary-dark">THE MECHANIC</h2>
@@ -151,7 +151,7 @@ const Services = () => {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-blue-50 sharp-edges flex items-center justify-center flex-shrink-0">
                         <SafeIcon icon={feature.icon} className="w-6 h-6 text-blue-600" />
                       </div>
                       <div>
@@ -181,7 +181,7 @@ const Services = () => {
             href="https://handvantage.co/contact"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-primary-dark rounded-full hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-primary-dark sharp-edges hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl"
           >
             Book The Briefing
             <SafeIcon icon={FiArrowRight} className="w-5 h-5 ml-2" />

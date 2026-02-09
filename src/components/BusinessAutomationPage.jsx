@@ -357,7 +357,7 @@ const BusinessAutomationPage = () => {
             >
               {/* Badge */}
               <motion.div 
-                className="inline-flex items-center bg-[#e9d5ff] text-[#7c3aed] px-4 py-2 rounded-full text-sm font-semibold"
+                className="inline-flex items-center bg-[#e9d5ff] text-[#7c3aed] px-4 py-2 sharp-edges text-sm font-semibold"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.2}}
@@ -390,7 +390,7 @@ const BusinessAutomationPage = () => {
 
               {/* Automation impact stats */}
               <motion.div 
-                className="bg-[rgba(124,58,237,0.1)] border border-[#c4b5fd] rounded-lg p-5"
+                className="bg-[rgba(124,58,237,0.1)] border border-[#c4b5fd] sharp-edges p-5"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.5}}
@@ -431,7 +431,7 @@ const BusinessAutomationPage = () => {
               >
                 <motion.a 
                   href="#automation-assessment"
-                  className="bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300"
+                  className="bg-[#7c3aed] text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-purple-800 transition-colors duration-300"
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
                   onClick={(e) => {
@@ -443,7 +443,7 @@ const BusinessAutomationPage = () => {
                 </motion.a>
                 <motion.a 
                   href="#examples"
-                  className="border-2 border-[#7c3aed] text-[#7c3aed] px-8 py-4 rounded-lg font-semibold text-center hover:bg-[#7c3aed] hover:text-white transition-colors duration-300"
+                  className="border-2 border-[#7c3aed] text-[#7c3aed] px-8 py-4 sharp-edges font-semibold text-center hover:bg-[#7c3aed] hover:text-white transition-colors duration-300"
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
                   onClick={(e) => {
@@ -464,7 +464,7 @@ const BusinessAutomationPage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white sharp-edges p-8 shadow-xl">
                 <motion.h3 
                   className="text-2xl font-bold text-primary-dark text-center mb-4"
                   initial={{opacity: 0, y: 20}}
@@ -475,7 +475,7 @@ const BusinessAutomationPage = () => {
                   RTILA AI Master Agent
                 </motion.h3>
                 <motion.div 
-                  className="bg-[#7c3aed] text-white px-4 py-2 rounded-full text-sm font-semibold text-center mb-6"
+                  className="bg-[#7c3aed] text-white px-4 py-2 sharp-edges text-sm font-semibold text-center mb-6"
                   initial={{opacity: 0, y: 20}}
                   whileInView={{opacity: 1, y: 0}}
                   transition={{delay: 0.3}}
@@ -487,7 +487,7 @@ const BusinessAutomationPage = () => {
                   {rtilaCapabilities.map((capability, index) => (
                     <motion.div 
                       key={index}
-                      className="bg-gray-50 rounded-lg p-4 text-center"
+                      className="bg-gray-50 sharp-edges p-4 text-center"
                       initial={{opacity: 0, scale: 0.8}}
                       whileInView={{opacity: 1, scale: 1}}
                       transition={{delay: 0.4 + index * 0.1}}
@@ -529,7 +529,7 @@ const BusinessAutomationPage = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Basic Automation */}
             <motion.div 
-              className="bg-[#fef3c7] border border-[#fbbf24] rounded-xl p-8"
+              className="bg-[#fef3c7] border border-[#fbbf24] sharp-edges p-8"
               initial={{opacity: 0, x: -30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
@@ -568,7 +568,7 @@ const BusinessAutomationPage = () => {
 
             {/* Intelligent Automation */}
             <motion.div 
-              className="bg-[#f3e8ff] border border-[#c4b5fd] rounded-xl p-8"
+              className="bg-[#f3e8ff] border border-[#c4b5fd] sharp-edges p-8"
               initial={{opacity: 0, x: 30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
@@ -640,7 +640,7 @@ const BusinessAutomationPage = () => {
                 whileHover={{y: -8}}
               >
                 <div 
-                  className="rounded-xl p-6 h-full" 
+                  className="sharp-edges p-6 h-full" 
                   style={{backgroundColor: capability.bg, borderColor: capability.border, borderWidth: "1px"}}
                 >
                   {/* Icon */}
@@ -703,7 +703,7 @@ const BusinessAutomationPage = () => {
                 {roiMetrics.map((metric, index) => (
                   <motion.div 
                     key={index}
-                    className="bg-primary-light rounded-xl p-5 text-center shadow-sm"
+                    className="bg-primary-light sharp-edges p-5 text-center shadow-sm"
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     transition={{duration: 0.4, delay: index * 0.1}}
@@ -730,7 +730,7 @@ const BusinessAutomationPage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-[#f3e8ff] rounded-xl p-8 shadow-xl">
+              <div className="bg-[#f3e8ff] sharp-edges p-8 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Strategic Business Advantages
                 </h3>
@@ -745,7 +745,7 @@ const BusinessAutomationPage = () => {
                       viewport={{once: true}}
                     >
                       <div 
-                        className="p-3 rounded-lg mr-4 flex-shrink-0" 
+                        className="p-3 sharp-edges mr-4 flex-shrink-0" 
                         style={{backgroundColor: `${impact.color}15`}}
                       >
                         <SafeIcon icon={impact.icon} className="w-6 h-6" style={{color: impact.color}} />
@@ -791,7 +791,7 @@ const BusinessAutomationPage = () => {
             {implementationSteps.map((step, index) => (
               <motion.div 
                 key={index}
-                className="implementation-step bg-white rounded-xl p-6 text-center shadow-lg"
+                className="implementation-step bg-white sharp-edges p-6 text-center shadow-lg"
                 initial={{opacity: 0, y: 30}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: 0.5, delay: index * 0.1}}
@@ -799,7 +799,7 @@ const BusinessAutomationPage = () => {
                 whileHover={{y: -8}}
               >
                 <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" 
+                  className="w-12 h-12 sharp-edges flex items-center justify-center mx-auto mb-4" 
                   style={{backgroundColor: step.color}}
                 >
                   <span className="text-lg font-bold text-white">
@@ -860,7 +860,7 @@ const BusinessAutomationPage = () => {
               >
                 <div className="md:col-span-2 flex justify-center">
                   <div 
-                    className="w-20 h-20 rounded-full flex items-center justify-center" 
+                    className="w-20 h-20 sharp-edges flex items-center justify-center" 
                     style={{backgroundColor: useCase.color}}
                   >
                     <SafeIcon icon={useCase.icon} className="w-8 h-8 text-white" />
@@ -868,7 +868,7 @@ const BusinessAutomationPage = () => {
                 </div>
                 <div className="md:col-span-10">
                   <div 
-                    className="rounded-xl p-8" 
+                    className="sharp-edges p-8" 
                     style={{backgroundColor: useCase.bg, borderColor: useCase.color, borderWidth: "1px"}}
                   >
                     <h3 className="text-2xl font-bold text-primary-dark mb-4">
@@ -896,7 +896,7 @@ const BusinessAutomationPage = () => {
                           ))}
                         </ul>
                         <div 
-                          className="p-3 rounded-lg" 
+                          className="p-3 sharp-edges" 
                           style={{backgroundColor: `${useCase.color}15`}}
                         >
                           <p 
@@ -933,7 +933,7 @@ const BusinessAutomationPage = () => {
               Get your free process optimization strategy session and discover how RTILA AI can transform your business operations
             </p>
             <motion.div 
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8"
+              className="bg-white/10 backdrop-blur-sm sharp-edges p-8 mb-8"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.6, delay: 0.2}}
@@ -978,7 +978,7 @@ const BusinessAutomationPage = () => {
             >
               <motion.a 
                 href="#contact"
-                className="bg-white text-[#7c3aed] px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
+                className="bg-white text-[#7c3aed] px-8 py-4 sharp-edges font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
                 onClick={(e) => {
@@ -990,7 +990,7 @@ const BusinessAutomationPage = () => {
               </motion.a>
               <motion.a 
                 href="tel:+12362350919"
-                className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-[#7c3aed] transition-colors duration-300"
+                className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-white hover:text-[#7c3aed] transition-colors duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
@@ -1024,7 +1024,7 @@ const BusinessAutomationPage = () => {
               {/* Success Message */}
               {formStatus.isSuccess && (
                 <motion.div 
-                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  className="bg-green-500 text-white p-4 sharp-edges mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
@@ -1038,7 +1038,7 @@ const BusinessAutomationPage = () => {
               {/* Error Message */}
               {formStatus.error && (
                 <motion.div 
-                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  className="bg-red-500 text-white p-4 sharp-edges mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
@@ -1070,7 +1070,7 @@ const BusinessAutomationPage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                       placeholder="Your first name"
                     />
                   </div>
@@ -1085,7 +1085,7 @@ const BusinessAutomationPage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                       placeholder="Your last name"
                     />
                   </div>
@@ -1102,7 +1102,7 @@ const BusinessAutomationPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -1117,7 +1117,7 @@ const BusinessAutomationPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="Your phone number"
                   />
                 </div>
@@ -1133,7 +1133,7 @@ const BusinessAutomationPage = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="Your company name"
                   />
                 </div>
@@ -1148,7 +1148,7 @@ const BusinessAutomationPage = () => {
                     value={formData.automationNeeds}
                     onChange={handleInputChange}
                     rows="4"
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-white"
                     placeholder="Describe your growth goals and current process challenges..."
                   ></textarea>
                 </div>
@@ -1159,7 +1159,7 @@ const BusinessAutomationPage = () => {
                 <motion.button 
                   type="submit"
                   disabled={formStatus.isSubmitting}
-                  className="w-full bg-[#7c3aed] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-purple-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full bg-[#7c3aed] text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-purple-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   whileHover={!formStatus.isSubmitting ? {scale: 1.02} : {}}
                   whileTap={!formStatus.isSubmitting ? {scale: 0.98} : {}}
                 >
@@ -1183,8 +1183,8 @@ const BusinessAutomationPage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#7c3aed]">
+              <div className="bg-slate-800 sharp-edges p-8 border border-slate-700">
+                <div className="w-32 h-32 mx-auto mb-6 sharp-edges overflow-hidden border-4 border-[#7c3aed]">
                   <img 
                     src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp" 
                     alt="Josh Olayemi" 
@@ -1194,7 +1194,7 @@ const BusinessAutomationPage = () => {
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
                 <p className="text-[#7c3aed] font-semibold mb-2">Strategic Technology Consultant</p>
                 <p className="text-slate-300 mb-4">Process Optimization Expert</p>
-                <div className="bg-[#7c3aed]/20 p-4 rounded-lg mb-6">
+                <div className="bg-[#7c3aed]/20 p-4 sharp-edges mb-6">
                   <h4 className="font-bold text-[#c4b5fd] mb-2">🏆 Strategic Advantages:</h4>
                   <ul className="text-slate-300 space-y-2 text-sm">
                     <li className="flex items-center justify-center">

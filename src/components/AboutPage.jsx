@@ -184,9 +184,9 @@ const AboutPage = () => {
                 transition={{duration: 0.8}}
                 viewport={{once: true}}
               >
-                <div className="bg-white rounded-3xl p-8 shadow-xl">
+                <div className="bg-white sharp-edges p-8 shadow-xl">
                   <motion.div
-                    className="w-64 h-64 mx-auto mb-6 bg-gradient-to-r from-primary-blue to-primary-purple rounded-2xl overflow-hidden"
+                    className="w-64 h-64 mx-auto mb-6 bg-gradient-to-r from-primary-blue to-primary-purple sharp-edges overflow-hidden"
                     initial={{scale: 0.9, opacity: 0}}
                     whileInView={{scale: 1, opacity: 1}}
                     transition={{delay: 0.2}}
@@ -223,7 +223,7 @@ const AboutPage = () => {
                 viewport={{once: true}}
               >
                 <motion.div
-                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold"
+                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 sharp-edges text-sm font-semibold"
                   initial={{opacity: 0, y: 20}}
                   whileInView={{opacity: 1, y: 0}}
                   transition={{delay: 0.3}}
@@ -249,7 +249,7 @@ const AboutPage = () => {
                   transition={{delay: 0.5}}
                   viewport={{once: true}}
                 >
-                  <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-primary-blue mb-6">
+                  <div className="bg-blue-50 p-6 sharp-edges border-l-4 border-primary-blue mb-6">
                     <h3 className="font-semibold text-primary-dark mb-2">Company Mission</h3>
                     <p className="font-medium text-primary-dark">
                       HandVantage exists to transform cybersecurity from a growth barrier into a competitive advantage for growing businesses. We apply Fortune 500 security expertise and vendor relationships to deliver enterprise-grade protection that scales with your success.
@@ -276,7 +276,7 @@ const AboutPage = () => {
                 >
                   {/* Differentiator 1 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-green-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-green-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiCheckCircle} className="w-6 h-6 text-primary-success" />
                     </div>
                     <div>
@@ -287,7 +287,7 @@ const AboutPage = () => {
                   
                   {/* Differentiator 2 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-green-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-green-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiCheckCircle} className="w-6 h-6 text-primary-success" />
                     </div>
                     <div>
@@ -298,7 +298,7 @@ const AboutPage = () => {
                   
                   {/* Differentiator 3 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-green-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-green-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiCheckCircle} className="w-6 h-6 text-primary-success" />
                     </div>
                     <div>
@@ -319,7 +319,7 @@ const AboutPage = () => {
                     href="https://handvantage.co/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
+                    className="bg-primary-blue text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
                     whileHover={{scale: 1.05}}
                     whileTap={{scale: 0.95}}
                     aria-label="Schedule Strategy Call with Josh Olayemi"
@@ -330,7 +330,7 @@ const AboutPage = () => {
                     href="https://linkedin.com/in/josh-olayemi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 border-2 border-primary-blue text-primary-blue px-8 py-4 rounded-lg font-semibold hover:bg-primary-blue hover:text-white transition-colors duration-300"
+                    className="flex items-center justify-center space-x-2 border-2 border-primary-blue text-primary-blue px-8 py-4 sharp-edges font-semibold hover:bg-primary-blue hover:text-white transition-colors duration-300"
                     whileHover={{scale: 1.05}}
                     whileTap={{scale: 0.95}}
                     aria-label="View Josh Olayemi LinkedIn Profile"
@@ -381,7 +381,7 @@ const AboutPage = () => {
                     {/* Timeline Icon (always visible, but positioned differently on mobile) */}
                     <div className="flex md:block">
                       <div
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center flex-shrink-0 md:absolute md:left-0"
+                        className="w-16 h-16 md:w-20 md:h-20 sharp-edges flex items-center justify-center flex-shrink-0 md:absolute md:left-0"
                         style={{backgroundColor: item.iconBg}}
                       >
                         <SafeIcon icon={item.icon} className="w-8 h-8 md:w-10 md:h-10 text-white" />
@@ -393,7 +393,7 @@ const AboutPage = () => {
                     </div>
                     
                     {/* Timeline Content */}
-                    <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
+                    <div className="bg-white sharp-edges p-6 md:p-8 shadow-lg border border-gray-100">
                       <h3 className="text-2xl font-bold text-primary-dark mb-3 hidden md:block">{item.company}</h3>
                       <p className="text-slate-600 mb-6">{item.description}</p>
                       <h4 className="font-bold text-primary-dark mb-3">Key Achievements:</h4>
@@ -438,7 +438,7 @@ const AboutPage = () => {
               transition={{duration: 0.6, delay: 0.2}}
               viewport={{once: true}}
             >
-              <div className="bg-white rounded-xl p-8 border-l-4 border-primary-blue shadow-lg relative">
+              <div className="bg-white sharp-edges p-8 border-l-4 border-primary-blue shadow-lg relative">
                 <div className="absolute -top-4 -left-4 text-8xl font-serif text-primary-blue opacity-20">"</div>
                 <blockquote className="text-lg text-slate-600 italic relative z-10">
                   "After working at Amazon, Oracle, and AWS, then running my own MSP, I realized that growing businesses don't need another vendor — they need a trusted technology partner who can provide access to the best solutions in the market.
@@ -455,7 +455,7 @@ const AboutPage = () => {
               {partnershipCategories.map((category, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="bg-white sharp-edges p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
                   initial={{opacity: 0, y: 30}}
                   whileInView={{opacity: 1, y: 0}}
                   transition={{duration: 0.6, delay: 0.3 + index * 0.1}}
@@ -523,7 +523,7 @@ const AboutPage = () => {
                 <div className="space-y-6">
                   {/* Value Prop 1 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-blue-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-blue-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiUser} className="w-6 h-6 text-primary-blue" />
                     </div>
                     <div>
@@ -534,7 +534,7 @@ const AboutPage = () => {
                   
                   {/* Value Prop 2 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-blue-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-blue-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiShield} className="w-6 h-6 text-primary-blue" />
                     </div>
                     <div>
@@ -545,7 +545,7 @@ const AboutPage = () => {
                   
                   {/* Value Prop 3 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-blue-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-blue-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiZap} className="w-6 h-6 text-primary-blue" />
                     </div>
                     <div>
@@ -556,7 +556,7 @@ const AboutPage = () => {
                   
                   {/* Value Prop 4 */}
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 p-2 bg-blue-100 rounded-full flex-shrink-0">
+                    <div className="mt-1 p-2 bg-blue-100 sharp-edges flex-shrink-0">
                       <SafeIcon icon={FiHeart} className="w-6 h-6 text-primary-blue" />
                     </div>
                     <div>
@@ -574,14 +574,14 @@ const AboutPage = () => {
                 transition={{duration: 0.8}}
                 viewport={{once: true}}
               >
-                <div className="bg-primary-light rounded-xl p-8">
+                <div className="bg-primary-light sharp-edges p-8">
                   <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                     The Results Speak for Themselves
                   </h3>
                   <div className="grid grid-cols-2 gap-6 mb-8">
                     {/* Stat 1 */}
                     <motion.div
-                      className="bg-white rounded-xl p-6 text-center"
+                      className="bg-white sharp-edges p-6 text-center"
                       whileHover={{y: -5}}
                       transition={{duration: 0.2}}
                     >
@@ -591,7 +591,7 @@ const AboutPage = () => {
                     
                     {/* Stat 2 */}
                     <motion.div
-                      className="bg-white rounded-xl p-6 text-center"
+                      className="bg-white sharp-edges p-6 text-center"
                       whileHover={{y: -5}}
                       transition={{duration: 0.2}}
                     >
@@ -601,7 +601,7 @@ const AboutPage = () => {
                     
                     {/* Stat 3 */}
                     <motion.div
-                      className="bg-white rounded-xl p-6 text-center"
+                      className="bg-white sharp-edges p-6 text-center"
                       whileHover={{y: -5}}
                       transition={{duration: 0.2}}
                     >
@@ -611,7 +611,7 @@ const AboutPage = () => {
                     
                     {/* Stat 4 */}
                     <motion.div
-                      className="bg-white rounded-xl p-6 text-center"
+                      className="bg-white sharp-edges p-6 text-center"
                       whileHover={{y: -5}}
                       transition={{duration: 0.2}}
                     >
@@ -621,7 +621,7 @@ const AboutPage = () => {
                   </div>
                   
                   {/* Testimonial */}
-                  <div className="bg-white rounded-xl p-6">
+                  <div className="bg-white sharp-edges p-6">
                     <blockquote className="text-slate-600 italic text-center mb-4">
                       "Josh's combination of enterprise experience and personal attention is exactly what our growing business needed. He didn't just sell us solutions — he became our strategic technology partner."
                     </blockquote>
@@ -657,7 +657,7 @@ const AboutPage = () => {
               {processSteps.map((step, index) => (
                 <motion.div
                   key={index}
-                  className="bg-slate-800 border border-slate-700 rounded-xl p-8 relative"
+                  className="bg-slate-800 border border-slate-700 sharp-edges p-8 relative"
                   initial={{opacity: 0, y: 50}}
                   whileInView={{opacity: 1, y: 0}}
                   transition={{duration: 0.6, delay: 0.2 + index * 0.1}}
@@ -665,7 +665,7 @@ const AboutPage = () => {
                   whileHover={{y: -8}}
                 >
                   <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                    className="w-16 h-16 sharp-edges flex items-center justify-center mx-auto mb-6"
                     style={{backgroundColor: step.color}}
                   >
                     <p className="text-2xl font-bold">{step.number}</p>
@@ -747,7 +747,7 @@ const AboutPage = () => {
                     href="https://handvantage.co/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
+                    className="block bg-white text-primary-blue px-8 py-4 sharp-edges font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
                     whileHover={{scale: 1.02}}
                     whileTap={{scale: 0.98}}
                     aria-label="Schedule Your Strategy Call with Josh Olayemi"
@@ -756,7 +756,7 @@ const AboutPage = () => {
                   </motion.a>
                   <motion.a
                     href="tel:+12362350919"
-                    className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-primary-blue transition-colors duration-300"
+                    className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-white hover:text-primary-blue transition-colors duration-300"
                     whileHover={{scale: 1.02}}
                     whileTap={{scale: 0.98}}
                     aria-label="Call Josh Directly at 236-235-0919"
@@ -770,7 +770,7 @@ const AboutPage = () => {
               {/* Right Column - Contact Info */}
               <div className="lg:col-span-2">
                 <motion.div
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-8"
+                  className="bg-white/10 backdrop-blur-sm sharp-edges p-8"
                   initial={{opacity: 0, y: 30}}
                   whileInView={{opacity: 1, y: 0}}
                   transition={{duration: 0.6, delay: 0.3}}

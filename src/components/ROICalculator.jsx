@@ -59,7 +59,7 @@ const ROICalculator = () => {
 
           {/* Calculator Card */}
           <motion.div
-            className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl"
+            className="bg-slate-900 border border-slate-800 sharp-edges p-8 md:p-12 shadow-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -76,7 +76,7 @@ const ROICalculator = () => {
                   </div>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 sharp-edges focus:outline-none focus:border-viability-primary transition-colors text-lg"
                     placeholder="e.g. 180000"
                     value={inputs.internalTeamCost}
                     onChange={(e) => setInputs({ ...inputs, internalTeamCost: e.target.value })}
@@ -95,7 +95,7 @@ const ROICalculator = () => {
                   </div>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 sharp-edges focus:outline-none focus:border-viability-primary transition-colors text-lg"
                     placeholder="e.g. 5"
                     value={inputs.numSecurityTools}
                     onChange={(e) => setInputs({ ...inputs, numSecurityTools: e.target.value })}
@@ -114,7 +114,7 @@ const ROICalculator = () => {
                   </div>
                   <input
                     type="number"
-                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 sharp-edges focus:outline-none focus:border-viability-primary transition-colors text-lg"
                     placeholder="e.g. 500000"
                     value={inputs.securityBudget}
                     onChange={(e) => setInputs({ ...inputs, securityBudget: e.target.value })}
@@ -126,7 +126,7 @@ const ROICalculator = () => {
             {/* Button */}
             <button
               onClick={calculateSavings}
-              className="w-full bg-gradient-to-r from-viability-primary to-viability-glow text-white font-bold py-5 rounded-xl hover:shadow-lg hover:shadow-viability-primary/20 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+              className="w-full bg-gradient-to-r from-viability-primary to-viability-glow text-white font-bold py-5 sharp-edges hover:shadow-lg hover:shadow-viability-primary/20 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
             >
               CALCULATE MY SAVINGS
               <SafeIcon icon={FiArrowRight} className="w-5 h-5" />
@@ -155,7 +155,7 @@ const ROICalculator = () => {
                     href="https://handvantage.co/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-colors text-lg"
+                    className="inline-flex items-center px-8 py-4 bg-white text-slate-900 font-bold sharp-edges hover:bg-slate-100 transition-colors text-lg"
                   >
                     BOOK A BRIEFING TO CLAIM THIS
                     <SafeIcon icon={FiArrowRight} className="w-5 h-5 ml-2" />

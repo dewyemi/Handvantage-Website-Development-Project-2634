@@ -287,7 +287,7 @@ const DigitalTransformationPage = () => {
             >
               {/* Badge */}
               <motion.div 
-                className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold"
+                className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 sharp-edges text-sm font-semibold"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.2}}
@@ -354,7 +354,7 @@ const DigitalTransformationPage = () => {
               >
                 <motion.button
                   onClick={() => handleSmoothScroll('assessment')}
-                  className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
+                  className="bg-primary-blue text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
                 >
@@ -364,7 +364,7 @@ const DigitalTransformationPage = () => {
                   href="https://handvantage.co/contact" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="border-2 border-primary-blue text-primary-blue px-8 py-4 rounded-lg font-semibold text-center hover:bg-primary-blue hover:text-white transition-colors duration-300"
+                  className="border-2 border-primary-blue text-primary-blue px-8 py-4 sharp-edges font-semibold text-center hover:bg-primary-blue hover:text-white transition-colors duration-300"
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
                 >
@@ -381,7 +381,7 @@ const DigitalTransformationPage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white sharp-edges p-8 shadow-xl">
                 <motion.h3 
                   className="text-2xl font-bold text-primary-dark text-center mb-6"
                   initial={{opacity: 0, y: 20}}
@@ -395,7 +395,7 @@ const DigitalTransformationPage = () => {
                   {partnerships.map((partner, index) => (
                     <motion.div 
                       key={index}
-                      className="bg-gray-50 rounded-lg p-4 text-center"
+                      className="bg-gray-50 sharp-edges p-4 text-center"
                       initial={{opacity: 0, scale: 0.8}}
                       whileInView={{opacity: 1, scale: 1}}
                       transition={{delay: 0.3 + index * 0.1}}
@@ -405,7 +405,7 @@ const DigitalTransformationPage = () => {
                       <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{color: partner.color}} />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span 
-                        className="text-xs font-medium px-2 py-1 rounded-full" 
+                        className="text-xs font-medium px-2 py-1 sharp-edges" 
                         style={{backgroundColor: `${partner.color}20`, color: partner.color}}
                       >
                         {partner.badge}
@@ -442,7 +442,7 @@ const DigitalTransformationPage = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Left Side - What It's NOT */}
             <motion.div 
-              className="bg-red-50 border border-red-200 rounded-xl p-8"
+              className="bg-red-50 border border-red-200 sharp-edges p-8"
               initial={{opacity: 0, x: -30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
@@ -470,7 +470,7 @@ const DigitalTransformationPage = () => {
 
             {/* Right Side - What It IS */}
             <motion.div 
-              className="bg-green-50 border border-green-200 rounded-xl p-8"
+              className="bg-green-50 border border-green-200 sharp-edges p-8"
               initial={{opacity: 0, x: 30}}
               whileInView={{opacity: 1, x: 0}}
               transition={{duration: 0.8}}
@@ -523,7 +523,7 @@ const DigitalTransformationPage = () => {
             {methodologySteps.map((step, index) => (
               <motion.div 
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-lg"
+                className="bg-white sharp-edges p-8 shadow-lg"
                 initial={{opacity: 0, y: 30}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{duration: 0.5, delay: index * 0.1}}
@@ -531,7 +531,7 @@ const DigitalTransformationPage = () => {
                 whileHover={{y: -8}}
               >
                 <div 
-                  className="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto" 
+                  className="w-16 h-16 sharp-edges flex items-center justify-center mb-6 mx-auto" 
                   style={{backgroundColor: step.color}}
                 >
                   <span className="text-xl font-bold text-white">{step.number}</span>
@@ -590,7 +590,7 @@ const DigitalTransformationPage = () => {
                 {/* Icon */}
                 <div className="md:col-span-2 flex justify-center">
                   <div 
-                    className="w-24 h-24 rounded-full flex items-center justify-center" 
+                    className="w-24 h-24 sharp-edges flex items-center justify-center" 
                     style={{backgroundColor: solution.color}}
                   >
                     <SafeIcon icon={solution.icon} className="w-12 h-12 text-white" />
@@ -648,7 +648,7 @@ const DigitalTransformationPage = () => {
                 {roiMetrics.map((metric, index) => (
                   <motion.div 
                     key={index}
-                    className="bg-white rounded-xl p-6 text-center shadow-sm"
+                    className="bg-white sharp-edges p-6 text-center shadow-sm"
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     transition={{duration: 0.4, delay: index * 0.1}}
@@ -675,7 +675,7 @@ const DigitalTransformationPage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-white rounded-xl p-8 shadow-xl">
+              <div className="bg-white sharp-edges p-8 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Strategic Business Advantages
                 </h3>
@@ -690,7 +690,7 @@ const DigitalTransformationPage = () => {
                       viewport={{once: true}}
                     >
                       <div 
-                        className="p-3 rounded-full mr-4 flex-shrink-0" 
+                        className="p-3 sharp-edges mr-4 flex-shrink-0" 
                         style={{backgroundColor: `${impact.color}15`}}
                       >
                         <SafeIcon icon={impact.icon} className="w-6 h-6" style={{color: impact.color}} />
@@ -725,7 +725,7 @@ const DigitalTransformationPage = () => {
               Get your free growth bottleneck assessment and discover how our enterprise partnerships can accelerate your growth
             </p>
             <motion.div 
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8"
+              className="bg-white/10 backdrop-blur-sm sharp-edges p-8 mb-8"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.6, delay: 0.2}}
@@ -771,14 +771,14 @@ const DigitalTransformationPage = () => {
               <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
                 <Link
                   to="/assessment"
-                  className="bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300 inline-block"
+                  className="bg-white text-primary-blue px-8 py-4 sharp-edges font-semibold text-center hover:bg-gray-100 transition-colors duration-300 inline-block"
                 >
                   Identify Your Growth Bottlenecks
                 </Link>
               </motion.div>
               <motion.a 
                 href="tel:+12362350919"
-                className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-primary-blue transition-colors duration-300"
+                className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-white hover:text-primary-blue transition-colors duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
@@ -812,7 +812,7 @@ const DigitalTransformationPage = () => {
               {/* Success Message */}
               {formStatus.isSuccess && (
                 <motion.div 
-                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  className="bg-green-500 text-white p-4 sharp-edges mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
@@ -826,7 +826,7 @@ const DigitalTransformationPage = () => {
               {/* Error Message */}
               {formStatus.error && (
                 <motion.div 
-                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  className="bg-red-500 text-white p-4 sharp-edges mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
@@ -858,7 +858,7 @@ const DigitalTransformationPage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                       placeholder="Your first name"
                     />
                   </div>
@@ -873,7 +873,7 @@ const DigitalTransformationPage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                       placeholder="Your last name"
                     />
                   </div>
@@ -890,7 +890,7 @@ const DigitalTransformationPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -905,7 +905,7 @@ const DigitalTransformationPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="Your phone number"
                   />
                 </div>
@@ -921,7 +921,7 @@ const DigitalTransformationPage = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="Your company name"
                   />
                 </div>
@@ -936,7 +936,7 @@ const DigitalTransformationPage = () => {
                     value={formData.transformationChallenges}
                     onChange={handleInputChange}
                     rows="4"
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-primary-blue text-white"
                     placeholder="Describe your growth goals and current business challenges..."
                   ></textarea>
                 </div>
@@ -947,7 +947,7 @@ const DigitalTransformationPage = () => {
                 <motion.button 
                   type="submit"
                   disabled={formStatus.isSubmitting}
-                  className="w-full bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full bg-primary-blue text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   whileHover={!formStatus.isSubmitting ? {scale: 1.02} : {}}
                   whileTap={!formStatus.isSubmitting ? {scale: 0.98} : {}}
                 >
@@ -971,8 +971,8 @@ const DigitalTransformationPage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary-blue">
+              <div className="bg-slate-800 sharp-edges p-8 border border-slate-700">
+                <div className="w-32 h-32 mx-auto mb-6 sharp-edges overflow-hidden border-4 border-primary-blue">
                   <img 
                     src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp" 
                     alt="Josh Olayemi" 

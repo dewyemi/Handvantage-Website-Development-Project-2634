@@ -67,13 +67,13 @@ const ManifestoPage = () => {
                 viewport={{ once: true }}
               >
                 {/* Glow background */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${tenet.gradient} rounded-3xl blur-xl opacity-20`} />
+                <div className={`absolute -inset-1 bg-gradient-to-r ${tenet.gradient} sharp-edges blur-xl opacity-20`} />
 
-                <div className="relative bg-slate-900 border border-slate-800 rounded-2xl p-10 md:p-14">
+                <div className="relative bg-slate-900 border border-slate-800 sharp-edges p-10 md:p-14">
                   <div className="flex flex-col md:flex-row md:items-center gap-8">
                     {/* Number and Icon */}
                     <div className="flex-shrink-0 text-center md:text-left">
-                      <div className={`w-20 h-20 mx-auto md:mx-0 bg-gradient-to-br ${tenet.gradient} rounded-2xl flex items-center justify-center mb-4`}>
+                      <div className={`w-20 h-20 mx-auto md:mx-0 bg-gradient-to-br ${tenet.gradient} sharp-edges flex items-center justify-center mb-4`}>
                         <SafeIcon icon={tenet.icon} className="w-10 h-10 text-white" />
                       </div>
                       <p className="text-slate-600 font-mono text-sm">TENET {tenet.id}</p>
@@ -102,7 +102,7 @@ const ManifestoPage = () => {
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="inline-block bg-slate-900 border border-slate-800 rounded-full px-8 py-4">
+            <div className="inline-block bg-slate-900 border border-slate-800 sharp-edges px-8 py-4">
               <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
                 END OF TRANSMISSION
               </p>

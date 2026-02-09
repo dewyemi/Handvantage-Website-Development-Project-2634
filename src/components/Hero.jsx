@@ -60,7 +60,7 @@ const Hero = () => {
           </div>
 
           <motion.div
-            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-viability-primary/10 rounded-full blur-[100px]"
+            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-viability-primary/10 sharp-edges blur-[100px]"
             animate={{
               scale: [1, 1.2, 1],
               x: [-20, 20, -20],
@@ -73,7 +73,7 @@ const Hero = () => {
             }}
           />
           <motion.div
-            className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-factory-500/10 rounded-full blur-[120px]"
+            className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-factory-500/10 sharp-edges blur-[120px]"
             animate={{
               scale: [1.2, 1, 1.2],
               x: [20, -20, 20],
@@ -99,7 +99,7 @@ const Hero = () => {
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute z-10 w-1 h-1 bg-white/20 rounded-full pointer-events-none"
+            className="absolute z-10 w-1 h-1 bg-white/20 sharp-edges pointer-events-none"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,

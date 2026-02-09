@@ -45,7 +45,7 @@ const AssessmentLanding = () => {
             >
               <div>
                 <motion.div
-                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 sharp-edges text-sm font-semibold mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -102,7 +102,7 @@ const AssessmentLanding = () => {
                   href="https://secvantages.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg"
+                  className="inline-flex items-center bg-blue-600 text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg"
                 >
                   Identify Growth Bottlenecks <SafeIcon icon={FiTarget} className="w-5 h-5 ml-2" />
                 </a>
@@ -118,7 +118,7 @@ const AssessmentLanding = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white rounded-2xl shadow-xl p-8">
+              <div className="bg-white sharp-edges shadow-xl p-8">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Assessment Categories</h3>
                   <p className="text-gray-600">Comprehensive evaluation across 4 key areas</p>
@@ -127,13 +127,13 @@ const AssessmentLanding = () => {
                   {assessmentCategories.map((category, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-start space-x-4 p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors"
+                      className="flex items-start space-x-4 p-4 sharp-edges border border-gray-200 hover:border-blue-300 transition-colors"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 + index * 0.1 }}
                     >
                       <div
-                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 sharp-edges flex items-center justify-center flex-shrink-0"
                         style={{ backgroundColor: `${category.color}20` }}
                       >
                         <SafeIcon icon={category.icon} className="w-5 h-5" style={{ color: category.color }} />
@@ -172,13 +172,13 @@ const AssessmentLanding = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-gray-50 sharp-edges p-6 hover:shadow-lg transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 sharp-edges flex items-center justify-center mb-4">
                   <SafeIcon icon={benefit.icon} className="w-6 h-6 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
@@ -210,14 +210,14 @@ const AssessmentLanding = () => {
             {scoreRanges.map((range, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-white sharp-edges p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 sharp-edges flex items-center justify-center mx-auto mb-4"
                   style={{ backgroundColor: range.color }}
                 >
                   <SafeIcon icon={range.icon} className="w-8 h-8 text-white" />
@@ -261,14 +261,14 @@ const AssessmentLanding = () => {
                   href="https://secvantages.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
+                  className="bg-white text-blue-600 px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
                   Identify Growth Bottlenecks <SafeIcon icon={FiTarget} className="w-5 h-5 ml-2" />
                 </a>
               </motion.div>
               <motion.a
                 href="tel:+12362350919"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-flex items-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

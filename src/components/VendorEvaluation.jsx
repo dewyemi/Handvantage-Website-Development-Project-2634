@@ -317,7 +317,7 @@ const VendorEvaluation = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
+            <div className="w-24 h-24 mx-auto mb-6 sharp-edges bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
               <SafeIcon icon={FiAward} className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-primary-dark mb-4">Vendor Evaluation Results</h1>
@@ -327,7 +327,7 @@ const VendorEvaluation = () => {
           {/* Results Summary */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 text-center"
+              className="bg-white sharp-edges shadow-lg p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -343,7 +343,7 @@ const VendorEvaluation = () => {
             </motion.div>
             
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 text-center"
+              className="bg-white sharp-edges shadow-lg p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -357,7 +357,7 @@ const VendorEvaluation = () => {
             </motion.div>
             
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 text-center"
+              className="bg-white sharp-edges shadow-lg p-8 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -381,7 +381,7 @@ const VendorEvaluation = () => {
             {results.map((result, index) => (
               <motion.div
                 key={result.vendor.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-white sharp-edges shadow-lg overflow-hidden"
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
@@ -389,7 +389,7 @@ const VendorEvaluation = () => {
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mr-4 ${
+                      <div className={`w-12 h-12 sharp-edges flex items-center justify-center text-white font-bold mr-4 ${
                         index === 0 ? 'bg-green-500' : index === 1 ? 'bg-blue-500' : 'bg-gray-500'
                       }`}>
                         {index + 1}
@@ -415,9 +415,9 @@ const VendorEvaluation = () => {
                       <span>Overall Score</span>
                       <span>{result.totalScore.toFixed(1)}/10</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
+                    <div className="w-full bg-gray-200 sharp-edges h-3">
                       <div 
-                        className={`h-3 rounded-full ${
+                        className={`h-3 sharp-edges ${
                           index === 0 ? 'bg-green-500' : index === 1 ? 'bg-blue-500' : 'bg-gray-500'
                         }`}
                         style={{ width: `${(result.totalScore / 10) * 100}%` }}
@@ -428,7 +428,7 @@ const VendorEvaluation = () => {
                   {/* Category Scores */}
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {Object.entries(result.categoryScores).map(([category, data]) => (
-                      <div key={category} className="text-center p-4 bg-slate-50 rounded-lg">
+                      <div key={category} className="text-center p-4 bg-slate-50 sharp-edges">
                         <h4 className="font-semibold text-primary-dark mb-2">{category}</h4>
                         <div className="text-2xl font-bold text-blue-600 mb-1">
                           {data.average?.toFixed(1) || '0.0'}
@@ -469,14 +469,14 @@ const VendorEvaluation = () => {
           {/* Recommendations */}
           {results.length > 0 && (
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 mt-8"
+              className="bg-white sharp-edges shadow-lg p-8 mt-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
               <h2 className="text-2xl font-bold text-primary-dark mb-6 text-center">Recommendations</h2>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="p-6 bg-green-50 rounded-lg">
+                <div className="p-6 bg-green-50 sharp-edges">
                   <h3 className="font-semibold text-green-800 mb-3">Recommended Choice</h3>
                   <p className="text-green-700 mb-4">
                     <strong>{results[0].vendor.name}</strong> scored highest with {results[0].totalScore.toFixed(1)}/10
@@ -486,7 +486,7 @@ const VendorEvaluation = () => {
                   </p>
                 </div>
                 
-                <div className="p-6 bg-blue-50 rounded-lg">
+                <div className="p-6 bg-blue-50 sharp-edges">
                   <h3 className="font-semibold text-blue-800 mb-3">Alternative Option</h3>
                   {results[1] ? (
                     <>
@@ -502,7 +502,7 @@ const VendorEvaluation = () => {
                   )}
                 </div>
                 
-                <div className="p-6 bg-orange-50 rounded-lg">
+                <div className="p-6 bg-orange-50 sharp-edges">
                   <h3 className="font-semibold text-orange-800 mb-3">Key Considerations</h3>
                   <ul className="text-sm text-orange-700 space-y-1">
                     <li>• Verify scoring with vendor demos</li>
@@ -517,7 +517,7 @@ const VendorEvaluation = () => {
 
           {/* CTA */}
           <motion.div
-            className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white text-center mt-8"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 sharp-edges shadow-lg p-8 text-white text-center mt-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
@@ -531,7 +531,7 @@ const VendorEvaluation = () => {
                 href="https://handvantage.co/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+                className="bg-white text-blue-600 px-8 py-4 sharp-edges font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -539,7 +539,7 @@ const VendorEvaluation = () => {
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
               </motion.a>
               <motion.button
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -571,9 +571,9 @@ const VendorEvaluation = () => {
           </p>
           
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+          <div className="w-full bg-gray-200 sharp-edges h-3 mb-4">
             <div 
-              className="bg-blue-600 h-3 rounded-full transition-all duration-500"
+              className="bg-blue-600 h-3 sharp-edges transition-all duration-500"
               style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
             ></div>
           </div>
@@ -584,7 +584,7 @@ const VendorEvaluation = () => {
 
         {/* Current Step */}
         <motion.div
-          className="bg-white rounded-xl shadow-lg p-8"
+          className="bg-white sharp-edges shadow-lg p-8"
           key={currentStep}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -607,7 +607,7 @@ const VendorEvaluation = () => {
                     <button
                       key={project.id}
                       onClick={() => handleProjectTypeSelect(project.id)}
-                      className={`p-6 rounded-lg border-2 text-left transition-all ${
+                      className={`p-6 sharp-edges border-2 text-left transition-all ${
                         evaluationData.projectType === project.id
                           ? 'border-blue-500 bg-blue-50 text-blue-700'
                           : 'border-gray-300 bg-white text-gray-700 hover:border-blue-300'
@@ -640,7 +640,7 @@ const VendorEvaluation = () => {
                 {evaluationData.criteria.map(criteriaId => {
                   const criteria = availableCriteria.find(c => c.id === criteriaId);
                   return (
-                    <div key={criteriaId} className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+                    <div key={criteriaId} className="flex items-center justify-between p-4 bg-blue-50 sharp-edges">
                       <div className="flex-1">
                         <span className="font-medium">{criteria?.name}</span>
                         <span className="text-sm text-slate-500 ml-2">({criteria?.category})</span>
@@ -689,7 +689,7 @@ const VendorEvaluation = () => {
                         <button
                           key={criteria.id}
                           onClick={() => addCriteria(criteria.id)}
-                          className="w-full text-left p-3 border rounded-lg hover:bg-gray-50 flex items-center justify-between"
+                          className="w-full text-left p-3 border sharp-edges hover:bg-gray-50 flex items-center justify-between"
                         >
                           <span className="text-sm">{criteria.name}</span>
                           <SafeIcon icon={FiPlus} className="w-4 h-4 text-blue-600" />
@@ -701,7 +701,7 @@ const VendorEvaluation = () => {
               </div>
 
               {/* Weight Summary */}
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-4 sharp-edges">
                 <div className="flex justify-between items-center">
                   <span className="font-medium">Total Weight:</span>
                   <span className={`font-bold ${
@@ -735,9 +735,9 @@ const VendorEvaluation = () => {
               {/* Vendor List */}
               <div className="space-y-4">
                 {evaluationData.vendors.map((vendor, index) => (
-                  <div key={vendor.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div key={vendor.id} className="flex items-center justify-between p-4 bg-gray-50 sharp-edges">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                      <div className="w-10 h-10 bg-blue-600 text-white sharp-edges flex items-center justify-center font-bold mr-4">
                         {index + 1}
                       </div>
                       <span className="font-medium">{vendor.name}</span>
@@ -755,7 +755,7 @@ const VendorEvaluation = () => {
               {/* Add Vendor Button */}
               <button
                 onClick={addVendor}
-                className="w-full p-4 border-2 border-dashed border-blue-300 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors flex items-center justify-center"
+                className="w-full p-4 border-2 border-dashed border-blue-300 sharp-edges text-blue-600 hover:bg-blue-50 transition-colors flex items-center justify-center"
               >
                 <SafeIcon icon={FiPlus} className="w-5 h-5 mr-2" />
                 Add Vendor
@@ -828,7 +828,7 @@ const VendorEvaluation = () => {
               </div>
 
               {/* Scoring Guidelines */}
-              <div className="bg-blue-50 p-4 rounded-lg">
+              <div className="bg-blue-50 p-4 sharp-edges">
                 <h4 className="font-medium text-blue-800 mb-2">Scoring Guidelines</h4>
                 <div className="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
                   <div>
@@ -853,7 +853,7 @@ const VendorEvaluation = () => {
             <motion.button
               onClick={prevStep}
               disabled={currentStep === 0}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors ${
                 currentStep === 0
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -875,7 +875,7 @@ const VendorEvaluation = () => {
                 (currentStep === 1 && evaluationData.criteria.length === 0) ||
                 (currentStep === 2 && evaluationData.vendors.length < 2)
               }
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors flex items-center ${
                 (currentStep === 0 && evaluationData.projectType) ||
                 (currentStep === 1 && evaluationData.criteria.length > 0) ||
                 (currentStep === 2 && evaluationData.vendors.length >= 2) ||

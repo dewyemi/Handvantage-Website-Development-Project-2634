@@ -48,7 +48,7 @@ const CTA = () => {
               href="https://secvantages.com/DualSqueezeIntro"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center px-12 py-6 font-black text-xl text-viability-primary bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-white/40 transition-all duration-300"
+              className="group relative inline-flex items-center justify-center px-12 py-6 font-black text-xl text-viability-primary bg-white sharp-edges overflow-hidden shadow-2xl hover:shadow-white/40 transition-all duration-300"
               whileHover={{scale: 1.05}}
               whileTap={{scale: 0.95}}
             >
@@ -58,7 +58,7 @@ const CTA = () => {
             {/* Secondary CTA */}
             <Link to="/manifesto">
               <motion.div
-                className="inline-flex items-center justify-center px-10 py-6 font-semibold text-lg text-white bg-transparent border-2 border-white/50 backdrop-blur-sm rounded-2xl hover:bg-white/20 hover:border-white transition-all duration-300"
+                className="inline-flex items-center justify-center px-10 py-6 font-semibold text-lg text-white bg-transparent border-2 border-white/50 backdrop-blur-sm sharp-edges hover:bg-white/20 hover:border-white transition-all duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
@@ -69,7 +69,7 @@ const CTA = () => {
 
           {/* No-Pressure Promise */}
           <motion.div
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto"
+            className="bg-white/10 backdrop-blur-md border border-white/20 sharp-edges p-8 max-w-2xl mx-auto"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
             transition={{delay: 0.6}}

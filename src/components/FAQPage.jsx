@@ -16,7 +16,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
                 <span className={`text-xl font-bold transition-colors ${isOpen ? 'text-viability-primary' : 'text-white group-hover:text-viability-primary'}`}>
                     {question}
                 </span>
-                <div className={`flex-shrink-0 ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-viability-primary text-white' : 'bg-slate-800 text-slate-400 group-hover:bg-viability-primary/20 group-hover:text-viability-primary'}`}>
+                <div className={`flex-shrink-0 ml-4 w-10 h-10 sharp-edges flex items-center justify-center transition-all ${isOpen ? 'bg-viability-primary text-white' : 'bg-slate-800 text-slate-400 group-hover:bg-viability-primary/20 group-hover:text-viability-primary'}`}>
                     <SafeIcon icon={isOpen ? FiMinus : FiPlus} className="w-5 h-5" />
                 </div>
             </button>
@@ -78,7 +78,7 @@ const FAQPage = () => {
                         </div>
 
                         {/* FAQ Accordion */}
-                        <div className="bg-slate-900 rounded-3xl p-8 md:p-12 border border-slate-800">
+                        <div className="bg-slate-900 sharp-edges p-8 md:p-12 border border-slate-800">
                             {faqs.map((faq, index) => (
                                 <AccordionItem
                                     key={index}
@@ -104,7 +104,7 @@ const FAQPage = () => {
                                 href="https://handvantage.co/contact"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center px-8 py-4 bg-viability-primary text-white font-bold rounded-full hover:bg-viability-glow transition-colors"
+                                className="inline-flex items-center px-8 py-4 bg-viability-primary text-white font-bold sharp-edges hover:bg-viability-glow transition-colors"
                             >
                                 Book The Briefing
                             </a>

@@ -118,8 +118,8 @@ export const TerminalBadge = ({
     <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded border terminal-text text-technical ${statusColors[status]} ${className}`}>
       {pulse && (
         <span className="relative flex h-2 w-2">
-          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${status === 'operational' ? 'bg-signal' : status === 'critical' ? 'bg-red-500' : 'bg-yellow-500'} opacity-75`}></span>
-          <span className={`relative inline-flex rounded-full h-2 w-2 ${status === 'operational' ? 'bg-signal' : status === 'critical' ? 'bg-red-500' : 'bg-yellow-500'}`}></span>
+          <span className={`animate-ping absolute inline-flex h-full w-full sharp-edges ${status === 'operational' ? 'bg-signal' : status === 'critical' ? 'bg-red-500' : 'bg-yellow-500'} opacity-75`}></span>
+          <span className={`relative inline-flex sharp-edges h-2 w-2 ${status === 'operational' ? 'bg-signal' : status === 'critical' ? 'bg-red-500' : 'bg-yellow-500'}`}></span>
         </span>
       )}
       {children}

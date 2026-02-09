@@ -77,12 +77,12 @@ const AgentCard = ({
       }}
     >
       {/* Glow Effect */}
-      <div className={`absolute -inset-4 rounded-2xl blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 bg-gradient-to-br ${scheme.bg}`} />
+      <div className={`absolute -inset-4 sharp-edges blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 bg-gradient-to-br ${scheme.bg}`} />
 
       {/* Card */}
-      <div className={`relative p-8 rounded-xl border-2 bg-obsidian/90 backdrop-blur-xl transition-all duration-300 ${scheme.border} ${scheme.glow} shadow-2xl overflow-hidden`}>
+      <div className={`relative p-8 sharp-edges border-2 bg-obsidian/90 backdrop-blur-xl transition-all duration-300 ${scheme.border} ${scheme.glow} shadow-2xl overflow-hidden`}>
         {/* Corner Accent */}
-        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${scheme.bg} rounded-bl-full opacity-20`} />
+        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${scheme.bg} sharp-edges opacity-20`} />
 
         {/* Status Badge */}
         <div className="absolute top-4 right-4 z-10">
@@ -94,7 +94,7 @@ const AgentCard = ({
         {/* Icon */}
         <div className="relative mb-6">
           <motion.div
-            className={`w-16 h-16 rounded-lg flex items-center justify-center ${scheme.icon} ring-2 ring-current ring-opacity-20`}
+            className={`w-16 h-16 sharp-edges flex items-center justify-center ${scheme.icon} ring-2 ring-current ring-opacity-20`}
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -121,7 +121,7 @@ const AgentCard = ({
 
           {/* Output Preview */}
           {output && (
-            <div className="p-4 bg-obsidian/80 border border-white/10 rounded-lg">
+            <div className="p-4 bg-obsidian/80 border border-white/10 sharp-edges">
               <div className="terminal-text text-xs text-slate-500 mb-2">
                 OUTPUT:
               </div>
@@ -186,7 +186,7 @@ export const CompactAgentCard = ({
   }[color];
 
   return (
-    <div className={`flex items-center gap-4 p-4 rounded-lg border ${scheme} backdrop-blur-sm ${className}`}>
+    <div className={`flex items-center gap-4 p-4 sharp-edges border ${scheme} backdrop-blur-sm ${className}`}>
       <div className="w-10 h-10 rounded flex items-center justify-center bg-current bg-opacity-20">
         {Icon && <SafeIcon icon={Icon} className="w-5 h-5" />}
       </div>
@@ -195,7 +195,7 @@ export const CompactAgentCard = ({
         <div className="terminal-text text-xs text-slate-500">{role}</div>
       </div>
       {status === 'operational' && (
-        <div className="w-2 h-2 bg-current rounded-full animate-pulse" />
+        <div className="w-2 h-2 bg-current sharp-edges animate-pulse" />
       )}
     </div>
   );

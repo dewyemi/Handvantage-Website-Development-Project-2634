@@ -169,7 +169,7 @@ const CybersecurityPage = () => {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
                     to="/security-assessment"
-                    className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center"
+                    className="bg-primary-blue text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 text-center"
                   >
                     Start Your Security Assessment
                   </Link>
@@ -177,7 +177,7 @@ const CybersecurityPage = () => {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
                     to="/services/managed-security"
-                    className="border-2 border-primary-blue text-primary-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-blue hover:text-white transition-colors duration-300 text-center"
+                    className="border-2 border-primary-blue text-primary-blue px-8 py-4 sharp-edges font-semibold text-lg hover:bg-primary-blue hover:text-white transition-colors duration-300 text-center"
                   >
                     Explore Managed Services
                   </Link>
@@ -191,7 +191,7 @@ const CybersecurityPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white sharp-edges p-8 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary-dark mb-6">Strategic Advantages</h3>
                 <div className="space-y-4">
                   {valueProps.map((prop, index) => (
@@ -232,14 +232,14 @@ const CybersecurityPage = () => {
             {businessChallenges.map((challenge, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 rounded-lg p-6 text-center"
+                className="bg-gray-50 sharp-edges p-6 text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-red-100 sharp-edges flex items-center justify-center mx-auto mb-4">
                   <SafeIcon icon={challenge.icon} className="w-8 h-8 text-red-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-primary-dark mb-3">{challenge.title}</h3>
@@ -272,7 +272,7 @@ const CybersecurityPage = () => {
             {strategicApproach.map((approach, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-lg p-8 shadow-lg"
+                className="bg-white sharp-edges p-8 shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -280,7 +280,7 @@ const CybersecurityPage = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-blue-100 sharp-edges flex items-center justify-center mr-4">
                     <SafeIcon icon={approach.icon} className="w-6 h-6 text-primary-blue" />
                   </div>
                   <h3 className="text-xl font-semibold text-primary-dark">{approach.title}</h3>
@@ -322,7 +322,7 @@ const CybersecurityPage = () => {
             {serviceTiers.map((tier, index) => (
               <motion.div
                 key={index}
-                className={`bg-white rounded-xl p-8 shadow-lg border-2 ${
+                className={`bg-white sharp-edges p-8 shadow-lg border-2 ${
                   tier.recommended 
                     ? 'border-primary-blue relative' 
                     : 'border-gray-200'
@@ -335,7 +335,7 @@ const CybersecurityPage = () => {
               >
                 {tier.recommended && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary-blue text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    <span className="bg-primary-blue text-white px-4 py-2 sharp-edges text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
@@ -374,7 +374,7 @@ const CybersecurityPage = () => {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Link
                     to="/security-assessment"
-                    className={`w-full py-3 rounded-lg font-semibold text-center transition-colors duration-300 flex items-center justify-center ${
+                    className={`w-full py-3 sharp-edges font-semibold text-center transition-colors duration-300 flex items-center justify-center ${
                       tier.recommended
                         ? 'bg-primary-blue text-white hover:bg-blue-700'
                         : 'border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white'
@@ -413,7 +413,7 @@ const CybersecurityPage = () => {
               >
                 <Link
                   to="/security-assessment"
-                  className="bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
+                  className="bg-white text-primary-blue px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
                   <span>Start Security Assessment</span>
                   <SafeIcon icon={FiArrowRight} className="w-5 h-5 ml-2" />
@@ -427,7 +427,7 @@ const CybersecurityPage = () => {
                   href="https://handvantage.co/contact"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-blue transition-colors duration-300 inline-flex items-center"
+                  className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-white hover:text-primary-blue transition-colors duration-300 inline-flex items-center"
                 >
                   <span>Schedule Consultation</span>
                   <SafeIcon icon={FiArrowRight} className="w-5 h-5 ml-2" />

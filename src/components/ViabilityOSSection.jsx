@@ -32,7 +32,7 @@ const ViabilityOSSection = () => {
       {/* Ambient orbs */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-viability-primary/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-viability-primary/20 sharp-edges blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -44,7 +44,7 @@ const ViabilityOSSection = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-factory-500/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-factory-500/20 sharp-edges blur-3xl"
           animate={{
             scale: [1, 1.4, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -107,20 +107,20 @@ const ViabilityOSSection = () => {
               viewport={{once: true}}
             >
               {/* Multi-layer glow effect with enhanced intensity */}
-              <div className={`absolute -inset-6 rounded-3xl blur-3xl opacity-50 group-hover:opacity-90 transition duration-700 ${
+              <div className={`absolute -inset-6 sharp-edges blur-3xl opacity-50 group-hover:opacity-90 transition duration-700 ${
                 agent.color === 'viability'
                   ? 'bg-gradient-to-br from-viability-primary via-viability-glow to-viability-primary'
                   : 'bg-gradient-to-br from-factory-500 via-factory-400 to-factory-500'
               }`} />
 
-              <div className={`absolute -inset-3 rounded-3xl blur-xl opacity-40 group-hover:opacity-70 transition duration-700 ${
+              <div className={`absolute -inset-3 sharp-edges blur-xl opacity-40 group-hover:opacity-70 transition duration-700 ${
                 agent.color === 'viability'
                   ? 'bg-viability-primary'
                   : 'bg-factory-500'
               }`} />
 
               {/* Animated border gradient */}
-              <div className={`absolute -inset-[2px] rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 ${
+              <div className={`absolute -inset-[2px] sharp-edges opacity-0 group-hover:opacity-100 transition duration-500 ${
                 agent.color === 'viability'
                   ? 'bg-gradient-to-r from-viability-primary via-viability-glow to-viability-primary animate-gradient'
                   : 'bg-gradient-to-r from-factory-500 via-factory-400 to-factory-500 animate-gradient'
@@ -128,7 +128,7 @@ const ViabilityOSSection = () => {
 
               {/* Main card with enhanced contrast */}
               <motion.div
-                className={`relative backdrop-blur-xl border-2 rounded-3xl p-12 shadow-2xl overflow-hidden ${
+                className={`relative backdrop-blur-xl border-2 sharp-edges p-12 shadow-2xl overflow-hidden ${
                   agent.color === 'viability'
                     ? 'bg-gradient-to-br from-viability-primary/20 via-viability-primary/10 to-slate-900/80 border-viability-glow/40'
                     : 'bg-gradient-to-br from-factory-500/20 via-factory-500/10 to-slate-900/80 border-factory-400/40'
@@ -150,16 +150,16 @@ const ViabilityOSSection = () => {
 
                 {/* Radial glow on hover */}
                 <motion.div
-                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full opacity-0 group-hover:opacity-20 transition duration-500 blur-2xl ${
+                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full sharp-edges opacity-0 group-hover:opacity-20 transition duration-500 blur-2xl ${
                     agent.color === 'viability' ? 'bg-viability-glow' : 'bg-factory-400'
                   }`}
                 />
 
                 {/* Enhanced corner decorations */}
-                <div className={`absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition duration-500 ${
+                <div className={`absolute top-0 right-0 w-48 h-48 sharp-edges blur-3xl opacity-40 group-hover:opacity-60 transition duration-500 ${
                   agent.color === 'viability' ? 'bg-viability-primary' : 'bg-factory-500'
                 }`} />
-                <div className={`absolute bottom-0 left-0 w-48 h-48 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition duration-500 ${
+                <div className={`absolute bottom-0 left-0 w-48 h-48 sharp-edges blur-3xl opacity-40 group-hover:opacity-60 transition duration-500 ${
                   agent.color === 'viability' ? 'bg-viability-glow' : 'bg-factory-400'
                 }`} />
 
@@ -180,7 +180,7 @@ const ViabilityOSSection = () => {
                     whileHover={{scale: 1.15, rotate: 10}}
                     transition={{type: "spring", stiffness: 300}}
                   >
-                    <div className={`w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg ${
+                    <div className={`w-20 h-20 sharp-edges flex items-center justify-center shadow-lg ${
                       agent.color === 'viability'
                         ? 'bg-gradient-to-br from-viability-primary/30 to-viability-glow/30 border-2 border-viability-primary/50'
                         : 'bg-gradient-to-br from-factory-500/30 to-factory-400/30 border-2 border-factory-500/50'
@@ -190,7 +190,7 @@ const ViabilityOSSection = () => {
                       }`} />
                     </div>
                     {/* Icon glow */}
-                    <div className={`absolute inset-0 rounded-2xl blur-xl opacity-50 ${
+                    <div className={`absolute inset-0 sharp-edges blur-xl opacity-50 ${
                       agent.color === 'viability' ? 'bg-viability-primary' : 'bg-factory-500'
                     }`} />
                   </motion.div>
@@ -212,7 +212,7 @@ const ViabilityOSSection = () => {
                     transition={{delay: 0.3 + index * 0.2}}
                     viewport={{once: true}}
                   >
-                    <span className={`px-5 py-2 rounded-full text-sm font-bold tracking-wide shadow-lg ${
+                    <span className={`px-5 py-2 sharp-edges text-sm font-bold tracking-wide shadow-lg ${
                       agent.color === 'viability'
                         ? 'bg-viability-primary/30 text-viability-glow border-2 border-viability-primary/50'
                         : 'bg-factory-500/30 text-factory-300 border-2 border-factory-500/50'
@@ -234,7 +234,7 @@ const ViabilityOSSection = () => {
 
                   {/* Animated underline */}
                   <motion.div
-                    className={`mt-6 h-1 rounded-full ${
+                    className={`mt-6 h-1 sharp-edges ${
                       agent.color === 'viability'
                         ? 'bg-gradient-to-r from-viability-primary to-viability-glow'
                         : 'bg-gradient-to-r from-factory-500 to-factory-400'
@@ -260,7 +260,7 @@ const ViabilityOSSection = () => {
         >
           <Link to="/manifesto">
             <motion.div
-              className="inline-flex items-center justify-center px-8 py-4 font-semibold text-lg text-viability-glow bg-transparent border-2 border-viability-primary/50 backdrop-blur-sm rounded-xl hover:bg-viability-primary/10 hover:border-viability-primary transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 font-semibold text-lg text-viability-glow bg-transparent border-2 border-viability-primary/50 backdrop-blur-sm sharp-edges hover:bg-viability-primary/10 hover:border-viability-primary transition-all duration-300"
               whileHover={{scale: 1.05}}
               whileTap={{scale: 0.95}}
             >

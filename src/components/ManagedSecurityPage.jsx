@@ -142,7 +142,7 @@ const ManagedSecurityPage = () => {
                 transition={{ duration: 0.8 }}
               >
                 <motion.div
-                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold"
+                  className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 sharp-edges text-sm font-semibold"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -181,7 +181,7 @@ const ManagedSecurityPage = () => {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Link
                       to="/security-maturity-assessment"
-                      className="flex items-center justify-center bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300"
+                      className="flex items-center justify-center bg-primary-blue text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-blue-700 transition-colors duration-300"
                     >
                       Start Your Security Assessment
                     </Link>
@@ -189,7 +189,7 @@ const ManagedSecurityPage = () => {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Link
                       to="/roi-calculator"
-                      className="flex items-center justify-center space-x-2 bg-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors duration-300"
+                      className="flex items-center justify-center space-x-2 bg-green-600 text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-green-700 transition-colors duration-300"
                     >
                       <span>Calculate Security ROI</span>
                       <SafeIcon icon={FiTrendingUp} className="w-5 h-5" />
@@ -200,7 +200,7 @@ const ManagedSecurityPage = () => {
                       href="https://handvantage.co/contact"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300"
+                      className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 sharp-edges font-semibold text-lg hover:border-primary-blue hover:text-primary-blue transition-colors duration-300"
                     >
                       <span>Contact for Service Guide</span>
                       <SafeIcon icon={FiArrowRight} className="w-5 h-5" />
@@ -215,7 +215,7 @@ const ManagedSecurityPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <div className="bg-white sharp-edges p-8 shadow-xl">
                   <h3 className="text-2xl font-bold text-primary-dark mb-6">Why Choose HandVantage?</h3>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
@@ -263,14 +263,14 @@ const ManagedSecurityPage = () => {
               {challenges.map((challenge, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-50 rounded-lg p-6 text-center"
+                  className="bg-gray-50 sharp-edges p-6 text-center"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-red-100 sharp-edges flex items-center justify-center mx-auto mb-4">
                     <SafeIcon icon={challenge.icon} className="w-8 h-8 text-red-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-primary-dark mb-3">{challenge.title}</h3>
@@ -303,14 +303,14 @@ const ManagedSecurityPage = () => {
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-lg p-6 shadow-lg text-center"
+                  className="bg-white sharp-edges p-6 shadow-lg text-center"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-blue-100 sharp-edges flex items-center justify-center mx-auto mb-4">
                     <SafeIcon icon={benefit.icon} className="w-8 h-8 text-primary-blue" />
                   </div>
                   <h3 className="text-lg font-semibold text-primary-dark mb-3">{benefit.title}</h3>
@@ -343,7 +343,7 @@ const ManagedSecurityPage = () => {
               {serviceTiers.map((tier, index) => (
                 <motion.div
                   key={index}
-                  className={`relative bg-white rounded-2xl p-8 shadow-lg border-2 ${
+                  className={`relative bg-white sharp-edges p-8 shadow-lg border-2 ${
                     tier.recommended ? 'border-primary-blue' : 'border-gray-200'
                   }`}
                   initial={{ opacity: 0, y: 30 }}
@@ -354,7 +354,7 @@ const ManagedSecurityPage = () => {
                 >
                   {tier.recommended && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-primary-blue text-white px-4 py-2 rounded-full text-sm font-semibold">
+                      <span className="bg-primary-blue text-white px-4 py-2 sharp-edges text-sm font-semibold">
                         Most Popular
                       </span>
                     </div>
@@ -398,7 +398,7 @@ const ManagedSecurityPage = () => {
                       href="https://handvantage.co/contact"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block text-center px-6 py-3 rounded-lg font-semibold transition-colors duration-300 ${
+                      className={`block text-center px-6 py-3 sharp-edges font-semibold transition-colors duration-300 ${
                         tier.recommended
                           ? 'bg-primary-blue text-white hover:bg-blue-700'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -435,7 +435,7 @@ const ManagedSecurityPage = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               <motion.div
-                className="bg-white rounded-lg p-8 shadow-lg text-center"
+                className="bg-white sharp-edges p-8 shadow-lg text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -447,7 +447,7 @@ const ManagedSecurityPage = () => {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-lg p-8 shadow-lg text-center"
+                className="bg-white sharp-edges p-8 shadow-lg text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -459,7 +459,7 @@ const ManagedSecurityPage = () => {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-lg p-8 shadow-lg text-center"
+                className="bg-white sharp-edges p-8 shadow-lg text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -493,7 +493,7 @@ const ManagedSecurityPage = () => {
                   href="https://handvantage.co/contact"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300"
+                  className="bg-white text-primary-blue px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -501,7 +501,7 @@ const ManagedSecurityPage = () => {
                 </motion.a>
                 <motion.a
                   href="tel:+12362350919"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary-blue transition-colors duration-300"
+                  className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-white hover:text-primary-blue transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

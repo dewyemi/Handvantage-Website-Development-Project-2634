@@ -52,7 +52,7 @@ const ROICalculatorLanding = () => {
             >
               <div>
                 <motion.div
-                  className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+                  className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 sharp-edges text-sm font-semibold mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -109,7 +109,7 @@ const ROICalculatorLanding = () => {
                   href="https://secvantages.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 shadow-lg"
+                  className="inline-flex items-center bg-red-600 text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-red-700 transition-colors duration-300 shadow-lg"
                 >
                   Calculate Your Security ROI <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </a>
@@ -125,7 +125,7 @@ const ROICalculatorLanding = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white rounded-2xl shadow-xl p-8">
+              <div className="bg-white sharp-edges shadow-xl p-8">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-primary-dark mb-2">Security ROI Features</h3>
                   <p className="text-gray-600">Comprehensive security impact analysis tool</p>
@@ -134,13 +134,13 @@ const ROICalculatorLanding = () => {
                   {calculatorFeatures.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-start space-x-4 p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors"
+                      className="flex items-start space-x-4 p-4 sharp-edges border border-gray-200 hover:border-blue-300 transition-colors"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 + index * 0.1 }}
                     >
                       <div
-                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 sharp-edges flex items-center justify-center flex-shrink-0"
                         style={{ backgroundColor: `${feature.color}20` }}
                       >
                         <SafeIcon icon={feature.icon} className="w-5 h-5" style={{ color: feature.color }} />
@@ -179,13 +179,13 @@ const ROICalculatorLanding = () => {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-gray-50 sharp-edges p-6 hover:shadow-lg transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-red-100 sharp-edges flex items-center justify-center mb-4">
                   <SafeIcon icon={benefit.icon} className="w-6 h-6 text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
@@ -217,14 +217,14 @@ const ROICalculatorLanding = () => {
             {securityValue.map((security, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="bg-white sharp-edges p-6 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 sharp-edges flex items-center justify-center mx-auto mb-4"
                   style={{ backgroundColor: security.color }}
                 >
                   <SafeIcon icon={security.icon} className="w-8 h-8 text-white" />
@@ -264,7 +264,7 @@ const ROICalculatorLanding = () => {
             {industryExamples.map((example, index) => (
               <motion.div
                 key={index}
-                className="bg-red-50 rounded-xl p-6 text-center"
+                className="bg-red-50 sharp-edges p-6 text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -317,14 +317,14 @@ const ROICalculatorLanding = () => {
                   href="https://secvantages.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
+                  className="bg-white text-red-600 px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
                   Calculate Security ROI <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </a>
               </motion.div>
               <motion.a
                 href="tel:+12362350919"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors duration-300 inline-flex items-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors duration-300 inline-flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

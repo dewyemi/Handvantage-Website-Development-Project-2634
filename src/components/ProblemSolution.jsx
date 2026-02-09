@@ -318,7 +318,7 @@ const ProblemSolution = () => {
                   key={i}
                   className="flex items-center gap-3 text-lg font-semibold text-slate-700"
                 >
-                  <div className="w-8 h-8 bg-viability-primary/10 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-viability-primary/10 sharp-edges flex items-center justify-center">
                     <SafeIcon icon={FiCheck} className="w-5 h-5 text-viability-primary" />
                   </div>
                   {feature}

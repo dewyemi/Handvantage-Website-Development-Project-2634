@@ -390,7 +390,7 @@ Website: https://handvantage.co
 
           {/* Score Display */}
           <motion.div
-            className="bg-white rounded-xl shadow-2xl p-8 mb-8"
+            className="bg-white sharp-edges shadow-2xl p-8 mb-8"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -409,15 +409,15 @@ Website: https://handvantage.co
                 const sectionScore = Math.round(Math.random() * 40 + 40); // Simplified for demo
                 return (
                   <div key={section.id} className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-blue-100 sharp-edges flex items-center justify-center">
                       <SafeIcon icon={FiShield} className="w-6 h-6 text-primary-blue" />
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-primary-dark">{section.title}</h4>
                       <div className="flex items-center space-x-2">
-                        <div className="flex-1 bg-gray-200 rounded-full h-2">
+                        <div className="flex-1 bg-gray-200 sharp-edges h-2">
                           <div 
-                            className="bg-primary-blue h-2 rounded-full" 
+                            className="bg-primary-blue h-2 sharp-edges" 
                             style={{ width: `${sectionScore}%` }}
                           ></div>
                         </div>
@@ -470,7 +470,7 @@ Website: https://handvantage.co
                   href="https://handvantage.co/contact"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary-blue text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center"
+                  className="bg-primary-blue text-white px-8 py-4 sharp-edges font-semibold hover:opacity-90 transition-opacity duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -479,7 +479,7 @@ Website: https://handvantage.co
                 </motion.a>
                 <motion.button
                   onClick={downloadReport}
-                  className="border-2 border-primary-blue text-primary-blue px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 flex items-center justify-center"
+                  className="border-2 border-primary-blue text-primary-blue px-8 py-4 sharp-edges font-semibold hover:bg-blue-50 transition-colors duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -514,9 +514,9 @@ Website: https://handvantage.co
           </p>
           
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+          <div className="w-full bg-gray-200 sharp-edges h-3 mb-4">
             <div 
-              className="bg-primary-blue h-3 rounded-full transition-all duration-500"
+              className="bg-primary-blue h-3 sharp-edges transition-all duration-500"
               style={{ width: `${((currentSection + 1) / assessmentSections.length) * 100}%` }}
             ></div>
           </div>
@@ -527,7 +527,7 @@ Website: https://handvantage.co
 
         {/* Current Section */}
         <motion.div
-          className="bg-white rounded-xl shadow-2xl p-8"
+          className="bg-white sharp-edges shadow-2xl p-8"
           key={currentSection}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -553,7 +553,7 @@ Website: https://handvantage.co
                     {question.options.map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                        className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                       >
                         <input
                           type="radio"
@@ -574,7 +574,7 @@ Website: https://handvantage.co
                     {question.options.map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                        className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                       >
                         <input
                           type="checkbox"
@@ -604,7 +604,7 @@ Website: https://handvantage.co
             <motion.button
               onClick={prevSection}
               disabled={currentSection === 0}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors ${
                 currentSection === 0
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -622,7 +622,7 @@ Website: https://handvantage.co
             <motion.button
               onClick={nextSection}
               disabled={!isCurrentSectionComplete()}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors flex items-center ${
                 isCurrentSectionComplete()
                   ? 'bg-primary-blue text-white hover:opacity-90'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'

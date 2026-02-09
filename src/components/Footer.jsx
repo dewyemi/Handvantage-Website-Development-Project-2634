@@ -46,8 +46,8 @@ const Footer = () => {
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-viability-primary/30 to-transparent" />
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-viability-primary/10 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-factory-500/10 rounded-full blur-[100px]" />
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-viability-primary/10 sharp-edges blur-[100px]" />
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-factory-500/10 sharp-edges blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -75,7 +75,7 @@ const Footer = () => {
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 group">
-                <div className="p-2 rounded-full bg-white/5 group-hover:bg-primary-blue/20 transition-colors">
+                <div className="p-2 sharp-edges bg-white/5 group-hover:bg-primary-blue/20 transition-colors">
                   <SafeIcon icon={FiPhone} className="w-5 h-5 text-primary-blue" />
                 </div>
                 <a
@@ -186,7 +186,7 @@ const Footer = () => {
                 href="https://handvantage.co/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block w-full text-center bg-gradient-to-r from-viability-primary to-factory-500 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-viability-primary/20 hover:-translate-y-1 transition-all duration-300"
+                className="inline-block w-full text-center bg-gradient-to-r from-viability-primary to-factory-500 text-white px-6 py-4 sharp-edges font-semibold hover:shadow-lg hover:shadow-viability-primary/20 hover:-translate-y-1 transition-all duration-300"
               >
                 Schedule Consultation
               </a>

@@ -347,7 +347,7 @@ const ComplianceAssessment = () => {
               return (
                 <motion.div
                   key={frameworkId}
-                  className="bg-white rounded-xl shadow-2xl p-8"
+                  className="bg-white sharp-edges shadow-2xl p-8"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
@@ -359,7 +359,7 @@ const ComplianceAssessment = () => {
                   
                   <div className="text-center mb-6">
                     <div className="text-4xl font-bold text-primary-blue mb-2">{score}%</div>
-                    <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${level.bg} ${level.color}`}>
+                    <div className={`inline-block px-3 py-1 sharp-edges text-sm font-semibold ${level.bg} ${level.color}`}>
                       {level.level}
                     </div>
                   </div>
@@ -381,7 +381,7 @@ const ComplianceAssessment = () => {
 
           {/* Recommendations */}
           <motion.div
-            className="bg-white rounded-xl shadow-2xl p-8 mb-8"
+            className="bg-white sharp-edges shadow-2xl p-8 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -423,7 +423,7 @@ const ComplianceAssessment = () => {
 
           {/* CTA Section */}
           <motion.div
-            className="bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-xl p-8 text-center"
+            className="bg-gradient-to-r from-primary-blue to-primary-purple text-white sharp-edges p-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -437,7 +437,7 @@ const ComplianceAssessment = () => {
                 href="https://handvantage.co/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-primary-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+                className="bg-white text-primary-blue px-8 py-4 sharp-edges font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -445,7 +445,7 @@ const ComplianceAssessment = () => {
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
               </motion.a>
               <motion.button
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-blue transition-colors duration-300 flex items-center justify-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold hover:bg-white hover:text-primary-blue transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -477,9 +477,9 @@ const ComplianceAssessment = () => {
           </p>
           
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+          <div className="w-full bg-gray-200 sharp-edges h-3 mb-4">
             <div 
-              className="bg-primary-blue h-3 rounded-full transition-all duration-500"
+              className="bg-primary-blue h-3 sharp-edges transition-all duration-500"
               style={{ width: `${((currentStep + 1) / assessmentSteps.length) * 100}%` }}
             ></div>
           </div>
@@ -491,7 +491,7 @@ const ComplianceAssessment = () => {
         {/* Framework Selection Step */}
         {currentStep === 0 && (
           <motion.div
-            className="bg-white rounded-xl shadow-2xl p-8"
+            className="bg-white sharp-edges shadow-2xl p-8"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -505,7 +505,7 @@ const ComplianceAssessment = () => {
                 <div
                   key={framework.id}
                   onClick={() => toggleFramework(framework.id)}
-                  className={`p-6 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
+                  className={`p-6 sharp-edges border-2 cursor-pointer transition-all duration-300 ${
                     selectedFrameworks.includes(framework.id)
                       ? 'border-primary-blue bg-blue-50'
                       : 'border-gray-200 hover:border-gray-300'
@@ -539,7 +539,7 @@ const ComplianceAssessment = () => {
         {/* Assessment Questions Steps */}
         {currentStep > 0 && currentStep < assessmentSteps.length && (
           <motion.div
-            className="bg-white rounded-xl shadow-2xl p-8"
+            className="bg-white sharp-edges shadow-2xl p-8"
             key={currentStep}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -569,7 +569,7 @@ const ComplianceAssessment = () => {
                           {question.options.map((option) => (
                             <label
                               key={option.value}
-                              className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                              className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                             >
                               <input
                                 type="radio"
@@ -598,7 +598,7 @@ const ComplianceAssessment = () => {
                         {question.options.map((option) => (
                           <label
                             key={option.value}
-                            className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                            className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                           >
                             <input
                               type="radio"
@@ -625,7 +625,7 @@ const ComplianceAssessment = () => {
           <motion.button
             onClick={prevStep}
             disabled={currentStep === 0}
-            className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+            className={`px-6 py-3 sharp-edges font-semibold transition-colors ${
               currentStep === 0
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -643,7 +643,7 @@ const ComplianceAssessment = () => {
           <motion.button
             onClick={nextStep}
             disabled={currentStep === 0 && selectedFrameworks.length === 0}
-            className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center ${
+            className={`px-6 py-3 sharp-edges font-semibold transition-colors flex items-center ${
               (currentStep === 0 && selectedFrameworks.length > 0) || currentStep > 0
                 ? 'bg-primary-blue text-white hover:opacity-90'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'

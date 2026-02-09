@@ -234,7 +234,7 @@ const HUDOverlay = ({
             {status.toUpperCase()}
           </span>
           <motion.div
-            className={`w-2 h-2 rounded-full ${statusColors[status]}`}
+            className={`w-2 h-2 sharp-edges ${statusColors[status]}`}
             animate={
               status === 'operational'
                 ? {

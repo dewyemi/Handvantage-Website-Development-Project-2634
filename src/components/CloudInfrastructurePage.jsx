@@ -254,7 +254,7 @@ const CloudInfrastructurePage = () => {
             >
               {/* Badge */}
               <motion.div 
-                className="inline-flex items-center bg-[#dbeafe] text-[#0078d4] px-4 py-2 rounded-full text-sm font-semibold"
+                className="inline-flex items-center bg-[#dbeafe] text-[#0078d4] px-4 py-2 sharp-edges text-sm font-semibold"
                 initial={{opacity: 0, y: 20}}
                 whileInView={{opacity: 1, y: 0}}
                 transition={{delay: 0.2}}
@@ -321,7 +321,7 @@ const CloudInfrastructurePage = () => {
               >
                 <motion.button
                   onClick={() => handleSmoothScroll('cloud-assessment')}
-                  className="bg-[#0078d4] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
+                  className="bg-[#0078d4] text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-blue-700 transition-colors duration-300"
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
                 >
@@ -329,7 +329,7 @@ const CloudInfrastructurePage = () => {
                 </motion.button>
                 <motion.button
                   onClick={() => handleSmoothScroll('solutions')}
-                  className="border-2 border-[#0078d4] text-[#0078d4] px-8 py-4 rounded-lg font-semibold text-center hover:bg-[#0078d4] hover:text-white transition-colors duration-300"
+                  className="border-2 border-[#0078d4] text-[#0078d4] px-8 py-4 sharp-edges font-semibold text-center hover:bg-[#0078d4] hover:text-white transition-colors duration-300"
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
                 >
@@ -346,7 +346,7 @@ const CloudInfrastructurePage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white sharp-edges p-8 shadow-xl">
                 <motion.h3 
                   className="text-2xl font-bold text-primary-dark text-center mb-6"
                   initial={{opacity: 0, y: 20}}
@@ -360,7 +360,7 @@ const CloudInfrastructurePage = () => {
                   {cloudPartners.map((partner, index) => (
                     <motion.div 
                       key={index}
-                      className="bg-gray-50 rounded-lg p-4 text-center"
+                      className="bg-gray-50 sharp-edges p-4 text-center"
                       initial={{opacity: 0, scale: 0.8}}
                       whileInView={{opacity: 1, scale: 1}}
                       transition={{delay: 0.3 + index * 0.1}}
@@ -370,7 +370,7 @@ const CloudInfrastructurePage = () => {
                       <SafeIcon icon={partner.icon} className="w-10 h-10 mx-auto mb-3" style={{color: partner.color}} />
                       <h4 className="font-bold text-primary-dark mb-1">{partner.title}</h4>
                       <span 
-                        className="text-xs font-medium px-2 py-1 rounded-full" 
+                        className="text-xs font-medium px-2 py-1 sharp-edges" 
                         style={{backgroundColor: `${partner.color}20`, color: partner.color}}
                       >
                         {partner.badge}
@@ -416,11 +416,11 @@ const CloudInfrastructurePage = () => {
                 whileHover={{y: -8}}
               >
                 <div 
-                  className="rounded-xl p-8" 
+                  className="sharp-edges p-8" 
                   style={{backgroundColor: solution.bg, borderColor: solution.border, borderWidth: "1px"}}
                 >
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 sharp-edges flex items-center justify-center mb-6">
                     <SafeIcon icon={solution.icon} className="w-8 h-8" style={{color: solution.color}} />
                   </div>
 
@@ -485,9 +485,9 @@ const CloudInfrastructurePage = () => {
                 viewport={{once: true}}
                 whileHover={{y: -8}}
               >
-                <div className="bg-white rounded-xl p-6 text-center shadow-lg h-full">
+                <div className="bg-white sharp-edges p-6 text-center shadow-lg h-full">
                   <div 
-                    className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" 
+                    className="w-12 h-12 sharp-edges flex items-center justify-center mx-auto mb-4" 
                     style={{backgroundColor: phase.color}}
                   >
                     <span className="text-lg font-bold text-white">
@@ -538,7 +538,7 @@ const CloudInfrastructurePage = () => {
                 {costSavings.map((metric, index) => (
                   <motion.div 
                     key={index}
-                    className="bg-white rounded-lg p-4 shadow-sm flex items-center gap-4"
+                    className="bg-white sharp-edges p-4 shadow-sm flex items-center gap-4"
                     initial={{opacity: 0, y: 20}}
                     whileInView={{opacity: 1, y: 0}}
                     transition={{duration: 0.4, delay: index * 0.1}}
@@ -563,7 +563,7 @@ const CloudInfrastructurePage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-primary-light rounded-xl p-8 shadow-xl">
+              <div className="bg-primary-light sharp-edges p-8 shadow-xl">
                 <h3 className="text-2xl font-bold text-primary-dark text-center mb-8">
                   Strategic Business Advantages
                 </h3>
@@ -578,7 +578,7 @@ const CloudInfrastructurePage = () => {
                       viewport={{once: true}}
                     >
                       <div 
-                        className="p-2 rounded-lg flex-shrink-0" 
+                        className="p-2 sharp-edges flex-shrink-0" 
                         style={{backgroundColor: `${benefit.color}15`}}
                       >
                         <SafeIcon icon={benefit.icon} className="w-6 h-6" style={{color: benefit.color}} />
@@ -629,7 +629,7 @@ const CloudInfrastructurePage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-[#f0f9ff] border border-[#0078d4] rounded-xl p-8">
+              <div className="bg-[#f0f9ff] border border-[#0078d4] sharp-edges p-8">
                 <h3 className="text-2xl font-bold text-[#0078d4] mb-4">
                   Microsoft-First Strategy
                 </h3>
@@ -683,7 +683,7 @@ const CloudInfrastructurePage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-[#fef3c7] border border-[#f59e0b] rounded-xl p-8">
+              <div className="bg-[#fef3c7] border border-[#f59e0b] sharp-edges p-8">
                 <h3 className="text-2xl font-bold text-[#f59e0b] mb-4">
                   Multi-Cloud Flexibility
                 </h3>
@@ -749,7 +749,7 @@ const CloudInfrastructurePage = () => {
               Get your free infrastructure assessment and discover how our Microsoft CSP partnership can transform your business
             </p>
             <motion.div 
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8"
+              className="bg-white/10 backdrop-blur-sm sharp-edges p-8 mb-8"
               initial={{opacity: 0, y: 30}}
               whileInView={{opacity: 1, y: 0}}
               transition={{duration: 0.6, delay: 0.2}}
@@ -794,7 +794,7 @@ const CloudInfrastructurePage = () => {
             >
               <motion.button
                 onClick={() => handleSmoothScroll('contact')}
-                className="bg-white text-[#0078d4] px-8 py-4 rounded-lg font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
+                className="bg-white text-[#0078d4] px-8 py-4 sharp-edges font-semibold text-center hover:bg-gray-100 transition-colors duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
@@ -802,7 +802,7 @@ const CloudInfrastructurePage = () => {
               </motion.button>
               <motion.a 
                 href="tel:+12362350919"
-                className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-white hover:text-[#0078d4] transition-colors duration-300"
+                className="flex items-center justify-center space-x-2 border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-white hover:text-[#0078d4] transition-colors duration-300"
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
               >
@@ -836,7 +836,7 @@ const CloudInfrastructurePage = () => {
               {/* Success Message */}
               {formStatus.isSuccess && (
                 <motion.div 
-                  className="bg-green-500 text-white p-4 rounded-lg mb-6"
+                  className="bg-green-500 text-white p-4 sharp-edges mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
@@ -850,7 +850,7 @@ const CloudInfrastructurePage = () => {
               {/* Error Message */}
               {formStatus.error && (
                 <motion.div 
-                  className="bg-red-500 text-white p-4 rounded-lg mb-6"
+                  className="bg-red-500 text-white p-4 sharp-edges mb-6"
                   initial={{opacity: 0, y: -20}}
                   animate={{opacity: 1, y: 0}}
                 >
@@ -882,7 +882,7 @@ const CloudInfrastructurePage = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                       placeholder="Your first name"
                     />
                   </div>
@@ -897,7 +897,7 @@ const CloudInfrastructurePage = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                       placeholder="Your last name"
                     />
                   </div>
@@ -914,7 +914,7 @@ const CloudInfrastructurePage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -929,7 +929,7 @@ const CloudInfrastructurePage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="Your phone number"
                   />
                 </div>
@@ -945,7 +945,7 @@ const CloudInfrastructurePage = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="Your company name"
                   />
                 </div>
@@ -960,7 +960,7 @@ const CloudInfrastructurePage = () => {
                     value={formData.currentCloud}
                     onChange={handleInputChange}
                     rows="4"
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 sharp-edges focus:outline-none focus:ring-2 focus:ring-[#0078d4] text-white"
                     placeholder="Describe your growth goals and infrastructure challenges..."
                   ></textarea>
                 </div>
@@ -971,7 +971,7 @@ const CloudInfrastructurePage = () => {
                 <motion.button 
                   type="submit"
                   disabled={formStatus.isSubmitting}
-                  className="w-full bg-[#0078d4] text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full bg-[#0078d4] text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   whileHover={!formStatus.isSubmitting ? {scale: 1.02} : {}}
                   whileTap={!formStatus.isSubmitting ? {scale: 0.98} : {}}
                 >
@@ -995,8 +995,8 @@ const CloudInfrastructurePage = () => {
               transition={{duration: 0.8}}
               viewport={{once: true}}
             >
-              <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#0078d4]">
+              <div className="bg-slate-800 sharp-edges p-8 border border-slate-700">
+                <div className="w-32 h-32 mx-auto mb-6 sharp-edges overflow-hidden border-4 border-[#0078d4]">
                   <img 
                     src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp" 
                     alt="Josh Olayemi" 
@@ -1006,7 +1006,7 @@ const CloudInfrastructurePage = () => {
                 <h3 className="text-2xl font-bold mb-2">Josh Olayemi</h3>
                 <p className="text-[#0078d4] font-semibold mb-2">Strategic Technology Consultant</p>
                 <p className="text-slate-300 mb-4">Growth Bottleneck Elimination Expert</p>
-                <div className="bg-[#0078d4]/20 p-4 rounded-lg mb-6">
+                <div className="bg-[#0078d4]/20 p-4 sharp-edges mb-6">
                   <h4 className="font-bold text-[#93c5fd] mb-2">🌟 Strategic Advantages:</h4>
                   <ul className="text-slate-300 space-y-2 text-sm">
                     <li className="flex items-center justify-center">

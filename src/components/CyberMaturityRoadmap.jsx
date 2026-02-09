@@ -490,12 +490,12 @@ const CyberMaturityRoadmap = () => {
         >
           <div className="w-32 h-32 mx-auto mb-8 relative">
             <motion.div
-              className="w-full h-full border-4 border-blue-200 rounded-full"
+              className="w-full h-full border-4 border-blue-200 sharp-edges"
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="absolute top-2 left-2 w-28 h-28 border-4 border-blue-600 border-t-transparent rounded-full"
+              className="absolute top-2 left-2 w-28 h-28 border-4 border-blue-600 border-t-transparent sharp-edges"
               animate={{ rotate: -360 }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
             />
@@ -543,7 +543,7 @@ const CyberMaturityRoadmap = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+            <div className="w-24 h-24 mx-auto mb-6 sharp-edges bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
               <SafeIcon icon={FiMapPin} className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-primary-dark mb-4">Your Cybersecurity Transformation Roadmap</h1>
@@ -553,7 +553,7 @@ const CyberMaturityRoadmap = () => {
           {/* Summary Cards */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-6 text-center"
+              className="bg-white sharp-edges shadow-lg p-6 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -563,7 +563,7 @@ const CyberMaturityRoadmap = () => {
               <div className="text-sm text-slate-600">Total Duration</div>
             </motion.div>
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-6 text-center"
+              className="bg-white sharp-edges shadow-lg p-6 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -573,7 +573,7 @@ const CyberMaturityRoadmap = () => {
               <div className="text-sm text-slate-600">Key Phases</div>
             </motion.div>
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-6 text-center"
+              className="bg-white sharp-edges shadow-lg p-6 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -583,7 +583,7 @@ const CyberMaturityRoadmap = () => {
               <div className="text-sm text-slate-600">Risk Reduction</div>
             </motion.div>
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-6 text-center"
+              className="bg-white sharp-edges shadow-lg p-6 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -606,7 +606,7 @@ const CyberMaturityRoadmap = () => {
               {roadmapData.phases.map((phase, index) => (
                 <motion.div
                   key={phase.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden"
+                  className="bg-white sharp-edges shadow-lg overflow-hidden"
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
@@ -614,7 +614,7 @@ const CyberMaturityRoadmap = () => {
                   <div className="p-6">
                     <div className="flex items-center mb-4">
                       <div 
-                        className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mr-4"
+                        className="w-12 h-12 sharp-edges flex items-center justify-center text-white font-bold mr-4"
                         style={{ backgroundColor: phase.color }}
                       >
                         {index + 1}
@@ -675,7 +675,7 @@ const CyberMaturityRoadmap = () => {
           {/* Quick Wins */}
           {roadmapData.quickWins.length > 0 && (
             <motion.div
-              className="bg-white rounded-xl shadow-lg p-8 mb-12"
+              className="bg-white sharp-edges shadow-lg p-8 mb-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
@@ -683,7 +683,7 @@ const CyberMaturityRoadmap = () => {
               <h3 className="text-2xl font-bold text-primary-dark mb-6 text-center">Immediate Quick Wins (30-60 days)</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {roadmapData.quickWins.map((win, index) => (
-                  <div key={index} className="flex items-center p-4 bg-green-50 rounded-lg">
+                  <div key={index} className="flex items-center p-4 bg-green-50 sharp-edges">
                     <SafeIcon icon={FiCheckCircle} className="w-6 h-6 text-green-600 mr-3" />
                     <span className="text-green-800 font-medium">{getQuickWinDetails(win)}</span>
                   </div>
@@ -694,7 +694,7 @@ const CyberMaturityRoadmap = () => {
 
           {/* CTA Section */}
           <motion.div
-            className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-8 text-white text-center"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 sharp-edges shadow-lg p-8 text-white text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
@@ -708,7 +708,7 @@ const CyberMaturityRoadmap = () => {
                 href="https://handvantage.co/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+                className="bg-white text-blue-600 px-8 py-4 sharp-edges font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -716,7 +716,7 @@ const CyberMaturityRoadmap = () => {
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4 ml-2" />
               </motion.a>
               <motion.button
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -749,9 +749,9 @@ const CyberMaturityRoadmap = () => {
           </p>
           
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+          <div className="w-full bg-gray-200 sharp-edges h-3 mb-4">
             <div 
-              className="bg-blue-600 h-3 rounded-full transition-all duration-500"
+              className="bg-blue-600 h-3 sharp-edges transition-all duration-500"
               style={{ width: `${((currentStep + 1) / assessmentSteps.length) * 100}%` }}
             ></div>
           </div>
@@ -763,7 +763,7 @@ const CyberMaturityRoadmap = () => {
         {/* Timeline Selection */}
         {currentStep === 0 && (
           <motion.div
-            className="bg-white rounded-xl shadow-lg p-6 mb-8"
+            className="bg-white sharp-edges shadow-lg p-6 mb-8"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -776,7 +776,7 @@ const CyberMaturityRoadmap = () => {
                 <button
                   key={timeframe.value}
                   onClick={() => setSelectedTimeframe(timeframe.value)}
-                  className={`p-4 rounded-lg border-2 text-center transition-all ${
+                  className={`p-4 sharp-edges border-2 text-center transition-all ${
                     selectedTimeframe === timeframe.value
                       ? 'border-blue-500 bg-blue-50 text-blue-700'
                       : 'border-gray-300 bg-white text-gray-700 hover:border-blue-300'
@@ -792,7 +792,7 @@ const CyberMaturityRoadmap = () => {
 
         {/* Current Step */}
         <motion.div
-          className="bg-white rounded-xl shadow-lg p-8"
+          className="bg-white sharp-edges shadow-lg p-8"
           key={currentStep}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -819,7 +819,7 @@ const CyberMaturityRoadmap = () => {
                     {question.options.map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                        className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                       >
                         <input
                           type="radio"
@@ -845,7 +845,7 @@ const CyberMaturityRoadmap = () => {
                     {question.options.map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center space-x-3 p-4 rounded-lg border hover:bg-blue-50 cursor-pointer transition-colors"
+                        className="flex items-center space-x-3 p-4 sharp-edges border hover:bg-blue-50 cursor-pointer transition-colors"
                       >
                         <input
                           type="checkbox"
@@ -870,7 +870,7 @@ const CyberMaturityRoadmap = () => {
                 {question.type === 'maturity-grid' && (
                   <div className="space-y-4">
                     {question.domains.map((domain) => (
-                      <div key={domain.id} className="border rounded-lg p-4">
+                      <div key={domain.id} className="border sharp-edges p-4">
                         <div className="flex items-center mb-3">
                           <SafeIcon icon={domain.icon} className="w-5 h-5 text-blue-600 mr-2" />
                           <span className="font-medium text-slate-700">{domain.label}</span>
@@ -909,7 +909,7 @@ const CyberMaturityRoadmap = () => {
             <motion.button
               onClick={prevStep}
               disabled={currentStep === 0}
-              className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
+              className={`px-6 py-3 sharp-edges font-semibold transition-colors ${
                 currentStep === 0
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -926,7 +926,7 @@ const CyberMaturityRoadmap = () => {
 
             <motion.button
               onClick={nextStep}
-              className="px-6 py-3 rounded-lg font-semibold transition-colors bg-blue-600 text-white hover:bg-blue-700 flex items-center"
+              className="px-6 py-3 sharp-edges font-semibold transition-colors bg-blue-600 text-white hover:bg-blue-700 flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

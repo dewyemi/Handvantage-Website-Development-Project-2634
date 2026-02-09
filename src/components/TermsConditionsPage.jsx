@@ -24,7 +24,7 @@ const TermsConditionsPage = () => {
           </motion.header>
 
           <motion.div
-            className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+            className="bg-white sharp-edges shadow-lg p-8 md:p-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

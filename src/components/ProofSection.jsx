@@ -90,7 +90,7 @@ const ProofSection = () => {
       {/* Ambient background effects */}
       <div className="absolute inset-0 opacity-30">
         <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-viability-primary/20 rounded-full blur-3xl"
+          className="absolute top-0 left-1/4 w-96 h-96 bg-viability-primary/20 sharp-edges blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             x: [0, 30, 0],
@@ -102,7 +102,7 @@ const ProofSection = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-0 right-1/4 w-96 h-96 bg-factory-500/20 rounded-full blur-3xl"
+          className="absolute bottom-0 right-1/4 w-96 h-96 bg-factory-500/20 sharp-edges blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             x: [0, -30, 0],
@@ -145,8 +145,8 @@ const ProofSection = () => {
         >
           <div className="grid md:grid-cols-2 gap-8">
             {/* Internal Hire Column */}
-            <div className="bg-white border-2 border-red-200 rounded-3xl p-8 md:p-10 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 text-sm font-bold uppercase tracking-wide rounded-bl-2xl">
+            <div className="bg-white border-2 border-red-200 sharp-edges p-8 md:p-10 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-red-500 text-white px-6 py-2 text-sm font-bold uppercase tracking-wide sharp-edges">
                 Old Way
               </div>
               <h3 className="text-3xl font-black text-red-600 mb-8 mt-4">The "Internal Hire"</h3>
@@ -174,8 +174,8 @@ const ProofSection = () => {
             </div>
 
             {/* Handvantage Column */}
-            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 border-2 border-emerald-400 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-emerald-500 text-white px-6 py-2 text-sm font-bold uppercase tracking-wide rounded-bl-2xl">
+            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 border-2 border-emerald-400 sharp-edges p-8 md:p-10 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-emerald-500 text-white px-6 py-2 text-sm font-bold uppercase tracking-wide sharp-edges">
                 New Way
               </div>
               <h3 className="text-3xl font-black text-emerald-600 mb-8 mt-4">The Handvantage Partner</h3>
@@ -214,10 +214,10 @@ const ProofSection = () => {
         >
           <div className="relative group">
             {/* Glow effect layer */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-viability-primary via-factory-500 to-viability-glow rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-1000" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-viability-primary via-factory-500 to-viability-glow sharp-edges blur-xl opacity-20 group-hover:opacity-40 transition duration-1000" />
 
             {/* Card content */}
-            <div className="relative bg-gradient-to-br from-slate-50 to-white rounded-2xl p-12 border border-slate-200 shadow-2xl backdrop-blur-sm">
+            <div className="relative bg-gradient-to-br from-slate-50 to-white sharp-edges p-12 border border-slate-200 shadow-2xl backdrop-blur-sm">
               {/* Quote */}
               <blockquote className="text-3xl md:text-3xl font-light text-slate-700 italic mb-8 leading-relaxed">
                 "Handvantage replaced our need for a $180k CISO hire and cut our SaaS bill by 20%. The service literally paid for itself in Month 4."
@@ -230,8 +230,8 @@ const ProofSection = () => {
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-viability-primary to-factory-500 rounded-full blur-md opacity-50" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 rounded-full flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-viability-primary to-factory-500 sharp-edges blur-md opacity-50" />
+                  <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 sharp-edges flex items-center justify-center">
                     <span className="text-2xl font-bold text-slate-500">CFO</span>
                   </div>
                 </motion.div>
@@ -265,8 +265,8 @@ const ProofSection = () => {
                 viewport={{ once: true }}
               >
                 {/* Enhanced glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-viability-primary/10 via-viability-primary/20 to-factory-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
-                <div className="absolute -inset-4 bg-gradient-to-b from-viability-glow/0 via-viability-glow/10 to-factory-400/10 rounded-3xl blur-3xl opacity-0 group-hover:opacity-80 transition duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-b from-viability-primary/10 via-viability-primary/20 to-factory-500/20 sharp-edges blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div className="absolute -inset-4 bg-gradient-to-b from-viability-glow/0 via-viability-glow/10 to-factory-400/10 sharp-edges blur-3xl opacity-0 group-hover:opacity-80 transition duration-700" />
 
                 {/* Icon with depth */}
                 <motion.div
@@ -275,16 +275,16 @@ const ProofSection = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {/* Icon shadow/glow */}
-                  <div className={`absolute inset-0 rounded-2xl blur-md opacity-30 ${metric.color.replace('text-', 'bg-')}`} />
+                  <div className={`absolute inset-0 sharp-edges blur-md opacity-30 ${metric.color.replace('text-', 'bg-')}`} />
 
                   {/* Enhanced icon container */}
-                  <div className="relative w-full h-full bg-gradient-to-br from-white to-slate-100 rounded-2xl flex items-center justify-center border-2 border-slate-200 shadow-lg group-hover:shadow-2xl group-hover:border-viability-primary/40 transition-all duration-300">
+                  <div className="relative w-full h-full bg-gradient-to-br from-white to-slate-100 sharp-edges flex items-center justify-center border-2 border-slate-200 shadow-lg group-hover:shadow-2xl group-hover:border-viability-primary/40 transition-all duration-300">
                     <SafeIcon icon={metric.icon} className={`w-9 h-9 ${metric.color} group-hover:scale-110 transition-transform duration-300`} />
                   </div>
 
                   {/* Animated ring on hover */}
                   <motion.div
-                    className="absolute inset-0 rounded-2xl border-2 border-viability-primary/30"
+                    className="absolute inset-0 sharp-edges border-2 border-viability-primary/30"
                     initial={{ scale: 1, opacity: 0 }}
                     whileHover={{ scale: 1.2, opacity: 0 }}
                     transition={{ duration: 0.5 }}
@@ -324,7 +324,7 @@ const ProofSection = () => {
 
                 {/* Particle effect on hover */}
                 <motion.div
-                  className="absolute -top-2 left-1/2 w-1 h-1 bg-viability-glow rounded-full"
+                  className="absolute -top-2 left-1/2 w-1 h-1 bg-viability-glow sharp-edges"
                   animate={{
                     y: [0, -20, 0],
                     opacity: [0, 1, 0],

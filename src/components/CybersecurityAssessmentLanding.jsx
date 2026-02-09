@@ -59,7 +59,7 @@ const CybersecurityAssessmentLanding = () => {
             >
               <div>
                 <motion.div
-                  className="inline-flex items-center bg-red-900/30 text-red-200 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+                  className="inline-flex items-center bg-red-900/30 text-red-200 px-4 py-2 sharp-edges text-sm font-semibold mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -94,7 +94,7 @@ const CybersecurityAssessmentLanding = () => {
                 transition={{ delay: 0.5 }}
               >
                 {threatStatistics.map((stat, index) => (
-                  <div key={index} className="bg-slate-800/50 rounded-lg p-4 text-center">
+                  <div key={index} className="bg-slate-800/50 sharp-edges p-4 text-center">
                     <div className="text-2xl font-bold text-red-400 mb-1">{stat.stat}</div>
                     <div className="text-xs text-gray-300">{stat.description}</div>
                   </div>
@@ -110,7 +110,7 @@ const CybersecurityAssessmentLanding = () => {
                   href="https://secvantages.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-300 shadow-lg"
+                  className="inline-flex items-center bg-red-600 text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-red-700 transition-colors duration-300 shadow-lg"
                 >
                   Start Business Protection Assessment <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </a>
@@ -126,7 +126,7 @@ const CybersecurityAssessmentLanding = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-slate-800 rounded-2xl shadow-xl p-8">
+              <div className="bg-slate-800 sharp-edges shadow-xl p-8">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-white mb-2">Business Protection Domains</h3>
                   <p className="text-gray-300">Comprehensive evaluation across 5 critical areas</p>
@@ -135,13 +135,13 @@ const CybersecurityAssessmentLanding = () => {
                   {securityDomains.map((domain, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-start space-x-4 p-4 rounded-lg border border-slate-600 hover:border-red-500 transition-colors"
+                      className="flex items-start space-x-4 p-4 sharp-edges border border-slate-600 hover:border-red-500 transition-colors"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 + index * 0.1 }}
                     >
                       <div
-                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 sharp-edges flex items-center justify-center flex-shrink-0"
                         style={{ backgroundColor: `${domain.color}30` }}
                       >
                         <SafeIcon icon={domain.icon} className="w-5 h-5" style={{ color: domain.color }} />
@@ -180,14 +180,14 @@ const CybersecurityAssessmentLanding = () => {
             {riskLevels.map((level, index) => (
               <motion.div
                 key={index}
-                className="bg-slate-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-slate-800 sharp-edges p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 sharp-edges flex items-center justify-center mx-auto mb-4"
                   style={{ backgroundColor: level.color }}
                 >
                   <SafeIcon icon={level.icon} className="w-8 h-8 text-white" />
@@ -227,7 +227,7 @@ const CybersecurityAssessmentLanding = () => {
             {industryThreats.map((industry, index) => (
               <motion.div
                 key={index}
-                className="bg-slate-700 rounded-xl p-6 border border-slate-600"
+                className="bg-slate-700 sharp-edges p-6 border border-slate-600"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -275,7 +275,7 @@ const CybersecurityAssessmentLanding = () => {
             {partnerSolutions.map((solution, index) => (
               <motion.div
                 key={index}
-                className="bg-slate-800 rounded-xl p-6 border border-slate-600"
+                className="bg-slate-800 sharp-edges p-6 border border-slate-600"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -283,7 +283,7 @@ const CybersecurityAssessmentLanding = () => {
               >
                 <div className="flex items-center mb-4">
                   <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                    className="w-12 h-12 sharp-edges flex items-center justify-center mr-4"
                     style={{ backgroundColor: `${solution.color}30` }}
                   >
                     <SafeIcon icon={FiShield} className="w-6 h-6" style={{ color: solution.color }} />
@@ -333,14 +333,14 @@ const CybersecurityAssessmentLanding = () => {
                   href="https://secvantages.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
+                  className="bg-white text-red-600 px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
                   Start Protection Assessment <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </a>
               </motion.div>
               <motion.a
                 href="tel:+12362350919"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors duration-300 inline-flex items-center"
+                className="border-2 border-white text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors duration-300 inline-flex items-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

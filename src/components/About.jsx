@@ -23,7 +23,7 @@ const About=()=> {
           {/* Left Column - Content */} 
           <motion.div className="space-y-8" initial={{opacity: 0,x: -50}} whileInView={{opacity: 1,x: 0}} transition={{duration: 0.8}} viewport={{once: true}} > 
             {/* Badge */}
-            <motion.div className="inline-flex items-center bg-viability-primary/10 text-viability-primary px-4 py-2 rounded-full text-sm font-semibold border border-viability-primary/20" initial={{opacity: 0,y: 20}} whileInView={{opacity: 1,y: 0}} transition={{delay: 0.2}} viewport={{once: true}} >
+            <motion.div className="inline-flex items-center bg-viability-primary/10 text-viability-primary px-4 py-2 sharp-edges text-sm font-semibold border border-viability-primary/20" initial={{opacity: 0,y: 20}} whileInView={{opacity: 1,y: 0}} transition={{delay: 0.2}} viewport={{once: true}} >
               Viability Engineering Expert
             </motion.div>
             {/* Title */}
@@ -45,10 +45,10 @@ const About=()=> {
             </motion.div> 
             {/* CTA Buttons */} 
             <motion.div className="flex flex-col sm:flex-row gap-4" initial={{opacity: 0,y: 30}} whileInView={{opacity: 1,y: 0}} transition={{delay: 0.8}} viewport={{once: true}} > 
-              <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-viability-primary text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-viability-glow transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} >
+              <motion.a href="https://handvantage.co/contact" target="_blank" rel="noopener noreferrer" className="bg-viability-primary text-white px-8 py-4 sharp-edges font-semibold text-center hover:bg-viability-glow transition-colors duration-300" whileHover={{scale: 1.05}} whileTap={{scale: 0.95}} >
                 Schedule Viability Assessment
               </motion.a> 
-              <Link to="/about" className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" > 
+              <Link to="/about" className="flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 sharp-edges font-semibold hover:border-primary-blue hover:text-primary-blue transition-colors duration-300" > 
                 <span>Learn More About Josh</span> 
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4" /> 
               </Link> 
@@ -56,9 +56,9 @@ const About=()=> {
           </motion.div> 
           {/* Right Column - Profile */} 
           <motion.div className="text-center" initial={{opacity: 0,x: 50}} whileInView={{opacity: 1,x: 0}} transition={{duration: 0.8}} viewport={{once: true}} > 
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8"> 
+            <div className="bg-gradient-to-br from-gray-100 to-gray-200 sharp-edges p-8"> 
               {/* Profile Image */} 
-              <motion.div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg" initial={{scale: 0.8,opacity: 0}} whileInView={{scale: 1,opacity: 1}} transition={{delay: 0.3}} viewport={{once: true}} > 
+              <motion.div className="w-48 h-48 mx-auto mb-6 sharp-edges overflow-hidden border-4 border-white shadow-lg" initial={{scale: 0.8,opacity: 0}} whileInView={{scale: 1,opacity: 1}} transition={{delay: 0.3}} viewport={{once: true}} > 
                 <img src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1753844826077-Olayemi-profile2-2023-jpg.webp" alt="Josh Olayemi" className="w-full h-full object-cover" /> 
               </motion.div> 
               {/* Profile Info */} 

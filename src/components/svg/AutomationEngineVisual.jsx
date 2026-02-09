@@ -19,7 +19,7 @@ const AutomationEngineVisual = () => {
     };
 
     return (
-        <div className="w-full h-96 bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl border border-slate-200 relative overflow-hidden">
+        <div className="w-full h-96 bg-gradient-to-br from-slate-50 to-blue-50 sharp-edges border border-slate-200 relative overflow-hidden">
             {/* Subtle grid */}
             <div
                 className="absolute inset-0 opacity-30"
@@ -85,9 +85,9 @@ const AutomationEngineVisual = () => {
 
             {/* Status label */}
             <div className="absolute bottom-6 left-6 right-6 text-center">
-                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 sharp-edges text-sm font-semibold">
                     <motion.span
-                        className="w-2 h-2 bg-blue-500 rounded-full"
+                        className="w-2 h-2 bg-blue-500 sharp-edges"
                         animate={{ opacity: [0.4, 1, 0.4] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                     />

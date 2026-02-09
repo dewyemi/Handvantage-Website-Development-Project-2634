@@ -710,7 +710,7 @@ const CybersecurityAssessment = () => {
           >
             {/* Results Header */}
             <div className="text-center mb-12">
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: riskLevel.color }}>
+              <div className="w-32 h-32 mx-auto mb-6 sharp-edges flex items-center justify-center" style={{ backgroundColor: riskLevel.color }}>
                 <SafeIcon icon={riskLevel.icon} className="w-16 h-16 text-white" />
               </div>
               <h1 className="text-4xl font-bold text-white mb-4">Cybersecurity Risk Assessment Results</h1>
@@ -726,11 +726,11 @@ const CybersecurityAssessment = () => {
             </div>
 
             {/* Risk Meter */}
-            <div className="bg-slate-800 rounded-xl shadow-lg p-8 mb-8">
+            <div className="bg-slate-800 sharp-edges shadow-lg p-8 mb-8">
               <h2 className="text-2xl font-bold text-white mb-6 text-center">Security Risk Meter</h2>
-              <div className="relative w-full h-8 bg-gray-700 rounded-full overflow-hidden">
+              <div className="relative w-full h-8 bg-gray-700 sharp-edges overflow-hidden">
                 <motion.div
-                  className="h-full rounded-full"
+                  className="h-full sharp-edges"
                   style={{ backgroundColor: riskLevel.color }}
                   initial={{ width: 0 }}
                   animate={{ width: `${riskScore.percentage}%` }}
@@ -750,7 +750,7 @@ const CybersecurityAssessment = () => {
             </div>
 
             {/* Domain Breakdown */}
-            <div className="bg-slate-800 rounded-xl shadow-lg p-8 mb-8">
+            <div className="bg-slate-800 sharp-edges shadow-lg p-8 mb-8">
               <h2 className="text-2xl font-bold text-white mb-6">Security Domain Analysis</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {securityDomains.map((domain, index) => {
@@ -759,7 +759,7 @@ const CybersecurityAssessment = () => {
                   const domainColor = domainScore < 40 ? "#dc2626" : domainScore < 60 ? "#f97316" : domainScore < 80 ? "#eab308" : "#16a34a";
                   
                   return (
-                    <div key={index} className="bg-slate-700 rounded-lg p-6">
+                    <div key={index} className="bg-slate-700 sharp-edges p-6">
                       <div className="flex items-center space-x-3 mb-4">
                         <SafeIcon icon={domain.icon} className="w-8 h-8" style={{ color: domain.color }} />
                         <div>
@@ -767,16 +767,16 @@ const CybersecurityAssessment = () => {
                           <p className="text-sm text-gray-300">{domainScore}% Secure</p>
                         </div>
                       </div>
-                      <div className="w-full bg-gray-600 rounded-full h-3 mb-2">
+                      <div className="w-full bg-gray-600 sharp-edges h-3 mb-2">
                         <div 
-                          className="h-3 rounded-full transition-all duration-500"
+                          className="h-3 sharp-edges transition-all duration-500"
                           style={{ 
                             width: `${domainScore}%`,
                             backgroundColor: domainColor 
                           }}
                         />
                       </div>
-                      <span className={`text-xs px-2 py-1 rounded-full font-medium`} style={{ backgroundColor: `${domainColor}20`, color: domainColor }}>
+                      <span className={`text-xs px-2 py-1 sharp-edges font-medium`} style={{ backgroundColor: `${domainColor}20`, color: domainColor }}>
                         {domainRisk} Risk
                       </span>
                     </div>
@@ -787,17 +787,17 @@ const CybersecurityAssessment = () => {
 
             {/* Vulnerability Heatmap */}
             {vulnerabilities.length > 0 && (
-              <div className="bg-slate-800 rounded-xl shadow-lg p-8 mb-8">
+              <div className="bg-slate-800 sharp-edges shadow-lg p-8 mb-8">
                 <h2 className="text-2xl font-bold text-white mb-6">Critical Vulnerabilities</h2>
                 <div className="space-y-4">
                   {vulnerabilities.map((vuln, index) => (
-                    <div key={index} className="bg-slate-700 rounded-lg p-4">
+                    <div key={index} className="bg-slate-700 sharp-edges p-4">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <h3 className="font-semibold text-white mb-2">{vuln.domain}</h3>
                           <p className="text-gray-300 mb-2">{vuln.solution}</p>
                           <div className="flex items-center space-x-4">
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                            <span className={`px-3 py-1 sharp-edges text-xs font-medium ${
                               vuln.severity === 'Critical' ? 'bg-red-900 text-red-200' :
                               vuln.severity === 'High' ? 'bg-orange-900 text-orange-200' :
                               'bg-yellow-900 text-yellow-200'
@@ -815,17 +815,17 @@ const CybersecurityAssessment = () => {
             )}
 
             {/* Partnership Recommendations */}
-            <div className="bg-slate-800 rounded-xl shadow-lg p-8 mb-8">
+            <div className="bg-slate-800 sharp-edges shadow-lg p-8 mb-8">
               <h2 className="text-2xl font-bold text-white mb-6">Recommended Security Solutions</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {recommendations.map((rec, index) => (
-                  <div key={index} className="bg-slate-700 rounded-lg p-6">
+                  <div key={index} className="bg-slate-700 sharp-edges p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <h3 className="font-semibold text-white mb-2">{rec.category} - {rec.solution}</h3>
                         <p className="text-gray-300 mb-4">{rec.description}</p>
                         <div className="flex items-center space-x-4 text-sm mb-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          <span className={`px-2 py-1 sharp-edges text-xs font-medium ${
                             rec.priority === 'Critical' ? 'bg-red-900 text-red-200' :
                             rec.priority === 'High' ? 'bg-orange-900 text-orange-200' :
                             'bg-yellow-900 text-yellow-200'
@@ -853,7 +853,7 @@ const CybersecurityAssessment = () => {
             </div>
 
             {/* Emergency CTA */}
-            <div className="bg-gradient-to-r from-red-600 to-red-800 rounded-xl shadow-lg p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-red-600 to-red-800 sharp-edges shadow-lg p-8 text-white text-center">
               <h2 className="text-2xl font-bold mb-4">
                 {riskLevel.priority === "Emergency" || riskLevel.priority === "Critical" ? 
                   "Emergency Security Response Required" : 
@@ -867,7 +867,7 @@ const CybersecurityAssessment = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a
                   href="tel:+12362350919"
-                  className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
+                  className="bg-white text-red-600 px-8 py-3 sharp-edges font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -880,7 +880,7 @@ const CybersecurityAssessment = () => {
                   href="https://handvantage.co/contact"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors duration-300 flex items-center justify-center"
+                  className="border-2 border-white text-white px-8 py-3 sharp-edges font-semibold hover:bg-white hover:text-red-600 transition-colors duration-300 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -910,9 +910,9 @@ const CybersecurityAssessment = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-slate-800 rounded-xl shadow-lg p-8">
+            <div className="bg-slate-800 sharp-edges shadow-lg p-8">
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-red-600 sharp-edges flex items-center justify-center mx-auto mb-4">
                   <SafeIcon icon={FiShield} className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-white mb-4">Security Assessment Complete!</h2>
@@ -932,7 +932,7 @@ const CybersecurityAssessment = () => {
                       required
                       value={userInfo.firstName}
                       onChange={(e) => setUserInfo({...userInfo, firstName: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                       placeholder="Your first name"
                     />
                   </div>
@@ -945,7 +945,7 @@ const CybersecurityAssessment = () => {
                       required
                       value={userInfo.lastName}
                       onChange={(e) => setUserInfo({...userInfo, lastName: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                       placeholder="Your last name"
                     />
                   </div>
@@ -960,7 +960,7 @@ const CybersecurityAssessment = () => {
                     required
                     value={userInfo.email}
                     onChange={(e) => setUserInfo({...userInfo, email: e.target.value})}
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                     placeholder="your.email@company.com"
                   />
                 </div>
@@ -974,7 +974,7 @@ const CybersecurityAssessment = () => {
                       type="tel"
                       value={userInfo.phone}
                       onChange={(e) => setUserInfo({...userInfo, phone: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -987,7 +987,7 @@ const CybersecurityAssessment = () => {
                       required
                       value={userInfo.company}
                       onChange={(e) => setUserInfo({...userInfo, company: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                       placeholder="Your company"
                     />
                   </div>
@@ -1001,7 +1001,7 @@ const CybersecurityAssessment = () => {
                     <select
                       value={userInfo.companySize}
                       onChange={(e) => setUserInfo({...userInfo, companySize: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                     >
                       <option value="">Select size</option>
                       {companySizes.map(size => (
@@ -1016,7 +1016,7 @@ const CybersecurityAssessment = () => {
                     <select
                       value={userInfo.industry}
                       onChange={(e) => setUserInfo({...userInfo, industry: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                     >
                       <option value="">Select industry</option>
                       {industries.map(industry => (
@@ -1031,7 +1031,7 @@ const CybersecurityAssessment = () => {
                     <select
                       value={userInfo.complianceNeeds}
                       onChange={(e) => setUserInfo({...userInfo, complianceNeeds: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 sharp-edges focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
                     >
                       <option value="">Select framework</option>
                       {complianceFrameworks.map(framework => (
@@ -1049,7 +1049,7 @@ const CybersecurityAssessment = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-red-600 text-white py-4 sharp-edges font-semibold hover:bg-red-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
@@ -1082,9 +1082,9 @@ const CybersecurityAssessment = () => {
             </p>
             
             {/* Progress Bar */}
-            <div className="w-full bg-slate-700 rounded-full h-3 mb-4">
+            <div className="w-full bg-slate-700 sharp-edges h-3 mb-4">
               <motion.div
-                className="bg-red-500 h-3 rounded-full"
+                className="bg-red-500 h-3 sharp-edges"
                 initial={{ width: 0 }}
                 animate={{ width: `${totalProgress}%` }}
                 transition={{ duration: 0.5 }}
@@ -1100,7 +1100,7 @@ const CybersecurityAssessment = () => {
             {securityDomains.map((domain, index) => (
               <div
                 key={index}
-                className={`p-4 rounded-lg border-2 transition-all duration-300 ${
+                className={`p-4 sharp-edges border-2 transition-all duration-300 ${
                   index === currentDomain
                     ? 'border-red-500 bg-red-900/30'
                     : index < currentDomain
@@ -1110,7 +1110,7 @@ const CybersecurityAssessment = () => {
               >
                 <div className="flex items-center space-x-3">
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    className={`w-8 h-8 sharp-edges flex items-center justify-center ${
                       index === currentDomain
                         ? 'bg-red-500'
                         : index < currentDomain
@@ -1135,7 +1135,7 @@ const CybersecurityAssessment = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={`${currentDomain}-${currentQuestion}`}
-              className="bg-slate-800 rounded-xl shadow-lg p-8 mb-8"
+              className="bg-slate-800 sharp-edges shadow-lg p-8 mb-8"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
@@ -1162,7 +1162,7 @@ const CybersecurityAssessment = () => {
                 >
                   <SafeIcon icon={FiHelpCircle} className="w-6 h-6 text-gray-400 hover:text-gray-300" />
                   {showTooltip === currentQuestionIndex && (
-                    <div className="absolute right-0 top-8 w-64 bg-gray-900 text-white p-3 rounded-lg text-sm z-10">
+                    <div className="absolute right-0 top-8 w-64 bg-gray-900 text-white p-3 sharp-edges text-sm z-10">
                       {currentQuestionData.tooltip}
                     </div>
                   )}
@@ -1183,7 +1183,7 @@ const CybersecurityAssessment = () => {
                     <motion.button
                       key={index}
                       onClick={() => handleAnswer(currentQuestionIndex, option)}
-                      className={`w-full p-4 text-left border-2 rounded-lg transition-all duration-300 ${
+                      className={`w-full p-4 text-left border-2 sharp-edges transition-all duration-300 ${
                         answers[currentQuestionIndex]?.text === option.text
                           ? riskColors[option.risk]
                           : 'border-slate-600 hover:border-slate-500 bg-slate-700 hover:bg-slate-600'
@@ -1194,7 +1194,7 @@ const CybersecurityAssessment = () => {
                       <div className="flex items-center justify-between">
                         <span className="text-white">{option.text}</span>
                         <div className="flex items-center space-x-2">
-                          <span className={`text-xs px-2 py-1 rounded-full font-medium ${
+                          <span className={`text-xs px-2 py-1 sharp-edges font-medium ${
                             option.risk === 'Secure' ? 'bg-green-900 text-green-200' :
                             option.risk === 'Low' ? 'bg-green-800 text-green-200' :
                             option.risk === 'Moderate' ? 'bg-yellow-900 text-yellow-200' :
@@ -1252,7 +1252,7 @@ const CybersecurityAssessment = () => {
                 }
               }}
               disabled={!answers[currentQuestionIndex]}
-              className="flex items-center space-x-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center space-x-2 px-6 py-3 bg-red-600 text-white sharp-edges hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
