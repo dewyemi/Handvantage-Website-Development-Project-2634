@@ -219,7 +219,7 @@ const ROICalculator = () => {
                   <div className="space-y-6">
                     <div>
                       <div className="flex justify-between text-sm mb-2">
-                        <span className="text-red-400 font-semibold">Internal Hire Cost</span>
+                        <span className="text-red-400 font-semibold">Internal Team Cost</span>
                         <span className="text-red-400 font-bold">${result.breakdown.internalCost.toLocaleString()}</span>
                       </div>
                       <div className="w-full bg-slate-800 sharp-edges h-8 overflow-hidden">
@@ -233,14 +233,14 @@ const ROICalculator = () => {
                     </div>
                     <div>
                       <div className="flex justify-between text-sm mb-2">
-                        <span className="text-green-400 font-semibold">Handvantage Fleet Cost</span>
+                        <span className="text-green-400 font-semibold">Handvantage Service Cost</span>
                         <span className="text-green-400 font-bold">${result.breakdown.handvantageFee.toLocaleString()}</span>
                       </div>
                       <div className="w-full bg-slate-800 sharp-edges h-8 overflow-hidden">
                         <motion.div
                           className="h-full bg-gradient-to-r from-green-600 to-green-400"
                           initial={{ width: 0 }}
-                          animate={{ width: `${Math.round((result.breakdown.handvantageFee / result.breakdown.internalCost) * 100)}%` }}
+                          animate={{ width: `${result.breakdown.internalCost > 0 ? Math.round((result.breakdown.handvantageFee / result.breakdown.internalCost) * 100) : 0}%` }}
                           transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
                         />
                       </div>
