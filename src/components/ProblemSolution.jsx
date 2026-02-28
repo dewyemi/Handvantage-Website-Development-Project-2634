@@ -99,14 +99,14 @@ const ProblemSolution = () => {
 
                 {/* Headline */}
                 <h3 className="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-none tracking-tighter">
-                  You Are One Click Away<br />
-                  <span className="text-red-500">From Bankruptcy.</span>
+                  You May Be One Click Away<br />
+                  <span className="text-red-500">From a Major Disruption.</span>
                 </h3>
 
                 {/* Body */}
                 <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
-                  Your firewall isn't enough. Your antivirus is asleep. The threat isn't a "virus"—it's a{' '}
-                  <span className="text-white font-semibold">human adversary</span> who works while you sleep.
+                  Traditional defenses may not be enough. Modern threats often involve{' '}
+                  <span className="text-white font-semibold">human adversaries</span> who can operate around the clock.
                 </p>
 
                 {/* Stats */}
@@ -175,14 +175,14 @@ const ProblemSolution = () => {
 
                 {/* Headline */}
                 <h3 className="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-none tracking-tighter">
-                  You Are Burning Cash<br />
+                  You May Be Burning Cash<br />
                   <span className="text-factory-500">on Manual Labor.</span>
                 </h3>
 
                 {/* Body */}
                 <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
-                  Your smartest people are stuck resetting passwords and copy-pasting data. That's not "work"—that's{' '}
-                  <span className="text-white font-semibold">waste</span>.
+                  Your smartest people may be stuck resetting passwords and copy-pasting data. That kind of work can often be{' '}
+                  <span className="text-white font-semibold">automated</span>.
                 </p>
 
                 {/* Stats */}

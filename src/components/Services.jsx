@@ -59,7 +59,7 @@ const Services = () => {
             THE ELITE SERVICE LAYER.
           </h1>
           <p className="text-2xl text-slate-600 font-light">
-            We don't replace your tools. <span className="font-semibold text-viability-primary">We make them lethal.</span>
+            We don't replace your tools. <span className="font-semibold text-viability-primary">We're designed to help make them more effective.</span>
           </p>
         </motion.div>
 

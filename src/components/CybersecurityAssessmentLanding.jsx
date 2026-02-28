@@ -31,10 +31,10 @@ const CybersecurityAssessmentLanding = () => {
   ];
 
   const partnerSolutions = [
-    { partner: "IRONSCALES", solution: "Email Security", description: "AI-powered email security protecting 16,000+ organizations", benefits: ["Eliminate phishing-based business disruption", "Maintain operational continuity", "Protect client relationships"], color: "#f59e0b" },
+    { partner: "IRONSCALES", solution: "Email Security", description: "AI-powered email security designed to help protect 16,000+ organizations", benefits: ["Designed to help reduce phishing-based business disruption", "Support operational continuity", "Help protect client relationships"], color: "#f59e0b" },
     { partner: "Check Point", solution: "Network Security", description: "Next-generation firewall with advanced threat prevention", benefits: ["Prevent business disruption from network attacks", "Maintain operational integrity", "Protect sensitive business data"], color: "#dc2626" },
     { partner: "Swif.ai", solution: "Device Management", description: "AI-powered device visibility and Shadow IT discovery", benefits: ["Complete visibility into business technology usage", "Eliminate unauthorized application risks", "Maintain operational control"], color: "#2563eb" },
-    { partner: "Vanta", solution: "Compliance Automation", description: "Automated compliance for SOC 2, HIPAA, ISO 27001", benefits: ["14-day compliance vs. 6+ months manual process", "Open new market opportunities through certification", "Build trust with enterprise clients"], color: "#16a34a" }
+    { partner: "Vanta", solution: "Compliance Automation", description: "Automated compliance for SOC 2, HIPAA, ISO 27001", benefits: ["Potential for faster compliance timelines vs. manual processes", "Open new market opportunities through certification", "Build trust with enterprise clients"], color: "#16a34a" }
   ];
 
   const industryThreats = [
@@ -112,7 +112,7 @@ const CybersecurityAssessmentLanding = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-red-600 text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-red-700 transition-colors duration-300 shadow-lg"
                 >
-                  Start Business Protection Assessment <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
+                  Start Assessment <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </a>
                 <p className="text-sm text-gray-400 mt-3">
                   Powered by SecVantages • Detailed risk analysis
@@ -335,7 +335,7 @@ const CybersecurityAssessmentLanding = () => {
                   rel="noopener noreferrer"
                   className="bg-white text-red-600 px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
-                  Start Protection Assessment <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
+                  Start Assessment <SafeIcon icon={FiShield} className="w-5 h-5 ml-2" />
                 </a>
               </motion.div>
               <motion.a

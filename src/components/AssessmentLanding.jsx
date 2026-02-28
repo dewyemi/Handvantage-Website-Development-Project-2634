@@ -8,12 +8,12 @@ const { FiCheckCircle, FiClock, FiTarget, FiTrendingUp, FiShield, FiCloud, FiSet
 
 const AssessmentLanding = () => {
   const benefits = [
-    { icon: FiTarget, title: "Identify Growth Bottlenecks", description: "Discover specific barriers that are limiting your business growth potential" },
-    { icon: FiTrendingUp, title: "Strategic Investment Roadmap", description: "Get a clear prioritization of which initiatives will deliver the highest business impact" },
-    { icon: FiShield, title: "Risk Mitigation Strategy", description: "Understand business vulnerabilities and develop protection strategies" },
-    { icon: FiZap, title: "Efficiency Acceleration", description: "Identify processes that can be streamlined to free up resources for growth" },
-    { icon: FiCloud, title: "Scalability Planning", description: "Evaluate your infrastructure's readiness to support rapid business expansion" },
-    { icon: FiBarChart, title: "Competitive Advantage Identification", description: "See how to leverage technology to outperform competitors in your industry" }
+    { icon: FiTarget, title: "Identify Potential Growth Bottlenecks", description: "Discover specific barriers that may be limiting your business growth potential" },
+    { icon: FiTrendingUp, title: "Strategic Investment Roadmap", description: "Get a clear prioritization of initiatives designed to help deliver the highest business impact" },
+    { icon: FiShield, title: "Risk Mitigation Strategy", description: "Understand potential business vulnerabilities and develop protection strategies" },
+    { icon: FiZap, title: "Efficiency Acceleration", description: "Identify processes that can potentially be streamlined to free up resources for growth" },
+    { icon: FiCloud, title: "Scalability Planning", description: "Evaluate your infrastructure's readiness to support potential business expansion" },
+    { icon: FiBarChart, title: "Competitive Advantage Identification", description: "See how technology may help you outperform competitors in your industry" }
   ];
 
   const assessmentCategories = [
@@ -104,7 +104,7 @@ const AssessmentLanding = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-blue-600 text-white px-8 py-4 sharp-edges font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg"
                 >
-                  Identify Growth Bottlenecks <SafeIcon icon={FiTarget} className="w-5 h-5 ml-2" />
+                  Start Assessment <SafeIcon icon={FiTarget} className="w-5 h-5 ml-2" />
                 </a>
                 <p className="text-sm text-gray-500 mt-3">
                   Powered by SecVantages • Get results in minutes
@@ -263,7 +263,7 @@ const AssessmentLanding = () => {
                   rel="noopener noreferrer"
                   className="bg-white text-blue-600 px-8 py-4 sharp-edges font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center"
                 >
-                  Identify Growth Bottlenecks <SafeIcon icon={FiTarget} className="w-5 h-5 ml-2" />
+                  Start Assessment <SafeIcon icon={FiTarget} className="w-5 h-5 ml-2" />
                 </a>
               </motion.div>
               <motion.a
