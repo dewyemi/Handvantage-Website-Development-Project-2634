@@ -183,15 +183,15 @@ const Footer = () => {
                 <span>LinkedIn Profile</span>
               </a>
               <a
-                href="https://handvantage.co/contact"
+                href="https://secvantages.com/DualSqueezeIntro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block w-full text-center bg-gradient-to-r from-viability-primary to-factory-500 text-white px-6 py-4 sharp-edges font-bold hover:shadow-lg hover:shadow-viability-primary/20 hover:-translate-y-1 transition-all duration-300 tracking-widest text-sm"
               >
-                [START DIAGNOSTIC]
+                [SCHEDULE YOUR DIAGNOSTIC]
               </a>
               <p className="text-xs text-slate-500 mt-2 text-center">
-                Ready to address the technology challenges affecting your growth?
+                Book a free strategy session with a Senior Engineer.
               </p>
             </div>
           </motion.div>

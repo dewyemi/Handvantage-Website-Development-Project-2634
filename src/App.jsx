@@ -95,6 +95,7 @@ function App() {
                 <ComparisonTable />
                 <Partnerships />
                 <ProofSection />
+                <CTA />
               </main>
             } />
 

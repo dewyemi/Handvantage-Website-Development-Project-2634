@@ -3,37 +3,59 @@ import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiArrowRight, FiDollarSign, FiTool, FiPieChart } = FiIcons;
+const { FiArrowRight, FiDollarSign, FiTool, FiPieChart, FiUsers } = FiIcons;
 
 const ROICalculator = () => {
   const [inputs, setInputs] = useState({
     internalTeamCost: '',
     numSecurityTools: '',
-    securityBudget: ''
+    securityBudget: '',
+    numAgents: '',
+    estimatedHireCost: ''
   });
   const [result, setResult] = useState(null);
 
   const calculateSavings = () => {
-    // Logic from v3 Master Copy
     const internalCost = parseFloat(inputs.internalTeamCost) || 180000;
     const numTools = parseFloat(inputs.numSecurityTools) || 5;
     const budget = parseFloat(inputs.securityBudget) || 500000;
+    const numAgents = parseFloat(inputs.numAgents) || 3;
+    const hireCostPerAgent = parseFloat(inputs.estimatedHireCost) || 150000;
 
-    // Handvantage Fee (Hidden Variable: ~30% of Internal Cost)
+    // Fleet Savings: cost of hiring agents internally vs. Handvantage managed fleet
+    const fleetInternalCost = numAgents * hireCostPerAgent;
+    // Handvantage Fleet Fee estimate: ~30% of equivalent internal cost
+    const fleetHandvantageFee = fleetInternalCost * 0.30;
+    const fleetSavings = fleetInternalCost - fleetHandvantageFee;
+
+    // Team Savings: internal security team replaced by Handvantage (~30% of cost)
     const handvantageFee = internalCost * 0.30;
-
-    // Savings Calculation
     const teamSavings = internalCost - handvantageFee;
-    const toolSavings = budget * 0.25; // Assume 25% waste cut
-    const efficiencySavings = numTools * 5000; // $5k efficiency per tool managed
-    const totalSavings = teamSavings + toolSavings + efficiencySavings;
+
+    // Tool Savings: estimated 25% SaaS waste reduction
+    const toolSavings = budget * 0.25;
+
+    // Efficiency Savings: $5k efficiency gain per tool managed
+    const efficiencySavings = numTools * 5000;
+
+    const totalSavings = teamSavings + toolSavings + efficiencySavings + fleetSavings;
 
     // Engineering Hires Equivalent ($150k avg salary estimate)
     const engineerHires = Math.floor(totalSavings / 150000);
 
     setResult({
       savings: totalSavings,
-      engineers: engineerHires
+      engineers: engineerHires,
+      breakdown: {
+        internalCost,
+        handvantageFee,
+        teamSavings,
+        toolSavings,
+        efficiencySavings,
+        fleetInternalCost,
+        fleetHandvantageFee,
+        fleetSavings
+      }
     });
   };
 
@@ -64,7 +86,7 @@ const ROICalculator = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="grid md:grid-cols-3 gap-8 mb-10">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
               {/* Input 1 */}
               <div>
                 <label className="block text-sm font-semibold text-slate-400 mb-3">
@@ -123,6 +145,44 @@ const ROICalculator = () => {
               </div>
             </div>
 
+            {/* Fleet Savings Inputs */}
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div>
+                <label className="block text-sm font-semibold text-slate-400 mb-3">
+                  Number of Agents / Roles to Replace
+                </label>
+                <div className="relative">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <SafeIcon icon={FiUsers} className="w-5 h-5 text-slate-500" />
+                  </div>
+                  <input
+                    type="number"
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 sharp-edges focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    placeholder="e.g. 3"
+                    value={inputs.numAgents}
+                    onChange={(e) => setInputs({ ...inputs, numAgents: e.target.value })}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-400 mb-3">
+                  Estimated Internal Hire Cost Per Agent ($)
+                </label>
+                <div className="relative">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                    <SafeIcon icon={FiDollarSign} className="w-5 h-5 text-slate-500" />
+                  </div>
+                  <input
+                    type="number"
+                    className="w-full bg-slate-800 border border-slate-700 text-white pl-12 pr-4 py-4 sharp-edges focus:outline-none focus:border-viability-primary transition-colors text-lg"
+                    placeholder="e.g. 150000"
+                    value={inputs.estimatedHireCost}
+                    onChange={(e) => setInputs({ ...inputs, estimatedHireCost: e.target.value })}
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Button */}
             <button
               onClick={calculateSavings}
@@ -139,9 +199,9 @@ const ROICalculator = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-12 pt-12 border-t border-slate-800"
               >
-                <div className="text-center">
+                <div className="text-center mb-12">
                   <p className="text-slate-500 text-sm font-mono uppercase tracking-widest mb-4">
-                    YOUR POTENTIAL SAVINGS
+                    YOUR ESTIMATED POTENTIAL SAVINGS
                   </p>
                   <p className="text-6xl md:text-7xl font-black text-green-400 mb-6">
                     ${result.savings.toLocaleString(undefined, { maximumFractionDigits: 0 })}
@@ -149,8 +209,79 @@ const ROICalculator = () => {
                   <p className="text-xl text-slate-300 mb-10">
                     That is enough to hire <strong className="text-white">{result.engineers}</strong> extra engineers.
                   </p>
+                </div>
 
-                  {/* CTA */}
+                {/* Bar Chart: Internal Cost vs Fleet Cost */}
+                <div className="max-w-3xl mx-auto mb-12">
+                  <p className="text-slate-400 text-sm font-mono uppercase tracking-widest mb-6 text-center">
+                    COST COMPARISON
+                  </p>
+                  <div className="space-y-6">
+                    <div>
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="text-red-400 font-semibold">Internal Team Cost</span>
+                        <span className="text-red-400 font-bold">${result.breakdown.internalCost.toLocaleString()}</span>
+                      </div>
+                      <div className="w-full bg-slate-800 sharp-edges h-8 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-red-600 to-red-400"
+                          initial={{ width: 0 }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 1, ease: 'easeOut' }}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="text-green-400 font-semibold">Handvantage Service Cost</span>
+                        <span className="text-green-400 font-bold">${result.breakdown.handvantageFee.toLocaleString()}</span>
+                      </div>
+                      <div className="w-full bg-slate-800 sharp-edges h-8 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-green-600 to-green-400"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${result.breakdown.internalCost > 0 ? Math.round((result.breakdown.handvantageFee / result.breakdown.internalCost) * 100) : 0}%` }}
+                          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Transparent Formula Breakdown */}
+                <div className="max-w-3xl mx-auto mb-12 bg-slate-800/50 border border-slate-700 sharp-edges p-6 md:p-8">
+                  <p className="text-slate-400 text-sm font-mono uppercase tracking-widest mb-6 text-center">
+                    HOW WE CALCULATED THIS
+                  </p>
+                  <div className="space-y-4 text-sm">
+                    <div className="flex justify-between items-center border-b border-slate-700 pb-3">
+                      <span className="text-slate-300">Team Savings (Internal Cost × 70%)</span>
+                      <span className="text-green-400 font-bold">${result.breakdown.teamSavings.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-slate-700 pb-3">
+                      <span className="text-slate-300">Tool Savings (Budget × 25% waste reduction)</span>
+                      <span className="text-green-400 font-bold">${result.breakdown.toolSavings.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-slate-700 pb-3">
+                      <span className="text-slate-300">Efficiency Savings ($5k per tool managed)</span>
+                      <span className="text-green-400 font-bold">${result.breakdown.efficiencySavings.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-slate-700 pb-3">
+                      <span className="text-slate-300">Fleet Savings ({inputs.numAgents || 3} agents × 70% cost reduction)</span>
+                      <span className="text-green-400 font-bold">${result.breakdown.fleetSavings.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-2">
+                      <span className="text-white font-bold text-base">Total Estimated Savings</span>
+                      <span className="text-green-400 font-black text-base">${result.savings.toLocaleString()}</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-4 text-center">
+                    * Estimates are based on industry averages and may vary based on your specific environment.
+                  </p>
+                </div>
+
+                {/* CTA */}
+                <div className="text-center">
                   <a
                     href="https://handvantage.co/contact"
                     target="_blank"
