@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { TerminalLabel } from './TerminalText';
@@ -198,13 +199,16 @@ const ComparisonTable = () => {
               <br className="hidden md:block" />
               Start deploying a <span className="text-signal font-semibold">24/7 specialist army</span> for a fraction of the cost.
             </p>
-            <button className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 sharp-edges bg-signal hover:bg-signal/90 text-void font-editorial font-bold text-base sm:text-lg transition-all shadow-glow-signal-sm hover:shadow-glow-signal w-full sm:w-auto">
-              See Our Pricing
+            <Link
+              to="/roi-calculator"
+              className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 sharp-edges bg-signal hover:bg-signal/90 text-void font-editorial font-bold text-base sm:text-lg transition-all shadow-glow-signal-sm hover:shadow-glow-signal w-full sm:w-auto"
+            >
+              Calculate My Savings
               <SafeIcon
                 icon={FiIcons.FiArrowRight}
                 className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
               />
-            </button>
+            </Link>
           </motion.div>
         </motion.div>
 

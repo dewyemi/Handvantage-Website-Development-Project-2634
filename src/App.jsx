@@ -48,12 +48,12 @@ const FAQPage = lazy(() => import('./components/FAQPage'));
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
-  <div className="min-h-screen flex items-center justify-center bg-white">
+  <div className="min-h-screen flex items-center justify-center bg-[#020617]">
     <div className="flex flex-col items-center space-y-4">
       <div className="relative">
-        <div className="w-12 h-12 border-4 border-primary-blue border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-signal border-t-transparent rounded-full animate-spin"></div>
       </div>
-      <p className="text-lg font-medium text-primary-dark">Loading...</p>
+      <p className="text-sm font-mono tracking-widest text-signal uppercase">CALIBRATING INSTRUMENTS...</p>
     </div>
   </div>
 );
@@ -209,17 +209,17 @@ function App() {
 
             <Route path="/terms-conditions" element={<TermsConditionsPage />} />
 
-            {/* Catch all route - redirect to home */}
             <Route path="*" element={
-              <div className="pt-20 min-h-screen flex items-center justify-center">
+              <div className="pt-20 min-h-screen flex items-center justify-center bg-[#020617]">
                 <div className="text-center">
-                  <h1 className="text-4xl font-bold text-primary-dark mb-4">Page Not Found</h1>
-                  <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
+                  <p className="font-mono text-sm tracking-widest text-signal mb-4 uppercase">SIGNAL LOST</p>
+                  <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">RETURN TO BASE.</h1>
+                  <p className="text-slate-400 mb-8 font-mono text-sm">The coordinates you entered don't exist.</p>
                   <Link
                     to="/"
-                    className="bg-primary-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+                    className="inline-flex items-center gap-2 bg-signal text-void px-8 py-4 font-bold sharp-edges hover:bg-signal/90 transition-all"
                   >
-                    Return Home
+                    RETURN HOME
                   </Link>
                 </div>
               </div>

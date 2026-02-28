@@ -221,9 +221,9 @@ const Header = () => {
               href="https://handvantage.co/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 sharp-edges font-semibold text-sm border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
+              className="px-6 py-2.5 sharp-edges font-bold text-sm border border-signal/40 text-signal hover:bg-signal hover:text-void transition-all duration-300 tracking-widest"
             >
-              Contact
+              [DEPLOY]
             </a>
           </motion.div>
 
@@ -321,9 +321,9 @@ const Header = () => {
                     href="https://handvantage.co/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full border border-white/20 text-white px-6 py-3 sharp-edges font-semibold text-center hover:bg-white/5"
+                    className="block w-full border border-signal/40 text-signal px-6 py-3 sharp-edges font-bold text-center hover:bg-signal hover:text-void transition-all tracking-widest"
                   >
-                    Contact
+                    [DEPLOY]
                   </a>
                 </div>
               </nav>

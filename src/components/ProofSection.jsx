@@ -219,25 +219,22 @@ const ProofSection = () => {
             {/* Card content */}
             <div className="relative bg-gradient-to-br from-slate-50 to-white sharp-edges p-12 border border-slate-200 shadow-2xl backdrop-blur-sm">
               {/* Quote */}
-              <blockquote className="text-3xl md:text-3xl font-light text-slate-700 italic mb-8 leading-relaxed">
+              <blockquote className="text-2xl md:text-3xl font-light text-slate-700 italic mb-8 leading-relaxed">
                 "Handvantage replaced our need for a $180k CISO hire and cut our SaaS bill by 20%. The service literally paid for itself in Month 4."
               </blockquote>
 
               {/* Attribution */}
               <cite className="flex items-center gap-4 not-italic">
-                <motion.div
-                  className="relative w-16 h-16 flex-shrink-0"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <div className="relative w-16 h-16 flex-shrink-0">
                   <div className="absolute inset-0 bg-gradient-to-br from-viability-primary to-factory-500 sharp-edges blur-md opacity-50" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 sharp-edges flex items-center justify-center">
-                    <span className="text-2xl font-bold text-slate-500">CFO</span>
+                  <div className="relative w-full h-full bg-gradient-to-br from-viability-primary/80 to-factory-500/80 sharp-edges flex items-center justify-center">
+                    <span className="text-xl font-black text-white">CG</span>
                   </div>
-                </motion.div>
+                </div>
                 <div>
-                  <div className="text-xl font-bold text-primary-dark">CFO</div>
-                  <div className="text-slate-600">SaaS Series B Company</div>
+                  <div className="text-xl font-bold text-primary-dark">Chief Financial Officer</div>
+                  <div className="text-slate-500 text-sm">Series B SaaS Company • $40M ARR</div>
+                  <div className="text-slate-400 text-xs mt-1">Name withheld by request</div>
                 </div>
               </cite>
             </div>

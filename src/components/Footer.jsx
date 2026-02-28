@@ -186,12 +186,12 @@ const Footer = () => {
                 href="https://handvantage.co/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block w-full text-center bg-gradient-to-r from-viability-primary to-factory-500 text-white px-6 py-4 sharp-edges font-semibold hover:shadow-lg hover:shadow-viability-primary/20 hover:-translate-y-1 transition-all duration-300"
+                className="inline-block w-full text-center bg-gradient-to-r from-viability-primary to-factory-500 text-white px-6 py-4 sharp-edges font-bold hover:shadow-lg hover:shadow-viability-primary/20 hover:-translate-y-1 transition-all duration-300 tracking-widest text-sm"
               >
-                Schedule Consultation
+                [START DIAGNOSTIC]
               </a>
               <p className="text-xs text-slate-500 mt-2 text-center">
-                Ready to address the technology challenges effecting your growth?
+                Ready to address the technology challenges affecting your growth?
               </p>
             </div>
           </motion.div>

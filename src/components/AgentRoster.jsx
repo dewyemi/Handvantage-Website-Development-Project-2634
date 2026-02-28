@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import { TerminalLabel } from './TerminalText';
@@ -17,7 +18,7 @@ const agents = [
     id: 1,
     name: 'The Hunter',
     role: 'AI SDR / Prospecting',
-    tagline: '"I book meetings while you sleep."',
+    tagline: '"I hunt threats and opportunities 24/7."',
     icon: FiTarget,
     color: 'signal',
     stats: [
@@ -37,7 +38,7 @@ const agents = [
     id: 2,
     name: 'The Sentry',
     role: 'AI Compliance / GRC Analyst',
-    tagline: '"I watch the logs so you don\'t have to."',
+    tagline: '"I filter the noise. You only see the signal."',
     icon: FiShield,
     color: 'arc',
     stats: [
@@ -57,7 +58,7 @@ const agents = [
     id: 3,
     name: 'The Concierge',
     role: 'AI Support / L1-L2 Agent',
-    tagline: '"I solve tickets in milliseconds."',
+    tagline: '"I resolve friction in milliseconds."',
     icon: FiHeadphones,
     color: 'viability',
     stats: [
@@ -199,8 +200,9 @@ const AgentRosterCard = ({ agent, index }) => {
           </div>
 
           {/* Deploy Button */}
-          <button
-            className={`mt-6 w-full py-3 sharp-edges border-2 ${scheme.border} ${scheme.text} font-editorial font-semibold text-sm hover:bg-current hover:bg-opacity-10 transition-all group/btn relative overflow-hidden`}
+          <Link
+            to="/services/ai-workforce"
+            className={`mt-6 w-full py-3 sharp-edges border-2 ${scheme.border} ${scheme.text} font-editorial font-semibold text-sm hover:bg-current hover:bg-opacity-10 transition-all group/btn relative overflow-hidden flex items-center justify-center gap-2`}
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               DEPLOY AGENT
@@ -210,7 +212,7 @@ const AgentRosterCard = ({ agent, index }) => {
               className={`absolute inset-0 bg-current opacity-0 group-hover/btn:opacity-10`}
               initial={false}
             />
-          </button>
+          </Link>
         </div>
 
         {/* Scan Line Effect */}

@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const HeroPattern = ({ className = "" }) => {
+  // Pre-compute random values once so they're stable across re-renders
+  const particles = useMemo(() => (
+    [...Array(15)].map((_, i) => ({
+      cy: ((i * 137.5) % 1080), // Golden angle distribution — no Math.random()
+      duration: 5 + (i % 5),
+      delay: (i * 0.2) % 3,
+      color: i % 2 === 0 ? "#c084fc" : "#22d3ee"
+    }))
+  ), []);
+
   return (
     <svg
       className={className}
@@ -114,22 +124,22 @@ const HeroPattern = ({ className = "" }) => {
         ))}
       </g>
 
-      {/* Data stream particles */}
-      {[...Array(15)].map((_, i) => (
+      {/* Data stream particles — using stable pre-computed positions */}
+      {particles.map((p, i) => (
         <motion.circle
           key={`particle-${i}`}
           cx="0"
-          cy={Math.random() * 1080}
+          cy={p.cy}
           r="2"
-          fill={i % 2 === 0 ? "#c084fc" : "#22d3ee"}
+          fill={p.color}
           initial={{ x: 0, opacity: 0 }}
           animate={{
             x: 1920,
             opacity: [0, 1, 1, 0]
           }}
           transition={{
-            duration: 5 + Math.random() * 5,
-            delay: Math.random() * 3,
+            duration: p.duration,
+            delay: p.delay,
             repeat: Infinity,
             ease: "linear"
           }}

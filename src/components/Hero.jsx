@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
@@ -95,14 +95,14 @@ const Hero = () => {
           }} />
         </div>
 
-        {/* Floating dust particles */}
+        {/* Floating dust particles — stable positions, no Math.random() in render */}
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute z-10 w-1 h-1 bg-white/20 sharp-edges pointer-events-none"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${(i * 6.67) % 100}%`,
+              top: `${(i * 13.33) % 100}%`,
             }}
             animate={{
               y: [0, -40, 0],
@@ -110,9 +110,9 @@ const Hero = () => {
               scale: [0.5, 1, 0.5],
             }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: 4 + (i % 4),
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: (i % 5),
               ease: "easeInOut"
             }}
           />
@@ -125,11 +125,16 @@ const Hero = () => {
 
             {/* LEFT SIDE: The Pilot (Security) - Green Glow */}
             <motion.div
-              className="relative flex items-center justify-center p-6 sm:p-8 lg:p-16 lg:border-r border-white/5"
+              className="relative flex items-center justify-center p-6 sm:p-8 lg:p-16 lg:border-r border-white/5 overflow-hidden"
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
+              {/* Brand Image Background */}
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-20"
+                style={{ backgroundImage: "url('/Handvantage_Ad_CISO_Silence_Square.jpg')" }}
+              />
               {/* Green Glow Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-signal/20 via-transparent to-transparent blur-[100px]" />
 
@@ -148,7 +153,7 @@ const Hero = () => {
                   </p>
 
                   {/* Security Stats */}
-                  <div className="space-y-2 sm:space-y-3">
+                  <div className="space-y-2 sm:space-y-3 mb-8">
                     <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
                       <div className="w-2 h-2 bg-signal rounded-none flex-shrink-0"></div>
                       <span className="terminal-text text-slate-400">24/7 EYES ON GLASS</span>
@@ -162,17 +167,31 @@ const Hero = () => {
                       <span className="terminal-text text-slate-400">VENDOR AGNOSTIC</span>
                     </div>
                   </div>
+
+                  {/* Above-Fold CTA */}
+                  <Link
+                    to="/roi-calculator"
+                    className="inline-flex items-center gap-2 px-6 py-3 sharp-edges border-2 border-signal text-signal font-bold text-sm tracking-widest hover:bg-signal hover:text-void transition-all"
+                  >
+                    [CALCULATE BUSINESS DRAG]
+                    <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>
 
             {/* RIGHT SIDE: The Fleet (Agents) - Blue Glow */}
             <motion.div
-              className="relative flex items-center justify-center p-6 sm:p-8 lg:p-16"
+              className="relative flex items-center justify-center p-6 sm:p-8 lg:p-16 overflow-hidden"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
+              {/* Brand Image Background */}
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-20"
+                style={{ backgroundImage: "url('/Handvantage_Ad_Brand_Pilot_Square.jpg')" }}
+              />
               {/* Blue Glow Background */}
               <div className="absolute inset-0 bg-gradient-to-bl from-arc/20 via-transparent to-transparent blur-[100px]" />
 
@@ -191,7 +210,7 @@ const Hero = () => {
                   </p>
 
                   {/* Agent Stats */}
-                  <div className="space-y-2 sm:space-y-3">
+                  <div className="space-y-2 sm:space-y-3 mb-8">
                     <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
                       <div className="w-2 h-2 bg-arc rounded-none flex-shrink-0"></div>
                       <span className="terminal-text text-slate-400">THE HUNTER • SDR AGENT</span>
@@ -205,6 +224,15 @@ const Hero = () => {
                       <span className="terminal-text text-slate-400">THE CONCIERGE • SUPPORT</span>
                     </div>
                   </div>
+
+                  {/* Above-Fold CTA */}
+                  <Link
+                    to="/services/ai-workforce"
+                    className="inline-flex items-center gap-2 px-6 py-3 sharp-edges bg-arc text-void font-bold text-sm tracking-widest hover:bg-arc/90 transition-all"
+                  >
+                    [DEPLOY THE FLEET]
+                    <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>
@@ -299,7 +327,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 1.5 }}
           >
             <div className="terminal-text text-slate-500 text-[10px] sm:text-xs mb-6 sm:mb-8 text-center tracking-widest px-4">
-              TRUSTED TO PROTECT & AUTOMATE MILLIONS IN REVENUE
+              WORKS WITH YOUR EXISTING STACK:
             </div>
             <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 items-center px-4">
               {['CrowdStrike', 'Microsoft', 'SentinelOne', 'Vanta', 'Drata'].map((tool, i) => (
