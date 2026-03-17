@@ -1,14 +1,14 @@
 export const seoConfig = {
   home: {
-    title: "Viability Engineering | Handvantage - Balance Security & Speed",
-    description: "Security is a commodity. Viability is the asset. We engineer the balance between the Fortress (security) and the Factory (speed). Run your free Viability Diagnostic.",
-    keywords: "viability engineering, dual squeeze, security speed balance, fortress factory, managed security services, business automation, cybersecurity strategy, Josh Olayemi, enterprise security, strategic technology consulting",
+    title: "Stop Buying Tools. Start Deploying Agents. | Handvantage",
+    description: "We deploy enterprise-secure, OpenClaw-powered security agents to map your attack surface and triage threats in milliseconds. We are the Pilot. They are the Fleet.",
+    keywords: "agentic ai, automated security workforce, cybersecurity agents, openclaw framework, dual dna model, managed security services, ai pentesting, agentic detection and response, handvantage",
     schemaData: {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Handvantage",
       "url": "https://handvantage.co",
-      "description": "Strategic technology consulting that eliminates growth bottlenecks and creates competitive advantages",
+      "description": "Elite provider of autonomous AI security agents and 24/7 SOC services.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://handvantage.co/search?q={search_term_string}",
@@ -365,7 +365,7 @@ export const organizationSchema = {
   "alternateName": "Handvantage AI Workforce Solutions",
   "url": "https://handvantage.co",
   "logo": "https://handvantage.co/logo.svg",
-  "description": "Elite cybersecurity and AI workforce solutions provider. We deploy 24/7 SOC teams and autonomous AI agents that replace $180k+ hires. Vendor agnostic. 15-minute response SLA.",
+  "description": "Elite provider of autonomous AI security agents and 24/7 SOC services. Stop buying tools and start deploying an automated enterprise-secure workforce with zero data leakage.",
   "foundingDate": "2020",
   "founders": [
     {
