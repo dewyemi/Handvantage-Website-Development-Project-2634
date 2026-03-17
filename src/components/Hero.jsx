@@ -42,7 +42,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8 max-w-xl font-light">
-                We don't just watch your screens. We deploy enterprise-secure, OpenClaw-powered security agents to map your attack surface and triage threats in milliseconds. We are the Pilot. They are the Fleet.
+                We don't just watch your screens. We deploy enterprise-secure, autonomous security agents to map your attack surface and triage threats in milliseconds. We are the Pilot. They are the Fleet.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -73,66 +73,43 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* RIGHT SIDE: Abstract Technical Visualization */}
+            {/* RIGHT SIDE: Abstract Technical Visualization / Command Center */}
             <motion.div 
               className="relative h-[400px] lg:h-[500px] flex items-center justify-center w-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 0.3 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
             >
-              {/* Glowing Nodes Visualization */}
-              <div className="relative w-full h-full max-w-[500px] max-h-[500px]">
-                {/* Central Hub */}
-                <motion.div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full border-2 border-arc/40 flex items-center justify-center bg-arc/5 backdrop-blur-sm z-20 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
-                  animate={{ boxShadow: ['0 0 30px rgba(37,99,235,0.1)', '0 0 60px rgba(37,99,235,0.3)', '0 0 30px rgba(37,99,235,0.1)'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <div className="w-8 h-8 rounded-full bg-arc/80 animate-pulse" />
-                </motion.div>
+              {/* Premium Image Container */}
+              <div className="relative w-full max-w-[500px] aspect-square rounded-full lg:rounded-2xl overflow-hidden border border-slate-800/60 shadow-[0_0_80px_rgba(37,99,235,0.15)] group">
+                
+                {/* The Image */}
+                <motion.img 
+                  src="/images/handvantage_ad_brand_pilot_square.png" 
+                  alt="Autonomous Security Command Center"
+                  className="w-full h-full object-cover origin-center opacity-90 mix-blend-screen"
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                />
 
-                {/* Orbital Nodes */}
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute top-1/2 left-1/2 rounded-full border border-arc/20 z-10"
-                    style={{ 
-                      width: `${(i + 1) * 80 + 100}px`, 
-                      height: `${(i + 1) * 80 + 100}px`,
-                      x: '-50%',
-                      y: '-50%'
-                    }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20 + i * 5, repeat: Infinity, ease: 'linear', direction: i % 2 === 0 ? 'normal' : 'reverse' }}
-                  >
-                    {/* Data Node on ring */}
-                    <div 
-                      className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-signal shadow-[0_0_15px_rgba(16,185,129,0.8)]"
-                    />
-                  </motion.div>
-                ))}
+                {/* Cyber Scanner Overlay */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-arc/20 to-transparent h-[20%] w-full opacity-50 pointer-events-none mix-blend-screen"
+                  animate={{ y: ['-100%', '500%'] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                />
 
-                {/* Abstract Data Streams / Lines */}
-                <svg className="absolute inset-0 w-full h-full -z-10 opacity-30" viewBox="0 0 500 500">
-                  <path d="M250,250 L50,100" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
-                  <path d="M250,250 L450,150" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
-                  <path d="M250,250 L100,450" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
-                  <path d="M250,250 L400,400" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
-                </svg>
+                {/* Subdued Glitch/Noise Overlay */}
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20 pointer-events-none mix-blend-overlay"></div>
 
-                {/* Floating Bits */}
-                {[...Array(10)].map((_, i) => (
-                  <motion.div
-                    key={`bit-${i}`}
-                    className="absolute w-1 h-1 bg-white/40"
-                    style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
-                    }}
-                    animate={{ y: [0, -20, 0], opacity: [0, 1, 0] }}
-                    transition={{ duration: 3 + (i % 3), repeat: Infinity, delay: i * 0.5, ease: 'easeInOut' }}
-                  />
-                ))}
+                {/* Frame Glowing Borders */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-arc/30 transition-colors duration-700 rounded-full lg:rounded-2xl pointer-events-none"></div>
+                
+                {/* Corner Brackets for tech feel */}
+                <div className="hidden lg:block absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-arc/50 pointer-events-none"></div>
+                <div className="hidden lg:block absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-arc/50 pointer-events-none"></div>
+                <div className="hidden lg:block absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-arc/50 pointer-events-none"></div>
+                <div className="hidden lg:block absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-arc/50 pointer-events-none"></div>
               </div>
             </motion.div>
             
