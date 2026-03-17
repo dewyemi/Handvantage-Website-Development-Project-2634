@@ -67,10 +67,10 @@ const ComparisonTable = () => {
             THE $180K PROBLEM
           </TerminalLabel>
           <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-none tracking-tighter px-4">
-            The Math Doesn't Lie.
+            The $180k Problem.
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto px-4">
-            Why hire one "Security Guy" when you can have an entire army?
+            Why hire one burned-out generalist when you can deploy an entire automated workforce?
           </p>
         </motion.div>
 

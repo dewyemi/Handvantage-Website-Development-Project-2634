@@ -24,15 +24,14 @@ const CTA = () => {
             Let's Land the Plane.
           </motion.h2>
 
-          {/* Description */}
           <motion.p
-            className="text-2xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-2xl text-white/95 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
             initial={{opacity: 0, y: 30}}
             whileInView={{opacity: 1, y: 0}}
             transition={{delay: 0.3}}
             viewport={{once: true}}
           >
-            You are one conversation away from a <span className="font-semibold">secure, automated future</span>.
+            You are one conversation away from a <span className="font-semibold">secure, automated future</span>. Stop buying tools. Start renting capacity.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -48,11 +47,11 @@ const CTA = () => {
               href="https://secvantages.com/DualSqueezeIntro"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center px-12 py-6 font-black text-xl text-viability-primary bg-white sharp-edges overflow-hidden shadow-2xl hover:shadow-white/40 transition-all duration-300"
+              className="group relative inline-flex items-center justify-center px-12 py-6 font-black text-xl text-slate-900 bg-white sharp-edges overflow-hidden shadow-xl hover:shadow-white/20 transition-all duration-300"
               whileHover={{scale: 1.05}}
               whileTap={{scale: 0.95}}
             >
-              <span className="relative z-10">Book My Strategy Session</span>
+              <span className="relative z-10">[BOOK STRATEGY SESSION]</span>
             </motion.a>
 
             {/* Secondary CTA */}

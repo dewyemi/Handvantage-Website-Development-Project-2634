@@ -50,24 +50,24 @@ export default {
         gold: '#fbbf24',
         // Cinematic Palette - The "Void" Theme (v6 Cinematic Edition)
         void: {
-          DEFAULT: '#050505', // Void Black - Darker than standard dark mode
-          surface: '#0A0A0A', // Obsidian - For cards and panels
+          DEFAULT: '#020617', // Slate 950
+          surface: '#0f172a', // Slate 900
         },
         obsidian: {
-          DEFAULT: '#0A0A0A', // Updated to match Void surface
-          50: '#1a1a1a',
-          100: '#050505', // Void Black
+          DEFAULT: '#0f172a', // Slate 900
+          50: '#1e293b', // Slate 800
+          100: '#020617', // Slate 950
         },
         signal: {
-          DEFAULT: '#00FF94', // Terminal Green - High voltage, neon (Updated from #00ff41)
-          50: '#e6fff0',
-          100: '#00FF94',
-          200: '#00cc75',
-          300: '#00995a',
+          DEFAULT: '#10b981', // Cyber Green
+          50: '#d1fae5',
+          100: '#10b981',
+          200: '#059669',
+          300: '#047857',
         },
         arc: {
-          DEFAULT: '#3B82F6', // Electric Blue - Clean, intelligent (Updated from #0ea5e9)
-          50: '#e0f2fe',
+          DEFAULT: '#2563eb', // Royal Blue
+          50: '#dbeafe',
           100: '#3B82F6',
           200: '#2563eb',
           300: '#1d4ed8',

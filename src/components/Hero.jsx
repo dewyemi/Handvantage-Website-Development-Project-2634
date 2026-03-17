@@ -1,350 +1,143 @@
-import React, { useRef, useMemo } from 'react';
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 import SEOHead from './SEOHead';
 import { seoConfig } from '../utils/seoConfig';
-import HeroPattern from './svg/HeroPattern';
-import LiveStatusBoard from './LiveStatusBoard';
-import TerminalText, { TerminalLabel, TerminalBadge } from './TerminalText';
-import DataDisplay, { DataGrid, StatCard } from './DataDisplay';
-import HUDOverlay, { CornerBrackets, ScanLine } from './HUDOverlay';
-import RadarScan from './svg/RadarScan';
 
-const { FiStar, FiShield, FiCheckCircle, FiArrowRight } = FiIcons;
+const { FiArrowRight } = FiIcons;
 
 const Hero = () => {
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const y = useTransform(scrollY, [0, 400], [0, 150]);
-
-  // Mouse spotlight effect
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const handleMouseMove = ({ clientX, clientY, currentTarget }) => {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  };
-
-  const spotlightBackground = useMotionTemplate`
-    radial-gradient(
-      600px circle at ${mouseX}px ${mouseY}px,
-      rgba(139, 92, 246, 0.15),
-      transparent 80%
-    )
-  `;
-
   return (
     <>
       <SEOHead {...seoConfig.home} />
-      <section
-        className="relative pt-20 min-h-screen flex items-center overflow-hidden bg-[#020617] noise-texture tactical-grid"
-        onMouseMove={handleMouseMove}
-      >
-        {/* Spotlight Effect */}
-        <motion.div
-          className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 opacity-100"
-          style={{ background: spotlightBackground }}
-        />
-
-        {/* Ambient Background Lights */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#020617] noise-texture pt-20 lg:pt-0">
+        
+        {/* Abstract Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#020617] to-black" />
-
-          {/* Animated SVG Pattern Layer */}
-          <div className="absolute inset-0 opacity-20">
-            <HeroPattern className="w-full h-full text-slate-800" />
-          </div>
-
-          <motion.div
-            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-viability-primary/10 sharp-edges blur-[100px]"
-            animate={{
-              scale: [1, 1.2, 1],
-              x: [-20, 20, -20],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div
-            className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-factory-500/10 sharp-edges blur-[120px]"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              x: [20, -20, 20],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          {/* Deep Slate subtle glows */}
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-arc/5 blur-[150px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-arc/5 blur-[120px] rounded-full pointer-events-none" />
         </div>
 
-        {/* Subtle Grid */}
-        <div className="absolute inset-0 opacity-[0.03] z-0 pointer-events-none">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px)`,
-            backgroundSize: '100px 100px'
-          }} />
-        </div>
-
-        {/* Floating dust particles — stable positions, no Math.random() in render */}
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute z-10 w-1 h-1 bg-white/20 sharp-edges pointer-events-none"
-            style={{
-              left: `${(i * 6.67) % 100}%`,
-              top: `${(i * 13.33) % 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 0.5, 0],
-              scale: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 4 + (i % 4),
-              repeat: Infinity,
-              delay: (i % 5),
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-
-        {/* Content - Split Screen Cinematic Layout */}
-        <motion.div style={{ opacity, y }} className="relative z-20 min-h-[auto] md:min-h-[600px] lg:h-screen flex items-center py-20 md:py-0">
-          {/* Split Screen Container */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0">
-
-            {/* LEFT SIDE: The Pilot (Security) - Green Glow */}
-            <motion.div
-              className="relative flex items-center justify-center p-6 sm:p-8 lg:p-16 lg:border-r border-white/5 overflow-hidden"
-              initial={{ opacity: 0, x: -100 }}
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center h-full">
+            
+            {/* LEFT SIDE: Copy Area */}
+            <motion.div 
+              className="max-w-2xl"
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1, ease: 'easeOut' }}
             >
-              {/* Brand Image Background */}
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-20"
-                style={{ backgroundImage: "url('/Handvantage_Ad_CISO_Silence_Square.jpg')" }}
-              />
-              {/* Green Glow Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-signal/20 via-transparent to-transparent blur-[100px]" />
+              <div className="terminal-text text-slate-400 text-xs sm:text-sm tracking-[0.2em] mb-6 uppercase">
+                THE AUTOMATED SECURITY WORKFORCE
+              </div>
+              
+              <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-8">
+                Stop Buying Tools. <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-arc to-slate-300">Start Deploying Agents.</span>
+              </h1>
+              
+              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-10 max-w-xl font-light">
+                We don't just watch your screens. We deploy enterprise-secure, OpenClaw-powered security agents to map your attack surface and triage threats in milliseconds. We are the Pilot. They are the Fleet.
+              </p>
 
-              <div className="relative z-10 max-w-md w-full">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <Link
+                  to="/roi-calculator"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-arc text-void font-editorial font-bold text-sm tracking-widest hover:bg-arc/90 transition-colors shadow-[0_0_20px_rgba(37,99,235,0.3)] rounded-sm"
                 >
-                  <div className="terminal-text text-signal text-xs sm:text-sm mb-3 sm:mb-4 tracking-widest">THE PILOT</div>
-                  <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-none tracking-tighter">
-                    <TerminalText text="Secure The Fortress." speed={50} cursor={true} color="white" />
-                  </h2>
-                  <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                    We don't just watch the radar. We fly the plane 24/7. Active remediation, not just alerts.
-                  </p>
+                  [CALCULATE TOKEN BUDGET]
+                  <SafeIcon icon={FiArrowRight} className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
 
-                  {/* Security Stats */}
-                  <div className="space-y-2 sm:space-y-3 mb-8">
-                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                      <div className="w-2 h-2 bg-signal rounded-none flex-shrink-0"></div>
-                      <span className="terminal-text text-slate-400">24/7 EYES ON GLASS</span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                      <div className="w-2 h-2 bg-signal rounded-none flex-shrink-0"></div>
-                      <span className="terminal-text text-slate-400">15-MIN RESPONSE SLA</span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                      <div className="w-2 h-2 bg-signal rounded-none flex-shrink-0"></div>
-                      <span className="terminal-text text-slate-400">VENDOR AGNOSTIC</span>
-                    </div>
-                  </div>
+                <Link
+                  to="/manifesto"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 border border-slate-700 bg-slate-900/50 text-slate-300 font-editorial font-bold text-sm tracking-widest hover:border-slate-500 hover:text-white transition-colors rounded-sm"
+                >
+                  [SEE THE ARCHITECTURE]
+                  <SafeIcon icon={FiArrowRight} className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
 
-                  {/* Above-Fold CTA */}
-                  <Link
-                    to="/roi-calculator"
-                    className="inline-flex items-center gap-2 px-6 py-3 sharp-edges border-2 border-signal text-signal font-bold text-sm tracking-widest hover:bg-signal hover:text-void transition-all"
-                  >
-                    [CALCULATE BUSINESS DRAG]
-                    <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
-                  </Link>
-                </motion.div>
+              {/* Trust Bar */}
+              <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs font-mono tracking-widest text-slate-500 uppercase">
+                <span>VENDOR AGNOSTIC</span>
+                <span className="w-1 h-1 rounded-full bg-slate-700"></span>
+                <span>15-MIN RESPONSE SLA</span>
+                <span className="w-1 h-1 rounded-full bg-slate-700"></span>
+                <span>ZERO DATA LEAKAGE</span>
               </div>
             </motion.div>
 
-            {/* RIGHT SIDE: The Fleet (Agents) - Blue Glow */}
-            <motion.div
-              className="relative flex items-center justify-center p-6 sm:p-8 lg:p-16 overflow-hidden"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            {/* RIGHT SIDE: Abstract Technical Visualization */}
+            <motion.div 
+              className="relative h-[400px] lg:h-[600px] flex items-center justify-center w-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.3 }}
             >
-              {/* Brand Image Background */}
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-20"
-                style={{ backgroundImage: "url('/Handvantage_Ad_Brand_Pilot_Square.jpg')" }}
-              />
-              {/* Blue Glow Background */}
-              <div className="absolute inset-0 bg-gradient-to-bl from-arc/20 via-transparent to-transparent blur-[100px]" />
-
-              <div className="relative z-10 max-w-md w-full">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+              {/* Glowing Nodes Visualization */}
+              <div className="relative w-full h-full max-w-[500px] max-h-[500px]">
+                {/* Central Hub */}
+                <motion.div 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full border-2 border-arc/40 flex items-center justify-center bg-arc/5 backdrop-blur-sm z-20 shadow-[0_0_50px_rgba(37,99,235,0.2)]"
+                  animate={{ boxShadow: ['0 0 30px rgba(37,99,235,0.1)', '0 0 60px rgba(37,99,235,0.3)', '0 0 30px rgba(37,99,235,0.1)'] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <div className="terminal-text text-arc text-xs sm:text-sm mb-3 sm:mb-4 tracking-widest">THE FLEET</div>
-                  <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-none tracking-tighter">
-                    <TerminalText text="Deploy The Fleet." speed={50} cursor={true} color="white" delay={500} />
-                  </h2>
-                  <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                    Autonomous AI agents that work 24/7. Hire 1,000 digital employees for the price of one.
-                  </p>
-
-                  {/* Agent Stats */}
-                  <div className="space-y-2 sm:space-y-3 mb-8">
-                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                      <div className="w-2 h-2 bg-arc rounded-none flex-shrink-0"></div>
-                      <span className="terminal-text text-slate-400">THE HUNTER • SDR AGENT</span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                      <div className="w-2 h-2 bg-arc rounded-none flex-shrink-0"></div>
-                      <span className="terminal-text text-slate-400">THE SENTRY • COMPLIANCE</span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-                      <div className="w-2 h-2 bg-arc rounded-none flex-shrink-0"></div>
-                      <span className="terminal-text text-slate-400">THE CONCIERGE • SUPPORT</span>
-                    </div>
-                  </div>
-
-                  {/* Above-Fold CTA */}
-                  <Link
-                    to="/services/ai-workforce"
-                    className="inline-flex items-center gap-2 px-6 py-3 sharp-edges bg-arc text-void font-bold text-sm tracking-widest hover:bg-arc/90 transition-all"
-                  >
-                    [DEPLOY THE FLEET]
-                    <SafeIcon icon={FiArrowRight} className="w-4 h-4" />
-                  </Link>
+                  <div className="w-8 h-8 rounded-full bg-arc/80 animate-pulse" />
                 </motion.div>
+
+                {/* Orbital Nodes */}
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute top-1/2 left-1/2 rounded-full border border-arc/20 z-10"
+                    style={{ 
+                      width: `${(i + 1) * 80 + 100}px`, 
+                      height: `${(i + 1) * 80 + 100}px`,
+                      x: '-50%',
+                      y: '-50%'
+                    }}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20 + i * 5, repeat: Infinity, ease: 'linear', direction: i % 2 === 0 ? 'normal' : 'reverse' }}
+                  >
+                    {/* Data Node on ring */}
+                    <div 
+                      className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-signal shadow-[0_0_15px_rgba(16,185,129,0.8)]"
+                    />
+                  </motion.div>
+                ))}
+
+                {/* Abstract Data Streams / Lines */}
+                <svg className="absolute inset-0 w-full h-full -z-10 opacity-30" viewBox="0 0 500 500">
+                  <path d="M250,250 L50,100" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
+                  <path d="M250,250 L450,150" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
+                  <path d="M250,250 L100,450" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
+                  <path d="M250,250 L400,400" stroke="rgba(37,99,235,0.4)" strokeWidth="1" strokeDasharray="4 4" />
+                </svg>
+
+                {/* Floating Bits */}
+                {[...Array(10)].map((_, i) => (
+                  <motion.div
+                    key={`bit-${i}`}
+                    className="absolute w-1 h-1 bg-white/40"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                    animate={{ y: [0, -20, 0], opacity: [0, 1, 0] }}
+                    transition={{ duration: 3 + (i % 3), repeat: Infinity, delay: i * 0.5, ease: 'easeInOut' }}
+                  />
+                ))}
               </div>
             </motion.div>
+            
           </div>
-
-          {/* CENTER OVERLAY: The Dual DNA - Hidden on mobile */}
-          <motion.div
-            className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-viability-primary/30 blur-[60px] rounded-none" />
-
-              {/* Content */}
-              <div className="relative backdrop-blur-xl bg-void/90 border border-white/10 p-6 lg:p-8 text-center min-w-[250px] lg:min-w-[300px] sharp-edges">
-                <div className="terminal-text text-viability-primary text-xs mb-2 lg:mb-3 tracking-widest">THE DUAL DNA</div>
-                <div className="font-editorial text-xl lg:text-2xl font-bold text-white leading-tight">
-                  PILOT + FLEET
-                </div>
-                <div className="mt-3 lg:mt-4 w-12 h-[1px] bg-viability-primary mx-auto"></div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Main Headline - Below Split Screen */}
-        <motion.div
-          className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-20"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
-          <div className="text-center max-w-5xl mx-auto">
-            {/* Terminal Badge */}
-            <TerminalBadge status="operational" pulse={true} className="mb-6 sm:mb-8 inline-block text-xs sm:text-sm">
-              THE BILLION-DOLLAR COMMAND CENTER
-            </TerminalBadge>
-
-            {/* Main Headline */}
-            <h1 className="font-editorial text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white mb-6 sm:mb-8 leading-none tracking-tighter px-4">
-              <span className="block mb-3 sm:mb-4">
-                <span className="text-red-500">Stop Paying</span> Ransomware Gangs.
-              </span>
-              <span className="block">
-                <span className="text-signal">Start Automating</span> Your Profit.
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
-              Most MSPs just watch your screens. We secure your <span className="text-arc font-semibold">fortress</span> <span className="italic">and</span> rebuild your <span className="text-signal font-semibold">factory</span>.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
-              <Link
-                to="/roi-calculator"
-                className="group relative inline-flex overflow-hidden sharp-edges p-[2px] focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2 focus:ring-offset-void w-full sm:w-auto"
-              >
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00FF94_0%,#3B82F6_50%,#00FF94_100%)]" />
-                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center sharp-edges bg-signal hover:bg-signal/90 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-bold text-void backdrop-blur-3xl transition-all shadow-glow-signal">
-                  <span className="hidden sm:inline">Secure My Business & Automate My Work</span>
-                  <span className="sm:hidden">Get Started</span>
-                  <SafeIcon icon={FiArrowRight} className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </Link>
-
-              <Link
-                to="/manifesto"
-                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 sharp-edges text-slate-300 font-semibold hover:text-white border-2 border-arc/30 hover:border-arc hover:bg-arc/10 transition-all text-sm sm:text-base w-full sm:w-auto"
-              >
-                <span className="hidden sm:inline">See The "Dual DNA" Model</span>
-                <span className="sm:hidden">Learn More</span>
-                <SafeIcon icon={FiArrowRight} className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Micro-copy */}
-            <div className="terminal-text text-[10px] sm:text-xs text-slate-500 mt-6 sm:mt-8 tracking-widest px-4">
-              VENDOR AGNOSTIC • 15-MIN RESPONSE • ZERO TOOL TAX
-            </div>
-          </div>
-
-          {/* Trust Signals */}
-          <motion.div
-            className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-white/5"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          >
-            <div className="terminal-text text-slate-500 text-[10px] sm:text-xs mb-6 sm:mb-8 text-center tracking-widest px-4">
-              WORKS WITH YOUR EXISTING STACK:
-            </div>
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 items-center px-4">
-              {['CrowdStrike', 'Microsoft', 'SentinelOne', 'Vanta', 'Drata'].map((tool, i) => (
-                <motion.div
-                  key={i}
-                  className="font-editorial text-slate-400 font-semibold text-sm sm:text-base md:text-lg opacity-60 hover:opacity-100 hover:text-signal transition-all"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 0.6, y: 0 }}
-                  transition={{ delay: 1.6 + i * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {tool}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </section>
     </>
   );

@@ -12,10 +12,10 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Breadcrumbs from './components/Breadcrumbs';
 
-// New components for Viability Engineering
-import ViabilityOSSection from './components/ViabilityOSSection';
-import ProofSection from './components/ProofSection';
-import AgentRoster from './components/AgentRoster';
+// New components for Frontpage Redesign
+import DualDNA from './components/DualDNA';
+import CoreServices from './components/CoreServices';
+import DataSovereignty from './components/DataSovereignty';
 import ComparisonTable from './components/ComparisonTable';
 
 // Lazy load non-critical page components for better performance
@@ -90,11 +90,10 @@ function App() {
             <Route path="/" element={
               <main>
                 <Hero />
-                <AgentRoster />
-                <ProblemSolution />
+                <DualDNA />
+                <CoreServices />
+                <DataSovereignty />
                 <ComparisonTable />
-                <Partnerships />
-                <ProofSection />
                 <CTA />
               </main>
             } />
