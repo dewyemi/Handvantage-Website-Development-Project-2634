@@ -6,7 +6,7 @@ import { TerminalLabel } from './TerminalText';
 
 const DualDNA = () => {
   return (
-    <section id="dual-dna" className="relative py-24 md:py-32 bg-void overflow-hidden noise-texture">
+    <section id="dual-dna" className="relative py-16 md:py-24 bg-void overflow-hidden noise-texture">
       {/* Container */}
       <div className="container mx-auto px-6 relative z-10">
         

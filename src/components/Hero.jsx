@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <>
       <SEOHead {...seoConfig.home} />
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#020617] noise-texture pt-20 lg:pt-0">
+      <section className="relative flex items-center overflow-hidden bg-[#020617] noise-texture pt-32 pb-16 lg:pt-40 lg:pb-24">
         
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 z-0">
@@ -36,21 +36,21 @@ const Hero = () => {
                 THE AUTOMATED SECURITY WORKFORCE
               </div>
               
-              <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-8">
+              <h1 className="font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
                 Stop Buying Tools. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-arc to-slate-300">Start Deploying Agents.</span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-10 max-w-xl font-light">
+              <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8 max-w-xl font-light">
                 We don't just watch your screens. We deploy enterprise-secure, OpenClaw-powered security agents to map your attack surface and triage threats in milliseconds. We are the Pilot. They are the Fleet.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   to="/roi-calculator"
                   className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-arc text-void font-editorial font-bold text-sm tracking-widest hover:bg-arc/90 transition-colors shadow-[0_0_20px_rgba(37,99,235,0.3)] rounded-sm"
                 >
-                  [CALCULATE TOKEN BUDGET]
+                  CALCULATE TOKEN BUDGET
                   <SafeIcon icon={FiArrowRight} className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
@@ -58,7 +58,7 @@ const Hero = () => {
                   to="/manifesto"
                   className="group inline-flex items-center justify-center gap-2 px-8 py-4 border border-slate-700 bg-slate-900/50 text-slate-300 font-editorial font-bold text-sm tracking-widest hover:border-slate-500 hover:text-white transition-colors rounded-sm"
                 >
-                  [SEE THE ARCHITECTURE]
+                  SEE THE ARCHITECTURE
                   <SafeIcon icon={FiArrowRight} className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -75,7 +75,7 @@ const Hero = () => {
 
             {/* RIGHT SIDE: Abstract Technical Visualization */}
             <motion.div 
-              className="relative h-[400px] lg:h-[600px] flex items-center justify-center w-full"
+              className="relative h-[400px] lg:h-[500px] flex items-center justify-center w-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.3 }}
