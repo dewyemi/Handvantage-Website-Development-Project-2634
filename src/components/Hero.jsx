@@ -85,8 +85,8 @@ const Hero = () => {
                 
                 {/* The Image */}
                 <motion.img 
-                  src="/images/handvantage_ad_brand_pilot_square.png" 
-                  alt="Autonomous Security Command Center"
+                  src="/images/autonomous_agentic_network_square.png" 
+                  alt="Autonomous Security Agentic Network"
                   className="w-full h-full object-cover origin-center opacity-90 mix-blend-screen"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
