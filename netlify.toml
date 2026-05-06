@@ -77,6 +77,37 @@
   to = "/site.webmanifest"
   status = 200
 
+# Archived service pages (S70 cleanup, May 2026) — preserve Google equity with 301s
+[[redirects]]
+  from = "/services/digital-transformation"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/cybersecurity"
+  to = "https://secvantages.com/AISecurityQuestionnaire"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/managed-security"
+  to = "/manifesto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/cloud-infrastructure"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/business-automation"
+  to = "/"
+  status = 301
+  force = true
+
 # SPA routing support for all other routes
 [[redirects]]
   from = "/*"

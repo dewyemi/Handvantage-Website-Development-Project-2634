@@ -5,23 +5,10 @@ import SafeIcon from '../common/SafeIcon';
 import Logo from './Logo';
 import { Link } from 'react-router-dom';
 
-const { FiPhone, FiMail, FiMapPin, FiLinkedin, FiGlobe, FiZap, FiShield, FiCloud, FiBot } = FiIcons;
+const { FiPhone, FiMail, FiMapPin, FiLinkedin, FiGlobe, FiZap, FiShield } = FiIcons;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const services = [
-    { name: 'Strategic Technology Planning', link: '/services/digital-transformation', icon: FiZap },
-    { name: 'Business Protection Strategy', link: '/services/cybersecurity', icon: FiShield },
-    { name: 'Scalable Infrastructure Strategy', link: '/services/cloud-infrastructure', icon: FiCloud },
-    { name: 'Process Optimization Strategy', link: '/services/business-automation', icon: FiBot }
-  ];
-
-  const assessments = [
-    { name: 'Digital Transformation Assessment', link: 'https://secvantages.com', icon: FiZap, external: true },
-    { name: 'Cybersecurity Risk Assessment', link: 'https://secvantages.com', icon: FiShield, external: true },
-    { name: 'Maturity Roadmap Generator', link: 'https://secvantages.com', icon: FiShield, external: true }
-  ];
 
   const technologyCapabilities = [
     'Cloud Infrastructure',
@@ -139,21 +126,11 @@ const Footer = () => {
             {/* Removed Growth Tools section to simplify footer as per master copy */}
             <h4 className="text-lg font-semibold mb-4 text-white border-l-4 border-slate-600 pl-3">Capabilities</h4>
             <ul className="space-y-2">
-              <li>
-                <Link to="/services/cloud-infrastructure" className="text-slate-400 hover:text-white transition-colors text-sm block py-1">
-                  Cloud Infrastructure
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/managed-security" className="text-slate-400 hover:text-white transition-colors text-sm block py-1">
-                  Security Management
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/business-automation" className="text-slate-400 hover:text-white transition-colors text-sm block py-1">
-                  Process Automation
-                </Link>
-              </li>
+              {technologyCapabilities.map((capability) => (
+                <li key={capability} className="text-slate-400 text-sm py-1">
+                  {capability}
+                </li>
+              ))}
             </ul>
           </motion.div>
 

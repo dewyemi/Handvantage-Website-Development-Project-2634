@@ -20,11 +20,6 @@ import ComparisonTable from './components/ComparisonTable';
 
 // Lazy load non-critical page components for better performance
 const AboutPage = lazy(() => import('./components/AboutPage'));
-const DigitalTransformationPage = lazy(() => import('./components/DigitalTransformationPage'));
-const CybersecurityPage = lazy(() => import('./components/CybersecurityPage'));
-const CloudInfrastructurePage = lazy(() => import('./components/CloudInfrastructurePage'));
-const BusinessAutomationPage = lazy(() => import('./components/BusinessAutomationPage'));
-const ManagedSecurityPage = lazy(() => import('./components/ManagedSecurityPage'));
 const AIWorkforcePage = lazy(() => import('./components/AIWorkforcePage'));
 
 const AssessmentLanding = lazy(() => import('./components/AssessmentLanding'));
@@ -53,7 +48,7 @@ const LoadingSpinner = () => (
       <div className="relative">
         <div className="w-12 h-12 border-4 border-signal border-t-transparent rounded-full animate-spin"></div>
       </div>
-      <p className="text-sm font-mono tracking-widest text-signal uppercase">CALIBRATING INSTRUMENTS...</p>
+      <p className="text-sm font-mono tracking-widest text-signal uppercase">Loading…</p>
     </div>
   </div>
 );
@@ -106,40 +101,7 @@ function App() {
 
             <Route path="/about" element={<AboutPage />} />
 
-            <Route path="/services/digital-transformation" element={
-              <>
-                <SEOHead {...seoConfig.digitalTransformation} />
-                <DigitalTransformationPage />
-              </>
-            } />
-
-            <Route path="/services/cybersecurity" element={
-              <>
-                <SEOHead {...seoConfig.cybersecurity} />
-                <CybersecurityPage />
-              </>
-            } />
-
-            <Route path="/services/managed-security" element={
-              <>
-                <SEOHead {...seoConfig.managedSecurity} />
-                <ManagedSecurityPage />
-              </>
-            } />
-
-            <Route path="/services/cloud-infrastructure" element={
-              <>
-                <SEOHead {...seoConfig.cloudInfrastructure} />
-                <CloudInfrastructurePage />
-              </>
-            } />
-
-            <Route path="/services/business-automation" element={
-              <>
-                <SEOHead {...seoConfig.businessAutomation} />
-                <BusinessAutomationPage />
-              </>
-            } />
+            {/* Archived service pages handled by 301 redirects in netlify.toml */}
 
             <Route path="/services/ai-workforce" element={<AIWorkforcePage />} />
 
@@ -212,14 +174,14 @@ function App() {
             <Route path="*" element={
               <div className="pt-20 min-h-screen flex items-center justify-center bg-[#020617]">
                 <div className="text-center">
-                  <p className="font-mono text-sm tracking-widest text-signal mb-4 uppercase">SIGNAL LOST</p>
-                  <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">RETURN TO BASE.</h1>
-                  <p className="text-slate-400 mb-8 font-mono text-sm">The coordinates you entered don't exist.</p>
+                  <p className="font-mono text-sm tracking-widest text-signal mb-4 uppercase">404</p>
+                  <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight">That page isn't here.</h1>
+                  <p className="text-slate-400 mb-8">Let's get you back to something useful.</p>
                   <Link
                     to="/"
                     className="inline-flex items-center gap-2 bg-signal text-void px-8 py-4 font-bold sharp-edges hover:bg-signal/90 transition-all"
                   >
-                    RETURN HOME
+                    Back to home
                   </Link>
                 </div>
               </div>

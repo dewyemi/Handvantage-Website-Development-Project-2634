@@ -32,42 +32,13 @@ const Header = () => {
       description: 'Deploy autonomous AI agents',
       badge: 'NEW'
     },
-    {
-      label: 'Managed Security',
-      href: '/services/managed-security',
-      icon: FiShield,
-      description: '24/7 SOC & threat response'
-    },
-    {
-      label: 'Business Automation',
-      href: '/services/business-automation',
-      icon: FiZap,
-      description: 'Process optimization & efficiency'
-    },
-    {
-      label: 'Cloud Infrastructure',
-      href: '/services/cloud-infrastructure',
-      icon: FiCloud,
-      description: 'Scalable cloud architecture'
-    },
-    {
-      label: 'Cybersecurity',
-      href: '/services/cybersecurity',
-      icon: FiLock,
-      description: 'Comprehensive security strategy'
-    },
-    {
-      label: 'Digital Transformation',
-      href: '/services/digital-transformation',
-      icon: FiUsers,
-      description: 'Strategic technology planning'
-    },
   ];
 
   const navItems = [
     { label: 'SERVICES', hasDropdown: true },
     { label: 'THE DOCTRINE', href: '/manifesto', path: '/manifesto' },
     { label: 'THE MATH', href: '/roi-calculator', path: '/roi-calculator' },
+    { label: 'WORKSPACE', href: 'https://workspace.handvantage.com', path: '', external: true },
     { label: 'BOOK BRIEFING', href: 'https://handvantage.co/contact', path: '', external: true }
   ];
 
