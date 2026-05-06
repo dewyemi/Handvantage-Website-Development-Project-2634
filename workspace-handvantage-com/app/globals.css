@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #F5F1EA;
+  --paper-deep: #EAE3D5;
+  --ink: #1A1F1B;
+  --ink-soft: #4A4F4B;
+  --ink-hairline: #D2C9B7;
+  --oxblood: #722F37;
+  --oxblood-soft: #8B4A52;
+  --success-ink: #2D5A3D;
+  --warning-ink: #8B5A1A;
+  --error-ink: #7A2E1F;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display), "Source Serif 4", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Skip-to-content link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--paper);
+  color: var(--oxblood);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--oxblood);
+  font-family: var(--font-ui), "Inter Tight", sans-serif;
+  font-weight: 500;
+  z-index: 100;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Section divider */
+hr.section-divider {
+  border: 0;
+  border-top: 1px solid var(--ink-hairline);
+  margin: 0;
+  width: 100%;
+}
+
+/* Drop cap (used on /insights/[slug] articles only) */
+.lede::first-letter {
+  font-family: var(--font-display), "Source Serif 4", Georgia, serif;
+  font-weight: 700;
+  color: var(--oxblood);
+  font-size: 5em;
+  line-height: 0.85;
+  float: left;
+  padding-right: 0.08em;
+  padding-top: 0.05em;
+}
+
+/* Focus rings (visible on keyboard tab) */
+:focus-visible {
+  outline: 2px solid var(--oxblood);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print stylesheet */
+@media print {
+  :root {
+    --paper: #FFFFFF;
+    --ink: #000000;
+    --oxblood: #4A4A4A;
+    --paper-deep: #FFFFFF;
+  }
+  nav, footer, .cta-block, .interactive-only, .skip-link { display: none !important; }
+  body { font-size: 11pt; line-height: 1.5; background: white; color: black; }
+  h1 { font-size: 22pt; }
+  h2 { font-size: 16pt; page-break-after: avoid; }
+  a { color: black; text-decoration: underline; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #666; }
+}
