@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="arch-title arch-desc" preserveAspectRatio="xMidYMid meet">
+  <title id="arch-title">The 7-Layer Defence Architecture</title>
+  <desc id="arch-desc">A vertical stack of seven structural layers, numbered 1 through 7 from top (Policy Engine) to bottom (Supply Chain). Each layer is labelled with a one-line description and the OWASP Top 10 for Agentic Applications categories it covers. Requests enter at the top, are processed through all seven layers, and the audit log is emitted at the bottom.</desc>
+
+  <!-- Background -->
+  <rect width="720" height="720" fill="#F5F1EA"/>
+
+  <!-- Top label: REQUEST IN -->
+  <g transform="translate(50, 30)">
+    <text x="0" y="14" font-family="'Inter Tight', system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" letter-spacing="1.7" fill="#4A4F4B">REQUEST IN</text>
+    <line x1="160" y1="9" x2="200" y2="9" stroke="#722F37" stroke-width="1"/>
+    <path d="M 195 4 L 202 9 L 195 14" fill="none" stroke="#722F37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Subtle vertical rule on the left side, full stack height -->
+  <line x1="120" y1="65" x2="120" y2="660" stroke="#722F37" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- LAYER 01 — Policy Engine -->
+  <line x1="50" y1="65" x2="670" y2="65" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 65)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">01</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Policy Engine</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Pre-prompt policy resolution. Identity-tagged.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM01 · LLM06</text>
+  </g>
+
+  <!-- LAYER 02 — Prompt Defence -->
+  <line x1="50" y1="150" x2="670" y2="150" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 150)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">02</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Prompt Defence</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Inline firewall (NemoClaw). 28 ATLAS rules. Canary tokens.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM01 · LLM02 · LLM05</text>
+  </g>
+
+  <!-- LAYER 03 — Tool Guardrails -->
+  <line x1="50" y1="235" x2="670" y2="235" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 235)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">03</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Tool Guardrails</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Pre-execution validation. Per-tool permission scope.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM02 · LLM07</text>
+  </g>
+
+  <!-- LAYER 04 — Memory Safety -->
+  <line x1="50" y1="320" x2="670" y2="320" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 320)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">04</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Memory Safety</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Conversation isolation. Cross-session leakage prevention.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM03 · LLM06 · LLM10</text>
+  </g>
+
+  <!-- LAYER 05 — Trust Boundaries -->
+  <line x1="50" y1="405" x2="670" y2="405" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 405)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">05</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Trust Boundaries</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Inter-agent message validation. Role isolation.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM04 · LLM08</text>
+  </g>
+
+  <!-- LAYER 06 — Inter-Service Auth -->
+  <line x1="50" y1="490" x2="670" y2="490" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 490)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">06</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Inter-Service Auth</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Mutual TLS. Certificate-rooted. Zero shared secrets.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM04 · LLM09</text>
+  </g>
+
+  <!-- LAYER 07 — Supply Chain -->
+  <line x1="50" y1="575" x2="670" y2="575" stroke="#D2C9B7" stroke-width="0.5"/>
+  <g transform="translate(0, 575)">
+    <text x="60" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="32" font-weight="400" fill="#722F37">07</text>
+    <text x="140" y="34" font-family="'Source Serif 4', Georgia, serif" font-size="20" font-weight="600" fill="#1A1F1B">Supply Chain</text>
+    <text x="140" y="58" font-family="'Source Serif 4', Georgia, serif" font-size="14" font-weight="400" fill="#4A4F4B">Cryptographic manifest verification. Load-time check.</text>
+    <text x="670" y="44" font-family="'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="13" font-weight="400" fill="#4A4F4B" text-anchor="end">LLM05 · LLM09</text>
+  </g>
+
+  <!-- Bottom rule -->
+  <line x1="50" y1="660" x2="670" y2="660" stroke="#D2C9B7" stroke-width="0.5"/>
+
+  <!-- Bottom label: AUDIT LOG OUT -->
+  <g transform="translate(50, 690)">
+    <text x="0" y="14" font-family="'Inter Tight', system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" letter-spacing="1.7" fill="#4A4F4B">AUDIT LOG OUT</text>
+    <line x1="180" y1="9" x2="220" y2="9" stroke="#722F37" stroke-width="1"/>
+    <path d="M 215 4 L 222 9 L 215 14" fill="none" stroke="#722F37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CTABlock } from "@/components/CTABlock";
-import { FounderPortrait } from "@/components/FounderPortrait";
+import { FounderPortraitSection } from "@/components/FounderPortraitSection";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { SITE } from "@/lib/data-tokens";
 
@@ -239,14 +239,7 @@ export default function PhilosophyPage() {
       <SectionDivider />
 
       {/* Section 3 — Portrait */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-default mx-auto px-6 md:px-12 flex justify-center">
-          <FounderPortrait
-            size="large"
-            alt={`${SITE.founderName}, founder of Handvantage. Toronto, May 2026.`}
-          />
-        </div>
-      </section>
+      <FounderPortraitSection variant="philosophy" />
 
       <SectionDivider />
 

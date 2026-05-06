@@ -1,134 +1,82 @@
-import { ARCHITECTURE } from "@/lib/data-tokens";
+/**
+ * ArchitectureDiagram.tsx
+ *
+ * The 7-Layer Defence Architecture as a real SVG diagram, NOT a numbered list.
+ *
+ * This component replaces the existing "01 Policy Engine 02 Prompt Defence ..."
+ * text-list rendering on the home page Section 5 (architecture preview) and
+ * on the /architecture page Section 3 (full architecture).
+ *
+ * Drop-in: place the SVG file at /public/images/diagrams/7-layer-defence.svg
+ * and import this component anywhere that previously rendered the text list.
+ *
+ * Accessibility: the SVG has <title> and <desc> elements rooted at the
+ * accessibility tree. The <details> block below the SVG provides a text
+ * equivalent for screen readers and for print. Both are always present;
+ * the <details> is collapsed by default so it doesn't visually duplicate
+ * the diagram for sighted readers.
+ */
 
-interface Props {
-  mode?: "preview" | "interactive";
+import Image from "next/image";
+
+const LAYERS = [
+  { n: "01", name: "Policy Engine",      blurb: "Pre-prompt policy resolution. Identity-tagged.",                owasp: "LLM01 · LLM06"          },
+  { n: "02", name: "Prompt Defence",     blurb: "Inline firewall (NemoClaw). 28 ATLAS rules. Canary tokens.",   owasp: "LLM01 · LLM02 · LLM05"  },
+  { n: "03", name: "Tool Guardrails",    blurb: "Pre-execution validation. Per-tool permission scope.",          owasp: "LLM02 · LLM07"          },
+  { n: "04", name: "Memory Safety",      blurb: "Conversation isolation. Cross-session leakage prevention.",     owasp: "LLM03 · LLM06 · LLM10"  },
+  { n: "05", name: "Trust Boundaries",   blurb: "Inter-agent message validation. Role isolation.",               owasp: "LLM04 · LLM08"          },
+  { n: "06", name: "Inter-Service Auth", blurb: "Mutual TLS. Certificate-rooted. Zero shared secrets.",          owasp: "LLM04 · LLM09"          },
+  { n: "07", name: "Supply Chain",       blurb: "Cryptographic manifest verification. Load-time check.",         owasp: "LLM05 · LLM09"          },
+];
+
+interface ArchitectureDiagramProps {
+  /** "preview" = used on home page (smaller, no text equivalent shown). "full" = used on /architecture page (with text equivalent details). */
+  variant?: "preview" | "full";
   className?: string;
 }
 
-// Inline SVG 7-Layer Defence diagram. Editorial palette (paper / ink / oxblood).
-// "preview" mode: static, no hover. "interactive": :hover-driven CSS expansion (CSS-only, no JS).
-export function ArchitectureDiagram({ mode = "preview", className = "" }: Props) {
-  const layers = ARCHITECTURE.layers;
-  const rowH = 70;
-  const totalH = rowH * layers.length + 40;
-
+export function ArchitectureDiagram({ variant = "full", className = "" }: ArchitectureDiagramProps) {
   return (
-    <figure className={className}>
-      <svg
-        role="img"
-        aria-labelledby="arch-title arch-desc"
-        viewBox={`0 0 1000 ${totalH}`}
-        width="100%"
-        className="block"
-      >
-        <title id="arch-title">7-Layer Defence Architecture</title>
-        <desc id="arch-desc">
-          A vertical stack of seven structural layers, numbered 1 through 7 from top (Policy
-          Engine) to bottom (Supply Chain). Each layer is labelled with the OWASP Top 10 for
-          Agentic Applications categories it covers. Requests enter at the top, are processed
-          through all seven layers, and the audit log is emitted at the bottom.
-        </desc>
-
-        {/* Hairline frame */}
-        <rect
-          x="0.5"
-          y="0.5"
-          width="999"
-          height={totalH - 1}
-          fill="none"
-          stroke="#D2C9B7"
-          strokeWidth="1"
+    <figure className={`architecture-diagram ${className}`}>
+      <div className="relative w-full max-w-[720px] mx-auto">
+        <Image
+          src="/images/diagrams/7-layer-defence.svg"
+          alt="The 7-Layer Defence Architecture, showing seven structural layers from Policy Engine to Supply Chain, each labelled with the OWASP Top 10 for Agentic Applications categories it covers."
+          width={720}
+          height={720}
+          priority={variant === "preview"}
+          className="w-full h-auto"
+          unoptimized
         />
+      </div>
 
-        {/* Layers */}
-        {layers.map((layer, i) => {
-          const y = 20 + i * rowH;
-          return (
-            <g key={layer.n} className={mode === "interactive" ? "arch-layer" : undefined}>
-              {/* Layer separator line (top of each except first) */}
-              {i > 0 && (
-                <line x1="0" y1={y} x2="1000" y2={y} stroke="#D2C9B7" strokeWidth="0.5" />
-              )}
-              {/* Layer number block (left) */}
-              <text
-                x="40"
-                y={y + rowH / 2 + 5}
-                fontFamily="IBM Plex Mono, monospace"
-                fontSize="12"
-                fill="#722F37"
-                letterSpacing="2"
-              >
-                {String(layer.n).padStart(2, "0")}
-              </text>
-              {/* Layer name */}
-              <text
-                x="100"
-                y={y + rowH / 2 - 4}
-                fontFamily="Source Serif 4, Georgia, serif"
-                fontSize="20"
-                fontWeight="600"
-                fill="#1A1F1B"
-              >
-                {layer.name}
-              </text>
-              {/* Layer summary */}
-              <text
-                x="100"
-                y={y + rowH / 2 + 18}
-                fontFamily="Inter Tight, Inter, sans-serif"
-                fontSize="13"
-                fill="#4A4F4B"
-              >
-                {layer.summary}
-              </text>
-              {/* OWASP IDs (right) */}
-              <text
-                x="960"
-                y={y + rowH / 2 + 5}
-                fontFamily="IBM Plex Mono, monospace"
-                fontSize="11"
-                fill="#4A4F4B"
-                textAnchor="end"
-                letterSpacing="1.5"
-              >
-                {layer.owaspIds.join(" · ")}
-              </text>
-            </g>
-          );
-        })}
-
-        {/* Top arrow indicator */}
-        <text
-          x="500"
-          y="14"
-          fontFamily="IBM Plex Mono, monospace"
-          fontSize="10"
-          fill="#722F37"
-          textAnchor="middle"
-          letterSpacing="2"
-        >
-          REQUEST IN ↓
-        </text>
-      </svg>
-      <figcaption className="font-ui text-byline text-ink-soft mt-4 text-center">
-        The 7-Layer Defence Architecture. Each layer maps to OWASP Top 10 for Agentic Applications
-        categories.
+      <figcaption className="mt-6 text-center font-ui text-[13px] text-ink-soft max-w-[640px] mx-auto leading-relaxed">
+        Each request enters at Layer 1 and is processed through Layers 2&ndash;7 in sequence.
+        Every layer produces an audit event. The events aggregate into the Trust Report at request completion.
       </figcaption>
 
-      {/* Text-equivalent (always rendered, screen-reader friendly) */}
-      <details className="mt-4 max-w-[720px] mx-auto text-byline font-ui text-ink-soft">
-        <summary className="cursor-pointer hover:text-oxblood">
-          Text equivalent of the diagram
-        </summary>
-        <ol className="mt-4 list-decimal list-inside space-y-2">
-          {layers.map((l) => (
-            <li key={l.n}>
-              <span className="font-display text-ink font-semibold">{l.name}</span> — {l.summary}{" "}
-              <span className="font-mono">({l.owaspIds.join(", ")})</span>
-            </li>
-          ))}
-        </ol>
-      </details>
+      {variant === "full" && (
+        <details className="mt-8 max-w-[640px] mx-auto text-body-sm">
+          <summary className="cursor-pointer font-ui font-medium text-[13px] text-ink-soft uppercase tracking-[0.08em] hover:text-oxblood">
+            Text equivalent of the diagram
+          </summary>
+          <ol className="mt-6 flex flex-col gap-4 list-none pl-0">
+            {LAYERS.map((layer) => (
+              <li key={layer.n} className="flex flex-col gap-1">
+                <span className="font-display font-semibold text-ink">
+                  Layer {layer.n} &mdash; {layer.name}
+                </span>
+                <span className="font-display text-ink leading-relaxed">{layer.blurb}</span>
+                <span className="font-mono text-[12px] text-ink-soft tracking-wide">
+                  Maps to {layer.owasp}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </details>
+      )}
     </figure>
   );
 }
+
+export default ArchitectureDiagram;

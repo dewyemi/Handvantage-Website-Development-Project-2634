@@ -126,7 +126,7 @@ export default function ArchitecturePage() {
         <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
           <SectionEyebrow>THE ARCHITECTURE</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-12">The 7-Layer Defence Architecture.</h2>
-          <ArchitectureDiagram mode="interactive" />
+          <ArchitectureDiagram variant="full" />
           <p className="font-ui text-body-sm text-ink-soft mt-8 max-w-[720px]">
             Each request enters at Layer 1 and is processed through Layers 2–7 in sequence. Every
             layer produces an audit event. The audit events are aggregated into the Trust Report at

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ProofStrip } from "@/components/ProofStrip";
 import { CTABlock } from "@/components/CTABlock";
-import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
+import { HomeArchitectureSection } from "@/components/HomeArchitectureSection";
+import { FounderPortraitSection } from "@/components/FounderPortraitSection";
 import { ArticleCard } from "@/components/ArticleCard";
 import { FactStack } from "@/components/FactStack";
-import { FounderPortrait } from "@/components/FounderPortrait";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { COMPLIANCE, SITE } from "@/lib/data-tokens";
 
@@ -187,48 +187,7 @@ export default function HomePage() {
       <SectionDivider />
 
       {/* Section 5 — Architecture preview */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
-          <SectionEyebrow>ARCHITECTURE</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-8 max-w-[720px]">
-            Seven layers, each one mapped to a category of failure.
-          </h2>
-          <p className="font-display text-body-lg text-ink leading-relaxed mb-12 max-w-[720px]">
-            The 7-Layer Defence Architecture is the part of Vantage Workspace that makes the
-            difference between a chatbot in a browser and a regulated platform. Each layer
-            addresses a specific failure mode — and each failure mode shows up in the OWASP Top 10
-            for Agentic Applications, the NIST AI RMF function categories, or the EU AI Act
-            high-risk technical requirements. Often all three.
-          </p>
-          <ArchitectureDiagram mode="preview" />
-          <div className="mt-12 max-w-[720px] font-display text-body text-ink space-y-6 leading-relaxed">
-            <p>
-              The architecture is not configurable. The layer ordering is structural. Skipping a
-              layer or running them in the wrong sequence changes the behaviour of the whole stack
-              — and the audit trail tells you which layer caught what.
-            </p>
-            <p>
-              We&apos;ve documented every layer in detail on the{" "}
-              <Link
-                href="/architecture"
-                className="text-oxblood hover:underline underline-offset-4"
-              >
-                architecture page
-              </Link>
-              , including the failure modes that show up when a layer is missing, the specific
-              OWASP and NIST controls each one closes, and the runtime evidence each one produces.
-            </p>
-          </div>
-          <div className="mt-12">
-            <Link
-              href="/architecture"
-              className="font-display text-body-lg text-oxblood hover:text-oxblood-soft underline decoration-[1.5px] underline-offset-4 hover:decoration-2"
-            >
-              Read the full architecture page&nbsp;→
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HomeArchitectureSection />
 
       <SectionDivider />
 
@@ -289,59 +248,7 @@ export default function HomePage() {
       <SectionDivider />
 
       {/* Section 7 — From a founder */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-default mx-auto px-6 md:px-12">
-          <SectionEyebrow>FROM A FOUNDER</SectionEyebrow>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <FounderPortrait />
-            <div>
-              <h2 className="font-display text-h2 text-ink mb-8">
-                We built Handvantage because the alternative was a project, not a purchase.
-              </h2>
-              <div className="font-display text-body text-ink space-y-6 leading-relaxed">
-                <p>
-                  I started Handvantage in 2024, in Toronto, after spending eighteen months trying
-                  to assemble an &ldquo;agentic AI stack&rdquo; for clients out of the parts the
-                  major vendors were shipping. The pattern I kept hitting was: every individual
-                  piece existed, but the integration was the project. The identity layer was
-                  someone else&apos;s product. The audit layer was something my engineers had to
-                  build. The compliance evidence layer was three weeks of consultancy hours twice a
-                  year.
-                </p>
-                <p>
-                  Vantage Workspace is the integration. The 7-Layer Defence Architecture is what we
-                  needed before we could trust an agent to take an action on behalf of a real user.
-                  The continuous compliance posture is what made it possible to ship sixty-eight
-                  sprints without a regulator-blocking rollback.
-                </p>
-                <p>
-                  We publish the parts we haven&apos;t finished. The engineering posts on the{" "}
-                  <Link
-                    href="/insights"
-                    className="text-oxblood hover:underline underline-offset-4"
-                  >
-                    insights page
-                  </Link>{" "}
-                  name the failure modes we&apos;re still working on. The compliance page lists the
-                  frameworks where we just moved from B to A. The architecture page links to the
-                  trade-offs we made and the ones we&apos;re still making.
-                </p>
-                <p className="font-ui text-body-sm text-ink-soft mt-8">
-                  — {SITE.founderName}, Founder
-                </p>
-              </div>
-              <div className="mt-12">
-                <Link
-                  href="/philosophy"
-                  className="font-display text-body-lg text-oxblood hover:text-oxblood-soft underline decoration-[1.5px] underline-offset-4 hover:decoration-2"
-                >
-                  Read the full philosophy&nbsp;→
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FounderPortraitSection variant="home" />
 
       <SectionDivider />
 
