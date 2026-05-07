@@ -8,15 +8,26 @@ const config: Config = {
         paper: {
           DEFAULT: "#F5F1EA",
           deep: "#EAE3D5",
+          rich: "#E5DDC9",
         },
         ink: {
           DEFAULT: "#1A1F1B",
           soft: "#4A4F4B",
           hairline: "#D2C9B7",
         },
+        midnight: {
+          DEFAULT: "#0F1A1F",
+          deep: "#070D11",
+          soft: "#1C2A33",
+          hairline: "rgba(245,241,234,0.12)",
+        },
         oxblood: {
           DEFAULT: "#722F37",
           soft: "#8B4A52",
+        },
+        gold: {
+          DEFAULT: "#A16207",
+          soft: "#C08B2C",
         },
         success: {
           ink: "#2D5A3D",

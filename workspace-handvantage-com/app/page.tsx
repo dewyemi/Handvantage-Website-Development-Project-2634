@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ProofStrip } from "@/components/ProofStrip";
-import { CTABlock } from "@/components/CTABlock";
-import { HomeArchitectureSection } from "@/components/HomeArchitectureSection";
-import { FounderPortraitSection } from "@/components/FounderPortraitSection";
-import { ArticleCard } from "@/components/ArticleCard";
-import { FactStack } from "@/components/FactStack";
-import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
+import Image from "next/image";
 import { COMPLIANCE, SITE } from "@/lib/data-tokens";
 
 export const metadata: Metadata = {
@@ -20,294 +14,542 @@ export const metadata: Metadata = {
   },
 };
 
+const FRAMEWORKS_TRUST = [
+  "NIST AI RMF",
+  "ISO 42001",
+  "EU AI Act",
+  "SOC 2",
+  "PCI DSS v4",
+  "HIPAA",
+  "FINRA",
+  "FedRAMP",
+  "PIPEDA",
+];
+
 export default function HomePage() {
   return (
     <>
-      {/* Section 1 — Hero */}
-      <section className="pt-20 md:pt-32 pb-24 md:pb-40">
-        <div className="max-w-full mx-auto px-6 md:px-12 lg:px-20">
-          <div className="max-w-default">
-            <SectionEyebrow>HANDVANTAGE — TORONTO</SectionEyebrow>
-            <h1 className="font-display text-display-1 text-ink leading-[1.05] max-w-[880px]">
-              Your team will use agentic AI. The question is whether the platform underneath them
-              is yours — or whether you&apos;re explaining to your auditor why nobody was.
-            </h1>
-            <p className="font-display text-body-lg text-ink leading-relaxed mt-12 max-w-[720px]">
-              Handvantage is the Sovereign Capability Partner for organisations building with
-              agentic AI. We build Vantage Workspace — a single platform combining your
-              productivity stack and your AI on the same identity, audit trail, and infrastructure.
-              Twenty containers, one SSO, deployed in ten minutes.
-            </p>
-            <p className="font-display text-body text-ink-soft mt-6 max-w-[720px]">
-              {COMPLIANCE.grade} grade across {COMPLIANCE.frameworkCount} regulatory frameworks.{" "}
-              {COMPLIANCE.sprintCount} sprints shipped, zero rollbacks. The 7-Layer Defence
-              Architecture is documented in full on this site, including the parts we&apos;re still
-              improving.
-            </p>
-            <div className="mt-12">
-              <Link
-                href="/contact"
-                className="font-display text-body-lg text-oxblood hover:text-oxblood-soft underline decoration-[1.5px] underline-offset-4 hover:decoration-2"
-              >
-                Talk to us about your platform&nbsp;→
-              </Link>
+      {/* ============================================================ */}
+      {/* SECTION 1 — HERO                                              */}
+      {/* Paper bg. Split: editorial type left, 3D illustration right.  */}
+      {/* ============================================================ */}
+      <section className="relative bg-paper overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-12 md:pt-20 pb-16 md:pb-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 xl:col-span-6">
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.18em] mb-8">
+                <span className="text-oxblood">●</span>
+                <span className="ml-2">HANDVANTAGE — TORONTO</span>
+              </p>
+              <h1 className="font-display text-[clamp(2.5rem,5vw+1rem,5rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-10">
+                Your team will use agentic AI.
+                <br />
+                <span className="text-ink-soft italic">The platform underneath them</span>
+                <br />
+                <span className="text-oxblood">should be yours.</span>
+              </h1>
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-10">
+                Vantage Workspace is one platform — email, files, chat, meetings, docs, plus
+                governed AI — running on your infrastructure. Twenty containers, one SSO, one audit
+                trail, deployed in ten minutes.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                <Link
+                  href="/product"
+                  className="inline-flex items-center gap-2 bg-ink text-paper font-ui font-medium text-[15px] px-8 py-4 hover:bg-oxblood transition-colors"
+                >
+                  See the platform
+                  <span aria-hidden="true">→</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="font-ui font-medium text-[15px] text-ink hover:text-oxblood underline decoration-[1.5px] underline-offset-4"
+                >
+                  Talk to us
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 xl:col-span-6 relative">
+              <div className="relative aspect-[3/4] max-w-[560px] mx-auto lg:ml-auto">
+                <Image
+                  src="/images/product/vantage-workspace-stack.png"
+                  alt="Vantage Workspace, rendered as a stacked physical platform: NemoClaw firewall canopy, sovereign workspace shell, chat capsule, email server, document vault, compliance ring, audit console, AI skills cartridges, model provider dock, mission engine, vector database, local LLM core."
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 560px"
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Hairline rule into the next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-ink-hairline"></div>
       </section>
 
-      <SectionDivider />
-
-      {/* Section 2 — The shift */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-narrow mx-auto px-6 md:px-12">
-          <SectionEyebrow>THE SHIFT</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-8">
-            Most AI platforms were built for the demo, not the audit.
-          </h2>
-          <div className="font-display text-body text-ink space-y-6 leading-relaxed">
-            <p>
-              The first wave of enterprise AI looked like a chatbot in a browser tab. Buy a
-              license, point it at your data, hope for the best. The proof of value was a
-              screenshot of a useful response. The proof of safety was an acceptable-use policy in
-              the employee handbook.
+      {/* ============================================================ */}
+      {/* SECTION 2 — FRAMEWORK TRUST STRIP (midnight)                 */}
+      {/* ============================================================ */}
+      <section className="bg-midnight">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+            <p className="md:col-span-3 font-ui text-[12px] tracking-[0.18em] text-paper/60 uppercase">
+              Audit-mapped to
             </p>
-            <p>That model is finishing. Three forces are pulling it apart:</p>
-            <p>
-              The first is the regulatory shift. The EU AI Act high-risk obligations begin on
-              August 2, 2026, and the audit window — the period where contemporaneous evidence has
-              to exist — is already open. The question regulators are asking is not &ldquo;did your
-              platform do anything wrong?&rdquo; but &ldquo;show us the evidence of every decision
-              it made.&rdquo;
-            </p>
-            <p>
-              The second is the architectural shift. Agentic AI doesn&apos;t just answer questions.
-              It takes actions on behalf of a user — sends emails, modifies files, queries
-              databases, provisions resources. Each of those actions needs an identity, a
-              permission boundary, an audit log, and a way to roll back. None of that is in the
-              chatbot. All of it has to be in the platform around the chatbot.
-            </p>
-            <p>
-              The third is the supplier shift. The vendors selling &ldquo;AI for the
-              enterprise&rdquo; right now are mostly selling a product layer. They&apos;re not
-              selling the identity layer, the audit layer, or the compliance evidence layer. Those
-              layers are still up to you to assemble — and assembling them yourself is a project,
-              not a purchase.
-            </p>
-            <p>
-              Vantage Workspace exists because we needed those three layers ourselves, and the
-              alternative was twelve vendors in three time zones each owning a piece of the stack.
-            </p>
+            <ul className="md:col-span-9 grid grid-cols-3 md:grid-cols-9 gap-x-4 gap-y-3">
+              {FRAMEWORKS_TRUST.map((f) => (
+                <li
+                  key={f}
+                  className="font-display text-[15px] md:text-[16px] text-paper whitespace-nowrap"
+                >
+                  {f}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
-
-      {/* Section 3 — What Vantage Workspace is */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-default mx-auto px-6 md:px-12">
-          <SectionEyebrow>THE PLATFORM</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-12">Vantage Workspace.</h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-            <div className="md:col-span-3">
-              <div className="font-display text-body text-ink space-y-6 leading-relaxed">
+      {/* ============================================================ */}
+      {/* SECTION 3 — THE SHIFT (paper, type-only editorial)            */}
+      {/* ============================================================ */}
+      <section className="bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-3">
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] sticky top-32">
+                The shift
+              </p>
+            </div>
+            <div className="lg:col-span-9 max-w-[760px]">
+              <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-12">
+                Most AI platforms were built for the demo.
+                <br />
+                <span className="text-ink-soft">Yours has to survive the audit.</span>
+              </h2>
+              <div className="font-display text-body-lg text-ink leading-relaxed space-y-6 max-w-[640px]">
                 <p>
-                  One platform: email, files, chat, meetings, docs, plus an AI that does the work
-                  across all of them. Twenty containers, one SSO, one audit trail, deployed in ten
-                  minutes on infrastructure you control.
+                  The first wave of enterprise AI was a chatbot in a browser tab. Buy a license,
+                  point it at your data, hope. The proof of value was a screenshot. The proof of
+                  safety was an acceptable-use policy in the employee handbook.
                 </p>
                 <p>
-                  Underneath the user-facing applications sits the part that makes this category
-                  work: a 7-Layer Defence Architecture that mediates every prompt, every tool call,
-                  every action the agent takes. Every interaction is logged, attributed to a real
-                  human, scanned by an inline firewall, graded by a post-response checker, and
-                  exportable to your SIEM in a format your auditor recognises.
+                  That window is closing. The EU AI Act high-risk obligations begin August 2, 2026
+                  — and the audit window, when contemporaneous evidence has to exist, is already
+                  open. Article 99 specifies penalties up to €35M or 7% of global revenue when
+                  evidence is absent, not just when systems fail.
                 </p>
                 <p>
-                  The platform is built to be inherited, not customised. You don&apos;t write a
-                  regex to catch prompt injection — the firewall (NemoClaw) ships with twenty-eight
-                  ATLAS rules that cover the OWASP Top 10 for Agentic Applications at 10/10
-                  coverage. You don&apos;t build a per-user OAuth vault — the platform ships with a
-                  Fernet-encrypted vault that handles key rotation. Your engineers spend their
-                  cycles shipping the features your business needs, not maintaining the
-                  load-bearing primitives every AI deployment is going to need.
-                </p>
-                <p>
-                  Sixty-eight sprints have shipped. Zero rollbacks. The full sprint log and
-                  rollback policy is published on the{" "}
-                  <Link
-                    href="/philosophy"
-                    className="text-oxblood hover:underline underline-offset-4"
-                  >
-                    philosophy page
-                  </Link>
-                  .
+                  Agentic AI doesn&apos;t just answer questions. It takes actions on behalf of a
+                  user — sends emails, modifies files, queries databases, provisions resources.
+                  Each action needs an identity, a permission boundary, an audit log, and a way to
+                  roll back. None of that lives in the chatbot. All of it has to live in the
+                  platform around it.
                 </p>
               </div>
             </div>
-            <div className="md:col-span-2">
-              <FactStack
-                facts={[
-                  {
-                    eyebrow: "DEPLOYMENT",
-                    value: "10 minutes",
-                    subline: "On your infrastructure, your VPC.",
-                  },
-                  {
-                    eyebrow: "COMPLIANCE GRADE",
-                    value: "A at 100%",
-                    subline: "Across 11 regulatory frameworks.",
-                    valueAsMono: true,
-                  },
-                  {
-                    eyebrow: "OWASP COVERAGE",
-                    value: "10/10",
-                    subline: "Full OWASP Top 10 for Agentic Applications.",
-                    valueAsMono: true,
-                  },
-                  {
-                    eyebrow: "SHIP CADENCE",
-                    value: "68 sprints",
-                    subline: "Zero rollbacks since v0.1.",
-                    valueAsMono: true,
-                  },
-                ]}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 4 — PRODUCT SHOWCASE (paper-deep, dashboard image)   */}
+      {/* ============================================================ */}
+      <section className="bg-paper-deep">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="max-w-[760px] mb-12">
+            <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+              Your team starts here
+            </p>
+            <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-8">
+              One workspace. One identity. Twenty containers behind it.
+            </h2>
+            <p className="font-display text-body-lg text-ink leading-relaxed">
+              Email, files, chat, meetings, docs — and an AI that does the work across all of
+              them. Every prompt scanned. Every action logged. Every byte under your roof.
+            </p>
+          </div>
+
+          <figure className="relative">
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline shadow-[0_30px_80px_-20px_rgba(15,26,31,0.25)] bg-paper">
+              <Image
+                src="/images/product/dashboard.jpg"
+                alt="The Vantage Workspace dashboard, showing a personalised greeting, AI firewall status, memory count, incident count, and a workspace of files, team chat, video meetings, email, and a mobile app."
+                fill
+                sizes="(max-width: 1440px) 100vw, 1280px"
+                className="object-cover object-top"
               />
+            </div>
+            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
+              The home dashboard — private to your organisation, AI firewall on, every memory
+              attributed.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 5 — ARCHITECTURE PREVIEW (midnight, 3D illustration) */}
+      {/* ============================================================ */}
+      <section className="bg-midnight relative overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7 order-2 lg:order-1">
+              <div className="relative aspect-[3/4] max-w-[520px] mx-auto">
+                <Image
+                  src="/images/product/vantage-workspace-stack.png"
+                  alt="The Vantage Workspace platform rendered as a layered stack: NemoClaw firewall on top, then sovereign workspace, chat, email, storage, compliance ring, audit console, AI skills, model providers, mission engine, vector database, and local LLM at the base."
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 80vw, 520px"
+                  className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                />
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 order-1 lg:order-2">
+              <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
+                The 7-Layer Defence
+              </p>
+              <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-paper mb-8">
+                Seven layers. One stack. Every action mediated.
+              </h2>
+              <p className="font-display text-body-lg text-paper/85 leading-relaxed mb-10 max-w-[440px]">
+                Each layer addresses a specific failure mode. Each failure mode shows up in OWASP
+                Top 10 for Agentic Applications, in NIST AI RMF, in EU AI Act Annex IV — often all
+                three. The architecture is structural, not configurable. The audit log is
+                non-contestable on whether the layers were running.
+              </p>
+
+              <ul className="border-t border-midnight-hairline mb-10">
+                {[
+                  ["01", "Policy Engine", "LLM01 · LLM06"],
+                  ["02", "Prompt Defence (NemoClaw)", "LLM01 · LLM02 · LLM05"],
+                  ["03", "Tool Guardrails", "LLM02 · LLM07"],
+                  ["04", "Memory Safety", "LLM03 · LLM06 · LLM10"],
+                  ["05", "Trust Boundaries", "LLM04 · LLM08"],
+                  ["06", "Inter-Service Auth", "LLM04 · LLM09"],
+                  ["07", "Supply Chain", "LLM05 · LLM09"],
+                ].map(([n, name, owasp]) => (
+                  <li
+                    key={n}
+                    className="border-b border-midnight-hairline py-3 grid grid-cols-12 gap-3 items-center"
+                  >
+                    <span className="col-span-2 font-mono text-[12px] text-gold tracking-[0.1em]">
+                      {n}
+                    </span>
+                    <span className="col-span-7 font-display text-[15px] text-paper">{name}</span>
+                    <span className="col-span-3 font-mono text-[11px] text-paper/55 text-right tracking-[0.05em]">
+                      {owasp}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href="/architecture"
+                className="inline-flex items-center gap-2 font-ui font-medium text-[15px] text-gold-soft hover:text-gold border-b border-gold-soft hover:border-gold pb-1 transition-colors"
+              >
+                Read the architecture
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
+      {/* ============================================================ */}
+      {/* SECTION 6 — COMPLIANCE PROOF (paper, real dashboard image)   */}
+      {/* ============================================================ */}
+      <section className="bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 items-end">
+            <div className="lg:col-span-7">
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+                Continuous compliance
+              </p>
+              <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-6">
+                Graded every build.
+                <br />
+                <span className="text-ink-soft">Not annually. Not by attestation.</span>
+              </h2>
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px]">
+                The compliance grade you see here is computed from runtime evidence — the same
+                audit log an auditor would review. {COMPLIANCE.testCount} automated tests pass on
+                every build. The grade has moved over time and we publish the moves.
+              </p>
+            </div>
 
-      {/* Section 4 — Proof strip */}
-      <ProofStrip />
-
-      <SectionDivider />
-
-      {/* Section 5 — Architecture preview */}
-      <HomeArchitectureSection />
-
-      <SectionDivider />
-
-      {/* Section 6 — Audit window */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-narrow mx-auto px-6 md:px-12">
-          <SectionEyebrow>THE AUDIT WINDOW</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-8">
-            August 2, 2026 is when the obligations begin. The audit window started this quarter.
-          </h2>
-          <div className="font-display text-body text-ink space-y-6 leading-relaxed">
-            <p>
-              Most legal teams reading the EU AI Act focus on the deadline. The smarter ones focus
-              on the audit window — the period leading up to the deadline during which
-              contemporaneous evidence of operating controls has to exist. Article 99 makes the
-              point precisely: penalties of the larger of EUR 35 million or 7% of global annual
-              turnover apply where evidence of compliance is absent, not just where the system
-              fails on the day.
-            </p>
-            <p>
-              The technical controls are not the bottleneck. They exist. Identity attribution,
-              inline firewall, post-response checker, tool guardrails, supply-chain verification,
-              SIEM integration — every primitive in the AI Act Annex IV technical documentation
-              requirements has a published reference architecture. The bottleneck is provable
-              evidence, generated continuously, in a format an auditor recognises.
-            </p>
-            <p>
-              Vantage Workspace generates that evidence on every prompt. Trust Reports —
-              exportable as HTML and PDF, mapped to NIST AI RMF, ISO 42001, the EU AI Act, SOC 2,
-              PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, the Privacy Act (Canada), and AIDA
-              (proposed). The compliance grade is computed from runtime evidence, not from a
-              quarterly attestation document. The evidence is contemporaneous because the platform
-              makes it so.
-            </p>
-            <p>
-              We&apos;ve published the full compliance posture — the eleven frameworks, the
-              controls covered, the evidence types produced, the timestamps of the most recent
-              assessments — on the{" "}
-              <Link href="/compliance" className="text-oxblood hover:underline underline-offset-4">
-                compliance page
-              </Link>
-              . We&apos;ve also published the parts we&apos;re still improving. We think the
-              discipline of publishing where you&apos;re not yet at A is the part that survives the
-              next regulatory generation.
-            </p>
+            <div className="lg:col-span-5">
+              <div className="border-l-2 border-success-ink pl-6">
+                <p className="font-mono text-[12px] text-ink-soft uppercase tracking-[0.18em] mb-2">
+                  As of {COMPLIANCE.lastAssessedHuman}
+                </p>
+                <p className="font-display text-[clamp(4rem,8vw,7rem)] font-normal leading-none text-success-ink mb-4">
+                  {COMPLIANCE.grade}
+                </p>
+                <p className="font-display text-body text-ink">
+                  {COMPLIANCE.passRate} pass rate across {COMPLIANCE.frameworkCount} regulatory
+                  frameworks.
+                </p>
+              </div>
+            </div>
           </div>
+
+          <figure className="relative">
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline bg-midnight shadow-[0_30px_80px_-20px_rgba(15,26,31,0.4)]">
+              <Image
+                src="/images/product/compliance-dashboard.jpg"
+                alt="The Compliance Dashboard inside Handvantage The Engine — a large green A grade across the top, with framework compliance scores at 100% for NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed)."
+                fill
+                loading="lazy"
+                sizes="(max-width: 1440px) 100vw, 1280px"
+                className="object-cover object-top"
+              />
+            </div>
+            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
+              The Compliance Dashboard inside The Engine. The grade is computed in real time;
+              every framework has a satisfying-events trail behind it.
+            </figcaption>
+          </figure>
+
           <div className="mt-12">
             <Link
               href="/compliance"
-              className="font-display text-body-lg text-oxblood hover:text-oxblood-soft underline decoration-[1.5px] underline-offset-4 hover:decoration-2"
+              className="inline-flex items-center gap-2 font-ui font-medium text-[15px] text-ink hover:text-oxblood border-b border-ink hover:border-oxblood pb-1 transition-colors"
             >
-              See the compliance posture&nbsp;→
+              See the compliance posture
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
-
-      {/* Section 7 — From a founder */}
-      <FounderPortraitSection variant="home" />
-
-      <SectionDivider />
-
-      {/* Section 8 — Recent thinking */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
-          <SectionEyebrow>RECENT THINKING</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-8">
-            Three pieces from the editorial archive.
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8">
-            <ArticleCard
-              category="RETROSPECTIVE"
-              headline="From B to A: the discipline behind the upgrade"
-              dek="What changed between February and May to move the compliance posture three letter grades. Less novel methodology than you'd expect."
-              date="May 5, 2026"
-              readingTime="6 min read"
-              href="/insights/from-b-to-a-the-discipline-behind-the-upgrade"
-              size="compact"
-            />
-            <ArticleCard
-              category="BRIEFING"
-              headline="The EU AI Act deadline your CISO is ignoring"
-              dek="August 2, 2026 is the high-risk obligations deadline. The audit window opened in Q1. Most security leaders are still treating it as a Q4 problem."
-              date="May 2, 2026"
-              readingTime="5 min read"
-              href="/insights/eu-ai-act-deadline-ciso-ignoring"
-              size="compact"
-            />
-            <ArticleCard
-              category="BRIEFING"
-              headline="Why 40% of agentic AI projects fail (and the governance answer)"
-              dek="Gartner's number, our reading. The pattern in cancelled projects is the same one in cancelled compliance reviews: missing evidence, not missing controls."
-              date="May 2, 2026"
-              readingTime="7 min read"
-              href="/insights/why-40-percent-ai-projects-fail"
-              size="compact"
-            />
+      {/* ============================================================ */}
+      {/* SECTION 7 — NEMOCLAW FIREWALL (midnight, screenshot + stats) */}
+      {/* ============================================================ */}
+      <section className="bg-midnight relative">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="max-w-[760px] mb-12">
+            <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
+              NemoClaw — the inline firewall
+            </p>
+            <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-paper mb-8">
+              Caught before the model sees it.
+            </h2>
+            <p className="font-display text-body-lg text-paper/85 leading-relaxed">
+              Twenty-eight ATLAS-aligned rules. Direct prompt injection, indirect injection through
+              poisoned RAG, data exfiltration patterns, canary-token detection. Every rule fires
+              against every prompt before the request reaches the model.
+            </p>
           </div>
-          <div className="mt-12 text-right">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <figure className="lg:col-span-8">
+              <div className="relative aspect-[16/10] w-full overflow-hidden border border-midnight-hairline">
+                <Image
+                  src="/images/product/nemoclaw-firewall.jpg"
+                  alt="NemoClaw AI Firewall product UI — showing detected prompts, rule matches, and the ATLAS rule library."
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 800px"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+
+            <ul className="lg:col-span-4 grid grid-cols-1 gap-px bg-midnight-hairline border border-midnight-hairline">
+              {[
+                ["28", "ATLAS rules", "Active rule set across the OWASP Top 10 for Agentic Applications."],
+                ["10/10", "OWASP coverage", "First-pass coverage of every category in the 2026 standard."],
+                ["RFC 3161", "Signed events", "Every firewall decision timestamped, sequenced, anchored."],
+                ["0", "Bypass paths", "Structural — there is no way around the layer."],
+              ].map(([num, label, body]) => (
+                <li key={String(label)} className="bg-midnight p-6">
+                  <p className="font-mono text-[28px] text-gold-soft leading-none mb-3">{num}</p>
+                  <p className="font-ui text-[12px] text-paper uppercase tracking-[0.12em] mb-2">
+                    {label}
+                  </p>
+                  <p className="font-display text-[15px] text-paper/70 leading-relaxed">{body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 8 — FROM A FOUNDER (paper, demo photo + quote)        */}
+      {/* ============================================================ */}
+      <section className="bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <figure className="lg:col-span-5">
+              <div className="relative aspect-[4/5] w-full max-w-[520px] overflow-hidden border border-ink-hairline">
+                <Image
+                  src="/images/founder/josh-demo-straight-talk.jpg"
+                  alt="Josh Olayemi, founder of Handvantage, in a Toronto office, mid-conversation."
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 90vw, 520px"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+
+            <div className="lg:col-span-7">
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+                From the founder
+              </p>
+              <blockquote className="font-display text-[clamp(1.5rem,2vw+1rem,2.25rem)] leading-[1.2] text-ink mb-10 max-w-[640px]">
+                <span className="text-oxblood font-display text-[3.5em] leading-[0] align-text-bottom mr-1">
+                  &ldquo;
+                </span>
+                We built Handvantage because the alternative was a project, not a purchase. The
+                identity layer was someone else&apos;s. The audit layer was something my engineers
+                had to build. The compliance evidence layer was three weeks of consultancy hours
+                twice a year. Vantage Workspace is the integration.
+              </blockquote>
+              <p className="font-ui text-byline text-ink-soft mb-10">
+                — {SITE.founderName}, Founder · Toronto
+              </p>
+              <Link
+                href="/philosophy"
+                className="inline-flex items-center gap-2 font-ui font-medium text-[15px] text-ink hover:text-oxblood border-b border-ink hover:border-oxblood pb-1 transition-colors"
+              >
+                Read the philosophy
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 9 — RECENT THINKING (paper, article cards w/thumbs)  */}
+      {/* ============================================================ */}
+      <section className="bg-paper border-t border-ink-hairline">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="flex flex-wrap justify-between items-end mb-12 gap-4">
+            <div>
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-4">
+                Recent thinking
+              </p>
+              <h2 className="font-display text-[clamp(1.75rem,2vw+1rem,2.5rem)] leading-tight tracking-[-0.01em] text-ink">
+                Three pieces from the editorial archive.
+              </h2>
+            </div>
             <Link
               href="/insights"
-              className="font-display text-body text-oxblood hover:text-oxblood-soft underline decoration-[1.5px] underline-offset-4 hover:decoration-2"
+              className="font-ui font-medium text-[15px] text-ink hover:text-oxblood border-b border-ink hover:border-oxblood pb-1 transition-colors"
             >
-              See all insights&nbsp;→
+              See all insights →
             </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                slug: "from-b-to-a-the-discipline-behind-the-upgrade",
+                category: "RETROSPECTIVE",
+                date: "May 5, 2026",
+                read: "6 min read",
+                headline: "From B to A: the discipline behind the upgrade",
+                dek: "What changed between February and May to move the compliance posture three letter grades. Less novel methodology than you'd expect.",
+                img: "/images/product/compliance-dashboard.jpg",
+              },
+              {
+                slug: "eu-ai-act-deadline-ciso-ignoring",
+                category: "BRIEFING",
+                date: "May 2, 2026",
+                read: "5 min read",
+                headline: "The EU AI Act deadline your CISO is ignoring",
+                dek: "August 2, 2026 is the high-risk obligations deadline. The audit window opened in Q1.",
+                img: "/images/product/owasp-coverage.jpg",
+              },
+              {
+                slug: "why-40-percent-ai-projects-fail",
+                category: "BRIEFING",
+                date: "May 2, 2026",
+                read: "7 min read",
+                headline: "Why 40% of agentic AI projects fail (and the governance answer)",
+                dek: "Gartner's number, our reading. The pattern in cancelled projects is the same as in cancelled compliance reviews: missing evidence, not missing controls.",
+                img: "/images/product/policy-management.jpg",
+              },
+            ].map((article) => (
+              <Link
+                key={article.slug}
+                href={`/insights/${article.slug}`}
+                className="group block"
+              >
+                <div className="relative aspect-[4/3] mb-6 overflow-hidden border border-ink-hairline bg-paper-deep">
+                  <Image
+                    src={article.img}
+                    alt=""
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <p className="font-ui font-medium text-[11px] text-ink-soft uppercase tracking-[0.18em] mb-3">
+                  {article.category}
+                </p>
+                <h3 className="font-display text-h3 text-ink group-hover:text-oxblood transition-colors leading-tight mb-3">
+                  {article.headline}
+                </h3>
+                <p className="font-display text-body text-ink leading-relaxed line-clamp-2 mb-4">
+                  {article.dek}
+                </p>
+                <p className="font-ui text-byline text-ink-soft">
+                  {article.date} · {article.read}
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <SectionDivider />
+      {/* ============================================================ */}
+      {/* SECTION 10 — CTA (midnight, single editorial line)            */}
+      {/* ============================================================ */}
+      <section className="bg-midnight border-t border-midnight-hairline">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-8">
+              <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
+                Continue the conversation
+              </p>
+              <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.5rem)] leading-[1.05] tracking-[-0.01em] text-paper mb-8 max-w-[720px]">
+                If your audit window is open, talk to us.
+              </h2>
+              <p className="font-display text-body-lg text-paper/80 leading-relaxed max-w-[560px]">
+                Tell us what you&apos;re working on. We&apos;ll respond within a business day with
+                either a thirty-minute conversation, a written response, or an honest &ldquo;this
+                isn&apos;t our shape — here&apos;s a better fit.&rdquo;
+              </p>
+            </div>
 
-      {/* Section 9 — CTA */}
-      <CTABlock
-        emphasised
-        headline="This is the part where most marketing pages would push for a demo. We'd rather start with a conversation."
-        body="Tell us what you're working on. We'll respond within a business day with either a thirty-minute conversation, a written response, or a polite 'this isn't quite our shape — here's a better fit'. We don't run a high-pressure pipeline."
-        ctaLabel="Talk to us about your platform"
-      />
+            <div className="lg:col-span-4 flex flex-col gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-between gap-3 bg-paper text-ink hover:bg-gold hover:text-paper transition-colors px-6 py-4 font-ui font-medium text-[15px]"
+              >
+                <span>Talk to us about your platform</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="font-ui text-body-sm text-paper/60 hover:text-gold-soft transition-colors"
+              >
+                Or write to {SITE.email} directly.
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
