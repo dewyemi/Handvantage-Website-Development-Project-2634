@@ -281,15 +281,16 @@ Path: `workspace-handvantage-com/app/api/contact/route.ts`
 |---|---|---|
 | `RESEND_API_KEY` | Yes for email delivery | Resend SDK auth |
 | `CONTACT_TO_EMAIL` | No (defaults to `hello@handvantage.com`) | Where leads land |
-| `CONTACT_FROM_EMAIL` | No (defaults to `Handvantage <hello@handvantage.com>`) | The From: header — must be on a Resend-verified domain |
+| `CONTACT_FROM_EMAIL` | No (defaults to `Handvantage <hello@mss.handvantage.com>`) | The From: header — must be on a Resend-verified domain. `mss.handvantage.com` is the verified sender subdomain (the regular `handvantage.com` is *not* verified for sending). |
 | `SLACK_WEBHOOK_URL` | No | Slack channel for real-time pings |
 
-### One-time setup
-1. **Resend**: sign up at resend.com → Domains → add `handvantage.com` → add the DNS records they show → wait for verification → API Keys → create one → copy.
-2. **Slack**: workspace → Apps → Incoming Webhooks → add → pick channel (e.g. `#leads`) → copy URL.
-3. **Netlify**: dashboard → workspace site → Environment variables → add the four above.
-4. Trigger a redeploy (or push any commit) so the function picks them up.
-5. **Test**: submit the form on `/contact` — expect an email + Slack ping within ~2s.
+### One-time setup (status: Resend done; Slack pending)
+1. **Resend**: ✅ already done. The verified sending subdomain is `mss.handvantage.com`. The API key is set on Netlify. The default `From:` in the route is `hello@mss.handvantage.com`. Leads still land in the `hello@handvantage.com` inbox via the `To:` address.
+2. **Slack**: workspace → Apps → Incoming Webhooks → add → pick channel (e.g. `#leads`) → copy URL → add as `SLACK_WEBHOOK_URL` env var on Netlify.
+3. **Test**: submit the form on `/contact` — expect an email + Slack ping within ~2s.
+
+### What if Resend ever rejects the From:
+If you change the verified domain in Resend (e.g., to `handvantage.com` once that's verified, or to a different subdomain), update `CONTACT_FROM_EMAIL` on Netlify and remove the in-code default. Don't try to send from a domain that isn't verified — Resend will silently 401 the call.
 
 ### Future extensions (don't ship until needed)
 - Cloudflare Turnstile if the honeypot stops being enough.

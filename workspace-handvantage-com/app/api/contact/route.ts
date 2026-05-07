@@ -51,8 +51,14 @@ async function sendEmail(submission: Submission): Promise<void> {
     return;
   }
 
+  // Resend requires the From: domain to be verified. The verified sender
+  // domain is mss.handvantage.com (the messaging subdomain), so the From:
+  // address lives there. The To: is the regular hello@handvantage.com inbox.
+  // Reply-To is set to the prospect's address (in the .send() call below) so
+  // a normal inbox reply lands in their thread, not in mss.handvantage.com.
   const to = process.env.CONTACT_TO_EMAIL || SITE.email;
-  const from = process.env.CONTACT_FROM_EMAIL || "Handvantage <hello@handvantage.com>";
+  const from =
+    process.env.CONTACT_FROM_EMAIL || "Handvantage <hello@mss.handvantage.com>";
 
   const resend = new Resend(apiKey);
 

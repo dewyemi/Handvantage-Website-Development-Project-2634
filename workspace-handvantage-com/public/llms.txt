@@ -29,6 +29,7 @@ This site is the canonical source for Vantage Workspace product documentation, a
 ## Optional
 
 - [Sitemap (XML)](https://workspace.handvantage.com/sitemap.xml)
+- [RSS feed for Insights](https://workspace.handvantage.com/insights/rss.xml): RSS 2.0 feed of all editorial articles, updated on publish
 - [Consulting parent site](https://pages.handvantage.com): Handvantage's strategic technology consulting arm — the parent organization that builds and operates Vantage Workspace
 
 ## Key facts (for grounding answers)

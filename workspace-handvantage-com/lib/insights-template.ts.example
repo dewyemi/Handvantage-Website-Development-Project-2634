@@ -1,0 +1,56 @@
+// Article authoring template — copy the object below into the INSIGHTS
+// array in lib/insights.ts. See EDITORIAL.md §5 (article structure) and
+// §6 (publish workflow) for the full review checklist.
+//
+// All fields are required except `author` (defaults to SITE.founderName)
+// and the body length depends on category — see EDITORIAL.md §3 for ranges.
+//
+// Voice rules: DESIGN.md §5. The tl;dr — direct, edited, peer-reviewed.
+// Numbers anchor every claim. No marketing voice.
+
+const TEMPLATE = {
+  // URL-safe identifier. Becomes /insights/{slug}. Match the headline.
+  slug: "kebab-case-headline-slug",
+
+  // BRIEFING (regulatory + standards)
+  // RETROSPECTIVE (engineering)
+  // DOSSIER (sector-specific)
+  // FIELD NOTE (short, ad hoc)
+  category: "BRIEFING",
+
+  // Sentence-case. Ends with a period. Headlines are statements, not labels.
+  headline: "The headline goes here.",
+
+  // 1–2 sentences. Maximum ~220 characters. This is what shows in the OG
+  // card share preview — write it for both the share preview AND the article.
+  dek: "What the reader will know after reading. Concrete.",
+
+  // ISO date. Drives sitemap lastmod + sort order on /insights index.
+  date: "2026-05-14",
+
+  // Display string for the byline.
+  dateHuman: "May 14, 2026",
+
+  // ~225 words/minute. Round to nearest minute. Be honest.
+  readingTime: "8 min read",
+
+  // Optional. Defaults to SITE.founderName in lib/data-tokens.ts.
+  // author: "Josh Olayemi",
+
+  // Each string in this array becomes a <p>. The first paragraph gets the
+  // editorial drop-cap automatically. No markdown, no HTML — just prose.
+  // If you need a structural element (list, sub-heading, code block), it
+  // either gets prosed-out ("First, ... Second, ...") or the renderer needs
+  // to be extended in app/insights/[slug]/page.tsx.
+  body: [
+    "Lede paragraph. Short. Concrete. Passes the 'first 50 words' test — if the reader stops here, they still know what the article is about.",
+
+    "Second paragraph — the context the reader needs to evaluate the rest. Don't lecture. Assume a smart reader who's seen a regulation or two.",
+
+    "Third paragraph onwards — the body of the argument. One claim per paragraph. Each claim has a number, a citation, or a concrete example. Vague sentences get rewritten or cut.",
+
+    "Closing paragraph — what the reader should do next, what we publish next, or where this fits in the larger arc. Don't end with marketing.",
+  ],
+};
+
+export {};
