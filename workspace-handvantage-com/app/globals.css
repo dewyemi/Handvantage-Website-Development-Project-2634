@@ -77,6 +77,29 @@ hr.section-divider {
   }
 }
 
+/* ----------------------------------------------------------------------
+   Hero stack — light, GPU-accelerated animation (CSS only, no JS).
+   - Initial fade-in + scale on page load (one-shot, ~1s)
+   - Continuous gentle "breathing" scale (1.0 → 1.015 → 1.0, 8s loop)
+   `transform` and `opacity` are the only animated properties so the
+   browser can offload the work to the compositor (no layout, no paint).
+---------------------------------------------------------------------- */
+@keyframes hero-stack-enter {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes hero-stack-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.015); }
+}
+.hero-stack-anim {
+  animation:
+    hero-stack-enter 1s cubic-bezier(0.22, 0.61, 0.36, 1) both,
+    hero-stack-breathe 8s ease-in-out 1s infinite;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
 /* Print stylesheet */
 @media print {
   :root {
