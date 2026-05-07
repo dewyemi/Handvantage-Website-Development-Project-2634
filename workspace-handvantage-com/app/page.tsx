@@ -71,15 +71,35 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-6 xl:col-span-6 relative">
-              <div className="relative aspect-[3/4] max-w-[560px] mx-auto lg:ml-auto">
-                <Image
-                  src="/images/product/vantage-workspace-stack.png"
-                  alt="Vantage Workspace, rendered as a stacked physical platform: NemoClaw firewall canopy, sovereign workspace shell, chat capsule, email server, document vault, compliance ring, audit console, AI skills cartridges, model provider dock, mission engine, vector database, local LLM core."
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 560px"
-                  className="object-contain"
-                />
+              <div className="relative aspect-[16/9] max-w-[640px] mx-auto lg:ml-auto">
+                {/*
+                  Hero video — rendered with HyperFrames + GSAP. 8s loop, paper-bg,
+                  subtle scale + caption reveal. Poster image renders instantly so
+                  there's no layout shift while the MP4 streams; <video> autoplays
+                  muted so most browsers permit it. Falls back gracefully to the
+                  poster when JS or autoplay is disabled.
+                */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  poster="/images/product/vantage-workspace-stack.png"
+                  className="w-full h-full object-contain"
+                  aria-label="Vantage Workspace, rendered as a stacked physical platform: NemoClaw firewall canopy, sovereign workspace shell, chat capsule, email server, document vault, compliance ring, audit console, AI skills cartridges, model provider dock, mission engine, vector database, local LLM core."
+                >
+                  <source src="/videos/hero-stack.mp4" type="video/mp4" />
+                  {/* Fallback for browsers that can't play the video */}
+                  <Image
+                    src="/images/product/vantage-workspace-stack.png"
+                    alt="Vantage Workspace platform stack"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 640px"
+                    className="object-contain"
+                  />
+                </video>
               </div>
             </div>
           </div>
