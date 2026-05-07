@@ -39,7 +39,7 @@ export default function HomePage() {
             <div className="lg:col-span-6 xl:col-span-6">
               <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.18em] mb-8">
                 <span className="text-oxblood">●</span>
-                <span className="ml-2">HANDVANTAGE — TORONTO</span>
+                <span className="ml-2">HANDVANTAGE — SOVEREIGN AGENTIC AI</span>
               </p>
               <h1 className="font-display text-[clamp(2.5rem,5vw+1rem,5rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-10">
                 Your team will use agentic AI.
@@ -390,7 +390,7 @@ export default function HomePage() {
               <div className="relative aspect-[4/5] w-full max-w-[520px] overflow-hidden border border-ink-hairline">
                 <Image
                   src="/images/founder/josh-demo-straight-talk.jpg"
-                  alt="Josh Olayemi, founder of Handvantage, in a Toronto office, mid-conversation."
+                  alt="Josh Olayemi, founder of Handvantage, mid-conversation."
                   fill
                   loading="lazy"
                   sizes="(max-width: 1024px) 90vw, 520px"
@@ -413,7 +413,7 @@ export default function HomePage() {
                 twice a year. Vantage Workspace is the integration.
               </blockquote>
               <p className="font-ui text-byline text-ink-soft mb-10">
-                — {SITE.founderName}, Founder · Toronto
+                — {SITE.founderName}, Founder
               </p>
               <Link
                 href="/philosophy"

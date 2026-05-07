@@ -17,7 +17,7 @@ export default function PhilosophyPage() {
       {/* Header */}
       <section className="pt-16 md:pt-24 pb-12">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
-          <SectionEyebrow>FROM A FOUNDER · TORONTO · MAY 2026</SectionEyebrow>
+          <SectionEyebrow>FROM A FOUNDER · MAY 2026</SectionEyebrow>
           <h1 className="font-display text-display-2 text-ink leading-tight mb-6">
             Why we built Handvantage.
           </h1>
@@ -230,7 +230,7 @@ export default function PhilosophyPage() {
             <p className="font-ui text-body-sm text-ink-soft mt-12">
               — {SITE.founderName}, Founder
               <br />
-              Toronto, May 2026
+              May 2026
             </p>
           </article>
         </div>

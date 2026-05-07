@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     }
 
     // For v1: log to console (visible in Netlify function logs).
-    // TODO v1.1: deliver to josh@handvantage.com via SendGrid/Resend, create SalesBlink lead.
+    // TODO v1.1: deliver to hello@handvantage.com via SendGrid/Resend, create CRM lead.
     console.log("[contact form]", { name, email, company: company ?? "", messagePreview: String(message).slice(0, 200) });
 
     return NextResponse.json({ ok: true });

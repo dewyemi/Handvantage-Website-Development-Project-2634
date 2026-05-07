@@ -21,7 +21,7 @@ export function FooterStrip() {
               Handvantage
             </p>
             <p className="font-display text-body text-ink leading-relaxed max-w-xs">
-              The Sovereign Capability Partner for organisations building with agentic AI. Toronto, founded {SITE.foundedYear}.
+              The Sovereign Capability Partner for organisations building with agentic AI. Founded {SITE.foundedYear}.
             </p>
           </div>
 

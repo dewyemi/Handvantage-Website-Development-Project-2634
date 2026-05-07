@@ -47,8 +47,10 @@ export const SITE = {
   tagline: "The Sovereign Capability Partner for Agentic AI",
   baseUrl: "https://workspace.handvantage.com",
   consultingUrl: "https://pages.handvantage.com",
-  email: "josh@handvantage.com",
+  email: "hello@handvantage.com",
   city: "Toronto",
+  // Note: `city` is retained for the schema.org Organization address (legitimate
+  // registered business address) but no longer appears in public-facing copy.
   founderName: "Josh Olayemi",
   linkedInCompany: "https://www.linkedin.com/company/handvantage",
   linkedInFounder: "https://www.linkedin.com/in/joshola",

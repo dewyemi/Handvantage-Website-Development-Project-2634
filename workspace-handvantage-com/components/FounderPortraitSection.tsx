@@ -38,7 +38,7 @@ export function FounderPortraitSection({ variant }: FounderPortraitSectionProps)
               <div className="relative w-full max-w-[480px] aspect-square border border-ink-hairline overflow-hidden">
                 <Image
                   src="/images/portraits/josh-olayemi-bw-1500.jpg"
-                  alt="Josh Olayemi, founder of Handvantage, in his Toronto office."
+                  alt="Josh Olayemi, founder of Handvantage, at his desk."
                   fill
                   sizes="(max-width: 768px) 100vw, 480px"
                   className="object-cover"
@@ -55,7 +55,7 @@ export function FounderPortraitSection({ variant }: FounderPortraitSectionProps)
 
               <div className="font-display text-body text-ink leading-relaxed flex flex-col gap-6">
                 <p>
-                  I started Handvantage in 2024, in Toronto, after spending eighteen months trying to
+                  I started Handvantage in 2024, after spending eighteen months trying to
                   assemble an &ldquo;agentic AI stack&rdquo; for clients out of the parts the major
                   vendors were shipping. The pattern I kept hitting was: every individual piece existed,
                   but the integration was the project. The identity layer was someone else&rsquo;s product.
@@ -108,14 +108,14 @@ export function FounderPortraitSection({ variant }: FounderPortraitSectionProps)
           <div className="relative w-full max-w-[720px] aspect-square border border-ink-hairline overflow-hidden">
             <Image
               src="/images/portraits/josh-olayemi-bw-1500.jpg"
-              alt="Josh Olayemi, founder of Handvantage, in his Toronto office."
+              alt="Josh Olayemi, founder of Handvantage, at his desk."
               fill
               sizes="(max-width: 768px) 100vw, 720px"
               className="object-cover"
             />
           </div>
           <figcaption className="mt-4 font-ui text-byline text-ink-soft text-center">
-            Josh Olayemi, founder of Handvantage. Toronto, May 2026.
+            Josh Olayemi, founder of Handvantage. May 2026.
           </figcaption>
         </figure>
       </div>
