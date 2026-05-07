@@ -197,13 +197,13 @@ export default function HomePage() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7 order-2 lg:order-1">
-              <div className="relative aspect-[3/4] max-w-[520px] mx-auto">
+              <div className="relative aspect-[4/5] max-w-[560px] mx-auto">
                 <Image
-                  src="/images/product/vantage-workspace-stack.png"
-                  alt="The Vantage Workspace platform rendered as a layered stack: NemoClaw firewall on top, then sovereign workspace, chat, email, storage, compliance ring, audit console, AI skills, model providers, mission engine, vector database, and local LLM at the base."
+                  src="/images/product/vantage-workspace-rack.png"
+                  alt="On-prem Agentic AI deployment rack — Governance & Compliance Crown at the top (SOC 2, ISO 42001, NIST AI RMF, EPA, EU AI Act, PIPEDA, AIDA), Observability & Incident Response Kit, Mission Engine Plane (guided AI workflows), Vector Index Cartridge, Local Model Pod (Ollama, vLLM), Secret Vault & Key Management (bring your own key), Network Segmentation Panel, Storage Array, Compute Blade Stack, Enterprise Rack Chassis."
                   fill
                   loading="lazy"
-                  sizes="(max-width: 1024px) 80vw, 520px"
+                  sizes="(max-width: 1024px) 80vw, 560px"
                   className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
                 />
               </div>
@@ -428,17 +428,19 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* SECTION 9 — RECENT THINKING (paper, article cards w/thumbs)  */}
+      {/* SECTION 9 — RECENT THINKING (paper, featured + 2 secondary)   */}
+      {/* Asymmetric editorial layout: 1 large featured card on the    */}
+      {/* left (7 cols), 2 stacked cards on the right (5 cols).        */}
       {/* ============================================================ */}
       <section className="bg-paper border-t border-ink-hairline">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
-          <div className="flex flex-wrap justify-between items-end mb-12 gap-4">
+          <div className="flex flex-wrap justify-between items-end mb-16 gap-4">
             <div>
               <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-4">
                 Recent thinking
               </p>
-              <h2 className="font-display text-[clamp(1.75rem,2vw+1rem,2.5rem)] leading-tight tracking-[-0.01em] text-ink">
-                Three pieces from the editorial archive.
+              <h2 className="font-display text-[clamp(2rem,2.5vw+1rem,3rem)] leading-[1.05] tracking-[-0.01em] text-ink">
+                Field notes from the build.
               </h2>
             </div>
             <Link
@@ -449,65 +451,98 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              {
-                slug: "from-b-to-a-the-discipline-behind-the-upgrade",
-                category: "RETROSPECTIVE",
-                date: "May 5, 2026",
-                read: "6 min read",
-                headline: "From B to A: the discipline behind the upgrade",
-                dek: "What changed between February and May to move the compliance posture three letter grades. Less novel methodology than you'd expect.",
-                img: "/images/product/compliance-dashboard.jpg",
-              },
-              {
-                slug: "eu-ai-act-deadline-ciso-ignoring",
-                category: "BRIEFING",
-                date: "May 2, 2026",
-                read: "5 min read",
-                headline: "The EU AI Act deadline your CISO is ignoring",
-                dek: "August 2, 2026 is the high-risk obligations deadline. The audit window opened in Q1.",
-                img: "/images/product/owasp-coverage.jpg",
-              },
-              {
-                slug: "why-40-percent-ai-projects-fail",
-                category: "BRIEFING",
-                date: "May 2, 2026",
-                read: "7 min read",
-                headline: "Why 40% of agentic AI projects fail (and the governance answer)",
-                dek: "Gartner's number, our reading. The pattern in cancelled projects is the same as in cancelled compliance reviews: missing evidence, not missing controls.",
-                img: "/images/product/policy-management.jpg",
-              },
-            ].map((article) => (
-              <Link
-                key={article.slug}
-                href={`/insights/${article.slug}`}
-                className="group block"
-              >
-                <div className="relative aspect-[4/3] mb-6 overflow-hidden border border-ink-hairline bg-paper-deep">
-                  <Image
-                    src={article.img}
-                    alt=""
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
+          {/* Featured + two-stacked layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+            {/* Featured card — large, left, 7 cols */}
+            <Link
+              href="/insights/from-b-to-a-the-discipline-behind-the-upgrade"
+              className="lg:col-span-7 group block"
+            >
+              <div className="relative aspect-[16/10] mb-8 overflow-hidden border border-ink-hairline bg-midnight">
+                <Image
+                  src="/images/product/compliance-dashboard.jpg"
+                  alt=""
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 800px"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+                {/* Gradient overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight/85 via-midnight/20 to-transparent"></div>
+                {/* Category tag — overlaid */}
+                <span className="absolute top-6 left-6 inline-block bg-paper px-3 py-1.5 font-ui font-medium text-[11px] text-ink uppercase tracking-[0.18em]">
+                  Retrospective
+                </span>
+                {/* Headline — overlaid bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
+                  <h3 className="font-display text-[clamp(1.5rem,2vw+0.5rem,2.25rem)] leading-[1.1] text-paper mb-4 group-hover:text-gold-soft transition-colors">
+                    From B to A: the discipline behind the upgrade
+                  </h3>
+                  <p className="font-display text-body text-paper/80 leading-relaxed max-w-[520px] line-clamp-2 mb-3">
+                    What changed between February and May to move the compliance posture three
+                    letter grades. Less novel methodology than you&apos;d expect.
+                  </p>
+                  <p className="font-ui text-byline text-paper/60">
+                    Josh Olayemi · May 5, 2026 · 6 min read
+                  </p>
                 </div>
-                <p className="font-ui font-medium text-[11px] text-ink-soft uppercase tracking-[0.18em] mb-3">
-                  {article.category}
-                </p>
-                <h3 className="font-display text-h3 text-ink group-hover:text-oxblood transition-colors leading-tight mb-3">
-                  {article.headline}
-                </h3>
-                <p className="font-display text-body text-ink leading-relaxed line-clamp-2 mb-4">
-                  {article.dek}
-                </p>
-                <p className="font-ui text-byline text-ink-soft">
-                  {article.date} · {article.read}
-                </p>
-              </Link>
-            ))}
+              </div>
+            </Link>
+
+            {/* Two stacked cards on the right, 5 cols */}
+            <div className="lg:col-span-5 flex flex-col gap-10">
+              {[
+                {
+                  slug: "eu-ai-act-deadline-ciso-ignoring",
+                  category: "Briefing",
+                  date: "May 2, 2026",
+                  read: "5 min read",
+                  headline: "The EU AI Act deadline your CISO is ignoring",
+                  dek: "August 2, 2026 is the high-risk obligations deadline. The audit window opened in Q1 and most security leaders are still treating it as Q4 work.",
+                  img: "/images/product/owasp-coverage.jpg",
+                },
+                {
+                  slug: "why-40-percent-ai-projects-fail",
+                  category: "Briefing",
+                  date: "May 2, 2026",
+                  read: "7 min read",
+                  headline: "Why 40% of agentic AI projects fail",
+                  dek: "Gartner's number, our reading. The pattern in cancelled projects is the same as in cancelled compliance reviews: missing evidence, not missing controls.",
+                  img: "/images/product/policy-management.jpg",
+                },
+              ].map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/insights/${article.slug}`}
+                  className="group grid grid-cols-12 gap-5 items-start"
+                >
+                  <div className="col-span-5 relative aspect-[4/3] overflow-hidden border border-ink-hairline bg-paper-deep">
+                    <Image
+                      src={article.img}
+                      alt=""
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 40vw, 250px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="col-span-7">
+                    <p className="font-ui font-medium text-[11px] text-ink-soft uppercase tracking-[0.18em] mb-2">
+                      {article.category}
+                    </p>
+                    <h3 className="font-display text-[20px] leading-[1.2] text-ink group-hover:text-oxblood transition-colors mb-2">
+                      {article.headline}
+                    </h3>
+                    <p className="font-display text-[14px] text-ink-soft leading-relaxed line-clamp-2 mb-2">
+                      {article.dek}
+                    </p>
+                    <p className="font-ui text-byline text-ink-soft">
+                      {article.date} · {article.read}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
