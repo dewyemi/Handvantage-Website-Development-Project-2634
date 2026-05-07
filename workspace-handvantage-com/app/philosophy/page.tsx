@@ -15,16 +15,36 @@ export const metadata: Metadata = {
 export default function PhilosophyPage() {
   return (
     <>
-      {/* Header — split layout with the founder at work */}
-      <section className="pt-12 md:pt-20 pb-16 bg-paper">
+      {/* Hero — wide founder photo at native 16:9, headline below */}
+      <section className="pt-12 md:pt-16 pb-12 bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6">
+          <figure className="mb-12 md:mb-16">
+            <div
+              className="relative w-full overflow-hidden rounded-sm ring-1 ring-ink-hairline"
+              style={{ aspectRatio: "3446 / 1946" }}
+            >
+              <Image
+                src="/images/founder/josh-demo-workspace.jpg"
+                alt={`${SITE.founderName}, founder of Handvantage, walking through Vantage Workspace.`}
+                fill
+                priority
+                sizes="(max-width: 1440px) 100vw, 1280px"
+                className="object-cover object-center"
+              />
+            </div>
+            <figcaption className="font-mono text-[11px] text-ink-soft tracking-[0.04em] mt-3">
+              {SITE.founderName} · founder · in-session
+            </figcaption>
+          </figure>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-7">
               <SectionEyebrow>FROM A FOUNDER · MAY 2026</SectionEyebrow>
-              <h1 className="font-display text-[clamp(2.5rem,4.5vw+1rem,4.5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-8">
+              <h1 className="font-display text-[clamp(2.5rem,4.5vw+1rem,5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-2">
                 Why we built Handvantage.
               </h1>
-              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-6">
+            </div>
+            <div className="lg:col-span-5 lg:pt-6">
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[480px] mb-4">
                 An essay on the architecture choices behind Vantage Workspace — the Sovereign
                 Capability Partner thesis, the Pilot + Fleet model, and why the audit window had
                 to become structural rather than optional.
@@ -32,23 +52,6 @@ export default function PhilosophyPage() {
               <p className="font-ui text-body-sm text-ink-soft italic">
                 About 8 minutes. By {SITE.founderName}.
               </p>
-            </div>
-            <div className="lg:col-span-6">
-              <figure className="relative">
-                <div className="relative aspect-[4/5] max-w-[500px] mx-auto lg:ml-auto rounded-sm overflow-hidden ring-1 ring-ink-hairline shadow-[0_30px_60px_-20px_rgba(26,31,27,0.3)]">
-                  <Image
-                    src="/images/founder/josh-demo-workspace.jpg"
-                    alt={`${SITE.founderName}, founder of Handvantage, walking through Vantage Workspace.`}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 80vw, 500px"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="font-mono text-[11px] text-ink-soft tracking-[0.04em] mt-3 text-center lg:text-right">
-                  {SITE.founderName} · founder · in-session
-                </figcaption>
-              </figure>
             </div>
           </div>
         </div>
@@ -197,7 +200,24 @@ export default function PhilosophyPage() {
               before a custom agent is loaded; the runtime enforces the declared scope.
             </p>
 
-            <hr className="section-divider my-12" />
+            <figure className="my-16 -mx-6 md:-mx-12 lg:mx-0">
+              <div
+                className="relative w-full overflow-hidden rounded-sm ring-1 ring-ink-hairline"
+                style={{ aspectRatio: "3392 / 1734" }}
+              >
+                <Image
+                  src="/images/founder/josh-demo-engine.jpg"
+                  alt={`${SITE.founderName} walking through The Engine — the operator pane where the platform's runtime architecture is observable.`}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 720px"
+                  className="object-cover object-center"
+                />
+              </div>
+              <figcaption className="font-mono text-[11px] text-ink-soft tracking-[0.04em] mt-3 text-center">
+                Walking through The Engine.
+              </figcaption>
+            </figure>
 
             <p>
               The Sovereign Capability Partner thesis is what we say to customers when they ask

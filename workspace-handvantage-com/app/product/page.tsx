@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { CTABlock } from "@/components/CTABlock";
-import { FactStack } from "@/components/FactStack";
+import { ProductShot } from "@/components/ProductShot";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { SITE } from "@/lib/data-tokens";
 
@@ -47,40 +47,36 @@ export default function ProductPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
 
-      {/* Header */}
-      <section className="pt-16 md:pt-24 pb-16 bg-paper">
-        <div className="max-w-default mx-auto px-6 md:px-12">
-          <SectionEyebrow>THE PRODUCT</SectionEyebrow>
-          <h1 className="font-display text-[clamp(2.5rem,4vw+1rem,4.5rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-8">
-            Vantage Workspace.
-          </h1>
-          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px]">
-            Vantage Workspace is the platform we built because the alternative — assembling an
-            &ldquo;agentic AI stack&rdquo; out of twelve vendors with twelve identities and twelve
-            audit logs — wasn&apos;t a purchase, it was a project. This page documents what&apos;s
-            in it, how it&apos;s built, and where the architectural decisions came from.
-          </p>
-        </div>
-      </section>
-
-      {/* Hero showcase — workspace dashboard screenshot */}
-      <section className="bg-paper pb-16 md:pb-24">
+      {/* Hero — split layout: editorial copy + Policy Management UI */}
+      <section className="pt-12 md:pt-20 pb-20 bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <figure>
-            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline shadow-[0_30px_80px_-20px_rgba(15,26,31,0.25)] bg-paper">
-              <Image
-                src="/images/product/dashboard.jpg"
-                alt="Vantage Workspace home dashboard — personalised greeting, AI firewall on, memory + incident counters, six-pillar app grid (Files, Team Chat, Video Meetings, Email, Mobile App), and starter missions personalised by department."
-                fill
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
+              <SectionEyebrow>THE PRODUCT</SectionEyebrow>
+              <h1 className="font-display text-[clamp(2.5rem,4.5vw+1rem,5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-8">
+                Vantage Workspace.
+              </h1>
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[520px] mb-6">
+                The platform we built because the alternative — assembling an
+                &ldquo;agentic AI stack&rdquo; out of twelve vendors with twelve identities and
+                twelve audit logs — wasn&apos;t a purchase, it was a project.
+              </p>
+              <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px]">
+                This page documents what&apos;s in it, how it&apos;s built, and where the
+                architectural decisions came from.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <ProductShot
+                src="/images/product/policy-management.jpg"
+                alt="Policy Management UI — every agent action governed by a versioned policy, with redaction rules, tool guardrails, and per-action audit hooks declared in YAML and enforced at runtime."
+                ratio={1.333}
                 priority
-                sizes="(max-width: 1440px) 100vw, 1280px"
-                className="object-cover object-top"
+                url="workspace.local / engine / policy"
+                caption="Policy Management — every action governed by a versioned, signed policy."
               />
             </div>
-            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
-              The Workspace home — every memory attributed, every action logged.
-            </figcaption>
-          </figure>
+          </div>
         </div>
       </section>
 
@@ -311,15 +307,15 @@ export default function ProductPage() {
           <h2 className="font-display text-h2 text-paper mb-12">
             Twenty containers, one SSO, one audit trail.
           </h2>
-          {/* Rack illustration — physical deployment angle */}
-          <figure className="mb-16 max-w-[480px] mx-auto">
-            <div className="relative aspect-[3/4]">
+          {/* Rack illustration — rendered at its native 4:5 ratio (1122x1402) */}
+          <figure className="mb-16 max-w-[460px] mx-auto">
+            <div className="relative" style={{ aspectRatio: "1122 / 1402" }}>
               <Image
                 src="/images/product/vantage-workspace-rack.png"
                 alt="On-prem Agentic AI deployment rack: Governance & Compliance Crown, Observability & Incident Response Kit, Mission Engine Plane, Vector Index Cartridge, Local Model Pod, Secret Vault & Key Management, Network Segmentation Panel, Storage Array, Compute Blade Stack, Enterprise Rack Chassis."
                 fill
                 loading="lazy"
-                sizes="(max-width: 768px) 80vw, 480px"
+                sizes="(max-width: 768px) 80vw, 460px"
                 className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
               />
             </div>
@@ -431,24 +427,15 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Infrastructure Overview screenshot */}
+        {/* Infrastructure Overview — wide 4:1 strip rendered at native ratio */}
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 mt-16">
-          <figure>
-            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline bg-midnight shadow-[0_30px_80px_-20px_rgba(15,26,31,0.3)]">
-              <Image
-                src="/images/product/infrastructure-overview.jpg"
-                alt="The Engine — Infrastructure Overview tab showing zero-trust container topology, health checks, and policy bindings."
-                fill
-                loading="lazy"
-                sizes="(max-width: 1440px) 100vw, 1280px"
-                className="object-cover object-top"
-              />
-            </div>
-            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
-              The Engine — Infrastructure Overview. One pane, every container, every health
-              probe, every certificate.
-            </figcaption>
-          </figure>
+          <ProductShot
+            src="/images/product/infrastructure-overview.jpg"
+            alt="The Engine — Infrastructure Overview: zero-trust container topology, health checks, certificate bindings, and policy attachments visible across the full deployment."
+            ratio={4.07}
+            url="workspace.local / engine / infrastructure"
+            caption="The Engine — Infrastructure Overview. One pane, every container, every probe."
+          />
         </div>
       </section>
 
@@ -514,23 +501,15 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Compliance Dashboard screenshot */}
+        {/* Live evidence — sin-blocked.jpg at its native 2:1 ratio */}
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 mt-16">
-          <figure>
-            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline bg-midnight shadow-[0_30px_80px_-20px_rgba(15,26,31,0.3)]">
-              <Image
-                src="/images/product/compliance-dashboard.jpg"
-                alt="The Engine — Compliance Dashboard showing the overall A grade with framework compliance scores at 100% across NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed)."
-                fill
-                loading="lazy"
-                sizes="(max-width: 1440px) 100vw, 1280px"
-                className="object-cover object-top"
-              />
-            </div>
-            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
-              The Compliance Dashboard — graded continuously, computed from runtime evidence.
-            </figcaption>
-          </figure>
+          <ProductShot
+            src="/images/product/sin-blocked.jpg"
+            alt="The Trust Report flagging a blocked output: Social Insurance Number detected in agent draft, redaction applied, event signed and committed to the tamper-evident audit log."
+            ratio={1.98}
+            url="workspace.local / trust / events"
+            caption="A real event from the audit log: SIN detected, redacted, signed, exported."
+          />
         </div>
       </section>
 

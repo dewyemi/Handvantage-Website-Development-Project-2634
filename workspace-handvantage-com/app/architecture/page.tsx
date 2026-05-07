@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { CTABlock } from "@/components/CTABlock";
+import { ProductShot } from "@/components/ProductShot";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { SITE } from "@/lib/data-tokens";
 
@@ -54,34 +54,34 @@ const Layer = ({
 export default function ArchitecturePage() {
   return (
     <>
-      {/* Header — split layout with hero illustration */}
-      <section className="pt-12 md:pt-20 pb-16 bg-paper">
+      {/* Hero — split layout with NemoClaw Atlas (live topology view) */}
+      <section className="pt-12 md:pt-20 pb-20 bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
               <SectionEyebrow>ARCHITECTURE</SectionEyebrow>
               <h1 className="font-display text-[clamp(2.25rem,4vw+1rem,4rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-8">
                 Seven layers, one stack, every action mediated.
               </h1>
-              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[640px]">
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[520px] mb-6">
                 The 7-Layer Defence Architecture is the part of Vantage Workspace that does the
-                structural work most &ldquo;AI for the enterprise&rdquo; platforms skip. Each layer
-                addresses a specific failure mode — and each failure mode shows up in the OWASP Top
-                10 for Agentic Applications, in the NIST AI RMF function categories, in the EU AI
-                Act high-risk technical requirements, or in all three.
+                structural work most &ldquo;AI for the enterprise&rdquo; platforms skip.
+              </p>
+              <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px]">
+                Each layer addresses a specific failure mode — and each failure mode shows up in the
+                OWASP Top 10 for Agentic Applications, in the NIST AI RMF function categories, in
+                the EU AI Act high-risk technical requirements, or in all three.
               </p>
             </div>
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[3/4] max-w-[440px] mx-auto lg:ml-auto">
-                <Image
-                  src="/images/product/vantage-workspace-stack.png"
-                  alt="Vantage Workspace as a layered platform — NemoClaw firewall canopy, sovereign workspace shell, chat capsule, email server, document vault, compliance ring, audit console, AI skills, model providers, mission engine, vector database, local LLM core."
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 80vw, 440px"
-                  className="object-contain"
-                />
-              </div>
+            <div className="lg:col-span-7">
+              <ProductShot
+                src="/images/product/nemoclaw-atlas.jpg"
+                alt="NemoClaw Atlas — live topology of every container, mTLS edge, agent identity, and enforcement boundary in the running deployment."
+                ratio={1.556}
+                priority
+                url="workspace.local / nemoclaw / atlas"
+                caption="NemoClaw Atlas — the live topology of every service, every edge, every enforcement boundary."
+              />
             </div>
           </div>
         </div>
@@ -135,59 +135,87 @@ export default function ArchitecturePage() {
 
       <SectionDivider />
 
-      {/* Section 3 — Diagram (midnight bg, the rack illustration as centerpiece) */}
-      <section className="py-16 md:py-24 bg-midnight">
+      {/* Section 3 — The seven layers (midnight, typographic spec) */}
+      <section className="py-20 md:py-32 bg-midnight">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-4">
               <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
-                The architecture
+                The seven layers
               </p>
-              <h2 className="font-display text-h2 text-paper mb-8">
-                Built like a rack. Audited like a kernel.
+              <h2 className="font-display text-h2 text-paper mb-8 leading-[1.05]">
+                Audited like a kernel. Sequenced like a pipeline.
               </h2>
-              <p className="font-display text-body-lg text-paper/85 leading-relaxed mb-8">
+              <p className="font-display text-body-lg text-paper/85 leading-relaxed mb-6 max-w-[440px]">
                 Each layer is a discrete service. Each layer emits a signed event for every
-                decision it makes. The events ladder into a tamper-evident log that exports
-                directly to your SIEM and aggregates into a Trust Report at request completion.
+                decision it makes.
               </p>
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-4 mt-10">
+              <p className="font-display text-body text-paper/70 leading-relaxed max-w-[440px]">
+                The events ladder into a tamper-evident log that exports directly to your SIEM
+                and aggregates into a Trust Report at request completion.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <ol className="border-t border-midnight-hairline">
                 {[
-                  ["01", "Policy Engine"],
-                  ["02", "Prompt Defence"],
-                  ["03", "Tool Guardrails"],
-                  ["04", "Memory Safety"],
-                  ["05", "Trust Boundaries"],
-                  ["06", "Inter-Service Auth"],
-                  ["07", "Supply Chain"],
-                ].map(([n, name]) => (
-                  <li key={n} className="flex items-baseline gap-3">
-                    <span className="font-mono text-[12px] text-gold-soft tracking-[0.18em]">
-                      {n}
-                    </span>
-                    <span className="font-display text-[15px] text-paper">{name}</span>
+                  ["01", "Policy Engine", "Versioned, signed YAML policies that gate every action before it reaches a tool."],
+                  ["02", "Prompt Defence", "Injection detection, jailbreak heuristics, and prompt-shape validation against a pinned corpus."],
+                  ["03", "Tool Guardrails", "Per-agent tool catalogues, scope-checked at invocation, with runtime parameter validation."],
+                  ["04", "Memory Safety", "Embedding-inversion probes, retrieval scope checks, and tenant-isolated vector spaces."],
+                  ["05", "Trust Boundaries", "Identity attestation between agents, humans, and tools. No shared service accounts."],
+                  ["06", "Inter-Service Auth", "mTLS with short-lived, certificate-rooted credentials issued per session."],
+                  ["07", "Supply Chain", "OCI-signed images, SBOMs on every release, signature verification at deploy."],
+                ].map(([n, name, desc]) => (
+                  <li
+                    key={n}
+                    className="grid grid-cols-12 gap-6 border-b border-midnight-hairline py-6"
+                  >
+                    <div className="col-span-2 md:col-span-1">
+                      <span className="font-mono text-[12px] text-gold-soft tracking-[0.18em]">
+                        {n}
+                      </span>
+                    </div>
+                    <div className="col-span-10 md:col-span-3">
+                      <p className="font-display text-[20px] text-paper leading-snug">{name}</p>
+                    </div>
+                    <div className="col-span-12 md:col-span-8">
+                      <p className="font-display text-body text-paper/70 leading-relaxed">
+                        {desc}
+                      </p>
+                    </div>
                   </li>
                 ))}
-              </ul>
-            </div>
-            <div className="lg:col-span-7">
-              <div className="relative aspect-[4/5] max-w-[560px] mx-auto">
-                <Image
-                  src="/images/product/vantage-workspace-rack.png"
-                  alt="On-prem Agentic AI deployment rack: Governance & Compliance Crown (SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PIPEDA, AIDA), Observability & Incident Response Kit, Mission Engine Plane, Vector Index Cartridge, Local Model Pod (Ollama, vLLM), Secret Vault & Key Management (bring your own key), Network Segmentation Panel, Storage Array with Desktop Sync Bays, Compute Blade Stack, Enterprise Rack Chassis."
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 1024px) 80vw, 560px"
-                  className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
-                />
-              </div>
+              </ol>
             </div>
           </div>
-          <p className="font-ui text-body-sm text-paper/55 mt-12 max-w-[720px]">
-            Each request enters at Layer 1 and is processed through Layers 2–7 in sequence. Every
-            layer produces an audit event. The audit events are aggregated into the Trust Report
-            at request completion.
-          </p>
+        </div>
+      </section>
+
+      {/* Section 3.5 — Skill scope analytics (paper-deep, evidence the layers actually run) */}
+      <section className="py-16 md:py-24 bg-paper-deep">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-4">
+              <SectionEyebrow>EVIDENCE THE LAYERS RUN</SectionEyebrow>
+              <h2 className="font-display text-h3 text-ink leading-tight mb-6">
+                Every skill, every scope, every invocation — visible to the auditor.
+              </h2>
+              <p className="font-display text-body text-ink leading-relaxed">
+                Skill Analytics is the operator&apos;s view of the runtime: which skills the agents
+                actually used in the audit window, the scope each skill was granted, and the
+                invocation count against the policy ceiling.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <ProductShot
+                src="/images/product/skills-analytics.png"
+                alt="Skill Analytics — usage by skill, by scope, by invocation count, with the policy ceiling rendered alongside actual usage."
+                ratio={2.127}
+                url="workspace.local / engine / skills"
+                caption="Skill Analytics — usage by scope, against the policy ceiling."
+              />
+            </div>
+          </div>
         </div>
       </section>
 
