@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CTABlock } from "@/components/CTABlock";
 import { FounderPortraitSection } from "@/components/FounderPortraitSection";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
@@ -14,16 +15,42 @@ export const metadata: Metadata = {
 export default function PhilosophyPage() {
   return (
     <>
-      {/* Header */}
-      <section className="pt-16 md:pt-24 pb-12">
-        <div className="max-w-narrow mx-auto px-6 md:px-12">
-          <SectionEyebrow>FROM A FOUNDER · MAY 2026</SectionEyebrow>
-          <h1 className="font-display text-display-2 text-ink leading-tight mb-6">
-            Why we built Handvantage.
-          </h1>
-          <p className="font-ui text-body-sm text-ink-soft italic">
-            An essay. About 8 minutes.
-          </p>
+      {/* Header — split layout with the founder at work */}
+      <section className="pt-12 md:pt-20 pb-16 bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6">
+              <SectionEyebrow>FROM A FOUNDER · MAY 2026</SectionEyebrow>
+              <h1 className="font-display text-[clamp(2.5rem,4.5vw+1rem,4.5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-8">
+                Why we built Handvantage.
+              </h1>
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-6">
+                An essay on the architecture choices behind Vantage Workspace — the Sovereign
+                Capability Partner thesis, the Pilot + Fleet model, and why the audit window had
+                to become structural rather than optional.
+              </p>
+              <p className="font-ui text-body-sm text-ink-soft italic">
+                About 8 minutes. By {SITE.founderName}.
+              </p>
+            </div>
+            <div className="lg:col-span-6">
+              <figure className="relative">
+                <div className="relative aspect-[4/5] max-w-[500px] mx-auto lg:ml-auto rounded-sm overflow-hidden ring-1 ring-ink-hairline shadow-[0_30px_60px_-20px_rgba(26,31,27,0.3)]">
+                  <Image
+                    src="/images/founder/josh-demo-workspace.jpg"
+                    alt={`${SITE.founderName}, founder of Handvantage, walking through Vantage Workspace.`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 80vw, 500px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="font-mono text-[11px] text-ink-soft tracking-[0.04em] mt-3 text-center lg:text-right">
+                  {SITE.founderName} · founder · in-session
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ComplianceBadge } from "@/components/ComplianceBadge";
 import { FrameworkGrid } from "@/components/FrameworkGrid";
@@ -54,25 +55,46 @@ const FrameworkBlock = ({
 export default function CompliancePage() {
   return (
     <>
-      {/* Header */}
-      <section className="pt-16 md:pt-24 pb-16">
-        <div className="max-w-default mx-auto px-6 md:px-12">
-          <SectionEyebrow>COMPLIANCE</SectionEyebrow>
-          <h1 className="font-display text-display-2 text-ink leading-tight mb-8">
-            {COMPLIANCE.grade} grade. {COMPLIANCE.passRate} pass rate. Eleven frameworks.
-          </h1>
-          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-4">
-            Vantage Workspace is graded continuously, not annually. The grade you see on this page
-            is computed from runtime evidence — the same audit log that an auditor would review,
-            summarised into a single posture. As of the date below, the grade is{" "}
-            {COMPLIANCE.grade} at {COMPLIANCE.passRate} across {COMPLIANCE.frameworkCount}{" "}
-            regulatory frameworks. The methodology, the framework-by-framework breakdown, and the
-            parts we&apos;re still improving are all on this page.
-          </p>
-          <p className="font-ui text-body-sm text-ink-soft">
-            Last assessed: {COMPLIANCE.lastAssessedHuman}. The next assessment is automatic, every
-            build.
-          </p>
+      {/* Header — split layout with the live compliance dashboard */}
+      <section className="pt-12 md:pt-20 pb-16 bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-6">
+              <SectionEyebrow>COMPLIANCE</SectionEyebrow>
+              <h1 className="font-display text-[clamp(2.25rem,4vw+1rem,4rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-8">
+                {COMPLIANCE.grade} grade. {COMPLIANCE.passRate} pass rate.
+                <span className="block text-oxblood">Eleven frameworks.</span>
+              </h1>
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[600px] mb-6">
+                Vantage Workspace is graded continuously, not annually. The grade you see on this
+                page is computed from runtime evidence — the same audit log that an auditor would
+                review, summarised into a single posture. The methodology, the
+                framework-by-framework breakdown, and the parts we&apos;re still improving are all
+                on this page.
+              </p>
+              <p className="font-ui text-body-sm text-ink-soft">
+                Last assessed: {COMPLIANCE.lastAssessedHuman}. The next assessment is automatic,
+                every build.
+              </p>
+            </div>
+            <div className="lg:col-span-6">
+              <figure className="relative">
+                <div className="relative aspect-[16/10] rounded-sm overflow-hidden ring-1 ring-ink-hairline shadow-[0_30px_60px_-20px_rgba(26,31,27,0.25)] bg-ink">
+                  <Image
+                    src="/images/product/compliance-dashboard.jpg"
+                    alt="Live compliance dashboard inside Vantage Workspace — A grade across SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PCI DSS, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act, AIDA — 168 automated tests, last assessed today."
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 720px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="font-mono text-[11px] text-ink-soft tracking-[0.04em] mt-3">
+                  /assess — runs on every build · production deployment
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -116,11 +138,56 @@ export default function CompliancePage() {
       <SectionDivider />
 
       {/* Section 3 — Framework grid */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-paper-deep">
         <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
           <SectionEyebrow>FRAMEWORKS COVERED</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-12">Eleven frameworks. One assessment cycle.</h2>
           <FrameworkGrid />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* Section 3.5 — OWASP Top 10 for Agentic Applications spotlight */}
+      <section className="py-16 md:py-24 bg-midnight">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
+                OWASP Top 10 for Agentic Apps
+              </p>
+              <h2 className="font-display text-h2 text-paper mb-8">
+                Every category covered. Every control mapped. Every event signed.
+              </h2>
+              <p className="font-display text-body-lg text-paper/85 leading-relaxed mb-6">
+                The OWASP Top 10 for Agentic Applications enumerates the failure modes that turn
+                a useful AI system into a dangerous one — prompt injection, tool misuse, memory
+                poisoning, supply-chain compromise, and the rest.
+              </p>
+              <p className="font-display text-body text-paper/75 leading-relaxed">
+                Each item maps to one or more layers in the 7-Layer Defence Architecture. Each
+                layer emits the signed events that constitute the evidence. The screen on the
+                right is the live coverage report from <code className="font-mono text-[13px] text-gold-soft">/assess</code> — not a sales chart.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <figure className="relative">
+                <div className="relative aspect-[16/10] rounded-sm overflow-hidden ring-1 ring-midnight-hairline shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] bg-ink">
+                  <Image
+                    src="/images/product/owasp-coverage.jpg"
+                    alt="OWASP Top 10 for Agentic Applications — coverage report from Vantage Workspace's /assess mission, showing every category mapped to defence layers and controls."
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 90vw, 820px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="font-mono text-[11px] text-paper/55 tracking-[0.04em] mt-3">
+                  /assess — OWASP coverage view · runtime evidence
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </section>
 

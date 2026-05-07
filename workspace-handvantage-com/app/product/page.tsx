@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { CTABlock } from "@/components/CTABlock";
 import { FactStack } from "@/components/FactStack";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
@@ -47,10 +48,10 @@ export default function ProductPage() {
       />
 
       {/* Header */}
-      <section className="pt-16 md:pt-24 pb-16">
+      <section className="pt-16 md:pt-24 pb-16 bg-paper">
         <div className="max-w-default mx-auto px-6 md:px-12">
           <SectionEyebrow>THE PRODUCT</SectionEyebrow>
-          <h1 className="font-display text-display-2 text-ink leading-tight mb-8">
+          <h1 className="font-display text-[clamp(2.5rem,4vw+1rem,4.5rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-8">
             Vantage Workspace.
           </h1>
           <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px]">
@@ -59,6 +60,27 @@ export default function ProductPage() {
             audit logs — wasn&apos;t a purchase, it was a project. This page documents what&apos;s
             in it, how it&apos;s built, and where the architectural decisions came from.
           </p>
+        </div>
+      </section>
+
+      {/* Hero showcase — workspace dashboard screenshot */}
+      <section className="bg-paper pb-16 md:pb-24">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <figure>
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline shadow-[0_30px_80px_-20px_rgba(15,26,31,0.25)] bg-paper">
+              <Image
+                src="/images/product/dashboard.jpg"
+                alt="Vantage Workspace home dashboard — personalised greeting, AI firewall on, memory + incident counters, six-pillar app grid (Files, Team Chat, Video Meetings, Email, Mobile App), and starter missions personalised by department."
+                fill
+                priority
+                sizes="(max-width: 1440px) 100vw, 1280px"
+                className="object-cover object-top"
+              />
+            </div>
+            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
+              The Workspace home — every memory attributed, every action logged.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -280,16 +302,34 @@ export default function ProductPage() {
 
       <SectionDivider />
 
-      {/* Section 4 — Runtime architecture */}
-      <section className="py-16 md:py-24">
+      {/* Section 4 — Runtime architecture (midnight bg w/ rack illustration) */}
+      <section className="bg-midnight py-16 md:py-24 -mx-px">
         <div className="max-w-default mx-auto px-6 md:px-12">
-          <SectionEyebrow>THE RUNTIME</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-12">
+          <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
+            The runtime
+          </p>
+          <h2 className="font-display text-h2 text-paper mb-12">
             Twenty containers, one SSO, one audit trail.
           </h2>
+          {/* Rack illustration — physical deployment angle */}
+          <figure className="mb-16 max-w-[480px] mx-auto">
+            <div className="relative aspect-[3/4]">
+              <Image
+                src="/images/product/vantage-workspace-rack.png"
+                alt="On-prem Agentic AI deployment rack: Governance & Compliance Crown, Observability & Incident Response Kit, Mission Engine Plane, Vector Index Cartridge, Local Model Pod, Secret Vault & Key Management, Network Segmentation Panel, Storage Array, Compute Blade Stack, Enterprise Rack Chassis."
+                fill
+                loading="lazy"
+                sizes="(max-width: 768px) 80vw, 480px"
+                className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+              />
+            </div>
+            <figcaption className="mt-6 font-ui text-byline text-paper/60 text-center">
+              The deployment as a single rack. Every layer instrumented.
+            </figcaption>
+          </figure>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
             <div className="md:col-span-3">
-              <div className="font-display text-body text-ink space-y-6 leading-relaxed">
+              <div className="font-display text-body text-paper/85 space-y-6 leading-relaxed">
                 <p>
                   Vantage Workspace runs as twenty Docker containers, orchestrated by Docker
                   Compose for single-node deployments and Kubernetes for multi-node. The container
@@ -316,24 +356,29 @@ export default function ProductPage() {
                 <p>
                   Per-user OAuth credentials (for connectors to external services like Slack, Jira,
                   Salesforce) are stored in a Fernet-encrypted vault with key rotation handled by
-                  the platform. There are no <code className="font-mono text-[14px]">OAUTH_CLIENT_SECRET</code> environment
-                  variables. There are no API keys in <code className="font-mono text-[14px]">.env</code> files. The vault is
+                  the platform. There are no <code className="font-mono text-[14px] text-gold-soft">OAUTH_CLIENT_SECRET</code> environment
+                  variables. There are no API keys in <code className="font-mono text-[14px] text-gold-soft">.env</code> files. The vault is
                   the only place secrets exist, and access to the vault is itself audited.
                 </p>
               </div>
             </div>
             <div className="md:col-span-2">
-              <FactStack
-                facts={[
-                  { eyebrow: "CONTAINERS", value: "20", valueAsMono: true },
-                  { eyebrow: "ORCHESTRATION", value: "Docker Compose / Kubernetes" },
-                  { eyebrow: "INTER-SERVICE TLS", value: "Mutual TLS, certificate-rooted" },
-                  { eyebrow: "SSO", value: "OIDC", subline: "Okta, Azure AD, Google, Keycloak" },
-                  { eyebrow: "SECRETS", value: "Fernet vault, key-rotated" },
-                  { eyebrow: "LOGGING", value: "Single audit trail, signed timestamps" },
-                  { eyebrow: "EXPORT", value: "CEF / LEEF for SIEM, JSON for warehouse" },
-                ]}
-              />
+              <ul className="border-t border-midnight-hairline">
+                {[
+                  ["CONTAINERS", "20", "Docker / Kubernetes"],
+                  ["INTER-SERVICE TLS", "mTLS", "Certificate-rooted"],
+                  ["SSO", "OIDC", "Okta · Azure AD · Google · Keycloak"],
+                  ["SECRETS", "Fernet vault", "Key-rotated, audited"],
+                  ["LOGGING", "Single trail", "Signed timestamps"],
+                  ["EXPORT", "CEF / LEEF / JSON", "SIEM + warehouse"],
+                ].map(([label, value, subline]) => (
+                  <li key={label} className="border-b border-midnight-hairline py-4">
+                    <p className="font-mono text-[10px] text-gold tracking-[0.18em] mb-1">{label}</p>
+                    <p className="font-display text-[18px] text-paper leading-tight">{value}</p>
+                    <p className="font-ui text-[12px] text-paper/55 mt-1">{subline}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -342,7 +387,7 @@ export default function ProductPage() {
       <SectionDivider />
 
       {/* Section 5 — Deployment */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-paper">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
           <SectionEyebrow>DEPLOYMENT</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">
@@ -385,12 +430,32 @@ export default function ProductPage() {
             </p>
           </div>
         </div>
+
+        {/* Infrastructure Overview screenshot */}
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 mt-16">
+          <figure>
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline bg-midnight shadow-[0_30px_80px_-20px_rgba(15,26,31,0.3)]">
+              <Image
+                src="/images/product/infrastructure-overview.jpg"
+                alt="The Engine — Infrastructure Overview tab showing zero-trust container topology, health checks, and policy bindings."
+                fill
+                loading="lazy"
+                sizes="(max-width: 1440px) 100vw, 1280px"
+                className="object-cover object-top"
+              />
+            </div>
+            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
+              The Engine — Infrastructure Overview. One pane, every container, every health
+              probe, every certificate.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <SectionDivider />
 
-      {/* Section 6 — Evidence */}
-      <section className="py-16 md:py-24">
+      {/* Section 6 — Evidence (paper-deep, Compliance Dashboard) */}
+      <section className="py-16 md:py-24 bg-paper-deep">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
           <SectionEyebrow>EVIDENCE</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">
@@ -448,12 +513,31 @@ export default function ProductPage() {
             </p>
           </div>
         </div>
+
+        {/* Compliance Dashboard screenshot */}
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 mt-16">
+          <figure>
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline bg-midnight shadow-[0_30px_80px_-20px_rgba(15,26,31,0.3)]">
+              <Image
+                src="/images/product/compliance-dashboard.jpg"
+                alt="The Engine — Compliance Dashboard showing the overall A grade with framework compliance scores at 100% across NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed)."
+                fill
+                loading="lazy"
+                sizes="(max-width: 1440px) 100vw, 1280px"
+                className="object-cover object-top"
+              />
+            </div>
+            <figcaption className="mt-4 font-ui text-byline text-ink-soft">
+              The Compliance Dashboard — graded continuously, computed from runtime evidence.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <SectionDivider />
 
       {/* Section 7 — Boundaries */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-paper">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
           <SectionEyebrow>BOUNDARIES</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">

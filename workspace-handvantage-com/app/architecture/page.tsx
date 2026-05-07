@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
+import Image from "next/image";
 import { CTABlock } from "@/components/CTABlock";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { SITE } from "@/lib/data-tokens";
@@ -54,22 +54,36 @@ const Layer = ({
 export default function ArchitecturePage() {
   return (
     <>
-      {/* Header */}
-      <section className="pt-16 md:pt-24 pb-16">
-        <div className="max-w-default mx-auto px-6 md:px-12">
-          <SectionEyebrow>ARCHITECTURE</SectionEyebrow>
-          <h1 className="font-display text-display-2 text-ink leading-tight mb-8">
-            Seven layers, one stack, every action mediated.
-          </h1>
-          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px]">
-            The 7-Layer Defence Architecture is the part of Vantage Workspace that does the
-            structural work most &ldquo;AI for the enterprise&rdquo; platforms skip. Each layer
-            addresses a specific failure mode — and each failure mode shows up in the OWASP Top 10
-            for Agentic Applications, in the NIST AI RMF function categories, in the EU AI Act
-            high-risk technical requirements, or in all three. This page is the full reference:
-            what each layer does, how it does it, what it produces as evidence, and what fails if
-            the layer is missing.
-          </p>
+      {/* Header — split layout with hero illustration */}
+      <section className="pt-12 md:pt-20 pb-16 bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <SectionEyebrow>ARCHITECTURE</SectionEyebrow>
+              <h1 className="font-display text-[clamp(2.25rem,4vw+1rem,4rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-8">
+                Seven layers, one stack, every action mediated.
+              </h1>
+              <p className="font-display text-body-lg text-ink leading-relaxed max-w-[640px]">
+                The 7-Layer Defence Architecture is the part of Vantage Workspace that does the
+                structural work most &ldquo;AI for the enterprise&rdquo; platforms skip. Each layer
+                addresses a specific failure mode — and each failure mode shows up in the OWASP Top
+                10 for Agentic Applications, in the NIST AI RMF function categories, in the EU AI
+                Act high-risk technical requirements, or in all three.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[3/4] max-w-[440px] mx-auto lg:ml-auto">
+                <Image
+                  src="/images/product/vantage-workspace-stack.png"
+                  alt="Vantage Workspace as a layered platform — NemoClaw firewall canopy, sovereign workspace shell, chat capsule, email server, document vault, compliance ring, audit console, AI skills, model providers, mission engine, vector database, local LLM core."
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 80vw, 440px"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -121,16 +135,58 @@ export default function ArchitecturePage() {
 
       <SectionDivider />
 
-      {/* Section 3 — Diagram */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
-          <SectionEyebrow>THE ARCHITECTURE</SectionEyebrow>
-          <h2 className="font-display text-h2 text-ink mb-12">The 7-Layer Defence Architecture.</h2>
-          <ArchitectureDiagram variant="full" />
-          <p className="font-ui text-body-sm text-ink-soft mt-8 max-w-[720px]">
+      {/* Section 3 — Diagram (midnight bg, the rack illustration as centerpiece) */}
+      <section className="py-16 md:py-24 bg-midnight">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
+                The architecture
+              </p>
+              <h2 className="font-display text-h2 text-paper mb-8">
+                Built like a rack. Audited like a kernel.
+              </h2>
+              <p className="font-display text-body-lg text-paper/85 leading-relaxed mb-8">
+                Each layer is a discrete service. Each layer emits a signed event for every
+                decision it makes. The events ladder into a tamper-evident log that exports
+                directly to your SIEM and aggregates into a Trust Report at request completion.
+              </p>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-4 mt-10">
+                {[
+                  ["01", "Policy Engine"],
+                  ["02", "Prompt Defence"],
+                  ["03", "Tool Guardrails"],
+                  ["04", "Memory Safety"],
+                  ["05", "Trust Boundaries"],
+                  ["06", "Inter-Service Auth"],
+                  ["07", "Supply Chain"],
+                ].map(([n, name]) => (
+                  <li key={n} className="flex items-baseline gap-3">
+                    <span className="font-mono text-[12px] text-gold-soft tracking-[0.18em]">
+                      {n}
+                    </span>
+                    <span className="font-display text-[15px] text-paper">{name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="relative aspect-[4/5] max-w-[560px] mx-auto">
+                <Image
+                  src="/images/product/vantage-workspace-rack.png"
+                  alt="On-prem Agentic AI deployment rack: Governance & Compliance Crown (SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PIPEDA, AIDA), Observability & Incident Response Kit, Mission Engine Plane, Vector Index Cartridge, Local Model Pod (Ollama, vLLM), Secret Vault & Key Management (bring your own key), Network Segmentation Panel, Storage Array with Desktop Sync Bays, Compute Blade Stack, Enterprise Rack Chassis."
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 80vw, 560px"
+                  className="object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                />
+              </div>
+            </div>
+          </div>
+          <p className="font-ui text-body-sm text-paper/55 mt-12 max-w-[720px]">
             Each request enters at Layer 1 and is processed through Layers 2–7 in sequence. Every
-            layer produces an audit event. The audit events are aggregated into the Trust Report at
-            request completion.
+            layer produces an audit event. The audit events are aggregated into the Trust Report
+            at request completion.
           </p>
         </div>
       </section>

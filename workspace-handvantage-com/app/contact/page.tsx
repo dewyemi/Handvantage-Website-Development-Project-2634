@@ -13,11 +13,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="pt-16 md:pt-24 pb-12">
-        <div className="max-w-narrow mx-auto px-6 md:px-12">
+      <section className="pt-12 md:pt-20 pb-12 bg-paper">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20">
           <SectionEyebrow>TALK TO US</SectionEyebrow>
-          <h1 className="font-display text-display-2 text-ink leading-tight mb-8">Talk to us.</h1>
-          <p className="font-display text-body-lg text-ink leading-relaxed">
+          <h1 className="font-display text-[clamp(2.5rem,5vw+1rem,5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-8">
+            Talk to us.
+          </h1>
+          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px]">
             We respond to most messages within a business day. The reply is from a person — usually
             Josh — not an autoresponder. We don&apos;t run a sales-pressure pipeline; the first
             conversation is exploratory, and the second one (if there is one) is where we get
@@ -45,7 +47,7 @@ export default function ContactPage() {
             >
               {SITE.email}
             </a>{" "}
-            directly. The mailbox is read by a human in the {SITE.city} office.
+            directly. The mailbox is read by a human, not a bot.
           </p>
           <p className="font-ui text-body-sm text-ink-soft leading-relaxed">
             Most replies arrive within a business day. If something is genuinely time-sensitive,

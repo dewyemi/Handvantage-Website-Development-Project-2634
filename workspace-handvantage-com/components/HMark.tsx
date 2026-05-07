@@ -1,22 +1,20 @@
-// Brand H-mark. Stylised serif H, oxblood colour by default.
-// Inline SVG so no HTTP request is needed.
+// Brand H-mark — the actual oxblood Handvantage logo (PNG asset).
+// Rendered via next/image with unoptimized so the original PNG is served
+// (it's already small + monochromatic; no need for the optimization pipeline).
+import Image from "next/image";
+
 export function HMark({ className = "h-5 md:h-6" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 32"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      aria-hidden="true"
-    >
-      <path d="M3 2 V30" />
-      <path d="M21 2 V30" />
-      <path d="M3 16 H21" />
-      <circle cx="3" cy="2" r="0.8" fill="currentColor" />
-      <circle cx="21" cy="2" r="0.8" fill="currentColor" />
-      <circle cx="3" cy="30" r="0.8" fill="currentColor" />
-      <circle cx="21" cy="30" r="0.8" fill="currentColor" />
-    </svg>
+    <span className={`inline-block ${className} aspect-square relative`}>
+      <Image
+        src="/images/logo/handvantage-h-oxblood.png"
+        alt=""
+        fill
+        sizes="32px"
+        className="object-contain"
+        unoptimized
+        priority
+      />
+    </span>
   );
 }
