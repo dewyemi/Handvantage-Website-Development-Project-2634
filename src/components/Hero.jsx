@@ -63,6 +63,21 @@ const Hero = () => {
                 </Link>
               </div>
 
+              {/* Product callout — Vantage Workspace launch */}
+              <div className="mb-6">
+                <Link
+                  to="/vantage-workspace"
+                  className="group inline-flex items-center gap-3 text-xs sm:text-sm font-mono tracking-[0.16em] uppercase text-[#C9A36A] hover:text-white transition-colors"
+                >
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C9A36A] flex-shrink-0" aria-hidden="true" />
+                  <span>
+                    <span className="text-[#C9A36A] font-semibold">Now launching: Vantage Workspace</span>
+                    <span className="text-slate-500 ml-2 normal-case tracking-normal">— our agentic AI platform for regulated enterprises</span>
+                  </span>
+                  <SafeIcon icon={FiArrowRight} className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                </Link>
+              </div>
+
               {/* Trust Bar */}
               <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs font-mono tracking-widest text-slate-500 uppercase">
                 <span>VENDOR AGNOSTIC</span>

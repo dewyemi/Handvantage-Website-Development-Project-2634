@@ -22,6 +22,12 @@ We secure the AI layer that most consultancies and traditional MSSPs aren't buil
 - **Agentic Detection & Response (ADR)** — 24/7 monitoring of endpoints, agents, and infrastructure. 15-minute SLA on critical findings, validated by humans.
 - **OT/ICS Security** — Industrial cybersecurity for manufacturing, energy, and critical infrastructure. IEC 62443, NERC CIP, NIST 800-82.
 
+## Product: Vantage Workspace
+
+Vantage Workspace is the agentic AI platform we build and ship. It's the productized embodiment of the Dual DNA model: one platform — email, files, chat, meetings, documents, and an AI agent layer (Pilot + Fleet) — running on customer infrastructure, with a 7-Layer Defence Architecture mediating every prompt, tool call, and agent action. Continuous compliance grading across 11 frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, AIDA proposed). Current posture: A grade at 100% pass rate, 168 automated tests, graded on every build.
+
+The dedicated product site lives at [workspace.handvantage.com](https://workspace.handvantage.com). On this main site, the introduction page is at [/vantage-workspace](https://handvantage.co/vantage-workspace). Both sites are canonical sources.
+
 ## Buyer Personas
 
 - **CISO** — Risk quantification, compliance mapping, board-ready reporting, audit support.

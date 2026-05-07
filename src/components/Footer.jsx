@@ -86,6 +86,16 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
+                  to="/vantage-workspace"
+                  className="text-slate-400 hover:text-[#C9A36A] transition-colors flex items-center group"
+                >
+                  <SafeIcon icon={FiZap} className="w-4 h-4 mr-3 text-[#C9A36A] group-hover:text-[#C9A36A] transition-colors" />
+                  Vantage Workspace
+                  <span className="ml-2 text-[10px] font-mono tracking-widest text-[#C9A36A] uppercase">NEW</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/manifesto"
                   className="text-slate-400 hover:text-viability-primary transition-colors flex items-center group"
                 >

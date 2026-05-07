@@ -11,6 +11,7 @@ import Partnerships from './components/Partnerships';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Breadcrumbs from './components/Breadcrumbs';
+import AnnouncementBar from './components/AnnouncementBar';
 
 // New components for Frontpage Redesign
 import DualDNA from './components/DualDNA';
@@ -40,6 +41,7 @@ const BudgetPlanner = lazy(() => import('./components/BudgetPlanner'));
 const VendorEvaluation = lazy(() => import('./components/VendorEvaluation'));
 const ManifestoPage = lazy(() => import('./components/ManifestoPage'));
 const FAQPage = lazy(() => import('./components/FAQPage'));
+const VantageWorkspacePage = lazy(() => import('./components/VantageWorkspacePage'));
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
@@ -78,6 +80,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <PageTracker />
+        <AnnouncementBar />
         <Header />
         <Breadcrumbs />
         <Suspense fallback={<LoadingSpinner />}>
@@ -104,6 +107,10 @@ function App() {
             {/* Archived service pages handled by 301 redirects in netlify.toml */}
 
             <Route path="/services/ai-workforce" element={<AIWorkforcePage />} />
+
+            <Route path="/vantage-workspace" element={<VantageWorkspacePage />} />
+            <Route path="/products/vantage-workspace" element={<VantageWorkspacePage />} />
+            <Route path="/workspace" element={<VantageWorkspacePage />} />
 
             <Route path="/assessment" element={
               <>
