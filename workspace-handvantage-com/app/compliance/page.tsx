@@ -52,9 +52,77 @@ const FrameworkBlock = ({
   </div>
 );
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is Vantage Workspace's current compliance posture?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `As of ${COMPLIANCE.lastAssessedHuman}, Vantage Workspace holds an A grade at ${COMPLIANCE.passRate} pass rate across ${COMPLIANCE.frameworkCount} regulatory frameworks: NIST AI RMF, ISO/IEC 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed). The grade is computed from runtime evidence on every build, not from annual self-attestation.`,
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How is the compliance grade computed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The platform's /assess mission walks the audit log for the last assessment window (default: 30 days), maps each event to the controls it satisfies under each framework, and computes a per-framework pass rate. The platform-wide grade is the lowest of: the lowest per-framework grade, the test-suite pass rate (168 automated tests), and the policy coverage rate. It is not an average — a single failing control would move the grade.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does '100% pass rate' actually mean?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "100% pass rate means: every control under every in-scope framework has produced at least one satisfying event in the assessment window. It does NOT mean: zero open issues, zero technical debt, or zero security findings — those are listed separately on the page. The pass rate is about evidence coverage of the controls, not about absence of unresolved work.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How often is Vantage Workspace audited?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Continuously. The /assess mission runs against the production deployment on every build (currently every two-week sprint cycle, plus on-demand). The grade is computed and published every time. This replaces the traditional annual or quarterly audit model with continuous evidence generation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which regulatory frameworks does Vantage Workspace cover?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Eleven frameworks are tracked: NIST AI Risk Management Framework, ISO/IEC 42001 (AI management systems), EU AI Act (high-risk technical requirements), SOC 2 Type II, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed Canadian AI legislation). Each framework has a dedicated breakdown showing tracked version, coverage, evidence sources, and in-practice notes.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is a Trust Report and how is it different from a SOC 2 report?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A Trust Report is a signed, cryptographically anchored, time-bounded export of the audit log mapped to control coverage. It includes the events in scope, the policy in effect at each event, the compliance grade at generation time, the control-mapping appendix across all 11 frameworks, and a signed hash anchored to the platform's tamper-evident log. Unlike a SOC 2 report (which is a third-party attestation document covering a 6-12 month window), a Trust Report can be generated for any time window, any user, any agent, or any tool — and the auditor can independently verify the events against what the platform fed into the customer's SIEM.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Handvantage publish failures and gaps, not just certifications?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. The compliance page lists open issues (currently empty, which is itself an audit-able fact), sprint retrospectives where compliance gaps were identified, and the methodology used to close them. The B-to-A retrospective on the insights archive documents the three structural causes of the previous B grade and the discipline that closed each. This is intentional: a Sovereign Capability Partner cannot survive on marketing-grade trust, only on engineer-grade trust.",
+      },
+    },
+  ],
+};
+
 export default function CompliancePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* Hero — split layout, live compliance dashboard at native ratio */}
       <section className="pt-12 md:pt-20 pb-20 bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">

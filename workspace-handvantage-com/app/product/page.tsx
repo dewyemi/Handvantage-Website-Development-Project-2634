@@ -17,9 +17,41 @@ const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Vantage Workspace",
+  description:
+    "Vantage Workspace is a sovereign agentic AI platform: email, files, chat, meetings, documents, and an AI agent layer (Pilot + Fleet) running on customer infrastructure. Twenty containers, one SSO, one signed audit trail. A grade compliance posture across eleven regulatory frameworks.",
+  url: "https://workspace.handvantage.com/product",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Agentic AI Platform",
-  operatingSystem: "Cloud / Self-hosted (Docker)",
+  operatingSystem: "Linux (Docker / Kubernetes); air-gapped supported",
+  softwareVersion: "1.0",
+  releaseNotes: "https://workspace.handvantage.com/insights",
+  brand: {
+    "@type": "Brand",
+    name: "Handvantage",
+    url: "https://workspace.handvantage.com",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Handvantage",
+    url: "https://workspace.handvantage.com",
+  },
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType:
+      "CISOs, compliance officers, AI governance leads, security architects, regulated enterprises",
+  },
+  featureList: [
+    "Six-pillar workspace: email, files, chat, meetings, documents, AI agents",
+    "Pilot + Fleet agent model with three-level audit attribution",
+    "7-Layer Defence Architecture mediating every prompt, tool call, and agent action",
+    "Continuous compliance grading across 11 regulatory frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, AIDA proposed)",
+    "Single-tenant deployment: Docker Compose, Kubernetes, or air-gapped",
+    "OIDC-based SSO (Okta, Azure AD, Auth0, Google Workspace, Keycloak)",
+    "mTLS between all 20 containers; Fernet-encrypted secret vault",
+    "Signed audit log with RFC 3161 timestamps; CEF/LEEF/JSON SIEM exports",
+    "Trust Reports with control-mapping appendix and cryptographic signature",
+    "Bring-your-own-model support: OpenAI, Anthropic, Azure OpenAI, AWS Bedrock, Vertex, Ollama, vLLM",
+  ],
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/InStock",
@@ -27,6 +59,10 @@ const productJsonLd = {
     price: "0",
     priceValidUntil: "2027-12-31",
     description: "Pricing on application. Contact us to discuss your deployment.",
+    seller: {
+      "@type": "Organization",
+      name: "Handvantage",
+    },
   },
 };
 
