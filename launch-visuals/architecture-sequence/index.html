@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0F1A1F;
+        font-family: "Source Serif 4", Georgia, serif;
+        color: #F5F1EA;
+      }
+      .frame { position: absolute; inset: 60px; border: 1px solid rgba(245, 241, 234, 0.10); pointer-events: none; }
+
+      .corner-top { position: absolute; top: 80px; left: 80px; display: flex; align-items: center; gap: 16px; }
+      .corner-top img { width: 38px; height: 38px; filter: brightness(0) invert(1) opacity(0.9); }
+      .corner-top .label {
+        font-family: "IBM Plex Mono", monospace; font-size: 14px;
+        letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55);
+      }
+      .corner-meta {
+        position: absolute; top: 80px; right: 80px;
+        font-family: "IBM Plex Mono", monospace; font-size: 14px;
+        letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55);
+      }
+      .corner-bottom {
+        position: absolute; bottom: 80px; left: 80px; right: 80px;
+        display: flex; justify-content: space-between;
+        font-family: "IBM Plex Mono", monospace; font-size: 13px;
+        letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245, 241, 234, 0.40);
+      }
+
+      /* Title block (left column) — fades in once, stays */
+      .title-col {
+        position: absolute;
+        left: 130px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 720px;
+      }
+      .title-eyebrow {
+        font-family: "IBM Plex Mono", monospace; font-size: 16px;
+        letter-spacing: 0.24em; text-transform: uppercase; color: #C9A36A;
+        margin-bottom: 32px; display: inline-block;
+        padding-bottom: 6px; border-bottom: 1px solid #C9A36A;
+      }
+      .title {
+        font-family: "Source Serif 4", Georgia, serif; font-weight: 300;
+        font-size: 96px; line-height: 0.96; letter-spacing: -0.025em;
+        color: #F5F1EA; margin-bottom: 36px;
+      }
+      .title .em { font-style: italic; color: #C9A36A; }
+      .subtitle {
+        font-family: "Source Serif 4", Georgia, serif; font-size: 26px;
+        line-height: 1.35; color: rgba(245, 241, 234, 0.78); max-width: 600px;
+      }
+
+      /* Right column — the layer enumeration. Fixed list, items animate in.
+         Each row shows simultaneously after its data-start. */
+      .layer-col {
+        position: absolute;
+        right: 130px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 760px;
+      }
+      .layer-row {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        column-gap: 24px;
+        row-gap: 6px;
+        padding: 22px 0;
+        border-bottom: 1px solid rgba(245, 241, 234, 0.10);
+        opacity: 0;
+        will-change: opacity, transform;
+      }
+      .layer-row .num {
+        font-family: "IBM Plex Mono", monospace; font-size: 14px;
+        letter-spacing: 0.18em; color: #C9A36A; padding-top: 10px;
+      }
+      .layer-row .name {
+        font-family: "Source Serif 4", Georgia, serif; font-weight: 400;
+        font-size: 30px; line-height: 1.1; color: #F5F1EA; letter-spacing: -0.005em;
+      }
+      .layer-row .desc {
+        grid-column: 2;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 18px; line-height: 1.4; color: rgba(245, 241, 234, 0.65);
+      }
+
+      /* Highlighted state — current layer pulses its underline */
+      .layer-row.is-active { background: linear-gradient(to right, rgba(201, 163, 106, 0.06), transparent 60%); }
+
+      /* Closing card */
+      .close-card {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        background: #0F1A1F;
+        opacity: 0;
+      }
+      .close-eyebrow {
+        font-family: "IBM Plex Mono", monospace; font-size: 18px;
+        letter-spacing: 0.28em; text-transform: uppercase; color: #C9A36A; margin-bottom: 36px;
+      }
+      .close-title {
+        font-family: "Source Serif 4", Georgia, serif; font-weight: 300;
+        font-size: 96px; line-height: 1.04; letter-spacing: -0.025em;
+        text-align: center; color: #F5F1EA; max-width: 1700px; margin-bottom: 36px;
+      }
+      .close-title .em { font-style: italic; color: #C9A36A; }
+      .close-tag {
+        font-family: "Source Serif 4", Georgia, serif; font-size: 26px;
+        color: rgba(245, 241, 234, 0.65); text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="12"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="frame"></div>
+      <div class="corner-top">
+        <img src="assets/handvantage-h-oxblood.png" alt="" />
+        <span class="label">HANDVANTAGE</span>
+      </div>
+      <div class="corner-meta">7-LAYER DEFENCE ARCHITECTURE</div>
+      <div class="corner-bottom">
+        <span>workspace.handvantage.com / architecture</span>
+        <span>Audited like a kernel</span>
+      </div>
+
+      <div class="title-col">
+        <span id="title-eyebrow" class="title-eyebrow">ARCHITECTURE</span>
+        <h1 id="title" class="title">
+          Seven layers,<br />
+          <span class="em">one stack.</span>
+        </h1>
+        <p id="subtitle" class="subtitle">
+          Every prompt, every tool call, every agent action — mediated, signed, exported.
+        </p>
+      </div>
+
+      <div class="layer-col">
+        <div class="layer-row" id="L1">
+          <div class="num">L01</div>
+          <div class="name">Policy Engine</div>
+          <div class="desc">Versioned, signed YAML policies. Every action gated.</div>
+        </div>
+        <div class="layer-row" id="L2">
+          <div class="num">L02</div>
+          <div class="name">Prompt Defence</div>
+          <div class="desc">Injection detection, jailbreak heuristics, shape validation.</div>
+        </div>
+        <div class="layer-row" id="L3">
+          <div class="num">L03</div>
+          <div class="name">Tool Guardrails</div>
+          <div class="desc">Per-agent catalogues. Scope-checked at invocation.</div>
+        </div>
+        <div class="layer-row" id="L4">
+          <div class="num">L04</div>
+          <div class="name">Memory Safety</div>
+          <div class="desc">Embedding-inversion probes. Tenant-isolated vector spaces.</div>
+        </div>
+        <div class="layer-row" id="L5">
+          <div class="num">L05</div>
+          <div class="name">Trust Boundaries</div>
+          <div class="desc">Identity attestation. No shared service accounts.</div>
+        </div>
+        <div class="layer-row" id="L6">
+          <div class="num">L06</div>
+          <div class="name">Inter-Service Auth</div>
+          <div class="desc">mTLS, certificate-rooted, issued per session.</div>
+        </div>
+        <div class="layer-row" id="L7">
+          <div class="num">L07</div>
+          <div class="name">Supply Chain</div>
+          <div class="desc">OCI-signed images. SBOMs on every release.</div>
+        </div>
+      </div>
+
+      <!-- Closing card overlays at the end -->
+      <div id="close" class="close-card">
+        <span class="close-eyebrow">VANTAGE WORKSPACE</span>
+        <h2 class="close-title">
+          Built like a rack.<br />
+          <span class="em">Audited like a kernel.</span>
+        </h2>
+        <p class="close-tag">workspace.handvantage.com</p>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Title column entrance
+      gsap.set(["#title-eyebrow", "#title", "#subtitle"], { opacity: 0, y: 30 });
+      tl.to("#title-eyebrow", { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.2);
+      tl.to("#title", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.4);
+      tl.to("#subtitle", { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0.9);
+
+      // Each layer row enters in sequence
+      const ids = ["#L1", "#L2", "#L3", "#L4", "#L5", "#L6", "#L7"];
+      gsap.set(ids, { opacity: 0, y: 18 });
+      ids.forEach((id, i) => {
+        const t = 1.4 + i * 0.85;
+        tl.to(id, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, t);
+        // Activate highlight, then settle
+        tl.to(id, {
+          backgroundColor: "rgba(201, 163, 106, 0.08)",
+          duration: 0.3,
+        }, t);
+        tl.to(id, {
+          backgroundColor: "rgba(201, 163, 106, 0.00)",
+          duration: 0.6,
+        }, t + 0.6);
+      });
+
+      // After last layer (~7.4s), hold ~1.5s, then bring up the close card
+      tl.to("#close", { opacity: 1, duration: 0.8, ease: "power2.inOut" }, 9.6);
+      tl.to({}, { duration: 0.4 }, 11.5);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+# Rendered video files — host on Netlify static or a CDN, not in git.
+*.mp4
+*.webm
+*.mov
+
+# Render output directories from each project.
+*/renders/
+
+# Local node_modules from per-project package.json.
+*/node_modules/
+
+# Hyperframes scratch state.
+*/.hyperframes-cache/
+*/transcript.json

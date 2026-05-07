@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0F1A1F;
+        font-family: "Source Serif 4", Georgia, serif;
+        color: #F5F1EA;
+      }
+      .frame { position: absolute; inset: 60px; border: 1px solid rgba(245, 241, 234, 0.10); pointer-events: none; }
+
+      .corner-top { position: absolute; top: 80px; left: 80px; display: flex; align-items: center; gap: 16px; }
+      .corner-top img { width: 38px; height: 38px; filter: brightness(0) invert(1) opacity(0.9); }
+      .corner-top .label {
+        font-family: "IBM Plex Mono", monospace; font-size: 14px;
+        letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55);
+      }
+      .corner-meta {
+        position: absolute; top: 80px; right: 80px;
+        font-family: "IBM Plex Mono", monospace; font-size: 14px;
+        letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55);
+      }
+      .corner-bottom {
+        position: absolute; bottom: 80px; left: 80px; right: 80px;
+        display: flex; justify-content: space-between;
+        font-family: "IBM Plex Mono", monospace; font-size: 13px;
+        letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245, 241, 234, 0.40);
+      }
+
+      .stage {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+      }
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace; font-size: 18px;
+        letter-spacing: 0.28em; text-transform: uppercase; color: #C9A36A;
+        margin-bottom: 56px;
+      }
+
+      .grade-row { display: flex; align-items: baseline; gap: 48px; margin-bottom: 56px; }
+      .grade {
+        font-family: "Source Serif 4", Georgia, serif; font-weight: 300;
+        font-size: 480px; line-height: 0.85; letter-spacing: -0.04em; color: #F5F1EA;
+        font-style: italic;
+      }
+      .grade .em { color: #C9A36A; }
+
+      .pct-block { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 40px; }
+      .pct {
+        font-family: "IBM Plex Mono", monospace; font-weight: 500;
+        font-size: 92px; line-height: 1; color: #F5F1EA; letter-spacing: -0.02em;
+        font-feature-settings: "tnum" 1;
+      }
+      .pct-label {
+        font-family: "IBM Plex Mono", monospace; font-size: 13px;
+        letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55);
+      }
+
+      .divider { width: 0; height: 1px; background: rgba(245, 241, 234, 0.30); margin-bottom: 36px; }
+
+      .pull {
+        font-family: "Source Serif 4", Georgia, serif; font-weight: 400;
+        font-size: 38px; line-height: 1.2; letter-spacing: -0.005em;
+        color: rgba(245, 241, 234, 0.92); text-align: center; max-width: 1280px; margin-bottom: 36px;
+      }
+      .pull .em { font-style: italic; color: #C9A36A; }
+
+      .frameworks { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 28px; max-width: 1400px; }
+      .frameworks span {
+        font-family: "IBM Plex Mono", monospace; font-size: 14px;
+        letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="6"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="frame"></div>
+      <div class="corner-top">
+        <img src="assets/handvantage-h-oxblood.png" alt="" />
+        <span class="label">HANDVANTAGE</span>
+      </div>
+      <div class="corner-meta">/ASSESS — 2026-05-06</div>
+      <div class="corner-bottom">
+        <span>workspace.handvantage.com / compliance</span>
+        <span>Continuous evidence · runtime-graded</span>
+      </div>
+
+      <div class="stage">
+        <span id="eyebrow" class="eyebrow">CURRENT POSTURE</span>
+        <div class="grade-row">
+          <span id="grade" class="grade"><span class="em">A</span></span>
+          <div class="pct-block">
+            <span id="pct" class="pct">0%</span>
+            <span id="pct-label" class="pct-label">PASS RATE</span>
+          </div>
+        </div>
+        <div id="divider" class="divider"></div>
+        <p id="pull" class="pull">
+          Eleven regulatory frameworks. <span class="em">One assessment cycle.</span>
+        </p>
+        <div id="frameworks" class="frameworks">
+          <span>SOC 2</span>
+          <span>ISO 42001</span>
+          <span>NIST AI RMF</span>
+          <span>EU AI ACT</span>
+          <span>PCI DSS V4.0</span>
+          <span>HIPAA</span>
+          <span>FINRA</span>
+          <span>FedRAMP</span>
+          <span>PIPEDA</span>
+          <span>PRIVACY ACT (CA)</span>
+          <span>AIDA</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      gsap.set("#eyebrow", { opacity: 0, y: 20 });
+      gsap.set("#grade", { opacity: 0, y: 60, scale: 0.92 });
+      gsap.set("#pct", { opacity: 0 });
+      gsap.set("#pct-label", { opacity: 0 });
+      gsap.set("#divider", { width: 0 });
+      gsap.set("#pull", { opacity: 0, y: 24 });
+      gsap.set("#frameworks span", { opacity: 0, y: 12 });
+
+      tl.to("#eyebrow", { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 0.2);
+      tl.to("#grade", { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: "power3.out" }, 0.5);
+
+      tl.to(["#pct", "#pct-label"], { opacity: 1, duration: 0.4 }, 1.0);
+      const counter = { v: 0 };
+      tl.to(
+        counter,
+        {
+          v: 100,
+          duration: 1.6,
+          ease: "power2.out",
+          onUpdate: () => {
+            const el = document.getElementById("pct");
+            if (el) el.textContent = Math.round(counter.v) + "%";
+          },
+        },
+        1.0
+      );
+
+      tl.to("#divider", { width: 1280, duration: 0.7, ease: "power2.inOut" }, 2.7);
+      tl.to("#pull", { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 3.0);
+      tl.to("#frameworks span", {
+        opacity: 1, y: 0, duration: 0.4, stagger: 0.04, ease: "power2.out",
+      }, 3.4);
+
+      tl.to({}, { duration: 0.5 }, 5.5);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

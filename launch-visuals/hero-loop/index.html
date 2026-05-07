@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..900&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #F5F1EA;
+        font-family: "Source Serif 4", Georgia, serif;
+        color: #1A1F1B;
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.06;
+        mix-blend-mode: multiply;
+        background-image:
+          radial-gradient(circle at 20% 30%, rgba(114, 47, 55, 0.18) 0%, transparent 35%),
+          radial-gradient(circle at 80% 75%, rgba(15, 26, 31, 0.10) 0%, transparent 40%);
+      }
+
+      .frame {
+        position: absolute;
+        inset: 60px;
+        border: 1px solid rgba(26, 31, 27, 0.10);
+        pointer-events: none;
+      }
+
+      .corner-top { position: absolute; top: 80px; left: 80px; display: flex; align-items: center; gap: 16px; }
+      .corner-top .h-mark { width: 38px; height: 38px; }
+      .corner-top .label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(26, 31, 27, 0.55);
+      }
+
+      .corner-meta {
+        position: absolute;
+        top: 80px;
+        right: 80px;
+        display: flex;
+        gap: 24px;
+        align-items: baseline;
+      }
+      .corner-meta .pip {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: #722F37;
+      }
+      .corner-meta .text {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(26, 31, 27, 0.55);
+      }
+
+      .corner-bottom-left {
+        position: absolute;
+        bottom: 80px;
+        left: 80px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(26, 31, 27, 0.45);
+      }
+      .corner-bottom-right {
+        position: absolute;
+        bottom: 80px;
+        right: 80px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(26, 31, 27, 0.45);
+      }
+
+      .stack {
+        position: absolute;
+        right: 130px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 480px;
+        height: 678px;
+        will-change: transform, opacity;
+      }
+      .stack img { width: 100%; height: 100%; object-fit: contain; }
+
+      .hero {
+        position: absolute;
+        left: 130px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1000px;
+      }
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #722F37;
+        margin-bottom: 36px;
+        display: inline-block;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #722F37;
+      }
+      .headline {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 400;
+        font-size: 130px;
+        line-height: 0.95;
+        letter-spacing: -0.025em;
+        color: #1A1F1B;
+        margin-bottom: 32px;
+      }
+      .headline .em { font-style: italic; color: #722F37; font-weight: 400; }
+      .tagline {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 30px;
+        line-height: 1.35;
+        color: rgba(26, 31, 27, 0.78);
+        max-width: 820px;
+      }
+
+      .underline {
+        position: absolute;
+        left: 130px;
+        bottom: 200px;
+        width: 1px;
+        height: 0;
+        background: #722F37;
+      }
+
+      .ticker {
+        position: absolute;
+        bottom: 140px;
+        left: 130px;
+        display: flex;
+        gap: 56px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(26, 31, 27, 0.55);
+      }
+      .ticker span { display: flex; align-items: center; gap: 12px; }
+      .ticker span::before {
+        content: "";
+        display: inline-block;
+        width: 6px; height: 6px;
+        background: #A16207;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="8"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Always-on chrome (no class="clip" => visible the whole composition) -->
+      <div class="frame"></div>
+      <div class="grain"></div>
+
+      <div class="corner-top">
+        <img class="h-mark" src="assets/handvantage-h-oxblood.png" alt="" />
+        <span class="label">HANDVANTAGE</span>
+      </div>
+      <div class="corner-meta">
+        <span class="pip"></span>
+        <span class="text">VANTAGE WORKSPACE — V1.0</span>
+      </div>
+      <div class="corner-bottom-left">workspace.handvantage.com</div>
+      <div class="corner-bottom-right">May 2026 · Launch</div>
+
+      <!-- Stack illustration: visible whole comp, animated via timeline -->
+      <div id="stack" class="stack">
+        <img src="assets/vantage-workspace-stack.png" alt="" />
+      </div>
+
+      <!-- Editorial copy -->
+      <div class="hero">
+        <span id="eyebrow" class="eyebrow">THE PRODUCT</span>
+        <h1 class="headline">
+          <span id="word1">Vantage</span>
+          <br />
+          <span id="word2" class="em">Workspace.</span>
+        </h1>
+        <p id="tagline" class="tagline">
+          One platform. One identity. One audit trail. The agentic AI stack we built because the
+          alternative wasn&rsquo;t a purchase, it was a project.
+        </p>
+      </div>
+
+      <div id="underline" class="underline"></div>
+
+      <div class="ticker">
+        <span id="t1">A grade compliance</span>
+        <span id="t2">7-layer defence</span>
+        <span id="t3">11 frameworks</span>
+        <span id="t4">on-prem deployable</span>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Initial states
+      gsap.set("#stack", { opacity: 0, scale: 1.06, y: 30 });
+      gsap.set("#eyebrow", { opacity: 0, x: -30 });
+      gsap.set("#word1", { opacity: 0, y: 60 });
+      gsap.set("#word2", { opacity: 0, y: 60 });
+      gsap.set("#tagline", { opacity: 0, y: 30 });
+      gsap.set("#underline", { height: 0 });
+      gsap.set(["#t1", "#t2", "#t3", "#t4"], { opacity: 0, y: 14 });
+
+      // Hero stack rises in (always visible after t=0)
+      tl.to("#stack", { opacity: 1, scale: 1, y: 0, duration: 1.4, ease: "power2.out" }, 0.2);
+
+      // Eyebrow
+      tl.to("#eyebrow", { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 0.6);
+
+      // Headline words stagger
+      tl.to("#word1", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.9);
+      tl.to("#word2", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.25);
+
+      // Tagline
+      tl.to("#tagline", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 2.0);
+
+      // Underline draw
+      tl.to("#underline", { height: 80, duration: 0.7, ease: "power2.out" }, 2.4);
+
+      // Ticker stagger
+      tl.to("#t1", { opacity: 1, y: 0, duration: 0.5 }, 2.8);
+      tl.to("#t2", { opacity: 1, y: 0, duration: 0.5 }, 3.0);
+      tl.to("#t3", { opacity: 1, y: 0, duration: 0.5 }, 3.2);
+      tl.to("#t4", { opacity: 1, y: 0, duration: 0.5 }, 3.4);
+
+      // Continuous breathing on the stack — slow scale loop, settles on a clean frame at end
+      tl.to("#stack", { scale: 1.015, duration: 2.0, ease: "sine.inOut" }, 4.0);
+      tl.to("#stack", { scale: 1.0, duration: 2.0, ease: "sine.inOut" }, 6.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
