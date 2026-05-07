@@ -114,22 +114,25 @@ export default function HomePage() {
 
       {/* ============================================================ */}
       {/* SECTION 3 — THE SHIFT (paper, type-only editorial)            */}
+      {/* Single-column editorial layout. Eyebrow + headline + body all */}
+      {/* in one narrow column, with a key callout stat in the right    */}
+      {/* margin (a featured "pull stat" — the kind of editorial signal */}
+      {/* a McKinsey or FT long read uses).                             */}
       {/* ============================================================ */}
       <section className="bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-3">
-              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] sticky top-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Main editorial column */}
+            <div className="lg:col-span-8 max-w-[760px]">
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
                 The shift
               </p>
-            </div>
-            <div className="lg:col-span-9 max-w-[760px]">
               <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-12">
                 Most AI platforms were built for the demo.
                 <br />
                 <span className="text-ink-soft">Yours has to survive the audit.</span>
               </h2>
-              <div className="font-display text-body-lg text-ink leading-relaxed space-y-6 max-w-[640px]">
+              <div className="font-display text-body-lg text-ink leading-relaxed space-y-6">
                 <p>
                   The first wave of enterprise AI was a chatbot in a browser tab. Buy a license,
                   point it at your data, hope. The proof of value was a screenshot. The proof of
@@ -150,6 +153,35 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+
+            {/* Right rail — featured pull-stat (editorial side card) */}
+            <aside className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32 border-l-2 border-oxblood pl-6 max-w-[320px]">
+                <p className="font-mono text-[12px] text-ink-soft uppercase tracking-[0.18em] mb-3">
+                  EU AI Act · Article 99
+                </p>
+                <p className="font-display text-[clamp(2.5rem,4vw,3.5rem)] leading-[0.95] text-ink mb-3">
+                  €35M
+                  <span className="text-ink-soft text-[0.5em] align-middle ml-2">or 7% of revenue</span>
+                </p>
+                <p className="font-display text-body text-ink-soft leading-relaxed mb-6">
+                  Penalties apply where evidence of compliance is{" "}
+                  <span className="text-ink font-semibold">absent</span> — not only where systems
+                  fail.
+                </p>
+                <hr className="border-0 border-t border-ink-hairline mb-6" />
+                <p className="font-mono text-[12px] text-ink-soft uppercase tracking-[0.18em] mb-3">
+                  Gartner forecast · 2027
+                </p>
+                <p className="font-display text-[clamp(2.5rem,4vw,3.5rem)] leading-[0.95] text-ink mb-3">
+                  40<span className="text-ink-soft">%</span>
+                </p>
+                <p className="font-display text-body text-ink-soft leading-relaxed">
+                  of agentic AI projects cancelled — almost always for missing evidence, not
+                  missing controls.
+                </p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -164,7 +196,7 @@ export default function HomePage() {
               Your team starts here
             </p>
             <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-8">
-              One workspace. One identity. Twenty containers behind it.
+              One workspace. One identity. One audit trail.
             </h2>
             <p className="font-display text-body-lg text-ink leading-relaxed">
               Email, files, chat, meetings, docs — and an AI that does the work across all of
