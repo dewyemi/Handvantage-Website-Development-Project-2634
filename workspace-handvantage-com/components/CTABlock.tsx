@@ -6,6 +6,7 @@ interface Props {
   headline: string;
   body: string;
   ctaLabel: string;
+  ctaHref?: string;
   emphasised?: boolean;
 }
 
@@ -14,6 +15,7 @@ export function CTABlock({
   headline,
   body,
   ctaLabel,
+  ctaHref = "/contact",
   emphasised = false,
 }: Props) {
   return (
@@ -27,7 +29,7 @@ export function CTABlock({
           {body}
         </p>
         <Link
-          href="/contact"
+          href={ctaHref}
           className="font-display text-body-lg text-oxblood hover:text-oxblood-soft underline decoration-[1.5px] underline-offset-4 hover:decoration-2"
         >
           {ctaLabel}&nbsp;→

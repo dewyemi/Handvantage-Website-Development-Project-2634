@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { INSIGHTS } from "@/lib/insights";
+import { NEWSLETTER_ISSUES } from "@/lib/newsletter";
 import { SITE } from "@/lib/data-tokens";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.baseUrl}/compliance`, lastModified: today, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE.baseUrl}/philosophy`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.baseUrl}/insights`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE.baseUrl}/vantage-pilot`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE.baseUrl}/contact`, lastModified: today, changeFrequency: "yearly", priority: 0.6 },
     { url: `${SITE.baseUrl}/colophon`, lastModified: today, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE.baseUrl}/privacy`, lastModified: today, changeFrequency: "yearly", priority: 0.3 },
@@ -25,5 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...articles];
+  const newsletterIssues: MetadataRoute.Sitemap = NEWSLETTER_ISSUES.map((issue) => ({
+    url: `${SITE.baseUrl}/vantage-pilot/${issue.issue}`,
+    lastModified: issue.publishedISO,
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...articles, ...newsletterIssues];
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CTABlock } from "@/components/CTABlock";
@@ -81,6 +82,23 @@ export default function ArticlePage({ params }: Props) {
           <p className="font-ui text-byline text-ink-soft">
             By {article.author ?? SITE.founderName} · {article.dateHuman} · {article.readingTime}
           </p>
+        </div>
+
+        {/* Feature image — uses the auto-generated OG card. Lightweight: same
+            asset that's already produced for social sharing, no extra image
+            management. Wide editorial framing above the body. */}
+        <div className="max-w-[1100px] mx-auto px-6 md:px-12 mt-12 md:mt-16">
+          <figure className="relative w-full aspect-[1200/630] overflow-hidden border border-ink-hairline">
+            <Image
+              src={`/insights/${article.slug}/opengraph-image`}
+              alt={`Feature image for "${article.headline}"`}
+              fill
+              priority
+              sizes="(max-width: 1100px) 100vw, 1100px"
+              className="object-cover"
+              unoptimized
+            />
+          </figure>
         </div>
       </section>
 
