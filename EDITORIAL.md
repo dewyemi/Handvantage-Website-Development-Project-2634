@@ -79,39 +79,38 @@ Defined in `workspace-handvantage-com/lib/insights.ts` as `ArticleCategory`. Eac
 
 ---
 
-## 4. The 20-topic seed queue
+## 4. The seed queue (interleaved by category)
 
-Five months of weekly publishing (4 weeks × 5 = 20 articles). Reorder freely; treat this as the menu, not the schedule. Each entry: category, working title, search/topic angle, one-line brief.
+The auto-routine picks the lowest-numbered item that is not yet published. The queue is interleaved by category so the published archive maintains a balanced mix (BRIEFING → RETROSPECTIVE → DOSSIER → FIELD NOTE → repeat) rather than running all eight briefings in a row. Each entry: category, working title, search/topic angle, one-line brief.
 
-### Briefings (regulatory + standards)
-1. **What EU AI Act Annex IV technical documentation actually requires** · Targets: "EU AI Act technical documentation", "Annex IV checklist". *A line-by-line read of Annex IV with what each item maps to in a runtime audit log.*
-2. **ISO/IEC 42001 audit checklist: what auditors will ask in 2026** · Targets: "ISO 42001 audit", "ISO 42001 readiness". *The 39 controls grouped by what evidence an auditor expects to see — and which ones runtime-graded systems pass automatically.*
-3. **AIDA explained: what Canadian enterprises need to do before enactment** · Targets: "AIDA Canada", "AI and Data Act". *AIDA's current draft, the high-impact AI definition, and what the proposed ISED powers mean for procurement.*
-4. **NIST AI RMF Govern function: the controls most platforms skip** · Targets: "NIST AI RMF Govern", "NIST AI RMF compliance". *The Govern function's six categories and which ones get systematically ignored in vendor self-attestation.*
-5. **OWASP Top 10 for Agentic Applications: a security architect's reading guide** · Targets: "OWASP agentic AI", "OWASP LLM Top 10". *Each category translated into "what this looks like in production" and "what controls actually catch it."*
-6. **PCI DSS v4.0 and agentic AI: where the controls don't map cleanly** · Targets: "PCI DSS AI", "PCI DSS v4.0 LLM". *The three v4.0 controls (8.6, 11.5.1, 12.10.5) that have non-obvious implications for agentic AI environments.*
-7. **FedRAMP for AI workloads: what's different about high-risk agents** · Targets: "FedRAMP AI", "FedRAMP agentic". *FedRAMP Moderate baseline + the 2025 Emerging Technology Security Requirements update for AI workloads.*
-8. **The HIPAA "minimum necessary" standard and AI agents** · Targets: "HIPAA AI", "HIPAA minimum necessary AI". *What "minimum necessary" means when the agent is an autonomous decision-maker, not a human operator.*
+**Already published from the original queue** (do not re-pick):
+- BRIEFING — EU AI Act Annex IV technical documentation → published as `eu-ai-act-annex-iv-technical-documentation`
+- BRIEFING — ISO/IEC 42001 audit checklist → published as `iso-42001-audit-checklist-2026`
+- DOSSIER — Agentic AI in financial services / FINRA → published as `agentic-ai-financial-services-finra-audit-trail`
+- FIELD NOTE — What "continuous compliance" actually means → published as `what-continuous-compliance-actually-means`
 
-### Retrospectives (engineering)
-9. **Why we ripped out configurable defence layers** · Targets: "agentic AI architecture", "secure by design". *The early version of the 7-Layer Defence let operators turn layers off. The audit log was contestable. We rebuilt as structural. Here's what it cost.*
-10. **From SaaS to single-tenant: the deployment decision** · Targets: "single-tenant AI platform", "data sovereignty AI". *Why we don't run a multi-tenant data lake — and what we lose by not running one.*
-11. **Pilot + Fleet at runtime: what we changed after the first three deployments** · Targets: "Pilot Fleet model", "agentic AI permission model". *Three customer deployments, three changes to how Pilot delegates and how the Fleet declares scope.*
-12. **A Layer 4 false positive in the embedding-inversion probe** · Targets: "embedding inversion", "memory safety AI". *A real false positive we caught in pre-prod, what triggered it, and how we tightened the probe corpus without losing detection rate.*
+**Active queue (16 topics, interleaved)**:
 
-### Dossiers (sector)
-13. **Agentic AI in financial services: FINRA, the SEC, and the audit trail problem** · Targets: "agentic AI financial services", "FINRA AI compliance". *Where the SEC's 2026 conduct expectations meet FINRA's recordkeeping rules — and why the audit log can't be reconstructed.*
-14. **Healthcare and agentic AI: HIPAA, FDA SaMD, and the supervision question** · Targets: "AI healthcare compliance", "FDA SaMD AI". *Three regulatory frames a healthcare buyer has to satisfy simultaneously, and what the platform's posture covers vs. what the customer still owns.*
-15. **Public sector AI procurement: GSA, FedRAMP, and the EU GovTech corridor** · Targets: "AI procurement government", "FedRAMP government AI". *Two procurement paths (US federal + EU public sector) and how they shape what we have to ship.*
-16. **Legal services and agentic AI: ABA Model Rule 1.1 and the supervision standard** · Targets: "AI legal compliance", "ABA Model Rule AI". *The ABA's competence rule + the State Bar guidance + the Cahill Gordon situation, read against agentic AI deployment in BigLaw.*
+1. **BRIEFING — AIDA explained: what Canadian enterprises need to do before enactment** · Targets: "AIDA Canada", "AI and Data Act". *AIDA's current draft, the high-impact AI definition, and what the proposed ISED powers mean for procurement.*
+2. **RETROSPECTIVE — Why we ripped out configurable defence layers** · Targets: "agentic AI architecture", "secure by design". *The early version of the 7-Layer Defence let operators turn layers off. The audit log was contestable. We rebuilt as structural. Here's what it cost.*
+3. **DOSSIER — Healthcare and agentic AI: HIPAA, FDA SaMD, and the supervision question** · Targets: "AI healthcare compliance", "FDA SaMD AI". *Three regulatory frames a healthcare buyer has to satisfy simultaneously, and what the platform's posture covers vs. what the customer still owns.*
+4. **FIELD NOTE — Why we stopped saying "AI agents" in security reviews** · Targets: vocabulary essay; trust signal. *The vocabulary we use in vendor reviews and why it changed.*
+5. **BRIEFING — NIST AI RMF Govern function: the controls most platforms skip** · Targets: "NIST AI RMF Govern", "NIST AI RMF compliance". *The Govern function's six categories and which ones get systematically ignored in vendor self-attestation.*
+6. **RETROSPECTIVE — From SaaS to single-tenant: the deployment decision** · Targets: "single-tenant AI platform", "data sovereignty AI". *Why we don't run a multi-tenant data lake — and what we lose by not running one.*
+7. **DOSSIER — Public sector AI procurement: GSA, FedRAMP, and the EU GovTech corridor** · Targets: "AI procurement government", "FedRAMP government AI". *Two procurement paths (US federal + EU public sector) and how they shape what we have to ship.*
+8. **FIELD NOTE — Three questions to ask a vendor about their audit log** · Targets: "AI vendor due diligence", "AI audit log questions". *A short pre-flight checklist a CISO can run on any agentic AI vendor in 10 minutes.*
+9. **BRIEFING — OWASP Top 10 for Agentic Applications: a security architect's reading guide** · Targets: "OWASP agentic AI", "OWASP LLM Top 10". *Each category translated into "what this looks like in production" and "what controls actually catch it."*
+10. **RETROSPECTIVE — Pilot + Fleet at runtime: what we changed after the first three deployments** · Targets: "Pilot Fleet model", "agentic AI permission model". *Three customer deployments, three changes to how Pilot delegates and how the Fleet declares scope.*
+11. **DOSSIER — Legal services and agentic AI: ABA Model Rule 1.1 and the supervision standard** · Targets: "AI legal compliance", "ABA Model Rule AI". *The ABA's competence rule + the State Bar guidance, read against agentic AI deployment in BigLaw.*
+12. **FIELD NOTE — Reading the FTC's AI guidance like a CISO would** · Targets: "FTC AI guidance", "AI deceptive practices". *The FTC's 2025–2026 enforcement pattern (Rytr, DoNotPay, Workado) and what it means for procurement language.*
+13. **BRIEFING — PCI DSS v4.0 and agentic AI: where the controls don't map cleanly** · Targets: "PCI DSS AI", "PCI DSS v4.0 LLM". *The three v4.0 controls (8.6, 11.5.1, 12.10.5) that have non-obvious implications for agentic AI environments.*
+14. **RETROSPECTIVE — A Layer 4 false positive in the embedding-inversion probe** · Targets: "embedding inversion", "memory safety AI". *A real false positive we caught in pre-prod, what triggered it, and how we tightened the probe corpus without losing detection rate.*
+15. **BRIEFING — FedRAMP for AI workloads: what's different about high-risk agents** · Targets: "FedRAMP AI", "FedRAMP agentic". *FedRAMP Moderate baseline + the 2025 Emerging Technology Security Requirements update for AI workloads.*
+16. **BRIEFING — The HIPAA "minimum necessary" standard and AI agents** · Targets: "HIPAA AI", "HIPAA minimum necessary AI". *What "minimum necessary" means when the agent is an autonomous decision-maker, not a human operator.*
 
-### Field notes (short, ad hoc)
-17. **Why we stopped saying "AI agents" in security reviews** · Targets: vocabulary essay; trust signal. *The vocabulary we use in vendor reviews and why it changed.*
-18. **Three questions to ask a vendor about their audit log** · Targets: "AI vendor due diligence", "AI audit log questions". *A short pre-flight checklist a CISO can run on any agentic AI vendor in 10 minutes.*
-19. **What "continuous compliance" actually means (and what it doesn't)** · Targets: "continuous compliance AI". *Definitions matter. A runtime-graded system is not the same as a "monitored" system.*
-20. **Reading the FTC's AI guidance like a CISO would** · Targets: "FTC AI guidance", "AI deceptive practices". *The FTC's 2025–2026 enforcement pattern (Rytr, DoNotPay, Workado) and what it means for procurement language.*
+After this queue runs out, we generate the next 16 from: (a) regulatory updates, (b) sprint retros, (c) customer deployment learnings, (d) news the team wants to react to. The queue should never go below 8 — refill when it hits that floor.
 
-After this queue runs out, we generate the next 20 from: (a) regulatory updates, (b) sprint retros, (c) customer deployment learnings, (d) news the team wants to react to. The queue should never go below 8 — refill when it hits that floor.
+The category mix targets ~40% BRIEFING, ~25% RETROSPECTIVE, ~20% DOSSIER, ~15% FIELD NOTE over any rolling 12-article window. The interleaved order produces this naturally for the next ~16 weeks.
 
 ---
 
