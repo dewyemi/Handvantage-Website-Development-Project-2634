@@ -31,7 +31,10 @@ export function ContactForm() {
           name: formData.get("name"),
           email: formData.get("email"),
           company: formData.get("company"),
+          phone: formData.get("phone"),
           message: formData.get("message"),
+          consentPhone: formData.get("consentPhone") === "on",
+          consentNewsletter: formData.get("consentNewsletter") === "on",
         }),
       });
       if (!res.ok) {
@@ -125,18 +128,36 @@ export function ContactForm() {
         </p>
       </div>
 
-      <div>
-        <label htmlFor="company" className="block font-ui font-medium text-[15px] text-ink mb-2">
-          Company <span className="font-normal text-ink-soft text-[14px]">(optional)</span>
-        </label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          autoComplete="organization"
-          maxLength={120}
-          className="w-full bg-paper border border-ink-hairline px-4 py-3 font-display text-body text-ink focus:outline-none focus:border-oxblood transition-colors duration-100"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <label htmlFor="company" className="block font-ui font-medium text-[15px] text-ink mb-2">
+            Company <span className="font-normal text-ink-soft text-[14px]">(optional)</span>
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            autoComplete="organization"
+            maxLength={120}
+            className="w-full bg-paper border border-ink-hairline px-4 py-3 font-display text-body text-ink focus:outline-none focus:border-oxblood transition-colors duration-100"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="block font-ui font-medium text-[15px] text-ink mb-2">
+            Phone <span className="font-normal text-ink-soft text-[14px]">(optional)</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autoComplete="tel"
+            inputMode="tel"
+            placeholder="+1 (___) ___-____"
+            maxLength={40}
+            className="w-full bg-paper border border-ink-hairline px-4 py-3 font-display text-body text-ink placeholder:text-ink-soft placeholder:italic focus:outline-none focus:border-oxblood transition-colors duration-100"
+          />
+        </div>
       </div>
 
       <div>
@@ -153,6 +174,45 @@ export function ContactForm() {
           className="w-full bg-paper border border-ink-hairline px-4 py-3 font-display text-body text-ink placeholder:text-ink-soft placeholder:italic focus:outline-none focus:border-oxblood transition-colors duration-100 resize-vertical"
         />
       </div>
+
+      {/* Consent — CASL-compliant. Both default unchecked, both opt-in. */}
+      <fieldset className="border-l-2 border-ink-hairline pl-5 py-1 flex flex-col gap-3">
+        <legend className="sr-only">How may we follow up</legend>
+
+        <label htmlFor="consentPhone" className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            id="consentPhone"
+            name="consentPhone"
+            className="mt-1 w-4 h-4 accent-oxblood cursor-pointer flex-shrink-0"
+          />
+          <span className="font-display text-body text-ink leading-relaxed">
+            I&rsquo;m comfortable being contacted by phone about this inquiry.
+          </span>
+        </label>
+
+        <label htmlFor="consentNewsletter" className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            id="consentNewsletter"
+            name="consentNewsletter"
+            className="mt-1 w-4 h-4 accent-oxblood cursor-pointer flex-shrink-0"
+          />
+          <span className="font-display text-body text-ink leading-relaxed">
+            Sign me up for the monthly newsletter — one digest per month, unsubscribe in one click.
+          </span>
+        </label>
+      </fieldset>
+
+      <p className="font-display text-body-sm text-ink-soft leading-relaxed border-t border-ink-hairline pt-6">
+        We reply to inquiries from a real inbox, not an automation. We never share or sell your
+        information. We don&rsquo;t add you to a marketing list unless you check the box above.
+        See our{" "}
+        <a href="/privacy" className="text-oxblood hover:underline underline-offset-4">
+          privacy policy
+        </a>{" "}
+        for the full picture.
+      </p>
 
       <div className="mt-2">
         <button

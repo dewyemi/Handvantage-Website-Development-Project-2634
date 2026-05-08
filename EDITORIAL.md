@@ -30,7 +30,7 @@ The third audience is the one we optimize for. The first two follow from the thi
 | Output | Frequency | First publish |
 |---|---|---|
 | **Insights article** (workspace site) | 1 per week | Already 3 published; aim for May 14 next |
-| **Newsletter — "The Trust Report"** | 1 per month | First issue: end of June 2026 |
+| **Newsletter — "The Vantage Pilot"** | 1 per month | First issue: end of June 2026 |
 | **Field notes** (short, ad hoc) | 0–2 per month | As things happen |
 
 **Why weekly for articles, not bi-weekly:** weekly is the floor for being seen as an active site by Google + AI crawlers. Going below that loses ranking momentum. Going above it (e.g. daily) requires a content team we don't have.
@@ -178,10 +178,16 @@ The renderer (`app/insights/[slug]/page.tsx`) handles drop cap on the first para
                         TS)                                    entry
 ```
 
-### Step 1 — Draft
-Write the body in any tool you like (markdown, doc, plain text). Doesn't matter — the prose is what matters. The eventual TypeScript form is just packaging.
+### Step 1 — Draft (the hybrid model)
 
-Block out the structure first: dek → 4–6 section headings → fill each. Don't write linearly from the top.
+Drafts come from one of two sources:
+
+1. **Founder-original**: Josh writes the draft start-to-finish. Default for articles where the angle requires lived experience (sales calls, customer deployments, sprint retros, founder essays).
+2. **AI-assisted draft + human review**: Claude drafts a first pass against this doc + DESIGN.md + the queue. Josh reviews substantively — kills paragraphs, changes angles, adds the customer anecdote, rewrites the closing. The result is published under Josh's byline because by the time it ships, he has shaped it. Default for articles that lean heavily on regulatory analysis or technical reference (briefings, dossiers).
+
+The hybrid model is honest. It's how a senior writer would use a research assistant, and the published result is what *Josh signed his name to*, not what the assistant produced. The not-list (§10) draws the line: AI-generated prose shipped without human review, under a fake byline, is not okay; AI-assisted drafting under a real review pass and a real byline is.
+
+Either way, **block out the structure first**: dek → 4–6 section headings → fill each. Don't write linearly from the top.
 
 ### Step 2 — Self-review checklist
 Before opening the PR, read the article twice and check:
@@ -215,11 +221,11 @@ Commit with a message like `Insights: <slug>`. Netlify deploys automatically. Wi
 
 ---
 
-## 7. The newsletter — "The Trust Report"
+## 7. The newsletter — "The Vantage Pilot"
 
-Working name. Borrowed from the platform's Trust Report artifact (the cryptographic compliance export). Signals what readers get: signed, time-bounded, evidence-based — not marketing fluff.
+The name ties directly to the platform's Pilot + Fleet model (the Pilot orchestrates, the Fleet executes). The newsletter is the Pilot — a senior person navigating the month for the reader. Distinctive in search, no conflict with the unrelated Trustpilot.com review platform, and consistent with product nomenclature.
 
-If you want a different name, suggestions to consider: *Workspace Notes*, *From Handvantage*, *The Audit Window*, *Continuous Evidence*. My vote stays with *The Trust Report* — it ties to product and to voice.
+The earlier working name was "The Trust Report" — but that conflicts with our own product feature (the signed compliance export). Calling the newsletter the same thing was always going to confuse readers and customers.
 
 ### Cadence
 - **Monthly**, last business day of each month.
@@ -256,7 +262,7 @@ A few small pieces that make the cadence sustainable. These ship today.
 Generated from the same `INSIGHTS` data the index page uses. Lets readers follow without committing to the email list. Indexed by Google + AI crawlers as a freshness signal.
 
 ### `Subscribe` stub on `/insights`
-A small section that says "We send a monthly digest when there's something worth saying. The Trust Report — first issue June 2026. RSS available now: [link]." Captures intent ahead of building the full form.
+A small section that says "We send a monthly digest when there's something worth saying. The Vantage Pilot — first issue June 2026. RSS available now: [link]." Captures intent ahead of building the full form.
 
 ### Article authoring template
 Path: `workspace-handvantage-com/lib/insights-template.ts.example`. Copy-paste skeleton with comment annotations matching §5 above. Speeds up "I have an idea, let me draft it" → "I have a draft."
@@ -285,7 +291,7 @@ If these stay flat for 3 months while we publish on cadence, something is off �
 Things we are deliberately not doing. Resist the urge.
 
 - **No paid SEO content production.** Every article comes from the founding team or a named guest. Outsourcing kills the voice that's the whole point.
-- **No AI-generated articles.** AI assistance for editing, headline generation, structural review — fine. AI generating the prose end-to-end — not fine. The whole point is engineer-grade trust, and that's broken the moment we ship a generated article.
+- **No unreviewed AI articles.** AI-assisted drafting under named human authorship is fine — it's how this archive is produced. The line is *who is accountable for the published result*. The byline is the human, who has read every paragraph and edited the shape, the angles, and the closings before it shipped. AI generating the full prose with no human review and shipping it under a fake byline — not fine, ever. The trust positioning ("we publish failures, we cite primary sources, we don't write marketing-grade") only works if the human owns the result.
 - **No clickbait headlines.** "You won't believe…" / "10 things…" / "Why X is dead." If the article wouldn't survive a peer review, the headline shouldn't either.
 - **No comments section.** Email replies + LinkedIn DMs are the conversation.
 - **No popups, no exit-intent overlays, no scroll-triggered subscribe modals.** None of these earn trust. The subscribe form is in one place, opt-in, no theatrics.

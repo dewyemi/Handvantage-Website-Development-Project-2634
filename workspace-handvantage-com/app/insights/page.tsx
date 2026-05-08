@@ -121,7 +121,7 @@ export default function InsightsIndex() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-7">
               <p className="text-eyebrow font-ui font-medium text-paper/60 uppercase tracking-[0.12em] mb-6">
-                THE TRUST REPORT — MONTHLY
+                THE VANTAGE PILOT — MONTHLY
               </p>
               <h2 className="font-display text-h2 text-paper leading-tight mb-6">
                 A monthly digest, when there&rsquo;s something worth saying.

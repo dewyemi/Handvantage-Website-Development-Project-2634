@@ -22,7 +22,7 @@ The repository for the Handvantage public web presence. Two sites + supporting p
 If you only read three files, read these:
 
 1. **[DESIGN.md](./DESIGN.md)** — design tokens, components, image discipline, OG/AEO patterns, voice rules, contact form ops, deploy verification. Start here for any UI / SEO / front-end work.
-2. **[EDITORIAL.md](./EDITORIAL.md)** — blog cadence, the four article categories, the 20-topic seed queue, article structure template, the publish workflow, the monthly newsletter plan ("The Trust Report"). Start here for any editorial work.
+2. **[EDITORIAL.md](./EDITORIAL.md)** — blog cadence, the four article categories, the 20-topic seed queue, article structure template, the publish workflow, the monthly newsletter plan ("The Vantage Pilot"). Start here for any editorial work.
 3. **[launch-visuals/INDEX.md](./launch-visuals/INDEX.md)** — the three motion pieces built for the May 2026 launch and how to regenerate them.
 
 ## Running things locally

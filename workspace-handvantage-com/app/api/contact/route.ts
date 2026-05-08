@@ -35,7 +35,10 @@ interface Submission {
   name: string;
   email: string;
   company: string;
+  phone: string;
   message: string;
+  consentPhone: boolean;
+  consentNewsletter: boolean;
   ip: string;
   userAgent: string;
   receivedAt: string;
@@ -69,8 +72,13 @@ async function sendEmail(submission: Submission): Promise<void> {
   const text = [
     `From: ${submission.name} <${submission.email}>`,
     submission.company ? `Company: ${submission.company}` : null,
+    submission.phone ? `Phone: ${submission.phone}` : null,
     "",
     submission.message,
+    "",
+    "— Consent —",
+    `Phone follow-up OK: ${submission.consentPhone ? "yes" : "no"}`,
+    `Newsletter opt-in: ${submission.consentNewsletter ? "yes" : "no"}`,
     "",
     "—",
     `Received: ${submission.receivedAt}`,
@@ -81,6 +89,19 @@ async function sendEmail(submission: Submission): Promise<void> {
     .filter(Boolean)
     .join("\n");
 
+  const phoneLine = submission.phone
+    ? `&nbsp;·&nbsp;<a href="tel:${escapeHtml(submission.phone)}" style="color:#1A1F1B;text-decoration:none;">${escapeHtml(submission.phone)}</a>`
+    : "";
+
+  const consentRow = `<div style="background:#EAE3D5;border:1px solid #D2C9B7;padding:14px 16px;margin-top:16px;font-size:13px;color:#1A1F1B;">
+    <p style="margin:0 0 6px 0;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:2px;color:#4A4F4B;text-transform:uppercase;">CONSENT</p>
+    <p style="margin:0;line-height:1.55;">
+      Phone follow-up: <strong style="color:${submission.consentPhone ? "#2D5A3D" : "#7A2E1F"};">${submission.consentPhone ? "OK" : "NOT GRANTED"}</strong>
+      &nbsp;·&nbsp;
+      Newsletter opt-in: <strong style="color:${submission.consentNewsletter ? "#2D5A3D" : "#7A2E1F"};">${submission.consentNewsletter ? "YES" : "no"}</strong>
+    </p>
+  </div>`;
+
   const html = `<!DOCTYPE html>
 <html>
 <body style="font-family:-apple-system,Segoe UI,sans-serif;color:#1A1F1B;line-height:1.5;max-width:640px;margin:0 auto;padding:24px;background:#F5F1EA;">
@@ -89,11 +110,12 @@ async function sendEmail(submission: Submission): Promise<void> {
     <h1 style="margin:8px 0 0 0;font-family:Georgia,serif;font-weight:400;font-size:28px;color:#1A1F1B;">${escapeHtml(submission.name)}</h1>
     <p style="margin:4px 0 0 0;color:#4A4F4B;font-size:15px;">
       <a href="mailto:${escapeHtml(submission.email)}" style="color:#722F37;text-decoration:none;">${escapeHtml(submission.email)}</a>
-      ${submission.company ? `&nbsp;·&nbsp;${escapeHtml(submission.company)}` : ""}
+      ${submission.company ? `&nbsp;·&nbsp;${escapeHtml(submission.company)}` : ""}${phoneLine}
     </p>
   </div>
   <div style="background:#FFFFFF;border:1px solid #D2C9B7;padding:20px;font-size:15px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(submission.message)}</div>
-  <p style="margin-top:32px;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#4A4F4B;letter-spacing:1px;text-transform:uppercase;">
+  ${consentRow}
+  <p style="margin-top:24px;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#4A4F4B;letter-spacing:1px;text-transform:uppercase;">
     Received ${submission.receivedAt} · IP ${submission.ip}
   </p>
 </body>
@@ -120,6 +142,15 @@ async function pingSlack(submission: Submission): Promise<void> {
   const fields = [
     { title: "Email", value: submission.email, short: true },
     submission.company ? { title: "Company", value: submission.company, short: true } : null,
+    submission.phone ? { title: "Phone", value: submission.phone, short: true } : null,
+    {
+      title: "Consent",
+      value: [
+        `Phone OK: ${submission.consentPhone ? "✅" : "—"}`,
+        `Newsletter: ${submission.consentNewsletter ? "✅" : "—"}`,
+      ].join(" · "),
+      short: true,
+    },
   ].filter(Boolean);
 
   const payload = {
@@ -165,7 +196,16 @@ export async function POST(request: Request) {
     }
 
     const data = await request.json();
-    const { name, email, company, message, website } = data ?? {};
+    const {
+      name,
+      email,
+      company,
+      phone,
+      message,
+      website,
+      consentPhone,
+      consentNewsletter,
+    } = data ?? {};
 
     // Honeypot — silently succeed without delivering. Bots get a 200, humans
     // don't fill this field because it's hidden.
@@ -192,24 +232,40 @@ export async function POST(request: Request) {
     if (company !== undefined && company !== null && (typeof company !== "string" || company.length > 200)) {
       return NextResponse.json({ error: "Invalid company" }, { status: 400 });
     }
+    // Phone is optional — when present, allow digits, spaces, +, -, (), . up to 40 chars.
+    if (phone !== undefined && phone !== null && phone !== "") {
+      if (typeof phone !== "string" || phone.length > 40 || !/^[+0-9().\-\s]{6,40}$/.test(phone)) {
+        return NextResponse.json({ error: "Invalid phone" }, { status: 400 });
+      }
+    }
 
     const submission: Submission = {
       name: String(name).trim(),
       email: String(email).trim(),
       company: company ? String(company).trim() : "",
+      phone: phone ? String(phone).trim() : "",
       message: String(message).trim(),
+      consentPhone: consentPhone === true,
+      consentNewsletter: consentNewsletter === true,
       ip,
       userAgent: request.headers.get("user-agent") || "unknown",
       receivedAt: new Date().toISOString(),
     };
 
-    // Always log — Netlify function logs are the audit trail of last resort.
+    // Always log — Netlify function logs are the audit trail of last resort,
+    // and the consent record is required by CASL (the prospect's confirmation
+    // that they agreed to phone follow-up / newsletter at the moment of
+    // submission).
     console.log("[contact form] submission", {
       name: submission.name,
       email: submission.email,
       company: submission.company,
+      phone: submission.phone,
+      consentPhone: submission.consentPhone,
+      consentNewsletter: submission.consentNewsletter,
       messagePreview: submission.message.slice(0, 200),
       ip: submission.ip,
+      userAgent: submission.userAgent,
       receivedAt: submission.receivedAt,
     });
 
