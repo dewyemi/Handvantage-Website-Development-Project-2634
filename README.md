@@ -74,6 +74,17 @@ curl -s  https://workspace.handvantage.com/insights/rss.xml | head -8
 
 Full operational notes: [DESIGN.md §10](./DESIGN.md#10-contact-form-operations).
 
+## Pulling a published article
+
+Edit-and-push, or use the helper:
+
+```bash
+./scripts/unpublish-article.sh                                     # list current slugs
+./scripts/unpublish-article.sh iso-42001-audit-checklist-2026      # pull this one
+```
+
+The script removes the entry from `lib/insights.ts`, runs a build to verify, and pushes to main. Article is 404 within ~3 minutes (Netlify redeploy time). If the build fails, the script restores the file and aborts — nothing leaves your machine.
+
 ## What's currently live
 
 - **Workspace site**: 8 routes (home, product, architecture, compliance, philosophy, insights, contact, colophon) + 3 insights articles + dynamic OG image generator + RSS feed at `/insights/rss.xml` + FAQPage / SoftwareApplication / Article schema + `/llms.txt`.
