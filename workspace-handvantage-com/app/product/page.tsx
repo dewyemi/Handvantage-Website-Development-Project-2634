@@ -66,9 +66,22 @@ const productJsonLd = {
   },
 };
 
-const Pillar = ({ title, body }: { title: string; body: React.ReactNode }) => (
+const Pillar = ({
+  name,
+  outcome,
+  body,
+}: {
+  name: string;
+  outcome: string;
+  body: React.ReactNode;
+}) => (
   <div className="border-t border-ink-hairline pt-12 pb-4">
-    <h3 className="font-display text-h3 text-ink mb-6">{title}</h3>
+    <p className="font-mono text-byline text-oxblood uppercase tracking-[0.16em] mb-3">
+      {name}
+    </p>
+    <h3 className="font-display text-h3 text-ink mb-6 leading-tight max-w-[760px]">
+      {outcome}
+    </h3>
     <div className="font-display text-body text-ink space-y-5 leading-relaxed max-w-[720px]">
       {body}
     </div>
@@ -123,15 +136,20 @@ export default function ProductPage() {
         <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
           <SectionEyebrow>THE PLATFORM</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">Six pillars. One identity.</h2>
-          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-8">
+          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-4">
             Most &ldquo;AI for the enterprise&rdquo; products ship a chatbot. Vantage Workspace
             ships the productivity stack the chatbot needs to be useful. Email, files, chat,
-            meetings, documents — and an AI agent layer that operates across all five. The point
-            is not the chatbot. The point is the integration.
+            meetings, documents — and an AI agent layer that operates across all five.
+          </p>
+          <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px] mb-12">
+            Each pillar leads with what your team actually does with it. The architectural detail
+            is in the body for the engineers and architects who care; for everyone else, read the
+            headlines.
           </p>
 
           <Pillar
-            title="Email."
+            name="EMAIL"
+            outcome="Your team’s inbox, ten minutes shorter."
             body={
               <>
                 <p>
@@ -154,7 +172,8 @@ export default function ProductPage() {
           />
 
           <Pillar
-            title="Files."
+            name="FILES"
+            outcome="Every file your team needs, attributed and rolled-back-able."
             body={
               <>
                 <p>
@@ -175,7 +194,8 @@ export default function ProductPage() {
           />
 
           <Pillar
-            title="Chat."
+            name="CHAT"
+            outcome="The conversation has the audit trail, automatically."
             body={
               <>
                 <p>
@@ -195,7 +215,8 @@ export default function ProductPage() {
           />
 
           <Pillar
-            title="Meetings."
+            name="MEETINGS"
+            outcome="The recording, the transcript, the action items — already in chat by the time you log out."
             body={
               <>
                 <p>
@@ -215,7 +236,8 @@ export default function ProductPage() {
           />
 
           <Pillar
-            title="Documents."
+            name="DOCUMENTS"
+            outcome="The first draft is on the page when you open it."
             body={
               <>
                 <p>
@@ -235,7 +257,8 @@ export default function ProductPage() {
           />
 
           <Pillar
-            title="AI agents."
+            name="AI AGENTS"
+            outcome="Five named teammates that handle the work nobody enjoys."
             body={
               <>
                 <p>

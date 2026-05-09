@@ -223,6 +223,90 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
+      {/* SECTION 4.5 — WHAT THE TEAM ACTUALLY DOES (paper, business)  */}
+      {/* The business-buyer counterpart to the security narrative.    */}
+      {/* Five outcomes anchored in real platform capabilities (the    */}
+      {/* Pilot + Fleet model + the six pillars).                      */}
+      {/* ============================================================ */}
+      <section className="bg-paper">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="max-w-[820px] mb-16">
+            <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+              What the team actually does
+            </p>
+            <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-8">
+              What changes on Monday morning.
+            </h2>
+            <p className="font-display text-body-lg text-ink leading-relaxed">
+              The compliance posture is what gets you through procurement. The work below is what
+              gets you renewed. Five things the platform makes faster from the first week —
+              concrete, named by the agent or pillar that does the work.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-hairline border border-ink-hairline">
+            {[
+              {
+                eyebrow: "PILOT AGENT",
+                headline: "Inbox triage in minutes, not the morning.",
+                body: "The Pilot reads the overnight inbox, drafts replies for the human to send, surfaces the few that genuinely need attention. The 90-minute scroll becomes a 15-minute review.",
+              },
+              {
+                eyebrow: "ANALYST AGENT + DOCUMENTS",
+                headline: "Proposals drafted with this quarter's data.",
+                body: "The Analyst pulls the latest customer history out of Files; Documents drafts the proposal against your template. No copy-paste between four tools, no stale figures from last quarter's deck.",
+              },
+              {
+                eyebrow: "CONCIERGE AGENT",
+                headline: "Meetings booked without the email back-and-forth.",
+                body: "The Concierge handles availability, scheduling, and confirmation across CalDAV, Exchange, and Google Calendar. The five emails become one.",
+              },
+              {
+                eyebrow: "HUNTER AGENT",
+                headline: "First-pass research before the meeting, not during.",
+                body: "The Hunter pulls the prep work — the company brief, the customer's last six interactions, the open RFP if there is one — into a one-page summary you read on the way in.",
+              },
+              {
+                eyebrow: "SENTRY AGENT",
+                headline: "Vendor security review in hours, not weeks.",
+                body: "The Sentry pulls the vendor's SOC 2 and ISO 42001 reports, reads the latest pen-test summary, flags the three things your security team should look at — before procurement gets the contract.",
+                wide: true,
+              },
+            ].map(({ eyebrow, headline, body, wide }) => (
+              <li
+                key={headline}
+                className={`bg-paper p-8 md:p-10 ${wide ? "md:col-span-2" : ""}`}
+              >
+                <p className="font-mono text-byline text-oxblood uppercase tracking-[0.16em] mb-4">
+                  {eyebrow}
+                </p>
+                <h3 className="font-display text-[clamp(1.25rem,1.5vw+0.5rem,1.75rem)] leading-[1.15] text-ink mb-4">
+                  {headline}
+                </h3>
+                <p className="font-display text-body text-ink-soft leading-relaxed max-w-[560px]">
+                  {body}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 flex flex-wrap items-baseline justify-between gap-4">
+            <p className="font-display text-body text-ink-soft max-w-[640px] leading-relaxed">
+              Eight productivity tools become one. The vendor management overhead, the SSO sprawl,
+              and the audit-log reconciliation go with them.
+            </p>
+            <Link
+              href="/for-teams"
+              className="inline-flex items-center gap-2 font-ui font-medium text-[15px] text-oxblood hover:text-ink border-b border-oxblood hover:border-ink pb-1 transition-colors"
+            >
+              See what each role gets
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* SECTION 5 — ARCHITECTURE PREVIEW (midnight, 3D illustration) */}
       {/* ============================================================ */}
       <section className="bg-midnight relative overflow-hidden">
