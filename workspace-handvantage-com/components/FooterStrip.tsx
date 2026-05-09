@@ -7,7 +7,13 @@ const SITE_LINKS = [
   { label: "Compliance", href: "/compliance" },
   { label: "Philosophy", href: "/philosophy" },
   { label: "Insights", href: "/insights" },
+  { label: "The Vantage Pilot", href: "/vantage-pilot" },
   { label: "Talk to us", href: "/contact" },
+];
+
+const ROLE_LINKS = [
+  { label: "For business teams", href: "/for-teams" },
+  { label: "For the CISO", href: "/for-ciso" },
 ];
 
 export function FooterStrip() {
@@ -15,7 +21,7 @@ export function FooterStrip() {
   return (
     <footer className="bg-paper border-t border-ink-hairline pt-16 pb-10 md:pt-20 md:pb-12">
       <div className="max-w-wide mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16">
           <div>
             <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.15em] mb-4">
               Handvantage
@@ -31,6 +37,24 @@ export function FooterStrip() {
             </p>
             <ul className="flex flex-col gap-2">
               {SITE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-ui font-medium text-[15px] text-ink hover:text-oxblood hover:underline underline-offset-4"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.15em] mb-4">
+              For your role
+            </p>
+            <ul className="flex flex-col gap-2">
+              {ROLE_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

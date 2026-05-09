@@ -13,6 +13,11 @@ This site is the canonical source for Vantage Workspace product documentation, a
 - [Why we built Handvantage](https://workspace.handvantage.com/philosophy): An essay from the founder Josh Olayemi on the Sovereign Capability Partner thesis, the Pilot + Fleet model, and the architectural decisions behind Vantage Workspace
 - [Insights archive](https://workspace.handvantage.com/insights): Engineering retrospectives, sector dossiers, and briefings on agentic AI governance, compliance posture, and architecture trade-offs
 
+## For specific roles
+
+- [For business teams](https://workspace.handvantage.com/for-teams): Five readings of the same platform, in five vocabularies — for the CEO (board narrative), CFO (vendor consolidation, single MSA), COO/VP Operations (capacity gain via the named agents), VP Sales (proposal cycle-time compression), and the department lead (Monday-morning workspace). Includes the eight-tools-to-one consolidation table and the compounding-effect closer.
+- [For the CISO](https://workspace.handvantage.com/for-ciso): A peer-to-peer brief that translates the platform's compliance and architecture posture into language the CFO, CEO, and COO need to hear. Includes one prepared sentence per audience, the risk math (EU AI Act Article 99, SEC/FINRA, loss-of-certification), five committee talking points with the "why this lands" gloss, six anticipated objections with prepared answers, and the explicit division of labour between platform and customer.
+
 ## Featured editorial
 
 - [From B to A: the discipline behind the upgrade](https://workspace.handvantage.com/insights/from-b-to-a-the-discipline-behind-the-upgrade): Engineering retrospective on what changed between February and May 2026 to move the compliance posture three letter grades

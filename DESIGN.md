@@ -227,6 +227,19 @@ A real design tension on this site: too much marketing voice loses engineer-grad
 
 **Do not delete numbers that anchor claims.** "11 frameworks", "168 automated tests", "A grade", "100% pass rate", "10 minutes to deploy" — these are concrete value statements, not implementation details. They stay.
 
+### The persona surfaces (added 2026-05-09)
+
+The site now has explicit persona-led pages alongside the technical canon. Two pages, one shared discipline.
+
+- **`/for-teams`** — the business-buyer counterpart to `/architecture`. Five reading sections (CEO, CFO, COO, VP Sales, department lead), each in the persona's actual vocabulary. Includes the eight-tools-to-one consolidation table on a midnight band. Honest about what does NOT consolidate (identity, SIEM stay where they are). No invented ROI figures — numbers are real or absent. Closing "compounding effect" section explains why deployments stall when personas argue past each other and how alignment shifts the procurement timeline.
+- **`/for-ciso`** — a peer-to-peer brief written for the security leader who already understands the depth and needs help translating it for their committee. Six sections: one prepared sentence per audience (CEO/CFO/COO/board), the risk math quantified (EU AI Act Article 99, SEC/FINRA, loss-of-certification), five committee talking points with the "why this lands" gloss, the explicit platform-vs-customer division of labour, six prepared answers to anticipated objections, and a "where to send people" routing index. Designed to be printed, forwarded, and attached to a procurement deck.
+
+**Discoverability**: home page Section 4.5 ("What changes on Monday morning") links to `/for-teams`; `/for-teams` and `/for-ciso` cross-link to each other. Footer has a third column "For your role" listing both. **Not in top nav** — the top nav stays at five items (Product, Architecture, Compliance, Philosophy, Insights) to avoid crowding.
+
+**Voice rule for these pages**: address the persona directly ("you"). Acknowledge their context (procurement dynamics, committee politics, board questions). Don't condescend — they already have judgment; the page provides language, not opinions. Don't claim the page replaces their work.
+
+**The hard rule across both**: when the page tells the reader something the platform delivers, the platform actually delivers it. When the page tells the reader something the customer still owns, that ownership is honest. Vendors who blur this line lose the deal at the procurement review.
+
 ---
 
 ## 6. Components — workspace site
@@ -245,6 +258,7 @@ A real design tension on this site: too much marketing voice loses engineer-grad
 | `<FactStack />` | `components/FactStack.tsx` | Numbered fact list with mono labels |
 | `<CTABlock />` | `components/CTABlock.tsx` | End-of-page CTA in midnight or paper |
 | `<FounderPortraitSection />` | `components/FounderPortraitSection.tsx` | Black-and-white portrait + bio block |
+| `<InsightsArchive />` | `components/InsightsArchive.tsx` | Client component — filter/sort UI for /insights |
 
 When adding a new component, place it in `components/`, give it a JSDoc-style header comment if its purpose isn't obvious from the name, and try to compose existing components rather than re-inventing the eyebrow/section pattern.
 

@@ -315,9 +315,10 @@ const VantageWorkspacePage = () => {
             <p className="text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
               This page is the introduction. The full reference is on the dedicated workspace site —
               including the seven-layer architecture spec, the framework-by-framework compliance
-              breakdown, the founder essay, and the engineering retrospectives.
+              breakdown, the founder essay, the engineering retrospectives, and two role-specific
+              briefs (one for the business committee, one for the CISO).
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
                 href="https://workspace.handvantage.com"
                 rel="noopener"
@@ -333,6 +334,23 @@ const VantageWorkspacePage = () => {
               >
                 READ THE INSIGHTS ARCHIVE
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-x-8 gap-y-2 justify-center text-sm font-mono tracking-[0.16em] uppercase">
+              <a
+                href="https://workspace.handvantage.com/for-teams"
+                rel="noopener"
+                className="text-[#C9A36A] hover:text-white transition-colors inline-flex items-center gap-2"
+              >
+                For business teams →
+              </a>
+              <span className="text-slate-700 hidden sm:inline">·</span>
+              <a
+                href="https://workspace.handvantage.com/for-ciso"
+                rel="noopener"
+                className="text-[#C9A36A] hover:text-white transition-colors inline-flex items-center gap-2"
+              >
+                The CISO brief →
               </a>
             </div>
           </div>
