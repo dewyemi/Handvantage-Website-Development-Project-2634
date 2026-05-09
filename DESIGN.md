@@ -197,6 +197,36 @@ Per-page metadata exports override these where needed (e.g. `/insights/[slug]` s
 - **City**: Toronto (only in legitimate contexts: schema.org Organization address, philosophy essay narrative). Removed from prominent UI per 2026-05 decision.
 - **Domain mentions**: write `workspace.handvantage.com` (lowercase, no protocol) in copy. Same for `handvantage.co`.
 
+### Value vs. spec — where each belongs
+
+A real design tension on this site: too much marketing voice loses engineer-grade trust; too much technical specificity alienates business buyers (CFO, CIO, board). The fix is page-level discipline, not deletion.
+
+**Lead with value where the reader hasn't self-selected for depth**:
+- Home page hero, sub-hero, and section headlines.
+- Product page hero / page-level metadata description / OG card tagline.
+- Cross-promo on `pages.handvantage.com`.
+- Newsletter pull-quotes.
+- LinkedIn share previews.
+
+**Keep technical specificity where the reader has self-selected**:
+- Architecture page (entire page — that's its job).
+- Compliance page methodology section.
+- Insights articles (regulatory citations by Article number, standards by clause number — these earn the article's authority).
+- Product page deployment + runtime body paragraphs (where the H2 led with value, the body can specify).
+- `featureList` in JSON-LD, `lib/data-tokens.ts`, OpenAPI schemas — structured data for AI/search-engine consumption is the right home for `mTLS`, `Fernet`, `RFC 3161`, `OIDC`, `20 containers`.
+
+**The 2026-05 rebalance**:
+- Removed "Twenty containers, one SSO, one audit trail" from the home hero, the product page H2, the product OG card tagline, and the metadata descriptions. Replaced with "One identity. One audit trail. Live in ten minutes." or local variants.
+- Replaced OWASP code chips (`LLM01 · LLM06`) on the home architecture preview with one-line outcomes ("Every action gated", "Injection caught"). The OWASP mapping stays on `/architecture`.
+- Replaced "RFC 3161 / Signed events" stat on the home NemoClaw section with "Every / Action signed / Sealed, sequenced, exported to your SIEM. Reconstructable on demand by an auditor."
+
+**Test for "is this in the right register"**:
+- If a CFO can read the page and feel confident describing what the platform does to a board, the value language is doing its job.
+- If a security architect can dig into `/architecture` and find the technical depth they need to evaluate the platform on engineering merit, the spec language is doing its job.
+- If both are happy, you're in the right register.
+
+**Do not delete numbers that anchor claims.** "11 frameworks", "168 automated tests", "A grade", "100% pass rate", "10 minutes to deploy" — these are concrete value statements, not implementation details. They stay.
+
 ---
 
 ## 6. Components — workspace site

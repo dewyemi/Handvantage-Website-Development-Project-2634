@@ -9,7 +9,7 @@ import { SITE } from "@/lib/data-tokens";
 export const metadata: Metadata = {
   title: "Vantage Workspace",
   description:
-    "Vantage Workspace is one platform: email, files, chat, meetings, docs, plus an AI that does the work across all of them. 20 containers, one SSO, one audit trail. Deployed on your infrastructure in 10 minutes.",
+    "Vantage Workspace is one platform: email, files, chat, meetings, documents, plus an AI agent layer that operates across all of them. One identity, one signed audit trail, deployed on your infrastructure in ten minutes.",
   alternates: { canonical: `${SITE.baseUrl}/product` },
 };
 
@@ -18,7 +18,7 @@ const productJsonLd = {
   "@type": "SoftwareApplication",
   name: "Vantage Workspace",
   description:
-    "Vantage Workspace is a sovereign agentic AI platform: email, files, chat, meetings, documents, and an AI agent layer (Pilot + Fleet) running on customer infrastructure. Twenty containers, one SSO, one signed audit trail. A grade compliance posture across eleven regulatory frameworks.",
+    "Vantage Workspace is a sovereign agentic AI platform: email, files, chat, meetings, documents, and an AI agent layer (Pilot + Fleet) running on customer infrastructure. One identity, one signed audit trail, and an A-grade compliance posture across eleven regulatory frameworks.",
   url: "https://workspace.handvantage.com/product",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Agentic AI Platform",
@@ -341,7 +341,7 @@ export default function ProductPage() {
             The runtime
           </p>
           <h2 className="font-display text-h2 text-paper mb-12">
-            Twenty containers, one SSO, one audit trail.
+            One identity. One audit trail. Your perimeter.
           </h2>
           {/* Rack illustration — rendered at its native 4:5 ratio (1122x1402) */}
           <figure className="mb-16 max-w-[460px] mx-auto">

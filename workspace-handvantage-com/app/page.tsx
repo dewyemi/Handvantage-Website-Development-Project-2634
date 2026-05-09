@@ -50,8 +50,8 @@ export default function HomePage() {
               </h1>
               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-10">
                 Vantage Workspace is one platform — email, files, chat, meetings, docs, plus
-                governed AI — running on your infrastructure. Twenty containers, one SSO, one audit
-                trail, deployed in ten minutes.
+                governed AI — running on your infrastructure. One identity for your team. One
+                signed audit trail. Live in ten minutes.
               </p>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <Link
@@ -257,14 +257,14 @@ export default function HomePage() {
 
               <ul className="border-t border-midnight-hairline mb-10">
                 {[
-                  ["01", "Policy Engine", "LLM01 · LLM06"],
-                  ["02", "Prompt Defence (NemoClaw)", "LLM01 · LLM02 · LLM05"],
-                  ["03", "Tool Guardrails", "LLM02 · LLM07"],
-                  ["04", "Memory Safety", "LLM03 · LLM06 · LLM10"],
-                  ["05", "Trust Boundaries", "LLM04 · LLM08"],
-                  ["06", "Inter-Service Auth", "LLM04 · LLM09"],
-                  ["07", "Supply Chain", "LLM05 · LLM09"],
-                ].map(([n, name, owasp]) => (
+                  ["01", "Policy Engine", "Every action gated"],
+                  ["02", "Prompt Defence (NemoClaw)", "Injection caught"],
+                  ["03", "Tool Guardrails", "Scope-checked at runtime"],
+                  ["04", "Memory Safety", "Tenant-isolated"],
+                  ["05", "Trust Boundaries", "Identity enforced"],
+                  ["06", "Inter-Service Auth", "Encrypted in transit"],
+                  ["07", "Supply Chain", "Signed at deploy"],
+                ].map(([n, name, outcome]) => (
                   <li
                     key={n}
                     className="border-b border-midnight-hairline py-3 grid grid-cols-12 gap-3 items-center"
@@ -272,9 +272,9 @@ export default function HomePage() {
                     <span className="col-span-2 font-mono text-[12px] text-gold tracking-[0.1em]">
                       {n}
                     </span>
-                    <span className="col-span-7 font-display text-[15px] text-paper">{name}</span>
-                    <span className="col-span-3 font-mono text-[11px] text-paper/55 text-right tracking-[0.05em]">
-                      {owasp}
+                    <span className="col-span-6 font-display text-[15px] text-paper">{name}</span>
+                    <span className="col-span-4 font-display text-[13px] text-paper/65 text-right">
+                      {outcome}
                     </span>
                   </li>
                 ))}
@@ -394,9 +394,9 @@ export default function HomePage() {
 
             <ul className="lg:col-span-4 grid grid-cols-1 gap-px bg-midnight-hairline border border-midnight-hairline">
               {[
-                ["28", "ATLAS rules", "Active rule set across the OWASP Top 10 for Agentic Applications."],
-                ["10/10", "OWASP coverage", "First-pass coverage of every category in the 2026 standard."],
-                ["RFC 3161", "Signed events", "Every firewall decision timestamped, sequenced, anchored."],
+                ["10/10", "OWASP coverage", "Every category in the 2026 standard for Agentic Applications, mapped and tested."],
+                ["28", "Detection rules", "Active across prompt injection, jailbreak, exfiltration, and tool misuse."],
+                ["Every", "Action signed", "Sealed, sequenced, and exported to your SIEM. Reconstructable on demand by an auditor."],
                 ["0", "Bypass paths", "Structural — there is no way around the layer."],
               ].map(([num, label, body]) => (
                 <li key={String(label)} className="bg-midnight p-6">
