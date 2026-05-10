@@ -86,20 +86,41 @@ export default function ForTeamsPage() {
             whether the cycle gets faster. The department lead is asking what their team does on
             Monday morning.
           </p>
-          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[760px] mb-6">
+          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[760px] mb-10">
             All five answers are good ones. The platform delivers all five — but in different
             vocabularies, with different proofs, on different timelines. This page is the
             translation layer: each role&rsquo;s reading of the same platform, in the language
-            that role actually uses.
+            that role actually uses. The numbers below are real or absent; we don&rsquo;t invent
+            ROI figures.
           </p>
-          <p className="font-display text-body text-ink-soft leading-relaxed max-w-[760px]">
-            The CISO has{" "}
-            <Link href="/for-ciso" className="text-oxblood hover:underline underline-offset-4">
-              their own brief
-            </Link>{" "}
-            — security and compliance depth in the language they need to bring back to the
-            committee. The numbers below are real or absent; we don&rsquo;t invent ROI figures.
-          </p>
+
+          {/* Hard-to-miss CISO callout — directs the security read straight to /for-ciso */}
+          <Link
+            href="/for-ciso"
+            className="group block border-l-4 border-oxblood bg-paper-deep px-6 md:px-8 py-6 md:py-8 max-w-[760px] hover:bg-paper transition-colors no-underline hover:no-underline"
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em] mb-3">
+                  IF YOU&rsquo;RE THE CISO ON THE COMMITTEE
+                </p>
+                <p className="font-display text-h4 text-ink leading-tight group-hover:text-oxblood transition-colors mb-1">
+                  We wrote a 90-second brief specifically for you.
+                </p>
+                <p className="font-display text-body text-ink-soft leading-relaxed">
+                  Print it, forward it, attach it to your committee deck — the language to use
+                  when the CFO asks about consolidation, the CEO asks about board-readiness, and
+                  the auditor asks for evidence.
+                </p>
+              </div>
+              <span
+                aria-hidden="true"
+                className="font-display text-h2 text-oxblood group-hover:translate-x-1 transition-transform flex-shrink-0"
+              >
+                →
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 

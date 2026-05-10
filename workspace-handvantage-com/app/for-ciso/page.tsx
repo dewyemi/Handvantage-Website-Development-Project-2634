@@ -25,10 +25,17 @@ export default function ForCisoPage() {
             <span className="text-ink-soft italic">for your committee.</span>
           </h1>
           <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-6">
-            You read the architecture page. You understand the seven layers, the OWASP coverage,
-            the audit log. The rest of your committee doesn&rsquo;t. This page is the translation
-            layer — the language to use when the CFO asks about consolidation, the CEO asks about
-            board-readiness, and the COO asks what changes for their team.
+            You read the{" "}
+            <Link
+              href="/architecture"
+              className="text-oxblood hover:underline underline-offset-4"
+            >
+              architecture page
+            </Link>
+            . You understand the seven layers, the OWASP coverage, the audit log. The rest of
+            your committee doesn&rsquo;t. This page is the translation layer — the language to
+            use when the CFO asks about consolidation, the CEO asks about board-readiness, and
+            the COO asks what changes for their team.
           </p>
           <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px]">
             Print it. Forward it. Attach it to your procurement deck. Written by someone who has
