@@ -124,6 +124,34 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+
+            {/* Sector briefs — surface the five sector dossiers from the
+                workspace site. Visitors browsing the consulting footer
+                shouldn't have to click through to /vantage-workspace to
+                find a brief written for their industry. */}
+            <h4 className="text-lg font-semibold mt-8 mb-4 text-white border-l-4 border-[#C9A36A] pl-3">
+              Sector briefs
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: 'Financial services', href: 'https://workspace.handvantage.com/insights/agentic-ai-financial-services-finra-audit-trail' },
+                { label: 'Healthcare', href: 'https://workspace.handvantage.com/insights/healthcare-agentic-ai-hipaa-fda-supervision' },
+                { label: 'Fintech', href: 'https://workspace.handvantage.com/insights/fintech-agentic-ai-bsa-aml-fair-lending-sponsor-bank' },
+                { label: 'Canadian public sector', href: 'https://workspace.handvantage.com/insights/public-sector-agentic-ai-canadian-sovereignty' },
+                { label: 'Legal services', href: 'https://workspace.handvantage.com/insights/legal-services-agentic-ai-privilege-competence-supervision' },
+              ].map((b) => (
+                <li key={b.href}>
+                  <a
+                    href={b.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-[#C9A36A] transition-colors"
+                  >
+                    {b.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* Assessments & Partners */}
