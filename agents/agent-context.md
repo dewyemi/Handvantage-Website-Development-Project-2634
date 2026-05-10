@@ -66,7 +66,7 @@ Six common objections with prepared responses. The agent should adapt to the pro
 
 ### "Why this vendor instead of Microsoft / Google / OpenAI?"
 
-Each of those is excellent within its operating model. Microsoft and Google are productivity suites with AI added; their data planes are theirs, the control planes are theirs, the audit telemetry goes back to them. OpenAI is a model provider; the productivity stack around it is the customer's problem to assemble. Vantage Workspace is the productivity stack and the agentic AI layer designed for single-tenant deployment on customer infrastructure. The trade is real: less optionality on identity, more control on data plane. The trade is right for organisations whose buyers (regulated industries, public-sector bodies, sovereignty-conscious enterprises) insist on the second.
+Each of those is excellent within its operating model. Microsoft and Google are productivity suites with AI added; their data planes are theirs, the control planes are theirs, the audit telemetry goes back to them. OpenAI is a model provider; the productivity stack around it is the customer's problem to assemble. Vantage Workspace is the productivity stack and the agentic AI layer designed for single-tenant deployment on customer infrastructure. The trade is real: less surface area in the cloud (because the data plane and the control plane stay inside your infrastructure), more operational responsibility for the deployment. The trade is right for organisations whose buyers (regulated industries, public-sector bodies, sovereignty-conscious enterprises) insist on data residency and bounded telemetry.
 
 ### "What happens if the vendor is acquired or shuts down?"
 

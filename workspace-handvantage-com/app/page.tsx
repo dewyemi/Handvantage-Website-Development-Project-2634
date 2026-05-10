@@ -294,11 +294,11 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-7">
                 <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em] mb-4">
-                  FOR THE PEOPLE WHO HAVE TO BUY THIS
+                  FOR THE WHOLE COMMITTEE, NOT JUST THE SECURITY READ
                 </p>
                 <h3 className="font-display text-[clamp(1.5rem,2vw+0.75rem,2.25rem)] leading-[1.1] tracking-[-0.01em] text-ink mb-4">
-                  CEO, CFO, COO, VP Sales, department lead — five readings of the same platform in
-                  five vocabularies.
+                  What the platform looks like to your CFO, your COO, your VP Sales, and the team
+                  that will actually use it.
                 </h3>
                 <p className="font-display text-body text-ink-soft leading-relaxed max-w-[640px]">
                   Eight productivity tools become one. The vendor management overhead, the SSO

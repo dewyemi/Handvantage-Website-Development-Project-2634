@@ -69,23 +69,36 @@ export default function ForTeamsPage() {
       {/* Hero */}
       <section className="pt-12 md:pt-20 pb-20 bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-          <SectionEyebrow>FOR THE BUSINESS</SectionEyebrow>
+          <SectionEyebrow>FOR THE WHOLE PROCUREMENT COMMITTEE</SectionEyebrow>
           <h1 className="font-display text-[clamp(2.5rem,4.5vw+1rem,5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-10 max-w-[1100px]">
-            The CISO buys the platform.
+            Five people in the room.
             <br />
-            <span className="text-ink-soft italic">The rest of the company has to use it.</span>
+            <span className="text-ink-soft italic">
+              Five different reads of the same platform.
+            </span>
           </h1>
           <p className="font-display text-body-lg text-ink leading-relaxed max-w-[760px] mb-6">
-            Most of what gets written about agentic AI is written for security architects and
-            compliance officers. The architecture page does that for Vantage Workspace, well. This
-            page is for everyone else — the CEO who has to describe it to a board, the CFO who has
-            to defend the line item, the COO who has to scale capacity without scaling headcount,
-            the VP Sales who has to ship proposals on time, and the department lead whose team is
-            actually going to live in it.
+            Most agentic AI procurement decisions stall not because anyone in the room is wrong,
+            but because the people in the room are answering five different questions. The CEO is
+            asking whether the strategy is defensible to a board. The CFO is asking whether the
+            line item consolidates. The COO is asking what changes for throughput. The CISO is
+            asking whether the security and compliance posture holds. The VP Sales is asking
+            whether the cycle gets faster. The department lead is asking what their team does on
+            Monday morning.
+          </p>
+          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[760px] mb-6">
+            All five answers are good ones. The platform delivers all five — but in different
+            vocabularies, with different proofs, on different timelines. This page is the
+            translation layer: each role&rsquo;s reading of the same platform, in the language
+            that role actually uses.
           </p>
           <p className="font-display text-body text-ink-soft leading-relaxed max-w-[760px]">
-            Five readings of the same platform, in five vocabularies. The numbers are real or
-            absent — we don&rsquo;t invent ROI figures.
+            The CISO has{" "}
+            <Link href="/for-ciso" className="text-oxblood hover:underline underline-offset-4">
+              their own brief
+            </Link>{" "}
+            — security and compliance depth in the language they need to bring back to the
+            committee. The numbers below are real or absent; we don&rsquo;t invent ROI figures.
           </p>
         </div>
       </section>

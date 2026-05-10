@@ -92,6 +92,7 @@ The auto-routine picks the lowest-numbered item that is not yet published. The q
 - FIELD NOTE — How to brief your CFO on agentic AI without overpromising → published as `brief-your-cfo-on-agentic-ai-without-overpromising`
 - FIELD NOTE — What agentic AI actually does for sales velocity → published as `what-agentic-ai-does-for-sales-velocity`
 - DOSSIER — Healthcare and agentic AI: HIPAA, FDA SaMD, and the supervision question → published as `healthcare-agentic-ai-hipaa-fda-supervision`
+- DOSSIER — Fintech and agentic AI: BSA/AML, fair lending, and the sponsor-bank question → published as `fintech-agentic-ai-bsa-aml-fair-lending-sponsor-bank`
 
 **Active queue (15 topics, interleaved)**:
 
