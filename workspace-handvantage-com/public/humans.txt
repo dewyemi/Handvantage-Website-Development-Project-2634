@@ -1,0 +1,28 @@
+/* HANDVANTAGE — workspace.handvantage.com */
+/* All editorial human-authored under the founder's byline. */
+
+# TEAM
+
+  Founder & editorial: Josh Olayemi
+  Email:               hello@handvantage.com
+  Location:            Toronto, Ontario, Canada
+  Founded:             2024
+
+# THANKS
+
+  To the open-source projects this site builds on:
+  Next.js, React, Tailwind CSS, Source Serif 4, IBM Plex Mono,
+  Inter Tight, Resend, HyperFrames, Keycloak.
+
+  And to the regulators, standards bodies, and industry working
+  groups whose published guidance grounds the editorial:
+  the European Commission, NIST, ISO/IEC, OWASP GenAI Security
+  Project, OCC, FDIC, the Federal Reserve, FinCEN, CFPB, the SEC,
+  FINRA, the Treasury Board of Canada Secretariat, the Office of
+  the Privacy Commissioner of Canada, the FNIGC, the ABA, and the
+  Federation of Law Societies of Canada. Public-interest work that
+  the rest of us get to build on.
+
+# COLOPHON
+
+  See https://workspace.handvantage.com/colophon

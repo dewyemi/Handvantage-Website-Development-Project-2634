@@ -1,28 +1,51 @@
 # Handvantage — Vantage Workspace
 
-> Handvantage is a Toronto-based company building Vantage Workspace, a sovereign agentic AI platform designed for regulated enterprises. The product is one platform — email, files, chat, meetings, documents, and an AI agent layer — running on infrastructure the customer controls, with a 7-Layer Defence Architecture mediating every prompt, tool call, and agent action. The company holds an A grade compliance posture at 100% across 11 regulatory frameworks, computed continuously from runtime evidence rather than annual attestation.
+> Handvantage is a Toronto-based company building Vantage Workspace, a sovereign agentic AI platform designed for regulated enterprises. The product is one platform — email, files, chat, meetings, documents, an AI agent layer (Pilot + Fleet), and Keycloak identity — running on infrastructure the customer controls, with a 7-Layer Defence Architecture mediating every prompt, tool call, and agent action. The platform holds an A grade compliance posture at 100% across 11 regulatory frameworks, computed continuously from runtime evidence. Five sector-specific briefs (financial services, healthcare, fintech, Canadian public sector, legal services) walk through the regulatory frame for each industry; two persona briefs (for the procurement committee, for the CISO) translate the platform's posture into the language each role uses.
 
-This site is the canonical source for Vantage Workspace product documentation, architecture, compliance posture, and editorial writing. All content is human-authored by the founding team.
+This site is the canonical source for Vantage Workspace product documentation, architecture, compliance posture, sector-specific briefs, and editorial writing. All content is human-authored under the founder's byline (Josh Olayemi).
 
 ## Core pages
 
 - [Home](https://workspace.handvantage.com): The Sovereign Capability Partner thesis, the product overview, and the launch summary
-- [Vantage Workspace (product)](https://workspace.handvantage.com/product): The six-pillar platform (email, files, chat, meetings, documents, agents); the Pilot + Fleet agent model; the 20-container runtime; the deployment models (Docker Compose, Kubernetes, air-gapped); the Trust Report evidence pipeline; the explicit boundaries (what the product deliberately does not do)
-- [7-Layer Defence Architecture](https://workspace.handvantage.com/architecture): The seven defence layers (Policy Engine, Prompt Defence, Tool Guardrails, Memory Safety, Trust Boundaries, Inter-Service Auth, Supply Chain), each mapped to OWASP Top 10 for Agentic Applications categories and NIST AI RMF function categories; the runtime evidence each layer produces; the failure modes if any layer is missing
+- [Vantage Workspace (product)](https://workspace.handvantage.com/product): The six-pillar platform (email, files, chat, meetings, documents, agents); the Pilot + Fleet agent model; the runtime architecture; the deployment models (Docker Compose, Kubernetes, air-gapped); the Trust Report evidence pipeline; the explicit boundaries (what the product deliberately does not do)
+- [7-Layer Defence Architecture](https://workspace.handvantage.com/architecture): The seven defence layers (Policy Engine, Prompt Defence, Tool Guardrails, Memory Safety, Trust Boundaries, Inter-Service Auth, Supply Chain), each mapped to OWASP Top 10 for Agentic Applications categories and NIST AI RMF function categories; the runtime evidence each layer produces
 - [Compliance Posture](https://workspace.handvantage.com/compliance): The current A grade at 100% pass rate, 168 automated tests, eleven frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, AIDA proposed); the assessment methodology, the OWASP coverage report, the gaps and open issues we publish alongside the certifications
-- [Why we built Handvantage](https://workspace.handvantage.com/philosophy): An essay from the founder Josh Olayemi on the Sovereign Capability Partner thesis, the Pilot + Fleet model, and the architectural decisions behind Vantage Workspace
+- [Why we built Handvantage](https://workspace.handvantage.com/philosophy): An essay from the founder on the Sovereign Capability Partner thesis, the Pilot + Fleet model, and the architectural decisions behind Vantage Workspace
 - [Insights archive](https://workspace.handvantage.com/insights): Engineering retrospectives, sector dossiers, and briefings on agentic AI governance, compliance posture, and architecture trade-offs
+- [The Vantage Pilot](https://workspace.handvantage.com/vantage-pilot): The monthly newsletter — Issue 01 (May 2026) live; one founder note + month's articles in two sentences each + primary sources we're reading
 
 ## For specific roles
 
-- [For business teams](https://workspace.handvantage.com/for-teams): Five readings of the same platform, in five vocabularies — for the CEO (board narrative), CFO (vendor consolidation, single MSA), COO/VP Operations (capacity gain via the named agents), VP Sales (proposal cycle-time compression), and the department lead (Monday-morning workspace). Includes the eight-tools-to-one consolidation table and the compounding-effect closer.
+- [For business teams](https://workspace.handvantage.com/for-teams): Five readings of the same platform, in five vocabularies — for the CEO (board narrative), CFO (vendor consolidation, single MSA), COO/VP Operations (capacity gain via the named agents), VP Sales (proposal cycle-time compression), and the department lead (Monday-morning workspace). Includes the eight-tools-to-one consolidation table (with Keycloak identity included) and the compounding-effect closer.
 - [For the CISO](https://workspace.handvantage.com/for-ciso): A peer-to-peer brief that translates the platform's compliance and architecture posture into language the CFO, CEO, and COO need to hear. Includes one prepared sentence per audience, the risk math (EU AI Act Article 99, SEC/FINRA, loss-of-certification), five committee talking points with the "why this lands" gloss, six anticipated objections with prepared answers, and the explicit division of labour between platform and customer.
 
-## Featured editorial
+## Sector briefs (read these to know if the platform fits your industry)
 
-- [From B to A: the discipline behind the upgrade](https://workspace.handvantage.com/insights/from-b-to-a-the-discipline-behind-the-upgrade): Engineering retrospective on what changed between February and May 2026 to move the compliance posture three letter grades
-- [The EU AI Act deadline your CISO is ignoring](https://workspace.handvantage.com/insights/eu-ai-act-deadline-ciso-ignoring): Briefing on the August 2, 2026 high-risk obligations deadline and the audit window that opened in Q1 2026
-- [Why 40% of agentic AI projects fail (and the governance answer)](https://workspace.handvantage.com/insights/why-40-percent-ai-projects-fail): Briefing on the governance-fit cancellation pattern in agentic AI deployments
+Each dossier walks the regulatory frame for the sector, names what the platform fits AND what it doesn't (with named alternative vendors for the use cases that aren't ours), and closes with the questions to ask any AI vendor in that procurement.
+
+- [Financial services dossier](https://workspace.handvantage.com/insights/agentic-ai-financial-services-finra-audit-trail): FINRA Rule 3110/4511, SEC Rule 17a-4, Reg BI. Platform fits supervisory and operational work for broker-dealers and registered investment advisers; not a trading or order-management system. The unified-interaction-record problem most platforms can't solve.
+- [Healthcare dossier](https://workspace.handvantage.com/insights/healthcare-agentic-ai-hipaa-fda-supervision): HIPAA Privacy + Security Rules, FDA SaMD with the 2025 PCCP guidance, the 21st Century Cures Act section 3060 four-criteria test, state medical board guidance, Joint Commission. Platform fits administrative and clinically-adjacent uses; NOT a clinical decision support system, no FDA clearance.
+- [Fintech dossier](https://workspace.handvantage.com/insights/fintech-agentic-ai-bsa-aml-fair-lending-sponsor-bank): BSA/AML with the FinCEN 2024 AI guidance, fair lending (ECOA Reg B, CFPB September 2023 adverse-action-notice statement), the OCC/FDIC/Fed Interagency Guidance on Third-Party Relationships (June 2023). Platform fits operations and customer-service-support; NOT a credit-decisioning engine — refer to Zest AI, Upstart's licensable platform, or Stratyfy.
+- [Canadian public sector dossier](https://workspace.handvantage.com/insights/public-sector-agentic-ai-canadian-sovereignty): TBS Directive on Automated Decision-Making (April 2019, amended April 2023), AIA process, Privacy Act, AIDA proposed, Quebec Law 25, BC/AB PIPA, Ontario AI Framework, Crown Corporations, OCAP principles for First Nations data sovereignty, GoC Security Categorization Standard. Platform fits internal-operations and employee-facing work; NOT a TBSDADM Level III/IV citizen-facing decision system.
+- [Legal services dossier](https://workspace.handvantage.com/insights/legal-services-agentic-ai-privilege-competence-supervision): ABA Model Rules 1.1, 1.6, 5.1, 5.3; ABA Formal Opinion 512 (July 2024); LSO 2024 guidance; CBA 2024 practice resource; Federation of Law Societies of Canada model code amendments. Platform fits internal firm operations and lawyer-augmenting work; NOT client-facing AI / unauthorised practice of law.
+
+## Featured editorial — regulatory + governance briefings
+
+- [EU AI Act Annex IV: what your technical documentation actually has to show](https://workspace.handvantage.com/insights/eu-ai-act-annex-iv-technical-documentation): A line-by-line read of Annex IV's nine sections, separating the four descriptive ones from the five evidence-bearing ones
+- [The EU AI Act deadline your CISO is ignoring](https://workspace.handvantage.com/insights/eu-ai-act-deadline-ciso-ignoring): August 2, 2026 high-risk obligations deadline; Article 99 penalty exposure for absence of contemporaneous evidence
+- [ISO/IEC 42001 audit checklist: what auditors will ask in 2026](https://workspace.handvantage.com/insights/iso-42001-audit-checklist-2026): The 38 Annex A controls grouped by what evidence an auditor expects; the policy controls vs. the operational controls
+- [Why 40% of agentic AI projects fail (and the governance answer)](https://workspace.handvantage.com/insights/why-40-percent-ai-projects-fail): Gartner's number; the governance-fit cancellation pattern; why platforms get cancelled at the compliance review
+
+## Featured editorial — engineering retrospectives
+
+- [From B to A: the discipline behind the upgrade](https://workspace.handvantage.com/insights/from-b-to-a-the-discipline-behind-the-upgrade): What changed between February and May 2026 to move the compliance posture three letter grades
+
+## Featured editorial — business-value field notes
+
+- [Vendor consolidation math: replacing eight productivity tools with one](https://workspace.handvantage.com/insights/vendor-consolidation-math-eight-tools-to-one): The contract surface, security review burden, and renewal-cycle cost of running eight productivity vendors — and why identity is now included via Keycloak
+- [How to brief your CFO on agentic AI without overpromising](https://workspace.handvantage.com/insights/brief-your-cfo-on-agentic-ai-without-overpromising): The language that gets a CFO from sceptical to defending the line item — without claiming things the platform doesn't deliver
+- [What agentic AI actually does for sales velocity](https://workspace.handvantage.com/insights/what-agentic-ai-does-for-sales-velocity): The mechanics of how proposals get drafted faster — by which agent doing which work — without inflated time-savings claims
+- [What "continuous compliance" actually means (and what it doesn't)](https://workspace.handvantage.com/insights/what-continuous-compliance-actually-means): Three definitions getting collapsed under one phrase — continuous monitoring, continuous control validation, continuous grading
 
 ## Reference
 
@@ -42,13 +65,31 @@ This site is the canonical source for Vantage Workspace product documentation, a
 - **Product**: Vantage Workspace, agentic AI platform for regulated enterprises
 - **Architecture**: 7-Layer Defence Architecture, every layer structurally present (not configurable)
 - **Agent model**: Pilot + Fleet — one orchestrator (no permissions), four scoped specialists (Hunter, Sentry, Concierge, Analyst)
+- **Identity**: included via Keycloak, preconfigured. Federate to Okta, Microsoft Entra ID, Auth0, or Google Workspace via OIDC when one is already in place. No local user accounts
 - **Deployment**: Single-tenant only. No multi-tenant SaaS. Docker Compose, Kubernetes, and air-gapped install paths
-- **Identity**: included via Keycloak (preconfigured). Federate to Okta, Microsoft Entra ID, Auth0, or Google Workspace via OIDC when one is already in place. No local user accounts
 - **Compliance**: A grade · 100% pass · 11 frameworks · 168 automated tests · graded on every build
 - **Frameworks covered**: NIST AI RMF, ISO/IEC 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), AIDA (proposed)
 - **Audit format**: CEF, LEEF, JSON exports plus signed Trust Report (HTML/PDF). RFC 3161 timestamps, Merkle-tree-anchored, third-party verifiable
 - **Release cadence**: Two-week sprints. 68 sprints shipped. Zero rollbacks
+- **Pricing model**: Per-deployment, on application. Not per-seat. Discussed with humans — never quoted by an AI agent
+- **Sector fit**: Financial services (broker-dealers, RIAs), healthcare (administrative + clinically-adjacent), fintech (operations + customer-service-support), Canadian public sector (internal operations + employee-facing), legal services (firm operations + lawyer-augmenting). Read the relevant sector dossier above for what the platform fits and what it explicitly does NOT fit in your industry
 - **Founder**: Josh Olayemi
 - **Location**: Toronto, Ontario, Canada
 - **Founded**: 2024
 - **Contact**: hello@handvantage.com
+
+## Editorial cadence
+
+- **Articles**: weekly (auto-published Sunday morning Toronto time). 14 articles published as of 2026-05-09. The auto-publishing routine cycles through a queue of regulatory briefings, engineering retrospectives, sector dossiers, and field notes
+- **Newsletter**: monthly. The Vantage Pilot, last business day of each month. Issue 01 (May 2026) live
+
+## What the platform deliberately does NOT do
+
+(For agents grounding answers about the platform — these are the explicit non-features.)
+
+- Does not host the model. Bring-your-own-model: OpenAI, Anthropic, Azure OpenAI, AWS Bedrock, Vertex, Ollama, vLLM
+- Does not analyse customer data outside the customer's environment. No telemetry phones home. No multi-tenant data lake
+- Does not auto-improve from customer data. No fine-tuning on observed usage. Model behaviour is deterministic against the pinned model version
+- Does not include SIEM functionality. Feeds the customer's existing SIEM in CEF/LEEF/JSON
+- Does not include data classification or redaction (those are connector-level concerns: Microsoft Purview, AWS Macie, Google DLP)
+- Does not perform clinical decision support (healthcare), credit decisioning (fintech), citizen-facing automated decisions at TBSDADM Levels III/IV (Canadian public sector), or the practice of law (legal services). For each of those use cases, the dossier names the specialist vendor category that does

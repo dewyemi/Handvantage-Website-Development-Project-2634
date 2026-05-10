@@ -27,25 +27,51 @@ const mono = IBM_Plex_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "Handvantage builds Vantage Workspace: a 7-Layer Defence Architecture for agentic AI, with continuous compliance assessment across 11 regulatory frameworks. Deployed in your infrastructure, audited every build.";
+  "Vantage Workspace is a sovereign agentic AI platform for regulated enterprises. Email, files, chat, meetings, documents, AI agents, and Keycloak identity — one platform on your infrastructure, with a 7-Layer Defence Architecture and A-grade compliance across 11 frameworks. Sector-specific briefs for financial services, healthcare, fintech, Canadian public sector, and legal services.";
 
 const SITE_KEYWORDS = [
+  // Product + category
   "agentic AI",
   "agentic AI platform",
-  "AI governance",
-  "AI compliance",
-  "EU AI Act",
-  "NIST AI RMF",
-  "ISO 42001",
-  "OWASP Top 10 for Agentic Applications",
   "sovereign AI",
   "on-prem agentic AI",
-  "AI audit log",
-  "Pilot Fleet model",
-  "7-layer defence",
   "Vantage Workspace",
   "Handvantage",
   "Josh Olayemi",
+  // Architecture + governance
+  "7-layer defence architecture",
+  "Pilot Fleet model",
+  "AI governance",
+  "AI compliance",
+  "AI audit log",
+  "AI evidence",
+  "AI runtime governance",
+  // Regulatory frameworks
+  "EU AI Act",
+  "EU AI Act Annex IV",
+  "NIST AI RMF",
+  "ISO 42001",
+  "ISO/IEC 42001",
+  "OWASP Top 10 for Agentic Applications",
+  "AIDA Canada",
+  "TBS Directive",
+  // Sector-specific
+  "agentic AI healthcare",
+  "agentic AI fintech",
+  "agentic AI financial services",
+  "agentic AI legal",
+  "agentic AI public sector",
+  "HIPAA AI",
+  "FDA SaMD AI",
+  "BSA AML AI",
+  "FINRA AI compliance",
+  "ABA AI Formal Opinion 512",
+  "Indigenous data sovereignty AI",
+  // Persona + buyer
+  "AI for CISO",
+  "AI for CFO",
+  "agentic AI procurement",
+  "vendor consolidation AI",
 ];
 
 export const metadata: Metadata = {
@@ -100,14 +126,20 @@ export const metadata: Metadata = {
     "ai:description": SITE_DESCRIPTION,
     "ai:keywords": SITE_KEYWORDS.join(", "),
     "ai:category": "Agentic AI Platform",
-    "ai:industry": "Enterprise software, AI governance, regulated industries",
-    "ai:audience": "CISOs, compliance officers, AI governance leads, security architects",
-    "ai:content-type": "Product documentation and editorial",
+    "ai:industry":
+      "Enterprise software, AI governance, regulated industries (financial services, healthcare, fintech, public sector, legal services)",
+    "ai:audience":
+      "CISOs, compliance officers, AI governance leads, security architects, CFOs, COOs, procurement committees",
+    "ai:content-type":
+      "Product documentation, sector-specific dossiers, persona briefs, editorial archive",
     "ai:author": SITE.founderName,
     "ai:organization": SITE.name,
     "ai:source-of-truth": "true",
     "ai:human-authored": "true",
     "ai:last-reviewed": new Date().toISOString().slice(0, 10),
+    // Surface the canonical files for AI crawlers / answer engines
+    "ai:llms-txt": `${SITE.baseUrl}/llms.txt`,
+    "ai:rss": `${SITE.baseUrl}/insights/rss.xml`,
   },
 };
 
@@ -124,19 +156,65 @@ const orgJsonLd = {
   name: SITE.name,
   url: SITE.baseUrl,
   logo: `${SITE.baseUrl}/images/logo/handvantage-h-oxblood.png`,
+  description: SITE_DESCRIPTION,
   founder: {
     "@type": "Person",
     name: SITE.founderName,
     jobTitle: "Founder",
-    worksFor: SITE.name,
+    worksFor: { "@type": "Organization", name: SITE.name },
+    sameAs: [SITE.linkedInFounder],
   },
+  foundingDate: String(SITE.foundedYear),
   address: {
     "@type": "PostalAddress",
     addressLocality: "Toronto",
     addressRegion: "ON",
     addressCountry: "CA",
   },
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: SITE.email,
+    contactType: "customer support",
+    availableLanguage: ["English", "French"],
+  },
   sameAs: [SITE.linkedInCompany, SITE.linkedInFounder],
+  knowsAbout: [
+    "agentic AI governance",
+    "AI compliance",
+    "EU AI Act",
+    "ISO/IEC 42001",
+    "NIST AI RMF",
+    "OWASP Top 10 for Agentic Applications",
+    "HIPAA",
+    "FINRA",
+    "BSA/AML",
+    "Indigenous data sovereignty",
+    "ABA Model Rules of Professional Conduct",
+  ],
+};
+
+// WebSite schema — gives Google the option to render a sitelinks
+// searchbox under the organic result, and helps AI engines understand
+// the site's structure beyond the organisation entity above.
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.name,
+  alternateName: "Vantage Workspace",
+  url: SITE.baseUrl,
+  publisher: { "@type": "Organization", name: SITE.name, "@id": SITE.baseUrl },
+  inLanguage: "en-CA",
+  // The search action lets Google show the sitelinks searchbox if the
+  // domain accumulates enough authority. /insights is the searchable
+  // surface; the actual search is client-side filtering for now.
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE.baseUrl}/insights?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -146,6 +224,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body>
