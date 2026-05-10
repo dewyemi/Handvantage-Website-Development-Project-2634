@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InsightsArchive } from "@/components/InsightsArchive";
+import { ReadingPaths } from "@/components/ReadingPaths";
 import { SectionEyebrow } from "@/components/SectionDivider";
 import { INSIGHTS } from "@/lib/insights";
 import { SITE } from "@/lib/data-tokens";
@@ -32,14 +33,27 @@ export default function InsightsIndex() {
           <h1 className="font-display text-[clamp(2.5rem,5vw+1rem,5rem)] leading-[0.96] tracking-[-0.02em] text-ink mb-8">
             Insights.
           </h1>
-          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px]">
+          <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-6">
             The Handvantage editorial archive. Engineering retrospectives, sector dossiers, and
             briefings — on agentic AI governance, compliance posture, architecture trade-offs, and
             the regulatory environment. One article per week. No subscriptions, no popups, no SEO
             factory.
           </p>
+          <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px]">
+            New here?{" "}
+            <Link
+              href="#start-here"
+              className="text-oxblood hover:underline underline-offset-4"
+            >
+              Pick a curated reading path
+            </Link>{" "}
+            below — three to five articles in the right order, by role or by sector. Or browse the
+            full archive further down.
+          </p>
         </div>
       </section>
+
+      <ReadingPaths />
 
       <InsightsArchive articles={articles} />
 
