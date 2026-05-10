@@ -7,9 +7,9 @@ import { HMark } from "./HMark";
 
 const NAV = [
   { label: "Product", href: "/product" },
+  { label: "For Teams", href: "/for-teams" },
   { label: "Architecture", href: "/architecture" },
   { label: "Compliance", href: "/compliance" },
-  { label: "Philosophy", href: "/philosophy" },
   { label: "Insights", href: "/insights" },
 ];
 

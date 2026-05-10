@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CTABlock } from "@/components/CTABlock";
+import { PullQuote } from "@/components/PullQuote";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { SITE } from "@/lib/data-tokens";
 
@@ -13,19 +14,30 @@ export const metadata: Metadata = {
 
 const Persona = ({
   role,
+  monogram,
   question,
   body,
   outcomes,
 }: {
   role: string;
+  monogram: string;
   question: string;
   body: React.ReactNode;
   outcomes: { label: string; value: string }[];
 }) => (
   <div className="border-t border-ink-hairline pt-12 md:pt-16 pb-4">
-    <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em] mb-6">
-      For the {role}
-    </p>
+    {/* Persona header — monogram + role label on a single line */}
+    <div className="flex items-center gap-5 md:gap-6 mb-8 md:mb-10">
+      <span
+        aria-hidden="true"
+        className="flex-shrink-0 inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 border border-ink-hairline bg-paper-deep font-display italic text-oxblood text-[40px] md:text-[52px] leading-none"
+      >
+        {monogram}
+      </span>
+      <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em]">
+        For the {role}
+      </p>
+    </div>
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
       <div className="lg:col-span-7">
         <h3 className="font-display text-[clamp(1.75rem,2.5vw+1rem,2.75rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-8">
@@ -154,16 +166,20 @@ export default function ForTeamsPage() {
 
           <Persona
             role="CEO / Founder"
+            monogram="C"
             question="Can I describe our AI strategy in one sentence the board will accept?"
             body={
               <>
+                <p>The version of the sentence that holds:</p>
+                <PullQuote audience="THE SENTENCE THAT HOLDS" size="lg">
+                  We deployed a sovereign AI platform on infrastructure we control, graded
+                  continuously across eleven regulatory frameworks, with one identity for the
+                  team and one signed audit trail for the auditor.
+                </PullQuote>
                 <p>
-                  The version of the sentence that holds: <em>&ldquo;We deployed a sovereign AI
-                  platform on infrastructure we control, graded continuously across eleven
-                  regulatory frameworks, with one identity for the team and one signed audit trail
-                  for the auditor.&rdquo;</em> Every clause in that sentence is something the
-                  platform actually delivers; none of it requires you to apologise for vendor
-                  sprawl, missing controls, or the absence of evidence.
+                  Every clause in that sentence is something the platform actually delivers; none
+                  of it requires you to apologise for vendor sprawl, missing controls, or the
+                  absence of evidence.
                 </p>
                 <p>
                   This matters because the alternative — &ldquo;we&apos;re evaluating several AI
@@ -191,6 +207,7 @@ export default function ForTeamsPage() {
 
           <Persona
             role="CFO"
+            monogram="F"
             question="Does this consolidate vendors, and what's the contract surface?"
             body={
               <>
@@ -232,6 +249,7 @@ export default function ForTeamsPage() {
 
           <Persona
             role="COO / VP Operations"
+            monogram="O"
             question="Where does throughput go up without headcount going up?"
             body={
               <>
@@ -270,6 +288,7 @@ export default function ForTeamsPage() {
 
           <Persona
             role="VP Sales"
+            monogram="S"
             question="What changes about the time from inquiry to proposal?"
             body={
               <>
@@ -309,6 +328,7 @@ export default function ForTeamsPage() {
 
           <Persona
             role="Department lead"
+            monogram="D"
             question="What does my team actually do on Monday morning that's different?"
             body={
               <>

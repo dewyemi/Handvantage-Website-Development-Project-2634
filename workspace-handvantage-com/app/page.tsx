@@ -290,18 +290,43 @@ export default function HomePage() {
             ))}
           </ul>
 
-          <div className="mt-12 flex flex-wrap items-baseline justify-between gap-4">
-            <p className="font-display text-body text-ink-soft max-w-[640px] leading-relaxed">
-              Eight productivity tools become one. The vendor management overhead, the SSO sprawl,
-              and the audit-log reconciliation go with them.
-            </p>
-            <Link
-              href="/for-teams"
-              className="inline-flex items-center gap-2 font-ui font-medium text-[15px] text-oxblood hover:text-ink border-b border-oxblood hover:border-ink pb-1 transition-colors"
-            >
-              See what each role gets
-              <span aria-hidden="true">→</span>
-            </Link>
+          <div className="mt-16 md:mt-20 border border-ink-hairline bg-paper-deep px-6 md:px-10 py-10 md:py-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-7">
+                <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em] mb-4">
+                  FOR THE PEOPLE WHO HAVE TO BUY THIS
+                </p>
+                <h3 className="font-display text-[clamp(1.5rem,2vw+0.75rem,2.25rem)] leading-[1.1] tracking-[-0.01em] text-ink mb-4">
+                  CEO, CFO, COO, VP Sales, department lead — five readings of the same platform in
+                  five vocabularies.
+                </h3>
+                <p className="font-display text-body text-ink-soft leading-relaxed max-w-[640px]">
+                  Eight productivity tools become one. The vendor management overhead, the SSO
+                  sprawl, and the audit-log reconciliation go with them. The page below explains
+                  what changes for each role specifically — no invented ROI, no marketing voice.
+                </p>
+              </div>
+              <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-3">
+                <Link
+                  href="/for-teams"
+                  className="inline-flex items-center gap-3 bg-oxblood text-paper font-ui font-semibold text-[15px] px-8 py-4 hover:bg-ink transition-colors group"
+                >
+                  See what each role gets
+                  <span
+                    aria-hidden="true"
+                    className="inline-block group-hover:translate-x-1 transition-transform"
+                  >
+                    →
+                  </span>
+                </Link>
+                <Link
+                  href="/for-ciso"
+                  className="font-ui font-medium text-[14px] text-ink-soft hover:text-oxblood underline-offset-4 hover:underline"
+                >
+                  Or — the brief for your CISO
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

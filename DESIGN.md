@@ -238,6 +238,10 @@ The site now has explicit persona-led pages alongside the technical canon. Two p
 
 **Voice rule for these pages**: address the persona directly ("you"). Acknowledge their context (procurement dynamics, committee politics, board questions). Don't condescend — they already have judgment; the page provides language, not opinions. Don't claim the page replaces their work.
 
+**Persona monograms** (added 2026-05-09): each persona section on `/for-teams` is marked with a hairline-bordered square containing a single italic letter in oxblood (CEO=C, CFO=F, COO=O, VP Sales=S, Department lead=D). Reads as editorial chapter-marker, not as icon. Lightweight — no images to maintain. The treatment scales: if a sixth persona is added, give it a single capital letter and the same square treatment.
+
+**PullQuote treatment for high-leverage statements**: the four "one sentence per audience" quotes on `/for-ciso` and the canonical "We deployed a sovereign AI platform..." sentence on `/for-teams` use the `<PullQuote>` component (see §6 above). Carved out from body copy with a 4px oxblood (or gold) left border, decorative open-quote glyph, optional audience eyebrow, optional attribution. The discipline: only sentences worth quoting at a board meeting deserve PullQuote. Three on a page dilutes each. One per section is the rule.
+
 **The hard rule across both**: when the page tells the reader something the platform delivers, the platform actually delivers it. When the page tells the reader something the customer still owns, that ownership is honest. Vendors who blur this line lose the deal at the procurement review.
 
 ---
@@ -259,6 +263,7 @@ The site now has explicit persona-led pages alongside the technical canon. Two p
 | `<CTABlock />` | `components/CTABlock.tsx` | End-of-page CTA in midnight or paper |
 | `<FounderPortraitSection />` | `components/FounderPortraitSection.tsx` | Black-and-white portrait + bio block |
 | `<InsightsArchive />` | `components/InsightsArchive.tsx` | Client component — filter/sort UI for /insights |
+| `<PullQuote />` | `components/PullQuote.tsx` | Editorial pull-quote — for high-leverage statements that deserve visual separation. Optional `audience` (mono eyebrow), `attribution`, `tone` (paper/midnight), `size` (default/lg). Border-left-4 in oxblood (paper) or gold-soft (midnight). Use sparingly — one per section max. |
 
 When adding a new component, place it in `components/`, give it a JSDoc-style header comment if its purpose isn't obvious from the name, and try to compose existing components rather than re-inventing the eyebrow/section pattern.
 

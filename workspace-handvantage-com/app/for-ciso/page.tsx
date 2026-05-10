@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CTABlock } from "@/components/CTABlock";
+import { PullQuote } from "@/components/PullQuote";
 import { SectionDivider, SectionEyebrow } from "@/components/SectionDivider";
 import { COMPLIANCE, SITE } from "@/lib/data-tokens";
 
@@ -46,7 +47,7 @@ export default function ForCisoPage() {
             How to describe Vantage Workspace in one sentence — depending on who&rsquo;s asking.
           </h2>
 
-          <ul className="border-t border-ink-hairline">
+          <div className="border-t border-ink-hairline">
             {[
               {
                 audience: "TO THE CEO",
@@ -57,7 +58,7 @@ export default function ForCisoPage() {
               {
                 audience: "TO THE CFO",
                 sentence:
-                  "We replaced eight productivity vendor contracts with one, got identity included (Keycloak — federate to our existing provider when we want to), kept the SIEM where it is, and moved the AI line item from 'multiple subscriptions plus ungoverned spend' to 'one predictable contract.'",
+                  "We replaced eight productivity vendor contracts with one, got identity included (Keycloak — federate to our existing provider when we want to), kept the SIEM where it is, and moved the AI line item from ‘multiple subscriptions plus ungoverned spend’ to ‘one predictable contract.’",
                 why: "Leads with consolidation (vendor count, contract surface) — the language a finance chief is fluent in. Names what's included (identity, with federation as an option) and what's not (SIEM).",
               },
               {
@@ -73,19 +74,16 @@ export default function ForCisoPage() {
                 why: "Times the decision against the regulatory calendar (August 2, 2026). Demonstrates strategic anticipation rather than reactive procurement.",
               },
             ].map(({ audience, sentence, why }) => (
-              <li key={audience} className="border-b border-ink-hairline py-10">
-                <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em] mb-4">
-                  {audience}
-                </p>
-                <blockquote className="font-display text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] leading-[1.35] text-ink mb-4 max-w-[820px]">
-                  &ldquo;{sentence}&rdquo;
-                </blockquote>
-                <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px]">
+              <div key={audience} className="border-b border-ink-hairline py-10 md:py-12">
+                <PullQuote audience={audience} size="lg">
+                  {sentence}
+                </PullQuote>
+                <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px] pl-6 md:pl-8">
                   <strong className="font-semibold text-ink">Why this lands:</strong> {why}
                 </p>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
