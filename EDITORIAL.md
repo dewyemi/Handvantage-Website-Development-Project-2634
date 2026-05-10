@@ -27,17 +27,23 @@ The third audience is the one we optimize for. The first two follow from the thi
 
 ## 2. The cadence
 
-| Output | Frequency | First publish |
+| Output | Frequency | Status |
 |---|---|---|
-| **Insights article** (workspace site) | 1 per week | Already 3 published; aim for May 14 next |
-| **Newsletter — "The Vantage Pilot"** | 1 per month | First issue: end of June 2026 |
-| **Field notes** (short, ad hoc) | 0–2 per month | As things happen |
+| **Insights article** (workspace site) | 1 per week (steady-state) | 14 published as of 2026-05-09; auto-routine resumes weekly from May 10 |
+| **Newsletter — "The Vantage Pilot"** | 1 per month | Issue 01 (May 2026) live; Issue 02 lands end of June |
+| **Field notes** (short, ad hoc) | 0–2 per month | Treated as queue items, interleaved by the auto-routine |
+
+**The May 2026 launch burst** — 11 articles in 8 days (May 2 to May 9). This was deliberate launch coverage to close persona and sector gaps before the auto-cadence took over: three regulatory briefings, one engineering retrospective, four field notes (continuous-compliance vocabulary, vendor consolidation, CFO briefing, sales velocity), and four sector dossiers (financial services, healthcare, fintech, Canadian public sector, legal services). Burst publishing at this density is **not** the steady-state cadence — it is what a launch month looks like.
+
+**Steady-state from May 10 onward** — one article per week, fired by the auto-routine on Sunday mornings (10am Toronto). The queue continues to interleave categories so the published archive maintains a balanced mix.
 
 **Why weekly for articles, not bi-weekly:** weekly is the floor for being seen as an active site by Google + AI crawlers. Going below that loses ranking momentum. Going above it (e.g. daily) requires a content team we don't have.
 
 **Why monthly for the newsletter:** it gives us a month of articles to digest into one issue. Pushing out a newsletter every two weeks dilutes each one. Monthly is the cadence at which the newsletter is "an event."
 
 **Failure mode to avoid:** publishing 5 articles in two weeks then nothing for a month. Rhythm matters more than volume. If a week is genuinely impossible, **publish a field note** (500 words, one observation) instead of skipping.
+
+**Burst publishing as a tactic, not a habit** — the May launch burst was justified by the persona/sector coverage gaps the existing site had. Bursts beyond this should require similar justification: a new vertical we want to chase (e.g. a fifth sector dossier when we want to claim that sector), a regulatory deadline that creates urgency on multiple fronts, or a sustained external event that needs editorial response. Burst publishing without that justification reads as content-factory output, which the not-list (§10) rules against.
 
 ---
 
@@ -63,11 +69,12 @@ Defined in `workspace-handvantage-com/lib/insights.ts` as `ArticleCategory`. Eac
 
 ### DOSSIER — for the sector buyer
 - **Length**: 2,000–3,500 words
-- **Reader**: buyer in a specific industry (financial services, healthcare, public sector, legal)
-- **Structure**: industry-specific regulatory landscape → typical agentic AI use cases in this sector → where they break against the regulations → how the platform's posture maps
-- **Voice**: respectful of the sector's vocabulary, evidence-driven, never generic
-- **Cadence**: 1 per month
-- **Examples**: "Agentic AI in financial services: what FINRA's RAGNet update means" (proposed)
+- **Reader**: buyer in a specific industry (financial services, healthcare, fintech, public sector, legal services — five published as of 2026-05-09)
+- **Structure**: industry-specific regulatory landscape → typical agentic AI use cases in this sector → where they break against the regulations → how the platform's posture maps → three deployment patterns (always: where the platform fits, where it stops being the right product) → procurement questions
+- **Voice**: respectful of the sector's vocabulary, evidence-driven, never generic. Cite specific regulations by article number, specific guidance documents by date and issuer
+- **Cadence**: 1 per month in steady-state (5 shipped in May 2026 launch burst)
+- **The crucial discipline (learned across the May 2026 dossiers)**: every dossier names a critical scope clarification in the second paragraph — *what the platform fits in this sector, what it does NOT fit, and which specialised vendors handle the use cases that aren't ours*. Healthcare: not a clinical decision support system, no FDA clearance. Fintech: not a credit-decisioning engine, refer to Zest/Upstart/Stratyfy. Public sector: not a TBSDADM Level III/IV citizen-facing decisioning system. Legal services: not a substitute for a lawyer, not engaged in the practice of law. **Naming this scope upfront earns the reader's trust and disqualifies the wrong-fit prospects before they invest reading time.**
+- **Examples**: financial services / FINRA · healthcare / HIPAA / FDA · fintech / BSA-AML / sponsor-bank · Canadian public sector / TBSDADM / Indigenous data sovereignty · legal services / privilege / supervision rule
 
 ### FIELD NOTE — for everyone, briefly
 - **Length**: 400–800 words

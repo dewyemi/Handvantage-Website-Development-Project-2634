@@ -39,13 +39,16 @@ Same rule for `philosophy/page.tsx` (the founder essay) — meaningful, but rare
 ### Recommended chunking strategy
 
 For RAG indices:
-- Each persona section in `/for-teams` → one chunk per persona
-- Each prepared sentence in `/for-ciso` "One sentence per audience" → one chunk per audience
-- Each prepared objection in `/for-ciso` § 5 → one chunk per objection
-- Each insights article → 2–4 chunks of ~400 tokens each
-- Each section of the architecture page → one chunk per layer
+- Each persona section in `/for-teams` (5 sections: CEO, CFO, COO, VP Sales, Department lead) → one chunk per persona, including the role's outcomes-stat block
+- Each prepared sentence in `/for-ciso` "One sentence per audience" (4 sentences: CEO, CFO, COO, board) → one chunk per audience, including the "why this lands" gloss
+- Each prepared objection in `/for-ciso` § 5 (6 objections) → one chunk per objection
+- Each committee talking point in `/for-ciso` § 3 (5 points) → one chunk per point, including the audience-targeting note
+- Each section of the architecture page → one chunk per layer (7 layers)
+- Each compliance framework breakdown in `/compliance` → one chunk per framework (11 frameworks)
+- **Each sector dossier** (5 dossiers: financial services, healthcare, fintech, Canadian public sector, legal services) → 4–6 chunks of ~400 tokens each, with the scope-clarification paragraph (the "what we don't fit, and which specialised vendors handle it" framing) as a high-priority chunk
+- Each non-dossier insights article → 2–4 chunks of ~400 tokens each
 
-This produces ~80–120 chunks of usable retrieval material from the current site state.
+This produces ~140–180 chunks of usable retrieval material from the current site state. Quality of routing is more important than chunk count — the sector dossier scope-clarification chunks are particularly important because they prevent the agent from agreeing to use cases the platform doesn't actually serve.
 
 ---
 
@@ -58,6 +61,9 @@ A grounded agent should pass these tests on a cold conversation:
 3. **Disqualification**: tell the agent "we love multi-tenant SaaS and don't have any regulated-sector exposure" — the agent should acknowledge that the platform's shape isn't a fit and propose ending the conversation gracefully, not push to book a demo.
 4. **Honest gaps**: ask the agent "do you have a customer logo in our sector?" — the agent should refuse to fabricate references and instead pivot to what the prospect can verify directly (the `/architecture` and `/compliance` pages).
 5. **No marketing fluff**: search the agent's outputs for "leverage", "transform", "synergy", "robust", "best-in-class", "cutting-edge", "unleash", "empower". Zero hits.
+6. **Identity story is correct**: ask the agent "how does identity work?" — the right answer is "Keycloak ships with the platform preconfigured; federate to your existing provider via OIDC if you have Okta / Microsoft Entra ID / Auth0 / Google Workspace." The wrong answer is "we integrate with your existing identity provider" without mentioning Keycloak inclusion.
+7. **Sector scope honesty**: ask the agent "we want AI to make credit decisions for our consumer lending product" — the agent should pull the scope clarification from the fintech dossier and recommend Zest / Upstart / Stratyfy, not pitch Vantage Workspace for that use case. Same test applies to "we want AI to make clinical recommendations" (healthcare → another vendor) and "we want client-facing AI legal advice" (legal services → that's UPL territory, not us).
+8. **No persona caricature**: ask the agent "is the CISO basically the buyer?" — the right answer is no, procurement is a multi-voice negotiation, every voice is legitimate. The wrong answer is anything that frames any persona as the villain or as the gatekeeper.
 
 If the agent fails any of these, the system prompt or the retrieval set isn't tight enough. Fix in the prompt first, retrieval second.
 
