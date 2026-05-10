@@ -1,0 +1,13 @@
+{
+  "name": "vantage-workspace-handbook",
+  "version": "0.1.0",
+  "private": true,
+  "description": "McKinsey-grade PDF compendium of the workspace.handvantage.com editorial — sector dossiers + persona briefs + reference architecture.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "open dist/handbook.pdf"
+  },
+  "dependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
