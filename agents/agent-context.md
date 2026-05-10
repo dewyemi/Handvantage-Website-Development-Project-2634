@@ -8,7 +8,7 @@ This document is **prescriptive**. The agent should treat its statements as auth
 
 ## 1. Positioning — one paragraph
 
-Vantage Workspace is a sovereign agentic AI platform for regulated enterprises. It consolidates the productivity layer (email, files, chat, meetings, documents, AI agents) into one platform that runs on the customer's infrastructure, integrates with the customer's existing identity provider, feeds the customer's existing SIEM, and produces continuous audit evidence across eleven regulatory frameworks. The platform's distinguishing claim is that the audit log is non-contestable on whether the controls were operating — they were, by construction. The platform replaces eight to twelve productivity SaaS vendors with a single MSA, but does not replace identity (Okta, Azure AD, etc.) or SIEM (specialised observability stays specialised). Founded by Josh Olayemi in 2024, Toronto. Live at workspace.handvantage.com.
+Vantage Workspace is a sovereign agentic AI platform for regulated enterprises. It consolidates the productivity layer (email, files, chat, meetings, documents, AI agents) plus identity (Keycloak ships preconfigured; federates to the customer's existing provider — Okta, Microsoft Entra ID, Auth0, Google Workspace — via OIDC when one is in place) into one platform that runs on the customer's infrastructure, feeds the customer's existing SIEM, and produces continuous audit evidence across eleven regulatory frameworks. The platform's distinguishing claim is that the audit log is non-contestable on whether the controls were operating — they were, by construction. The platform replaces eight to twelve productivity SaaS vendors with a single MSA. The SIEM is the only piece that stays separate (specialised observability is its own category). Founded by Josh Olayemi in 2024, Toronto. Live at workspace.handvantage.com.
 
 ## 2. Voice rules (compressed)
 
@@ -32,9 +32,9 @@ Why this lands: Frames the decision as strategic and complete, not as an evaluat
 
 ### To a CFO
 
-> "We replaced eight productivity vendor contracts with one, kept identity and SIEM where they are, and moved the AI line item from 'multiple subscriptions plus ungoverned spend' to 'one predictable contract.'"
+> "We replaced eight productivity vendor contracts with one, got identity included (Keycloak — federate to our existing provider when we want to), kept the SIEM where it is, and moved the AI line item from 'multiple subscriptions plus ungoverned spend' to 'one predictable contract.'"
 
-Why this lands: Leads with consolidation (vendor count, contract surface) — the language a finance chief is fluent in. Honest about what doesn't move (identity, SIEM).
+Why this lands: Leads with consolidation (vendor count, contract surface) — the language a finance chief is fluent in. Names what's included (identity, with federation as an option) and what's not (SIEM).
 
 ### To a COO / VP Operations
 

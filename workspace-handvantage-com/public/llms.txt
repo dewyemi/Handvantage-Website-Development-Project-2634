@@ -43,7 +43,7 @@ This site is the canonical source for Vantage Workspace product documentation, a
 - **Architecture**: 7-Layer Defence Architecture, every layer structurally present (not configurable)
 - **Agent model**: Pilot + Fleet — one orchestrator (no permissions), four scoped specialists (Hunter, Sentry, Concierge, Analyst)
 - **Deployment**: Single-tenant only. No multi-tenant SaaS. Docker Compose, Kubernetes, and air-gapped install paths
-- **Identity**: SSO via OIDC (Okta, Auth0, Azure AD, Google Workspace, Keycloak). No local user accounts
+- **Identity**: included via Keycloak (preconfigured). Federate to Okta, Microsoft Entra ID, Auth0, or Google Workspace via OIDC when one is already in place. No local user accounts
 - **Compliance**: A grade · 100% pass · 11 frameworks · 168 automated tests · graded on every build
 - **Frameworks covered**: NIST AI RMF, ISO/IEC 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), AIDA (proposed)
 - **Audit format**: CEF, LEEF, JSON exports plus signed Trust Report (HTML/PDF). RFC 3161 timestamps, Merkle-tree-anchored, third-party verifiable

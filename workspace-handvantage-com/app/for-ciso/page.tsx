@@ -57,8 +57,8 @@ export default function ForCisoPage() {
               {
                 audience: "TO THE CFO",
                 sentence:
-                  "We replaced eight productivity vendor contracts with one, kept identity and SIEM where they are, and moved the AI line item from 'multiple subscriptions plus ungoverned spend' to 'one predictable contract.'",
-                why: "Leads with consolidation (vendor count, contract surface) — the language a finance chief is fluent in. Honest about what doesn't move (identity, SIEM).",
+                  "We replaced eight productivity vendor contracts with one, got identity included (Keycloak — federate to our existing provider when we want to), kept the SIEM where it is, and moved the AI line item from 'multiple subscriptions plus ungoverned spend' to 'one predictable contract.'",
+                why: "Leads with consolidation (vendor count, contract surface) — the language a finance chief is fluent in. Names what's included (identity, with federation as an option) and what's not (SIEM).",
               },
               {
                 audience: "TO THE COO",
@@ -183,9 +183,9 @@ export default function ForCisoPage() {
               },
               {
                 point:
-                  "&ldquo;Eight productivity vendors become one. Identity stays where it is. SIEM stays where it is. The contract surface shrinks; the security review surface shrinks; the renewal cycle shrinks.&rdquo;",
+                  "&ldquo;Eight productivity vendors become one, with identity included via Keycloak (preconfigured) — and we federate to our existing provider where one&rsquo;s in place. The SIEM stays where it is; specialised observability is its own job. The contract surface shrinks; the security review surface shrinks; the renewal cycle shrinks.&rdquo;",
                 gloss:
-                  "Names what consolidates and what doesn't. Shows operational restraint — you didn't replace identity (a known-good system) just to consolidate.",
+                  "Names what consolidates (productivity + identity), names the federation option (Okta / Entra ID / Auth0 / Google Workspace), names what stays separate (SIEM). Shows operational discipline — we didn't try to replace the SIEM just to consolidate.",
                 forWho: "CFO, procurement",
               },
               {

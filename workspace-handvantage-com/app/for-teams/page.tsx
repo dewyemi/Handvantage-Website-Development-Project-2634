@@ -94,15 +94,21 @@ export default function ForTeamsPage() {
               <p className="font-display text-body-lg text-paper/85 leading-relaxed mb-6 max-w-[640px]">
                 The typical knowledge-work organisation runs eight to twelve productivity SaaS
                 vendors: a mail provider, a chat tool, a video tool, a docs platform, a file store,
-                an AI assistant subscription, an identity provider, and a separate audit/SIEM
-                pipeline. Each is a contract, a DPA, a security review, a budget line, and an
-                attack surface.
+                an AI assistant subscription, and a separate audit/SIEM pipeline. Each is a
+                contract, a DPA, a security review, a budget line, and an attack surface.
+              </p>
+              <p className="font-display text-body text-paper/70 leading-relaxed max-w-[640px] mb-6">
+                Vantage Workspace consolidates the productivity layer and ships with the identity
+                layer included (Keycloak, preconfigured). Email, files, chat, meetings, documents,
+                the AI agent layer, and identity become one platform under one signed audit trail.
+                Customers who already operate Okta, Microsoft Entra ID, Auth0, or Google Workspace
+                federate to those via OIDC and keep them as the source of truth — Keycloak handles
+                either model.
               </p>
               <p className="font-display text-body text-paper/70 leading-relaxed max-w-[640px]">
-                Vantage Workspace consolidates the productivity layer. Email, files, chat,
-                meetings, documents, and the AI agent layer become one platform under one identity
-                with one audit trail. Identity provider stays where it is (Okta, Azure AD, Google,
-                Keycloak). The SIEM stays where it is. The eight productivity tools become one.
+                The SIEM is the only piece that stays separate: the platform feeds your SIEM
+                rather than replacing it. Specialised security observability is a different
+                category, and your security operations team owns it.
               </p>
             </div>
             <div className="lg:col-span-5">
@@ -114,6 +120,7 @@ export default function ForTeamsPage() {
                   ["Docs / Notion / Confluence", "Documents pillar"],
                   ["File store / Drive / SharePoint", "Files pillar"],
                   ["AI assistant (Claude, ChatGPT, Copilot)", "AI agents (Pilot + Fleet)"],
+                  ["Identity (or federate to your own)", "Keycloak — included, preconfigured"],
                   ["Standalone audit log / SIEM glue", "Native, signed, exported"],
                 ].map(([from, to]) => (
                   <li
@@ -188,11 +195,15 @@ export default function ForTeamsPage() {
             body={
               <>
                 <p>
-                  Yes on consolidation, with the caveat that the platform doesn&apos;t replace
-                  identity (Okta / Azure AD stays) or the SIEM (the platform feeds yours).
-                  Everything in the productivity stack — mail, chat, meetings, files, documents,
-                  the AI assistant subscription — becomes one contract, one DPA, one security
-                  review, one renewal cycle.
+                  Yes on consolidation, including identity. The platform ships with Keycloak (the
+                  open-source identity provider) preconfigured into the deployment — so an
+                  organisation without an existing identity provider gets one as part of the
+                  platform. An organisation that already operates Okta, Microsoft Entra ID,
+                  Auth0, or Google Workspace federates to that provider via OIDC and keeps it as
+                  the source of truth. The SIEM is the only piece that genuinely stays separate
+                  (the platform feeds your SIEM rather than replacing it). Everything else in the
+                  productivity stack becomes one contract, one DPA, one security review, one
+                  renewal cycle.
                 </p>
                 <p>
                   The contract surface that matters: a single MSA covering data processing,
@@ -213,8 +224,8 @@ export default function ForTeamsPage() {
             }
             outcomes={[
               { label: "CONTRACTS", value: "1 MSA replaces ~8" },
+              { label: "IDENTITY", value: "Keycloak included; federate if you have one" },
               { label: "RENEWAL CYCLES", value: "1 per year, predictable" },
-              { label: "DATA RESIDENCY", value: "Your infrastructure" },
               { label: "PRICING", value: "Per-deployment, on application" },
             ]}
           />
