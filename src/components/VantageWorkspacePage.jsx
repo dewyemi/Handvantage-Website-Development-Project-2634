@@ -97,9 +97,10 @@ const VantageWorkspacePage = () => {
                 </h1>
                 <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8 max-w-xl font-light">
                   One platform — email, files, chat, meetings, documents, and an AI agent layer that
-                  operates across all of them. Twenty containers, one SSO, one signed audit trail.
-                  Deployed on infrastructure you control. Graded continuously across eleven
-                  regulatory frameworks.
+                  operates across all of them. One identity for your team (Keycloak ships included;
+                  federate to Okta or Microsoft Entra ID if you have one). One signed audit trail.
+                  Live in ten minutes on infrastructure you already operate. Graded continuously
+                  across eleven regulatory frameworks.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
                   <a
@@ -141,7 +142,7 @@ const VantageWorkspacePage = () => {
                       <Stat value="A" label="GRADE" suffix="100%" />
                       <Stat value="11" label="FRAMEWORKS" />
                       <Stat value="168" label="AUTOMATED TESTS" />
-                      <Stat value="20" label="CONTAINERS" />
+                      <Stat value="8 → 1" label="VENDORS REPLACED" />
                     </div>
                     <div className="border-t border-slate-800 pt-6">
                       <p className="font-mono text-[10px] tracking-[0.22em] text-slate-500 uppercase mb-2">
@@ -301,6 +302,91 @@ const VantageWorkspacePage = () => {
           </div>
         </section>
 
+        {/* By sector — surface the five published dossiers */}
+        <section className="py-24 border-t border-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mb-12">
+              <p className="font-mono text-[11px] tracking-[0.22em] text-[#C9A36A] uppercase mb-6">
+                IS THIS FOR YOUR INDUSTRY?
+              </p>
+              <h2 className="font-editorial text-3xl md:text-4xl text-white leading-tight mb-4">
+                We&rsquo;ve written a sector brief for each of the five.
+              </h2>
+              <p className="text-slate-400 max-w-2xl">
+                Each dossier walks the regulatory frame for the sector, names what the platform fits
+                and what it doesn&rsquo;t (with the specialised vendors we recommend for the use
+                cases that aren&rsquo;t ours), and closes with the questions to ask any AI vendor in
+                that procurement.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-800 border border-slate-800">
+              {[
+                {
+                  sector: 'Financial services',
+                  framing: 'FINRA, SEC, the audit-trail problem',
+                  href: 'https://workspace.handvantage.com/insights/agentic-ai-financial-services-finra-audit-trail',
+                  for: 'Broker-dealers, RIAs, wealth managers',
+                },
+                {
+                  sector: 'Healthcare',
+                  framing: 'HIPAA, FDA SaMD, supervision',
+                  href: 'https://workspace.handvantage.com/insights/healthcare-agentic-ai-hipaa-fda-supervision',
+                  for: 'Providers, payers, life sciences',
+                },
+                {
+                  sector: 'Fintech',
+                  framing: 'BSA/AML, fair lending, sponsor bank',
+                  href: 'https://workspace.handvantage.com/insights/fintech-agentic-ai-bsa-aml-fair-lending-sponsor-bank',
+                  for: 'Lending, payments, BaaS, neobanks',
+                },
+                {
+                  sector: 'Canadian public sector',
+                  framing: 'TBS Directive, provincial frames, sovereignty',
+                  href: 'https://workspace.handvantage.com/insights/public-sector-agentic-ai-canadian-sovereignty',
+                  for: 'Federal, provincial, Crown Corps, First Nations',
+                },
+                {
+                  sector: 'Legal services',
+                  framing: 'Privilege, competence, supervision rule',
+                  href: 'https://workspace.handvantage.com/insights/legal-services-agentic-ai-privilege-competence-supervision',
+                  for: 'Law firms, in-house counsel',
+                },
+                {
+                  sector: 'Sector not listed?',
+                  framing: 'Talk to us about your regulatory frame',
+                  href: 'https://workspace.handvantage.com/contact',
+                  for: 'Manufacturing, retail, energy, education, more',
+                  variant: 'contact',
+                },
+              ].map(({ sector, framing, href, for: forWho, variant }) => (
+                <a
+                  key={sector}
+                  href={href}
+                  target="_blank"
+                  rel="noopener"
+                  className={`group block p-6 transition-colors ${
+                    variant === 'contact'
+                      ? 'bg-slate-950/40 hover:bg-slate-900'
+                      : 'bg-[#020617] hover:bg-slate-950'
+                  }`}
+                >
+                  <p className="font-mono text-[10px] tracking-[0.18em] text-[#C9A36A] uppercase mb-3">
+                    {forWho}
+                  </p>
+                  <p className="font-editorial text-xl text-white group-hover:text-[#C9A36A] transition-colors mb-2">
+                    {sector}
+                  </p>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-4">{framing}</p>
+                  <span className="font-mono text-[11px] tracking-[0.16em] text-[#C9A36A] uppercase inline-flex items-center gap-1">
+                    Read the brief
+                    <SafeIcon icon={FiArrowRight} className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA */}
         <section className="py-24 border-t border-slate-900">
           <div className="container mx-auto px-6 max-w-4xl text-center">
@@ -336,7 +422,7 @@ const VantageWorkspacePage = () => {
                 <SafeIcon icon={FiArrowRight} className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-            <div className="flex flex-col sm:flex-row gap-x-8 gap-y-2 justify-center text-sm font-mono tracking-[0.16em] uppercase">
+            <div className="flex flex-col sm:flex-row gap-x-8 gap-y-2 justify-center text-sm font-mono tracking-[0.16em] uppercase mb-8">
               <a
                 href="https://workspace.handvantage.com/for-teams"
                 rel="noopener"
@@ -353,6 +439,18 @@ const VantageWorkspacePage = () => {
                 The CISO brief →
               </a>
             </div>
+            <p className="text-sm text-slate-500 leading-relaxed">
+              Want a monthly digest? <em className="text-slate-400">The Vantage Pilot</em> ships
+              the last business day of each month —{" "}
+              <a
+                href="https://workspace.handvantage.com/vantage-pilot"
+                rel="noopener"
+                className="text-[#C9A36A] hover:text-white underline underline-offset-4"
+              >
+                read issue 01
+              </a>
+              .
+            </p>
           </div>
         </section>
       </div>
