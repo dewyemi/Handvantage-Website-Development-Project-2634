@@ -9,7 +9,7 @@ import { SITE } from "@/lib/data-tokens";
 export const metadata: Metadata = {
   title: "Vantage Workspace",
   description:
-    "Vantage Workspace is one platform: email, files, chat, meetings, documents, plus an AI agent layer that operates across all of them. One identity, one signed audit trail, deployed on your infrastructure in ten minutes.",
+    "Vantage Workspace is one platform: email, files, chat, meetings, documents, plus an AI agent layer that operates across all of them. One identity, one signed audit trail, deployed on your infrastructure in an hour for the typical end-to-end install.",
   alternates: { canonical: `${SITE.baseUrl}/product` },
 };
 
@@ -462,7 +462,11 @@ export default function ProductPage() {
               for evaluation, pilot deployments, and small teams. Twenty containers, one Postgres
               instance, one Redis instance, one Nginx ingress. Deployable on a single 8-core / 32GB
               VM. The reference install is published as a GitHub Actions workflow that takes a
-              fresh Ubuntu 24.04 server from zero to a running platform in under ten minutes.
+              fresh Ubuntu 24.04 server from zero to a running platform in under ten minutes for
+              the bare infrastructure deploy. Allowing for identity federation (where the customer
+              brings their own provider), policy YAML configuration for the customer&apos;s tool
+              catalogue, and SIEM export wiring, the realistic end-to-end install for the typical
+              customer is roughly an hour.
             </p>
             <p>
               The second is <strong className="font-semibold">multi-node Kubernetes</strong> — for

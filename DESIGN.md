@@ -225,7 +225,7 @@ A real design tension on this site: too much marketing voice loses engineer-grad
 - If a security architect can dig into `/architecture` and find the technical depth they need to evaluate the platform on engineering merit, the spec language is doing its job.
 - If both are happy, you're in the right register.
 
-**Do not delete numbers that anchor claims.** "11 frameworks", "168 automated tests", "A grade", "100% pass rate", "10 minutes to deploy" — these are concrete value statements, not implementation details. They stay.
+**Do not delete numbers that anchor claims.** "11 frameworks", "168 automated tests", "A grade", "100% pass rate", "an hour to deploy (ten minutes for bare infrastructure)" — these are concrete value statements, not implementation details. They stay.
 
 ### Facts that need to stay accurate (corrections to remember)
 
@@ -235,6 +235,7 @@ When writing or editing copy, watch for these specific factual claims — they'r
 - **Procurement is multi-voice**, not CISO-led. Don't characterise the CISO as "the buyer" or as a blocker. Don't characterise the rest of the company as "having to use" what the CISO bought. The honest framing: five voices in the room (CEO, CFO, COO, CISO, VP Sales / department lead), each legitimate, each answering a different question. The page provides language to align them.
 - **What we don't claim**: no specific hours-saved figures, no win-rate improvement percentages, no reference customer logos by name (NDA), no auto-improving-from-customer-data (we deliberately don't fine-tune on customer data — that's a feature for our buyers).
 - **Sector scope clarifications** — every sector dossier names what the platform fits and what it doesn't. Healthcare: not a clinical decision support system. Fintech: not a credit-decisioning engine. Public sector: not a TBSDADM Level III/IV citizen-facing system. Legal services: not a substitute for a lawyer. **Do not let copy creep these scopes inward** to grab use cases the platform doesn't actually serve.
+- **Deploy time is "an hour" for the typical install, not "ten minutes"** (corrected 2026-05-09). The ten-minute claim is technically accurate for the bare Docker Compose infrastructure deploy, but it's misleading as a marketing headline because the realistic end-to-end install for a typical customer — including identity federation (when they bring their own provider), policy YAML configuration for their tool catalogue, and SIEM export wiring — takes about an hour. The marketing-surface claim should be "an hour"; the technical-detail body can keep "under ten minutes for bare infrastructure" with the hedge.
 
 ### The persona surfaces (added 2026-05-09, refined through 2026-05-09)
 

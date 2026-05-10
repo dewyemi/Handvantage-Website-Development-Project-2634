@@ -99,8 +99,9 @@ const VantageWorkspacePage = () => {
                   One platform — email, files, chat, meetings, documents, and an AI agent layer that
                   operates across all of them. One identity for your team (Keycloak ships included;
                   federate to Okta or Microsoft Entra ID if you have one). One signed audit trail.
-                  Live in ten minutes on infrastructure you already operate. Graded continuously
-                  across eleven regulatory frameworks.
+                  Live in an hour on infrastructure you already operate (the bare infrastructure
+                  deploy is ten minutes; identity federation, policy configuration, and SIEM
+                  wiring add the rest). Graded continuously across eleven regulatory frameworks.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
                   <a
@@ -288,7 +289,7 @@ const VantageWorkspacePage = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: FiServer, title: 'Docker Compose', desc: 'Single-node evaluation and pilot deployments. 8-core / 32GB VM. Ten-minute install.' },
+                { icon: FiServer, title: 'Docker Compose', desc: 'Single-node evaluation and pilot deployments. 8-core / 32GB VM. Ten minutes for the bare infrastructure; an hour with identity federation and policy configuration.' },
                 { icon: FiLayers, title: 'Kubernetes', desc: 'Multi-node production. Helm chart, replica scaling, external Postgres / Redis / object store.' },
                 { icon: FiLock, title: 'Air-gapped', desc: 'Classified or no-internet environments. OCI bundle, offline install, signed licence.' },
               ].map(({ icon, title, desc }) => (

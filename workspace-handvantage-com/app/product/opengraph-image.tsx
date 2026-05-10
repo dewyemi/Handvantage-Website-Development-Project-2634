@@ -11,6 +11,6 @@ export default async function Image() {
     title: "Vantage Workspace.",
     tagline:
       "One platform: email, files, chat, meetings, documents — and an AI agent layer that operates across all of them. One identity, one signed audit trail, deployed where you already run.",
-    meta: "LIVE IN TEN MINUTES",
+    meta: "LIVE IN AN HOUR",
   });
 }

@@ -51,7 +51,7 @@ export default function HomePage() {
               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-10">
                 Vantage Workspace is one platform — email, files, chat, meetings, docs, plus
                 governed AI — running on your infrastructure. One identity for your team. One
-                signed audit trail. Live in ten minutes.
+                signed audit trail. Live in an hour.
               </p>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <Link
