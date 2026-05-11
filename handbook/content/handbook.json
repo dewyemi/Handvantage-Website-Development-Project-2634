@@ -7,6 +7,7 @@
     {
       "label": "PART I",
       "name": "The procurement landscape",
+      "summary": "Why so many agentic AI deployments stall at the compliance review, and the five-voice negotiation underneath every procurement decision in a regulated enterprise.",
       "chapters": [
         {
           "num": "01",
@@ -65,6 +66,7 @@
     {
       "label": "PART II",
       "name": "For specific roles",
+      "summary": "Each role on a procurement committee reads the platform differently. These chapters give each persona the language and the prepared sentences they need — first to understand the platform themselves, then to defend the procurement decision to their committee.",
       "chapters": [
         { "num": "03", "title": "For the CISO", "pageHint": "—", "body": [] },
         { "num": "04", "title": "For the CFO", "pageHint": "—", "body": [] },
@@ -74,6 +76,7 @@
     {
       "label": "PART III",
       "name": "Sector dossiers",
+      "summary": "One brief per regulated sector. Each names the operative regulatory frames, walks the deployment patterns, and clarifies what the platform fits and what it deliberately does not — with named alternative vendor categories for the use cases that aren't ours.",
       "chapters": [
         {
           "num": "06",
@@ -247,6 +250,7 @@
     {
       "label": "PART IV",
       "name": "Architecture and posture",
+      "summary": "The platform's architectural foundations: the 7-Layer Defence Architecture and what continuous compliance actually means at runtime. The reference for security architects, compliance officers, and the auditors they answer to.",
       "chapters": [
         { "num": "11", "title": "The 7-Layer Defence Architecture", "pageHint": "—", "body": [] },
         { "num": "12", "title": "Continuous compliance — what the phrase actually means", "pageHint": "—", "body": [] }
@@ -255,6 +259,7 @@
     {
       "label": "PART V",
       "name": "Reference",
+      "summary": "Procurement question banks pulled from each chapter, a glossary of the regulatory frames named throughout the handbook, and an index of every primary source cited. Designed as the part you keep open while drafting your committee deck.",
       "chapters": [
         { "num": "A", "title": "Procurement question banks (one per role and per sector)", "pageHint": "—", "body": [] },
         { "num": "B", "title": "Glossary of regulatory frames", "pageHint": "—", "body": [] },

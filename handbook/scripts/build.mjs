@@ -126,6 +126,23 @@ function chapterDividerPage(chapter) {
 </section>`;
 }
 
+function partDividerPage(part) {
+  // Roman numeral derived from the part label string. Defensive: if the
+  // label doesn't follow "PART X", use the label as-is.
+  const roman = part.label.replace(/^PART\s+/i, "").trim();
+  return `
+<section class="page part-divider">
+  <div class="marker">${escapeHtml(part.label)}</div>
+  <div class="roman">${escapeHtml(roman)}</div>
+  <div class="name">${escapeHtml(part.name)}.</div>
+  ${part.summary ? `<div class="summary">${escapeHtml(part.summary)}</div>` : ""}
+  <div class="footer-rule">
+    <span>${escapeHtml(part.label)} · ${escapeHtml(part.name.toUpperCase())}</span>
+    <span>${escapeHtml(String(part.chapters.length))} chapters</span>
+  </div>
+</section>`;
+}
+
 /**
  * Render a chapter's body across one or more body pages. Splits on
  * paragraph boundaries; each page holds roughly 5-7 paragraphs worth
@@ -133,15 +150,22 @@ function chapterDividerPage(chapter) {
  * inserted at section breakpoints if specified in the chapter spec.
  */
 function chapterBodyPages(chapter) {
-  // Chunk the body paragraphs into groups that fit on a page. Rough
-  // heuristic: 5 paragraphs per page, but page-break-inside hints in
-  // CSS handle the actual break.
-  const PARAS_PER_PAGE = 6;
+  // Chunk the body paragraphs into groups that fit on a page.
+  // First page hosts the pull-quote AND callout (each takes ~2-3
+  // paragraphs of vertical space), so it gets significantly fewer
+  // paragraphs. Subsequent pages get a tighter density.
+  // Tuned conservatively against the 8.5x11 page-content area
+  // (~9.1 inches tall) — body text at 10.5pt with 1.55 line-height
+  // averages 6 lines per paragraph.
+  const FIRST_PAGE_PARAS = chapter.pullQuote && chapter.callout ? 2 : chapter.pullQuote || chapter.callout ? 3 : 4;
+  const SUBSEQUENT_PARAS = 4;
+
   const groups = [];
   let current = [];
   for (let i = 0; i < chapter.body.length; i++) {
+    const target = groups.length === 0 ? FIRST_PAGE_PARAS : SUBSEQUENT_PARAS;
     current.push(chapter.body[i]);
-    if (current.length >= PARAS_PER_PAGE) {
+    if (current.length >= target) {
       groups.push(current);
       current = [];
     }
@@ -150,8 +174,7 @@ function chapterBodyPages(chapter) {
 
   return groups
     .map((group, pageIdx) => {
-      // Optionally insert a pull-quote on the first body page if the
-      // chapter spec defined one.
+      // Pull-quote and callout both anchor on the first body page.
       const pullQuote =
         pageIdx === 0 && chapter.pullQuote
           ? `<figure class="pull-quote">${escapeHtml(chapter.pullQuote.text)}<span class="attribution">— ${escapeHtml(chapter.pullQuote.attribution)}</span></figure>`
@@ -205,11 +228,17 @@ async function main() {
   pages.push(colophonPage());
   pages.push(tocPage(content.parts));
 
-  // Iterate parts → chapters
+  // Iterate parts → chapters. Each part gets a divider page before its
+  // first content-bearing chapter. Stub chapters (no body) are skipped
+  // entirely AND don't trigger their part's divider — keeps the
+  // proof-PDF clean while we pour content over multiple sessions.
   for (const part of content.parts) {
-    for (const chapter of part.chapters) {
-      // Skip placeholder chapters that don't have body content yet
-      if (!chapter.body || chapter.body.length === 0) continue;
+    const contentChapters = part.chapters.filter(
+      (ch) => ch.body && ch.body.length > 0
+    );
+    if (contentChapters.length === 0) continue;
+    pages.push(partDividerPage(part));
+    for (const chapter of contentChapters) {
       const fullChapter = {
         ...chapter,
         partLabel: part.label,

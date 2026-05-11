@@ -11,7 +11,7 @@ await page.evaluateHandle("document.fonts.ready");
 const pageCount = await page.evaluate(() => document.querySelectorAll(".page").length);
 console.log(`Pages: ${pageCount}`);
 
-for (let i = 0; i < Math.min(pageCount, 8); i++) {
+for (let i = 0; i < pageCount; i++) {
   const el = await page.evaluateHandle((idx) => document.querySelectorAll(".page")[idx], i);
   await el.screenshot({ path: `/tmp/handbook-preview/page-${String(i + 1).padStart(2, "0")}.png` });
   console.log(`  page ${i + 1} captured`);

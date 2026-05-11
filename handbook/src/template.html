@@ -66,6 +66,10 @@ html, body {
   left: 0.85in;
   right: 1.1in;
   bottom: 0.9in;
+  /* Clip overflow so body content can NEVER bleed into the running footer
+     area below. The build script's per-page paragraph budget is sized to
+     fit comfortably; this clipping is the safety net. */
+  overflow: hidden;
 }
 
 /* ------------------------------------------------------------------ */
@@ -256,6 +260,83 @@ html, body {
 }
 
 /* ------------------------------------------------------------------ */
+/* PART DIVIDER PAGE — full-bleed cream, oversized Part roman numeral */
+/* in oxblood, italic part name beneath. Marks the major structural   */
+/* boundaries (Part I → II → III → IV → V).                           */
+/* ------------------------------------------------------------------ */
+.part-divider {
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 1.2in;
+  position: relative;
+}
+.part-divider::before {
+  content: "";
+  position: absolute;
+  top: 1in;
+  left: 1.2in;
+  width: 1.5in;
+  height: 1px;
+  background: var(--oxblood);
+}
+.part-divider .marker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11pt;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin-bottom: 28pt;
+  margin-top: -180pt;
+}
+.part-divider .roman {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 200;
+  font-size: 220pt;
+  line-height: 0.85;
+  color: var(--oxblood);
+  letter-spacing: -0.04em;
+  margin-bottom: 28pt;
+}
+.part-divider .name {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 36pt;
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  max-width: 5in;
+  margin-bottom: 28pt;
+}
+.part-divider .summary {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 400;
+  font-size: 13pt;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 4.5in;
+}
+.part-divider .footer-rule {
+  position: absolute;
+  bottom: 1in;
+  left: 1.2in;
+  right: 1.2in;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 8pt;
+  border-top: 1px solid var(--oxblood);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ------------------------------------------------------------------ */
 /* CHAPTER DIVIDER PAGE — cream background, large chapter title       */
 /* ------------------------------------------------------------------ */
 .chapter-divider {
@@ -418,6 +499,95 @@ html, body {
   color: var(--ink);
   margin-top: 14pt;
   margin-bottom: 6pt;
+}
+
+/* COMPARISON TABLE — for "what we fit / what we don't" matrices.
+   Used on sector-dossier first-body pages to break up text density. */
+.compare-table {
+  margin: 18pt 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--ink-hairline);
+  border: 1px solid var(--ink-hairline);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.compare-table > div {
+  background: white;
+  padding: 14pt 16pt;
+}
+.compare-table .head {
+  background: var(--paper);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+.compare-table .head.no { color: var(--ink-soft); }
+.compare-table ul {
+  list-style: none;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.compare-table li {
+  padding: 3pt 0;
+  border-bottom: 1px dotted var(--ink-hairline);
+}
+.compare-table li:last-child { border-bottom: 0; }
+.compare-table li::before {
+  content: "—";
+  color: var(--ink-soft);
+  margin-right: 8pt;
+}
+
+/* SECTION ORNAMENT — small geometric mark used between sub-sections
+   inside a chapter. Subtle visual breath. */
+.ornament {
+  display: block;
+  text-align: center;
+  margin: 18pt auto;
+  letter-spacing: 0.4em;
+  color: var(--oxblood);
+  font-family: 'Source Serif 4', serif;
+  font-size: 14pt;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+/* LAYER STACK DIAGRAM — for the architecture chapter.
+   Vertical stack of layers with names + roles. Editorial, no images. */
+.layer-stack {
+  margin: 18pt 0;
+  border: 1px solid var(--ink-hairline);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.layer-stack .layer {
+  display: grid;
+  grid-template-columns: 0.5in 1.5in 1fr;
+  align-items: baseline;
+  padding: 10pt 14pt;
+  border-bottom: 1px solid var(--ink-hairline);
+  font-size: 10pt;
+  line-height: 1.4;
+}
+.layer-stack .layer:last-child { border-bottom: 0; }
+.layer-stack .layer .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9pt;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+.layer-stack .layer .name {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 600;
+  color: var(--ink);
+}
+.layer-stack .layer .role {
+  color: var(--ink-soft);
 }
 
 /* SOURCE CITATIONS — superscript number → footnote-like at bottom */
