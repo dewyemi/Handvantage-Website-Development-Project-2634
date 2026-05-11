@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.baseUrl}/compliance`, lastModified: today, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE.baseUrl}/philosophy`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.baseUrl}/insights`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE.baseUrl}/handbook`, lastModified: today, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE.baseUrl}/vantage-pilot`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE.baseUrl}/for-teams`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE.baseUrl}/for-ciso`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },

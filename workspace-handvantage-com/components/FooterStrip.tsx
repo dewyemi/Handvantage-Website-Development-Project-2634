@@ -7,6 +7,7 @@ const SITE_LINKS = [
   { label: "Compliance", href: "/compliance" },
   { label: "Philosophy", href: "/philosophy" },
   { label: "Insights", href: "/insights" },
+  { label: "The Handbook", href: "/handbook" },
   { label: "The Vantage Pilot", href: "/vantage-pilot" },
   { label: "Talk to us", href: "/contact" },
 ];

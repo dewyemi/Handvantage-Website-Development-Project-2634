@@ -689,6 +689,66 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
+      {/* SECTION 9.5 — THE HANDBOOK (paper-deep, editorial promo)      */}
+      {/* Pairs with the Recent Thinking section above. The handbook is */}
+      {/* the consolidated edition — not a "lead magnet," but the       */}
+      {/* reference object the editorial work was building toward.      */}
+      {/* ============================================================ */}
+      <section className="bg-paper-deep border-t border-ink-hairline">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
+              <p className="font-mono text-byline text-oxblood uppercase tracking-[0.18em] mb-6">
+                NEW &middot; MAY 2026
+              </p>
+              <p
+                className="font-display italic text-oxblood leading-[0.95] mb-6"
+                style={{ fontSize: "clamp(5rem, 12vw, 11rem)" }}
+              >
+                84
+              </p>
+              <p className="font-mono text-byline text-ink-soft uppercase tracking-[0.14em]">
+                pages &middot; PDF &middot; no email gate
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+                The handbook
+              </p>
+              <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-8 max-w-[640px]">
+                The Agentic AI Procurement{" "}
+                <span className="italic text-oxblood">Handbook</span>.
+              </h2>
+              <p className="font-display text-body-lg text-ink leading-relaxed mb-6 max-w-[600px]">
+                Sector dossiers, persona briefs, the 7-Layer Defence Architecture, and the
+                procurement question banks &mdash; consolidated into a single reference for the
+                committee evaluating agentic AI for a regulated environment.
+              </p>
+              <p className="font-display text-body text-ink-soft leading-relaxed mb-10 max-w-[600px]">
+                Free to download, free to cite, free to forward. McKinsey-grade editorial without
+                the gate.
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <a
+                  href="/downloads/agentic-ai-procurement-handbook.pdf"
+                  download="agentic-ai-procurement-handbook.pdf"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-oxblood text-paper font-ui font-medium text-[15px] hover:bg-ink transition-colors"
+                >
+                  Download the handbook (PDF)&nbsp;&darr;
+                </a>
+                <Link
+                  href="/handbook"
+                  className="font-ui font-medium text-[15px] text-ink hover:text-oxblood underline-offset-4 hover:underline"
+                >
+                  Or &mdash; what&rsquo;s inside&nbsp;&rarr;
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* SECTION 10 — CTA (midnight, single editorial line)            */}
       {/* ============================================================ */}
       <section className="bg-midnight border-t border-midnight-hairline">
