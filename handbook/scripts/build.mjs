@@ -156,9 +156,13 @@ function chapterBodyPages(chapter) {
   // paragraphs. Subsequent pages get a tighter density.
   // Tuned conservatively against the 8.5x11 page-content area
   // (~9.1 inches tall) — body text at 10.5pt with 1.55 line-height
-  // averages 6 lines per paragraph.
-  const FIRST_PAGE_PARAS = chapter.pullQuote && chapter.callout ? 2 : chapter.pullQuote || chapter.callout ? 3 : 4;
-  const SUBSEQUENT_PARAS = 4;
+  // averages 6 lines per paragraph. A chapter can override via
+  // `paragraphsPerPage` for content with unusually short or long
+  // paragraphs (glossaries pack many short entries; question banks
+  // pack fewer long enumerations).
+  const override = chapter.paragraphsPerPage;
+  const FIRST_PAGE_PARAS = override ?? (chapter.pullQuote && chapter.callout ? 2 : chapter.pullQuote || chapter.callout ? 3 : 4);
+  const SUBSEQUENT_PARAS = override ?? 4;
 
   const groups = [];
   let current = [];
