@@ -139,10 +139,12 @@ export default function HomePage() {
                   safety was an acceptable-use policy in the employee handbook.
                 </p>
                 <p>
-                  That window is closing. The EU AI Act high-risk obligations begin August 2, 2026
-                  — and the audit window, when contemporaneous evidence has to exist, is already
-                  open. Article 99 specifies penalties up to €35M or 7% of global revenue when
-                  evidence is absent, not just when systems fail.
+                  The EU AI Act high-risk obligations were deferred on 7 May 2026 from 2 August
+                  2026 to 2 December 2027 by the Council and Parliament&apos;s omnibus agreement.
+                  The deadline moved; the audit window did not. It still opens the day each system
+                  enters service, and Article 99 still specifies penalties up to €35M or 7% of
+                  global revenue when contemporaneous evidence is absent, not just when systems
+                  fail.
                 </p>
                 <p>
                   Agentic AI doesn&apos;t just answer questions. It takes actions on behalf of a
@@ -634,12 +636,13 @@ export default function HomePage() {
             <div className="lg:col-span-5 flex flex-col gap-10">
               {[
                 {
-                  slug: "eu-ai-act-deadline-ciso-ignoring",
+                  slug: "eu-ai-act-omnibus-deferral-what-to-do-with-seventeen-months",
                   category: "Briefing",
-                  date: "May 2, 2026",
-                  read: "5 min read",
-                  headline: "The EU AI Act deadline your CISO is ignoring",
-                  dek: "August 2, 2026 is the high-risk obligations deadline. The audit window opened in Q1 and most security leaders are still treating it as Q4 work.",
+                  date: "May 13, 2026",
+                  read: "8 min read",
+                  headline:
+                    "The EU AI Act omnibus deferral — what to do with seventeen months",
+                  dek: "The 7 May 2026 omnibus moves Annex III high-risk obligations to December 2027. The architectural decisions you make in the next sixteen months are still what an inspector will examine.",
                   img: "/images/product/owasp-coverage.jpg",
                 },
                 {

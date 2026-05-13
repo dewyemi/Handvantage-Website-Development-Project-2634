@@ -38,7 +38,7 @@ export default function NewsletterIssuePage({ params }: Props) {
     "@type": "Article",
     headline: `The Vantage Pilot — ${issue.monthHuman}`,
     datePublished: issue.publishedISO,
-    dateModified: issue.publishedISO,
+    dateModified: issue.lastModifiedAt ?? issue.publishedISO,
     author: { "@type": "Person", name: SITE.founderName },
     publisher: {
       "@type": "Organization",
@@ -93,6 +93,13 @@ export default function NewsletterIssuePage({ params }: Props) {
       {/* From the founder */}
       <section className="py-12 md:py-16">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
+          {issue.editorsNote && (
+            <aside
+              role="note"
+              className="mb-10 border-l-4 border-oxblood bg-paper-deep px-6 py-5 font-display italic text-[15px] text-ink leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: issue.editorsNote }}
+            />
+          )}
           <SectionEyebrow>FROM THE FOUNDER</SectionEyebrow>
           <article className="font-display text-body text-ink space-y-6 leading-relaxed">
             {issue.founderNote.map((p, i) => (
@@ -101,6 +108,11 @@ export default function NewsletterIssuePage({ params }: Props) {
               </p>
             ))}
           </article>
+          {issue.lastModifiedAtHuman && (
+            <p className="mt-10 font-ui text-byline text-ink-soft">
+              Last edited {issue.lastModifiedAtHuman}.
+            </p>
+          )}
         </div>
       </section>
 

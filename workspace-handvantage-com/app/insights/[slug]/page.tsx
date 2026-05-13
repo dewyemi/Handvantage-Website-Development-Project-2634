@@ -45,7 +45,7 @@ export default function ArticlePage({ params }: Props) {
     "@type": "Article",
     headline: article.headline,
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: article.lastModifiedAt ?? article.date,
     author: { "@type": "Person", name: article.author ?? SITE.founderName },
     publisher: {
       "@type": "Organization",
@@ -107,13 +107,26 @@ export default function ArticlePage({ params }: Props) {
       {/* Body */}
       <section className="py-12 md:py-16">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
-          <article className="font-display text-body text-ink space-y-6 leading-relaxed">
-            {article.body.map((p, i) => (
-              <p key={i} className={i === 0 ? "lede" : undefined}>
-                {p}
-              </p>
-            ))}
-          </article>
+          {article.editorsNote && (
+            <aside
+              role="note"
+              className="mb-10 border-l-4 border-oxblood bg-paper-deep px-6 py-5 font-display italic text-[15px] text-ink leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: article.editorsNote }}
+            />
+          )}
+          <article
+            className="font-display text-body text-ink space-y-6 leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html: article.body
+                .map((p, i) => `<p${i === 0 ? ' class="lede"' : ""}>${p}</p>`)
+                .join(""),
+            }}
+          />
+          {article.lastModifiedAtHuman && (
+            <p className="mt-10 font-ui text-byline text-ink-soft">
+              Last edited {article.lastModifiedAtHuman}.
+            </p>
+          )}
         </div>
       </section>
 

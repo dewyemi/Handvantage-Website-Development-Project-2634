@@ -46,7 +46,7 @@ Why this lands: Names the operational pattern (capacity gain at task level, acco
 
 > "We met the agentic AI governance question with a platform that produces contemporaneous audit evidence on every action, mapped to the eleven frameworks our regulators care about, before the EU AI Act high-risk obligations deadline."
 
-Why this lands: Times the decision against the regulatory calendar (August 2, 2026). Demonstrates strategic anticipation rather than reactive procurement.
+Why this lands: Times the decision against the regulatory calendar. Annex III high-risk obligations bind on 2 December 2027 (deferred from 2 August 2026 by the 7 May 2026 omnibus agreement); Annex I safety-component obligations on 2 August 2028; Article 50 transparency obligations on 2 December 2026. The deferral does not collapse the audit window — notified bodies have nineteen additional months to raise the conformity-assessment bar. Demonstrates strategic anticipation rather than reactive procurement.
 
 ### To a CISO peer
 

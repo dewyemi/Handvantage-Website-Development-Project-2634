@@ -236,6 +236,14 @@ When writing or editing copy, watch for these specific factual claims — they'r
 - **What we don't claim**: no specific hours-saved figures, no win-rate improvement percentages, no reference customer logos by name (NDA), no auto-improving-from-customer-data (we deliberately don't fine-tune on customer data — that's a feature for our buyers).
 - **Sector scope clarifications** — every sector dossier names what the platform fits and what it doesn't. Healthcare: not a clinical decision support system. Fintech: not a credit-decisioning engine. Public sector: not a TBSDADM Level III/IV citizen-facing system. Legal services: not a substitute for a lawyer. **Do not let copy creep these scopes inward** to grab use cases the platform doesn't actually serve.
 - **Deploy time is "an hour" for the typical install, not "ten minutes"** (corrected 2026-05-09). The ten-minute claim is technically accurate for the bare Docker Compose infrastructure deploy, but it's misleading as a marketing headline because the realistic end-to-end install for a typical customer — including identity federation (when they bring their own provider), policy YAML configuration for their tool catalogue, and SIEM export wiring — takes about an hour. The marketing-surface claim should be "an hour"; the technical-detail body can keep "under ten minutes for bare infrastructure" with the hedge.
+- **EU AI Act timeline — post-7 May 2026 omnibus deferral** (corrected 2026-05-13). The Council and Parliament reached a provisional political agreement on a Digital Omnibus package on 7 May 2026, amending the AI Act:
+  - **Annex III standalone high-risk obligations** (Articles 6–29): deferred from **2 August 2026** to **2 December 2027**.
+  - **Annex I safety-component obligations**: deferred from 2 August 2027 to **2 August 2028**.
+  - **Article 50 transparency obligations** (watermarking, disclosure): **accelerated** to **2 December 2026** (grace period cut from six months to three).
+  - **Prohibited practices** remain in force since 2 February 2025; **general-purpose AI obligations** remain in force since 2 August 2025 — neither is touched by the omnibus.
+  - **Subject to formal adoption** by Council and Parliament before 2 August 2026; until then the original text remains the legal position.
+  - Article 99 penalty structure (€35M or 7% of global turnover) is **unchanged**.
+  - **Do NOT write** "August 2, 2026 is the high-risk obligations deadline" as a present-tense claim. **Do write** "deferred from 2 August 2026 to 2 December 2027 by the May 2026 omnibus" or "the post-omnibus deadline is 2 December 2027." Editorial preservation: original pre-omnibus articles (deadline-ciso-ignoring, the May 2026 Vantage Pilot issue) keep their body prose but carry an editor's note linking forward to the omnibus companion article.
 
 ### The persona surfaces (added 2026-05-09, refined through 2026-05-09)
 

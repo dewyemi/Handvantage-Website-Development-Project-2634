@@ -31,9 +31,10 @@ Each dossier walks the regulatory frame for the sector, names what the platform 
 
 ## Featured editorial — regulatory + governance briefings
 
-- [EU AI Act Annex IV: what your technical documentation actually has to show](https://workspace.handvantage.com/insights/eu-ai-act-annex-iv-technical-documentation): A line-by-line read of Annex IV's nine sections, separating the four descriptive ones from the five evidence-bearing ones
-- [The EU AI Act deadline your CISO is ignoring](https://workspace.handvantage.com/insights/eu-ai-act-deadline-ciso-ignoring): August 2, 2026 high-risk obligations deadline; Article 99 penalty exposure for absence of contemporaneous evidence
-- [ISO/IEC 42001 audit checklist: what auditors will ask in 2026](https://workspace.handvantage.com/insights/iso-42001-audit-checklist-2026): The 38 Annex A controls grouped by what evidence an auditor expects; the policy controls vs. the operational controls
+- [The EU AI Act omnibus deferral — what to do with seventeen months](https://workspace.handvantage.com/insights/eu-ai-act-omnibus-deferral-what-to-do-with-seventeen-months): The 7 May 2026 omnibus moves Annex III high-risk obligations from 2 August 2026 to 2 December 2027; Annex I safety-component obligations to 2 August 2028; Article 50 transparency obligations accelerated to 2 December 2026. The architectural decisions you make in the next sixteen months are still what an inspector will examine in 2027.
+- [EU AI Act Annex IV: what your technical documentation actually has to show](https://workspace.handvantage.com/insights/eu-ai-act-annex-iv-technical-documentation): A line-by-line read of Annex IV's nine sections, separating the four descriptive ones from the five evidence-bearing ones. Annex IV requirements themselves are unchanged by the omnibus deferral; only the application date moved.
+- [The EU AI Act deadline your CISO is ignoring](https://workspace.handvantage.com/insights/eu-ai-act-deadline-ciso-ignoring): Published before the May 2026 omnibus deferral; the audit-window argument survives the new 2 December 2027 deadline. The article carries an editor's note linking forward to the omnibus piece.
+- [ISO/IEC 42001 audit checklist: what auditors will ask in 2026](https://workspace.handvantage.com/insights/iso-42001-audit-checklist-2026): The 38 Annex A controls grouped by what evidence an auditor expects; the policy controls vs. the operational controls. ISO 42001 is becoming the practical interim governance bar during the omnibus deferral period.
 - [Why 40% of agentic AI projects fail (and the governance answer)](https://workspace.handvantage.com/insights/why-40-percent-ai-projects-fail): Gartner's number; the governance-fit cancellation pattern; why platforms get cancelled at the compliance review
 
 ## Featured editorial — engineering retrospectives
@@ -69,6 +70,7 @@ Each dossier walks the regulatory frame for the sector, names what the platform 
 - **Deployment**: Single-tenant only. No multi-tenant SaaS. Docker Compose, Kubernetes, and air-gapped install paths
 - **Compliance**: A grade · 100% pass · 11 frameworks · 168 automated tests · graded on every build
 - **Frameworks covered**: NIST AI RMF, ISO/IEC 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), AIDA (proposed)
+- **EU AI Act timeline (post-7 May 2026 omnibus)**: Annex III high-risk obligations (Articles 6–29) deferred to 2 December 2027 (from 2 August 2026). Annex I safety-component obligations to 2 August 2028 (from 2 August 2027). Article 50 transparency obligations accelerated to 2 December 2026. Prohibited practices remain in force since 2 February 2025. General-purpose AI obligations remain in force since 2 August 2025. The omnibus is subject to formal adoption by Council and Parliament before the original deadline; without that, the original dates kick in by default
 - **Audit format**: CEF, LEEF, JSON exports plus signed Trust Report (HTML/PDF). RFC 3161 timestamps, Merkle-tree-anchored, third-party verifiable
 - **Release cadence**: Two-week sprints. 68 sprints shipped. Zero rollbacks
 - **Pricing model**: Per-deployment, on application. Not per-seat. Discussed with humans — never quoted by an AI agent
@@ -80,7 +82,7 @@ Each dossier walks the regulatory frame for the sector, names what the platform 
 
 ## Editorial cadence
 
-- **Articles**: weekly (auto-published Sunday morning Toronto time). 14 articles published as of 2026-05-09. The auto-publishing routine cycles through a queue of regulatory briefings, engineering retrospectives, sector dossiers, and field notes
+- **Articles**: weekly (auto-published Sunday morning Toronto time). 15 articles published as of 2026-05-13. The auto-publishing routine cycles through a queue of regulatory briefings, engineering retrospectives, sector dossiers, and field notes
 - **Newsletter**: monthly. The Vantage Pilot, last business day of each month. Issue 01 (May 2026) live
 
 ## What the platform deliberately does NOT do

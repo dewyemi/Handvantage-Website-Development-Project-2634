@@ -502,7 +502,7 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
           />
           <FrameworkBlock
             name="EU AI Act"
-            version="Regulation (EU) 2024/1689; high-risk obligations (Articles 6-29, Annex III) — effective 2 August 2026."
+            version="Regulation (EU) 2024/1689; Annex III high-risk obligations (Articles 6-29) — deferred from 2 August 2026 to 2 December 2027 by the May 2026 omnibus agreement. Annex I safety-component obligations now 2 August 2028. Article 50 transparency obligations accelerated to 2 December 2026."
             coverage="Articles 9 (Risk management), 10 (Data and data governance), 11 (Technical documentation), 12 (Record-keeping), 13 (Transparency), 14 (Human oversight), 15 (Accuracy, robustness, cybersecurity), 16-29 (Provider obligations), 99 (Penalties — for context)."
             evidence="Article 12 (record-keeping) is the centrepiece — the audit log structure satisfies it directly. Article 11 (technical documentation) is satisfied by the Trust Report + the architecture documentation. Article 14 (human oversight) is satisfied by Layer 5 (Trust Boundaries) consent flows."
             practice="For a deployment in the EU or with EU-regulated data, the operator can request a Trust Report scoped to the AI Act's Annex IV technical-documentation requirements; the report maps each Annex IV item to its satisfying evidence in the platform."
@@ -573,19 +573,23 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
         <div className="max-w-narrow mx-auto px-6 md:px-12">
           <SectionEyebrow>THE AUDIT WINDOW</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">
-            August 2, 2026 is when the obligations begin. The audit window started this quarter.
+            2 December 2027 is when the obligations begin. The audit window opens the day each
+            system enters service.
           </h2>
           <div className="font-display text-body text-ink space-y-6 leading-relaxed">
             <p>
-              The EU AI Act&apos;s high-risk obligations come into force on 2 August 2026. The
-              penalty structure under Article 99 is the larger of EUR 35 million or 7% of global
+              The EU AI Act&apos;s Annex III high-risk obligations were deferred on 7 May 2026 from
+              2 August 2026 to 2 December 2027 by the Council and Parliament&apos;s omnibus
+              agreement. Annex I safety-component obligations moved to 2 August 2028. The penalty
+              structure under Article 99 is unchanged: the larger of EUR 35 million or 7% of global
               annual turnover for non-compliance.
             </p>
             <p>
               The under-discussed feature of the regulation is that it does not ask &ldquo;did your
               platform behave correctly on the day?&rdquo; It asks for evidence that controls were
               operating during the period leading up to the day. That period — the audit window —
-              is already open.
+              opens the day each system is placed on the market or put into service. The deferral
+              gives organisations more runway to execute; it does not collapse the window itself.
             </p>
             <p>
               The platform was designed for this regulatory shape. Continuous evidence generation,
@@ -594,10 +598,12 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
             </p>
             <p>
               For customers reading this who have not yet started preparing, the most useful frame
-              is: the deadline is when the obligations begin; the audit window is now. Every prompt
-              processed without contemporaneous evidence is a prompt that cannot be defended in
-              retrospect. The work to instrument the platform should be done in the months leading
-              up to August 2026, not in the weeks after.
+              is: the deadline is when the obligations begin; the audit window is the operational
+              history any system going live before then will need to defend. Every prompt processed
+              without contemporaneous evidence is a prompt that cannot be defended in retrospect.
+              Notified bodies have nineteen more months to consult, publish detailed guidance, and
+              raise the bar accordingly. The conformity assessments approved in 2027 are likely to
+              require evidence richer than what would have passed in mid-2026.
             </p>
           </div>
         </div>

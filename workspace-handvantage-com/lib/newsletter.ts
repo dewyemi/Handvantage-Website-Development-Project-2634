@@ -27,6 +27,11 @@ export interface NewsletterIssue {
   publishedThisMonth: PublishedThisMonth[];
   whatWeAreWatching: WatchingItem[];
   comingNextMonth: string;
+  // Optional editor's note added after publication. Rendered at the top
+  // of the issue page with oxblood left border + italic body.
+  editorsNote?: string;
+  lastModifiedAt?: string;
+  lastModifiedAtHuman?: string;
 }
 
 export const NEWSLETTER_ISSUES: NewsletterIssue[] = [
@@ -36,6 +41,10 @@ export const NEWSLETTER_ISSUES: NewsletterIssue[] = [
     monthHuman: "May 2026",
     publishedISO: "2026-05-08",
     publishedHuman: "May 8, 2026",
+    lastModifiedAt: "2026-05-13",
+    lastModifiedAtHuman: "May 13, 2026",
+    editorsNote:
+      "<strong>Editor&rsquo;s note &mdash; added 13 May 2026.</strong> This issue was sent the day after the 7 May 2026 omnibus agreement deferred the EU AI Act&rsquo;s Annex III high-risk obligations from 2 August 2026 to 2 December 2027 (and Annex I safety-component obligations to 2 August 2028). The original founder note below references the August 2 deadline as if it were still in force. The substantive argument about contemporaneous evidence is unchanged by the deferral. For the current state of the regulation, see <a href=\"/insights/eu-ai-act-omnibus-deferral-what-to-do-with-seventeen-months\" class=\"text-oxblood underline decoration-[1.5px] underline-offset-4 hover:no-underline\">The EU AI Act omnibus deferral &mdash; what to do with seventeen months</a>.",
     founderNote: [
       "This is the first issue of The Vantage Pilot. The pretext is the May we just had: Vantage Workspace went live at workspace.handvantage.com on May 6 after eight months of build, and the editorial archive shipped with three pieces — the B-to-A retrospective, the EU AI Act deadline briefing, and the 40%-failure analysis. The intent of this digest is to be useful to one specific reader: someone responsible for evaluating, deploying, or governing agentic AI in a regulated environment, who has no budget for marketing-grade content and limited time for it either.",
       "What I want this digest to be, and not be. It is not a drip campaign — there is no funnel attached. It is not a republication of the articles — those live on the site. It is correspondence: one founder note, the month's articles in two sentences each, and a few links to primary sources that crossed my desk and shaped how the team thinks. Five minutes to read, monthly, no other email.",
@@ -75,10 +84,10 @@ export const NEWSLETTER_ISSUES: NewsletterIssue[] = [
     ],
     whatWeAreWatching: [
       {
-        title: "EU AI Act — high-risk obligations deadline",
+        title: "EU AI Act — high-risk obligations deadline (post-omnibus)",
         url: "https://artificialintelligenceact.eu/the-act/",
         source: "EUR-Lex / artificialintelligenceact.eu",
-        note: "Article 6–29 obligations begin August 2, 2026. The official text on EUR-Lex is the canonical source; the artificialintelligenceact.eu site is a usable reading guide. We expect the implementing acts to land in tranches over the summer.",
+        note: "Article 6–29 Annex III obligations were originally scheduled for 2 August 2026; deferred to 2 December 2027 by the 7 May 2026 omnibus agreement. Annex I safety-component obligations moved to 2 August 2028. Article 50 transparency obligations accelerated to 2 December 2026. The official text on EUR-Lex is the canonical source; track the omnibus until it is published in the Official Journal.",
       },
       {
         title: "ISO/IEC 42001:2023 — AI management systems",

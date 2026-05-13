@@ -78,7 +78,7 @@ export default function ForCisoPage() {
                 audience: "TO THE BOARD",
                 sentence:
                   "We met the agentic AI governance question with a platform that produces contemporaneous audit evidence on every action, mapped to the eleven frameworks our regulators care about, before the EU AI Act high-risk obligations deadline.",
-                why: "Times the decision against the regulatory calendar (August 2, 2026). Demonstrates strategic anticipation rather than reactive procurement.",
+                why: "Times the decision against the regulatory calendar (2 December 2027 after the May 2026 omnibus deferral). Demonstrates strategic anticipation rather than reactive procurement.",
               },
             ].map(({ audience, sentence, why }) => (
               <div key={audience} className="border-b border-ink-hairline py-10 md:py-12">
@@ -209,9 +209,9 @@ export default function ForCisoPage() {
               },
               {
                 point:
-                  "&ldquo;The 2 August 2026 EU AI Act deadline is the timing pressure. Audit windows that opened in Q1 are already half over. Decisions made in Q4 don&rsquo;t produce contemporaneous evidence for the Q1–Q3 period.&rdquo;",
+                  "&ldquo;The EU AI Act high-risk obligations were deferred to 2 December 2027 by the May 2026 omnibus, but the audit window for evidence still opens the day each system enters service. Notified bodies now have nineteen more months to raise the bar.&rdquo;",
                 gloss:
-                  "Establishes urgency without manufacturing it — the deadline is real, the audit window is structural. Particularly effective with boards weighing 'why now?' questions.",
+                  "Reframes the urgency around the deferral without losing it — the deadline moved, the architecture didn&rsquo;t. The conformity-assessment bar will be higher in 2027 than it would have been in 2026. Particularly effective with boards weighing &lsquo;why now?&rsquo; questions.",
                 forWho: "CEO, board, executive committee",
               },
             ].map(({ point, gloss, forWho }, i) => (
