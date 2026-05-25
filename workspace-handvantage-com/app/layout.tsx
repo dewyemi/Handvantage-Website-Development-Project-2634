@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Source_Serif_4, Inter_Tight, IBM_Plex_Mono } from "next/font/google";
 import { HeaderNav } from "@/components/HeaderNav";
 import { FooterStrip } from "@/components/FooterStrip";
@@ -221,6 +222,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${ui.variable} ${mono.variable}`}>
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GQP09VY4BD"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GQP09VY4BD');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
