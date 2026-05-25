@@ -758,8 +758,8 @@ timestamp:         2026-05-05T14:23:12.184Z (RFC 3161 signed)`}
                 p: "Several “AI for the enterprise” platforms ship a fine-tuned in-house model. We integrate with the customer’s choice. The trade-off is that we cannot promise model-level differentiation; what we promise is the architecture around the model. If your differentiation is model behaviour, you should evaluate model-shipping vendors. If your differentiation is governable, auditable use of any good model, the architecture matters more than the model.",
               },
               {
-                h: "We did not build multi-tenant SaaS.",
-                p: "Every customer gets their own deployment. We do not operate a shared production environment. The trade-off is operational complexity (each customer needs a deployment) and our inability to rapidly ship product improvements to all customers simultaneously. The benefit is data sovereignty and a much cleaner audit story — every event in every customer’s audit log is unambiguously theirs.",
+                h: "We did not build shared SaaS.",
+                p: "Every customer gets their own single-tenant deployment — one isolated instance per customer. We do not operate a shared production environment. The trade-off is operational complexity (each customer needs a deployment) and our inability to rapidly ship product improvements to all customers simultaneously. The benefit is data sovereignty and a much cleaner audit story — every event in every customer’s audit log is unambiguously theirs.",
               },
               {
                 h: "We did not build a chat-first UI.",

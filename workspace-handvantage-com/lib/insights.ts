@@ -419,6 +419,34 @@ export const INSIGHTS: Article[] = [
       "We are not arguing that this is the only design pattern that works. We are arguing it is the design pattern that addresses the actual failure mode in cancelled agentic AI projects. The vendors who continue to ship a product layer alone will continue to lose deals to vendors who ship the evidence layer alongside it. The buyers who continue to evaluate platforms on demo behaviour alone will continue to cancel projects when the compliance review reaches the evidence question. The pattern is settled enough now that we expect it to continue.",
     ],
   },
+  {
+    slug: "inside-the-audit-trail-how-vantage-workspace-signs-and-logs-every-ai-action",
+    category: "BRIEFING",
+    headline:
+      "Inside the Audit Trail: How Vantage Workspace Signs and Logs Every AI Action",
+    dek: "The AI action workflow end to end — prompt firewalled, action proposed, human approval, action executed, cryptographically signed to a named person, logged, and mapped to regulatory frameworks. What an auditor sees and the exportable Trust Report.",
+    date: "2026-05-24",
+    dateHuman: "May 24, 2026",
+    readingTime: "7 min read",
+    author: "Josh Olayemi",
+    body: [
+      "This post is forthcoming. The full brand-voiced draft will be supplied by the Handvantage marketing engine.",
+    ],
+  },
+  {
+    slug: "one-tenant-one-instance-the-sovereign-architecture-behind-vantage-workspace",
+    category: "BRIEFING",
+    headline:
+      "One Tenant, One Instance: The Sovereign Architecture Behind Vantage Workspace",
+    dek: "The single-tenant, self-hosted model — one isolated instance per customer; what runs where; the OWASP Top 10 for Agentic Applications coverage; the red-team suite the customer can run themselves; bring-your-own-model and identity-provider federation; deploys in about an hour.",
+    date: "2026-05-24",
+    dateHuman: "May 24, 2026",
+    readingTime: "7 min read",
+    author: "Josh Olayemi",
+    body: [
+      "This post is forthcoming. The full brand-voiced draft will be supplied by the Handvantage marketing engine.",
+    ],
+  },
 ];
 
 export const ARTICLE_BY_SLUG = Object.fromEntries(

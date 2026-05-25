@@ -49,9 +49,9 @@ export default function HomePage() {
                 <span className="text-oxblood">should be yours.</span>
               </h1>
               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-10">
-                Vantage Workspace is one platform — email, files, chat, meetings, docs, plus
-                governed AI — running on your infrastructure. One identity for your team. One
-                signed audit trail. Live in an hour.
+                Vantage Workspace is a self-hosted, sovereign AI workspace for regulated
+                organizations — a complete productivity suite plus AI that takes real action,
+                all running on infrastructure the customer owns.
               </p>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <Link
@@ -109,6 +109,78 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 2.5 — WHAT YOU GET (feature blocks for AI crawlers)   */}
+      {/* ============================================================ */}
+      <section className="bg-paper border-t border-ink-hairline">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="max-w-[820px] mb-16">
+            <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+              What you get
+            </p>
+            <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-8">
+              One platform. Everything governed.
+            </h2>
+            <p className="font-display text-body-lg text-ink leading-relaxed">
+              Handvantage builds Vantage Workspace, a self-hosted, sovereign AI workspace for
+              regulated organizations. It runs a complete productivity suite — email, files, chat,
+              meetings, documents, document signing, and identity — plus AI operators that take
+              real action: composing and sending email, scheduling meetings, managing files and
+              project boards. It is single-tenant by design: one isolated instance per customer,
+              deployed on infrastructure the customer owns. Nothing routes through a third party.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-hairline border border-ink-hairline">
+            {[
+              {
+                headline: "AI that acts, not just answers.",
+                body: "The AI composes and sends email, schedules meetings, manages files and project boards, and posts to team channels. Every action that changes something waits for a human's approval first.",
+              },
+              {
+                headline: "Your data stays yours.",
+                body: "Self-hosted on the customer's own infrastructure. Files, email, chat, even AI web search — nothing routes through a third party.",
+              },
+              {
+                headline: "Provable governance.",
+                body: "Every AI prompt is firewalled before it reaches the model. Every action is signed to a named person and logged. The audit trail maps to eleven regulatory frameworks, so \"were the controls running?\" is answered with evidence, not a policy document.",
+              },
+              {
+                headline: "One platform instead of a dozen.",
+                body: "Email, files, chat, meetings, documents, document signing, and identity — consolidated, with single sign-on included.",
+              },
+              {
+                headline: "Single-tenant by design.",
+                body: "One isolated instance per customer. Never a shared cloud.",
+              },
+              {
+                headline: "Proven security.",
+                body: "10/10 coverage of the OWASP Top 10 for Agentic Applications, and an OWASP red-team suite that ships with the product — the customer can run it against their own deployment, any time.",
+              },
+              {
+                headline: "Fast to deploy.",
+                body: "A standard deployment stands up in about an hour.",
+              },
+            ].map(({ headline, body }) => (
+              <li key={headline} className="bg-paper p-8 md:p-10">
+                <h3 className="font-display text-[clamp(1.25rem,1.5vw+0.5rem,1.75rem)] leading-[1.15] text-ink mb-4">
+                  {headline}
+                </h3>
+                <p className="font-display text-body text-ink-soft leading-relaxed max-w-[560px]">
+                  {body}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <p className="font-display text-body-lg text-ink leading-relaxed mt-12 max-w-[820px]">
+            Built for regulated mid-to-large organizations — financial services, healthcare,
+            public sector, legal, manufacturing and energy — and for the MSPs, MSSPs, and vCISO
+            practices that serve them.
+          </p>
         </div>
       </section>
 
@@ -420,7 +492,7 @@ export default function HomePage() {
               </h2>
               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px]">
                 The compliance grade you see here is computed from runtime evidence — the same
-                audit log an auditor would review. {COMPLIANCE.testCount} automated tests pass on
+                audit log an auditor would review. An automated security test suite passes on
                 every build. The grade has moved over time and we publish the moves.
               </p>
             </div>
@@ -749,6 +821,129 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* SECTION 9.7 — FAQ (paper, visible + FAQPage JSON-LD)          */}
+      {/* ============================================================ */}
+      <section className="bg-paper border-t border-ink-hairline">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+          <div className="max-w-[820px]">
+            <p className="text-eyebrow font-ui font-medium text-ink-soft uppercase tracking-[0.12em] mb-6">
+              Frequently asked questions
+            </p>
+            <h2 className="font-display text-[clamp(2rem,3vw+1rem,3.25rem)] leading-[1.05] tracking-[-0.01em] text-ink mb-16">
+              What Vantage Workspace is and how it works.
+            </h2>
+
+            <dl className="space-y-12">
+              {[
+                {
+                  q: "What is Vantage Workspace?",
+                  a: "Vantage Workspace is a self-hosted, sovereign AI workspace for regulated organizations. It combines a full productivity suite — email, files, chat, meetings, documents — with AI operators that take real action, all running on infrastructure the customer owns.",
+                },
+                {
+                  q: "Is Vantage Workspace cloud-based or self-hosted?",
+                  a: "Self-hosted. It runs on the customer’s own infrastructure, and it is single-tenant — one isolated instance per customer. It is never a shared cloud.",
+                },
+                {
+                  q: "What can the AI actually do?",
+                  a: "The AI takes real action: it composes and sends email, schedules meetings, manages files and project boards, and posts to team channels. Every action that changes something waits for a human’s approval first.",
+                },
+                {
+                  q: "How does Vantage Workspace handle compliance?",
+                  a: "Every AI prompt is firewalled before it reaches the model, and every action is signed to a named person and logged. The audit trail maps to eleven regulatory frameworks, including the EU AI Act, NIST AI RMF, ISO 42001, and Canada’s TBSDADM. The platform holds an A-grade compliance posture.",
+                },
+                {
+                  q: "How is Vantage Workspace secured?",
+                  a: "It has 10/10 coverage of the OWASP Top 10 for Agentic Applications, and it ships with an OWASP red-team suite the customer can run against their own deployment at any time.",
+                },
+                {
+                  q: "What is included in the platform?",
+                  a: "Email, files, chat, meetings, documents, document signing, and identity — one platform, with single sign-on included rather than bought separately.",
+                },
+                {
+                  q: "How long does deployment take?",
+                  a: "A standard deployment stands up in about an hour.",
+                },
+                {
+                  q: "Who is Vantage Workspace for?",
+                  a: "Regulated mid-to-large organizations — financial services, healthcare, public sector, legal, manufacturing and energy — and the MSPs, MSSPs, and vCISO practices that serve them.",
+                },
+                {
+                  q: "Can we use our own AI model and identity provider?",
+                  a: "Yes. Customers can bring their own model and federate to their existing identity provider.",
+                },
+              ].map(({ q, a }) => (
+                <div key={q} className="border-t border-ink-hairline pt-8">
+                  <dt className="font-display text-[clamp(1.25rem,1.5vw+0.5rem,1.5rem)] leading-[1.2] text-ink mb-4">
+                    {q}
+                  </dt>
+                  <dd className="font-display text-body text-ink-soft leading-relaxed max-w-[680px]">
+                    {a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "What is Vantage Workspace?",
+                  acceptedAnswer: { "@type": "Answer", text: "Vantage Workspace is a self-hosted, sovereign AI workspace for regulated organizations. It combines a full productivity suite — email, files, chat, meetings, documents — with AI operators that take real action, all running on infrastructure the customer owns." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Is Vantage Workspace cloud-based or self-hosted?",
+                  acceptedAnswer: { "@type": "Answer", text: "Self-hosted. It runs on the customer’s own infrastructure, and it is single-tenant — one isolated instance per customer. It is never a shared cloud." },
+                },
+                {
+                  "@type": "Question",
+                  name: "What can the AI actually do?",
+                  acceptedAnswer: { "@type": "Answer", text: "The AI takes real action: it composes and sends email, schedules meetings, manages files and project boards, and posts to team channels. Every action that changes something waits for a human’s approval first." },
+                },
+                {
+                  "@type": "Question",
+                  name: "How does Vantage Workspace handle compliance?",
+                  acceptedAnswer: { "@type": "Answer", text: "Every AI prompt is firewalled before it reaches the model, and every action is signed to a named person and logged. The audit trail maps to eleven regulatory frameworks, including the EU AI Act, NIST AI RMF, ISO 42001, and Canada’s TBSDADM. The platform holds an A-grade compliance posture." },
+                },
+                {
+                  "@type": "Question",
+                  name: "How is Vantage Workspace secured?",
+                  acceptedAnswer: { "@type": "Answer", text: "It has 10/10 coverage of the OWASP Top 10 for Agentic Applications, and it ships with an OWASP red-team suite the customer can run against their own deployment at any time." },
+                },
+                {
+                  "@type": "Question",
+                  name: "What is included in the platform?",
+                  acceptedAnswer: { "@type": "Answer", text: "Email, files, chat, meetings, documents, document signing, and identity — one platform, with single sign-on included rather than bought separately." },
+                },
+                {
+                  "@type": "Question",
+                  name: "How long does deployment take?",
+                  acceptedAnswer: { "@type": "Answer", text: "A standard deployment stands up in about an hour." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Who is Vantage Workspace for?",
+                  acceptedAnswer: { "@type": "Answer", text: "Regulated mid-to-large organizations — financial services, healthcare, public sector, legal, manufacturing and energy — and the MSPs, MSSPs, and vCISO practices that serve them." },
+                },
+                {
+                  "@type": "Question",
+                  name: "Can we use our own AI model and identity provider?",
+                  acceptedAnswer: { "@type": "Answer", text: "Yes. Customers can bring their own model and federate to their existing identity provider." },
+                },
+              ],
+            }),
+          }}
+        />
       </section>
 
       {/* ============================================================ */}

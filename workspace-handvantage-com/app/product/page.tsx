@@ -52,18 +52,6 @@ const productJsonLd = {
     "Trust Reports with control-mapping appendix and cryptographic signature",
     "Bring-your-own-model support: OpenAI, Anthropic, Azure OpenAI, AWS Bedrock, Vertex, Ollama, vLLM",
   ],
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "USD",
-    price: "0",
-    priceValidUntil: "2027-12-31",
-    description: "Pricing on application. Contact us to discuss your deployment.",
-    seller: {
-      "@type": "Organization",
-      name: "Handvantage",
-    },
-  },
 };
 
 const Pillar = ({
@@ -109,6 +97,11 @@ export default function ProductPage() {
                 The platform we built because the alternative — assembling an
                 &ldquo;agentic AI stack&rdquo; out of twelve vendors with twelve identities and
                 twelve audit logs — wasn&apos;t a purchase, it was a project.
+              </p>
+              <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px] mb-6">
+                Vantage Workspace is a self-hosted, sovereign AI workspace for regulated
+                organizations. Single-tenant by design — one isolated instance per customer,
+                deployed on infrastructure the customer owns. Nothing routes through a third party.
               </p>
               <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px]">
                 This page documents what&apos;s in it, how it&apos;s built, and where the
@@ -449,24 +442,24 @@ export default function ProductPage() {
         <div className="max-w-narrow mx-auto px-6 md:px-12">
           <SectionEyebrow>DEPLOYMENT</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">
-            Ten minutes on infrastructure you already operate.
+            About an hour on infrastructure you already operate.
           </h2>
           <div className="font-display text-body text-ink space-y-6 leading-relaxed">
             <p>
               Vantage Workspace is deployed on infrastructure the customer controls. We do not
-              operate a multi-tenant SaaS. There is no shared production environment where your
-              data sits next to another customer&apos;s data. The deployment models are:
+              operate a shared SaaS. There is no shared production environment where your
+              data sits next to another customer&apos;s data. Single-tenant — one isolated
+              instance per customer. The deployment models are:
             </p>
             <p>
               The first is <strong className="font-semibold">single-node Docker Compose</strong> —
               for evaluation, pilot deployments, and small teams. Twenty containers, one Postgres
               instance, one Redis instance, one Nginx ingress. Deployable on a single 8-core / 32GB
               VM. The reference install is published as a GitHub Actions workflow that takes a
-              fresh Ubuntu 24.04 server from zero to a running platform in under ten minutes for
-              the bare infrastructure deploy. Allowing for identity federation (where the customer
-              brings their own provider), policy YAML configuration for the customer&apos;s tool
-              catalogue, and SIEM export wiring, the realistic end-to-end install for the typical
-              customer is roughly an hour.
+              fresh Ubuntu 24.04 server from zero to a running platform. Allowing for identity
+              federation (where the customer brings their own provider), policy YAML configuration
+              for the customer&apos;s tool catalogue, and SIEM export wiring, a standard
+              deployment stands up in about an hour.
             </p>
             <p>
               The second is <strong className="font-semibold">multi-node Kubernetes</strong> — for
@@ -693,7 +686,7 @@ export default function ProductPage() {
                 <strong className="font-semibold">
                   Every release candidate runs the full automated test suite.
                 </strong>{" "}
-                168 tests. The test suite covers the seven defence layers, the OWASP Top 10
+                An automated security test suite. The suite covers the seven defence layers, the OWASP Top 10
                 categories, the identity flows, the audit log integrity, and a fuzzed
                 prompt-injection corpus. The suite runs in CI on every commit and on every release
                 candidate.

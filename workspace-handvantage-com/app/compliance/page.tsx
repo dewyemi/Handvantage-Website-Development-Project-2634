@@ -10,7 +10,7 @@ import { COMPLIANCE, SITE } from "@/lib/data-tokens";
 export const metadata: Metadata = {
   title: `Compliance Posture: ${COMPLIANCE.grade} across ${COMPLIANCE.frameworkCount} Frameworks`,
   description:
-    "Vantage Workspace's compliance posture: A grade at 100% across NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed). 168 automated tests, continuously assessed.",
+    "Vantage Workspace's compliance posture: A grade at 100% across NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed). Automated security test suite, continuously assessed.",
   alternates: { canonical: `${SITE.baseUrl}/compliance` },
 };
 
@@ -69,7 +69,7 @@ const faqJsonLd = {
       name: "How is the compliance grade computed?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The platform's /assess mission walks the audit log for the last assessment window (default: 30 days), maps each event to the controls it satisfies under each framework, and computes a per-framework pass rate. The platform-wide grade is the lowest of: the lowest per-framework grade, the test-suite pass rate (168 automated tests), and the policy coverage rate. It is not an average — a single failing control would move the grade.",
+        text: "The platform's /assess mission walks the audit log for the last assessment window (default: 30 days), maps each event to the controls it satisfies under each framework, and computes a per-framework pass rate. The platform-wide grade is the lowest of: the lowest per-framework grade, the automated test-suite pass rate, and the policy coverage rate. It is not an average — a single failing control would move the grade.",
       },
     },
     {
@@ -146,7 +146,7 @@ export default function CompliancePage() {
             <div className="lg:col-span-7">
               <ProductShot
                 src="/images/product/compliance-dashboard.jpg"
-                alt="Live compliance dashboard inside Vantage Workspace — A grade across SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PCI DSS, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act, AIDA — 168 automated tests, last assessed today."
+                alt="Live compliance dashboard inside Vantage Workspace — A grade across SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PCI DSS, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act, AIDA — automated security test suite, last assessed today."
                 ratio={1.736}
                 priority
                 url="workspace.local / engine / compliance"

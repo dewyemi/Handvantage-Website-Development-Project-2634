@@ -194,9 +194,31 @@ const orgJsonLd = {
   ],
 };
 
-// WebSite schema — gives Google the option to render a sitelinks
-// searchbox under the organic result, and helps AI engines understand
-// the site's structure beyond the organisation entity above.
+const softwareAppJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Vantage Workspace",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Self-hosted (Linux)",
+  description:
+    "A self-hosted, sovereign AI workspace for regulated organizations. A complete productivity suite — email, files, chat, meetings, documents, signing, identity — plus AI operators that take real action, with every action firewalled, signed, and logged across eleven regulatory frameworks. Single-tenant: one isolated instance per customer.",
+  featureList: [
+    "Self-hosted, single-tenant deployment on the customer's own infrastructure",
+    "AI operators that take real action, with human approval before anything changes",
+    "Every AI action firewalled, signed to a named person, and logged",
+    "Audit trail mapped to eleven regulatory frameworks",
+    "10/10 coverage of the OWASP Top 10 for Agentic Applications",
+    "Ships with an OWASP red-team suite the customer can run themselves",
+    "Email, files, chat, meetings, documents, signing, and identity in one platform",
+    "Deploys in about an hour",
+  ],
+  provider: {
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.baseUrl,
+  },
+};
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -241,6 +263,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
         />
       </head>
       <body>

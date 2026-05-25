@@ -154,8 +154,8 @@ export default function PhilosophyPage() {
             <hr className="section-divider my-12" />
 
             <p>
-              The second hardest decision was whether to be multi-tenant SaaS or single-tenant
-              deployment. Multi-tenant SaaS is the dominant business model in our category, for
+              The second hardest decision was whether to build a shared SaaS or a single-tenant
+              deployment. Shared SaaS is the dominant business model in our category, for
               excellent reasons — it&apos;s faster to ship updates, easier to support, and the unit
               economics are better. Single-tenant deployment is operationally heavier, slower to
               update across the fleet, and harder to support.
@@ -163,10 +163,10 @@ export default function PhilosophyPage() {
             <p>
               We chose single-tenant deployment for one reason: data sovereignty. Every
               customer&apos;s audit log, policy, evidence, and operating data stays in the
-              customer&apos;s environment. We do not have a multi-tenant data lake. We never will.
+              customer&apos;s environment. We do not have a shared data lake. We never will.
               The reason isn&apos;t ideological; it&apos;s strategic — we are selling to customers
               (regulated institutions, public-sector bodies, sovereignty-conscious enterprises) for
-              whom the multi-tenant model is a structural objection. The customers are choosing us
+              whom the shared-tenancy model is a structural objection. The customers are choosing us
               in part because we made this trade.
             </p>
             <p>

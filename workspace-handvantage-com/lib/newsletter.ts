@@ -114,7 +114,7 @@ export const NEWSLETTER_ISSUES: NewsletterIssue[] = [
         note: "The OPC's principles for responsible AI development are the operative reference for PIPEDA-covered organisations using AI. Worth re-reading in light of AIDA's continuing journey through Parliament.",
       },
     ],
-    comingNextMonth: "June plan: a sector dossier on agentic AI in financial services (FINRA, the SEC, and the audit-trail problem); a retrospective on the decision to drop multi-tenant deployment; and the next briefing on AIDA's current shape. Newsletter cadence shifts to end-of-month — June's issue lands the last business day of June.",
+    comingNextMonth: "June plan: a sector dossier on agentic AI in financial services (FINRA, the SEC, and the audit-trail problem); a retrospective on the decision to go single-tenant; and the next briefing on AIDA's current shape. Newsletter cadence shifts to end-of-month — June's issue lands the last business day of June.",
   },
 ];
 
