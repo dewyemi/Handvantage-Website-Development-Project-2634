@@ -129,7 +129,7 @@ const SECTOR_PATHS: Path[] = [
     steps: [
       { href: "/insights/fintech-agentic-ai-bsa-aml-fair-lending-sponsor-bank", label: "Fintech and agentic AI: BSA/AML, fair lending, sponsor bank", time: "14 min" },
       { href: "/architecture", label: "The 7-Layer Defence Architecture", time: "~10 min" },
-      { href: "/compliance", label: "Compliance posture (PCI DSS + SOC 2 + AIDA among the 11)", time: "~8 min" },
+      { href: "/compliance", label: "Compliance posture (PCI DSS + SOC 2 + TBSDADM among the 11)", time: "~8 min" },
     ],
   },
   {
@@ -142,7 +142,7 @@ const SECTOR_PATHS: Path[] = [
     steps: [
       { href: "/insights/public-sector-agentic-ai-canadian-sovereignty", label: "Canadian public sector: TBS Directive, provincial frames, Indigenous sovereignty", time: "16 min" },
       { href: "/architecture", label: "The 7-Layer Defence Architecture", time: "~10 min" },
-      { href: "/compliance", label: "Compliance posture (PIPEDA + Privacy Act + AIDA proposed)", time: "~8 min" },
+      { href: "/compliance", label: "Compliance posture (PIPEDA + Privacy Act + TBSDADM)", time: "~8 min" },
     ],
   },
   {

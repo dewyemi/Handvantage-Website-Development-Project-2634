@@ -54,8 +54,8 @@ const SITE_KEYWORDS = [
   "ISO 42001",
   "ISO/IEC 42001",
   "OWASP Top 10 for Agentic Applications",
-  "AIDA Canada",
-  "TBS Directive",
+  "TBSDADM",
+  "Treasury Board Directive on Automated Decision-Making",
   // Sector-specific
   "agentic AI healthcare",
   "agentic AI fintech",

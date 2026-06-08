@@ -42,30 +42,31 @@ export default function HomePage() {
                 <span className="ml-2">HANDVANTAGE — SOVEREIGN AGENTIC AI</span>
               </p>
               <h1 className="font-display text-[clamp(2.5rem,5vw+1rem,5rem)] leading-[0.98] tracking-[-0.02em] text-ink mb-10">
-                Your team will use agentic AI.
+                The sovereign workspace
                 <br />
-                <span className="text-ink-soft italic">The platform underneath them</span>
+                <span className="text-ink-soft italic">where your AI workforce</span>
                 <br />
-                <span className="text-oxblood">should be yours.</span>
+                <span className="text-oxblood">works alongside your humans.</span>
               </h1>
               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[560px] mb-10">
-                Vantage Workspace is a self-hosted, sovereign AI workspace for regulated
-                organizations — a complete productivity suite plus AI that takes real action,
-                all running on infrastructure the customer owns.
+                Vantage Workspace is self-hosted on infrastructure you own. Your AI Workers
+                operate inside it under the same identity, the same audit trail, and the same
+                governance every human teammate already has — the compliance evidence every
+                regulator asks for, covering the AI work too.
               </p>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
-                <Link
-                  href="/product"
+                <a
+                  href="https://pages.handvantage.com"
                   className="inline-flex items-center gap-2 bg-ink text-paper font-ui font-medium text-[15px] px-8 py-4 hover:bg-oxblood transition-colors"
                 >
-                  See the platform
+                  Book a strategy session
                   <span aria-hidden="true">→</span>
-                </Link>
+                </a>
                 <Link
-                  href="/contact"
+                  href="/architecture"
                   className="font-ui font-medium text-[15px] text-ink hover:text-oxblood underline decoration-[1.5px] underline-offset-4"
                 >
-                  Talk to us
+                  See the architecture →
                 </Link>
               </div>
             </div>
@@ -211,12 +212,12 @@ export default function HomePage() {
                   safety was an acceptable-use policy in the employee handbook.
                 </p>
                 <p>
-                  The EU AI Act high-risk obligations were deferred on 7 May 2026 from 2 August
-                  2026 to 2 December 2027 by the Council and Parliament&apos;s omnibus agreement.
-                  The deadline moved; the audit window did not. It still opens the day each system
-                  enters service, and Article 99 still specifies penalties up to €35M or 7% of
-                  global revenue when contemporaneous evidence is absent, not just when systems
-                  fail.
+                  The platform&apos;s assessment module ships with the EU AI Act template active
+                  alongside ten other frameworks, kept current as the enforcement schedule advances.
+                  Article 99 still specifies penalties up to €35M or 7% of global revenue when
+                  contemporaneous evidence is absent — not just when systems fail. The audit window
+                  opens the day each system enters service. The deadline moves; the evidence
+                  requirement does not.
                 </p>
                 <p>
                   Agentic AI doesn&apos;t just answer questions. It takes actions on behalf of a
@@ -415,7 +416,7 @@ export default function HomePage() {
               <div className="relative aspect-[4/5] max-w-[560px] mx-auto">
                 <Image
                   src="/images/product/vantage-workspace-rack.png"
-                  alt="On-prem Agentic AI deployment rack — Governance & Compliance Crown at the top (SOC 2, ISO 42001, NIST AI RMF, EPA, EU AI Act, PIPEDA, AIDA), Observability & Incident Response Kit, Mission Engine Plane (guided AI workflows), Vector Index Cartridge, Local Model Pod (Ollama, vLLM), Secret Vault & Key Management (bring your own key), Network Segmentation Panel, Storage Array, Compute Blade Stack, Enterprise Rack Chassis."
+                  alt="On-prem Agentic AI deployment rack — Governance & Compliance Crown at the top (SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PIPEDA, TBSDADM), Observability & Incident Response Kit, Mission Engine Plane (guided AI workflows), Vector Index Cartridge, Local Model Pod (Ollama, vLLM), Secret Vault & Key Management (bring your own key), Network Segmentation Panel, Storage Array, Compute Blade Stack, Enterprise Rack Chassis."
                   fill
                   loading="lazy"
                   sizes="(max-width: 1024px) 80vw, 560px"
@@ -517,7 +518,7 @@ export default function HomePage() {
             <div className="relative aspect-[16/10] w-full overflow-hidden border border-ink-hairline bg-midnight shadow-[0_30px_80px_-20px_rgba(15,26,31,0.4)]">
               <Image
                 src="/images/product/compliance-dashboard.jpg"
-                alt="The Compliance Dashboard inside Handvantage The Engine — a large green A grade across the top, with framework compliance scores at 100% for NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed)."
+                alt="The Compliance Dashboard inside Handvantage The Engine — a large green A grade across the top, with framework compliance scores at 100% for NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and TBSDADM."
                 fill
                 loading="lazy"
                 sizes="(max-width: 1440px) 100vw, 1280px"

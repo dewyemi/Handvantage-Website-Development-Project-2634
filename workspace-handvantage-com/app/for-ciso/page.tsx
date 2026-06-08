@@ -78,7 +78,7 @@ export default function ForCisoPage() {
                 audience: "TO THE BOARD",
                 sentence:
                   "We met the agentic AI governance question with a platform that produces contemporaneous audit evidence on every action, mapped to the eleven frameworks our regulators care about, before the EU AI Act high-risk obligations deadline.",
-                why: "Times the decision against the regulatory calendar (2 December 2027 after the May 2026 omnibus deferral). Demonstrates strategic anticipation rather than reactive procurement.",
+                why: "Times the decision against the regulatory calendar. Demonstrates strategic anticipation rather than reactive procurement.",
               },
             ].map(({ audience, sentence, why }) => (
               <div key={audience} className="border-b border-ink-hairline py-10 md:py-12">
@@ -209,9 +209,9 @@ export default function ForCisoPage() {
               },
               {
                 point:
-                  "&ldquo;The EU AI Act high-risk obligations were deferred to 2 December 2027 by the May 2026 omnibus, but the audit window for evidence still opens the day each system enters service. Notified bodies now have nineteen more months to raise the bar.&rdquo;",
+                  "&ldquo;The audit window for EU AI Act evidence opens the day each system enters service, regardless of where the enforcement schedule lands. Notified bodies have time to raise the conformity-assessment bar before the deadline binds.&rdquo;",
                 gloss:
-                  "Reframes the urgency around the deferral without losing it — the deadline moved, the architecture didn&rsquo;t. The conformity-assessment bar will be higher in 2027 than it would have been in 2026. Particularly effective with boards weighing &lsquo;why now?&rsquo; questions.",
+                  "Reframes the urgency around the architecture, not the calendar. The deadline moves; the audit window does not — and the conformity-assessment bar tends to rise with every additional month of guidance. Particularly effective with boards weighing &lsquo;why now?&rsquo; questions.",
                 forWho: "CEO, board, executive committee",
               },
             ].map(({ point, gloss, forWho }, i) => (

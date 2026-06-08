@@ -10,7 +10,7 @@ import { COMPLIANCE, SITE } from "@/lib/data-tokens";
 export const metadata: Metadata = {
   title: `Compliance Posture: ${COMPLIANCE.grade} across ${COMPLIANCE.frameworkCount} Frameworks`,
   description:
-    "Vantage Workspace's compliance posture: A grade at 100% across NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed). Automated security test suite, continuously assessed.",
+    "Vantage Workspace's compliance posture: A grade at 100% across NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and TBSDADM. Automated security test suite, continuously assessed.",
   alternates: { canonical: `${SITE.baseUrl}/compliance` },
 };
 
@@ -61,7 +61,7 @@ const faqJsonLd = {
       name: "What is Vantage Workspace's current compliance posture?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `As of ${COMPLIANCE.lastAssessedHuman}, Vantage Workspace holds an A grade at ${COMPLIANCE.passRate} pass rate across ${COMPLIANCE.frameworkCount} regulatory frameworks: NIST AI RMF, ISO/IEC 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed). The grade is computed from runtime evidence on every build, not from annual self-attestation.`,
+        text: `As of ${COMPLIANCE.lastAssessedHuman}, Vantage Workspace holds an A grade at ${COMPLIANCE.passRate} pass rate across ${COMPLIANCE.frameworkCount} regulatory frameworks: NIST AI RMF, ISO/IEC 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and TBSDADM (Treasury Board Directive on Automated Decision-Making, Canada). The grade is computed from runtime evidence on every build, not from annual self-attestation.`,
       },
     },
     {
@@ -93,7 +93,7 @@ const faqJsonLd = {
       name: "Which regulatory frameworks does Vantage Workspace cover?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Eleven frameworks are tracked: NIST AI Risk Management Framework, ISO/IEC 42001 (AI management systems), EU AI Act (high-risk technical requirements), SOC 2 Type II, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and AIDA (proposed Canadian AI legislation). Each framework has a dedicated breakdown showing tracked version, coverage, evidence sources, and in-practice notes.",
+        text: "Eleven frameworks are tracked: NIST AI Risk Management Framework, ISO/IEC 42001 (AI management systems), EU AI Act (high-risk technical requirements), SOC 2 Type II, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act (Canada), and TBSDADM (Treasury Board Directive on Automated Decision-Making — the in-force Canadian federal AI directive). Each framework has a dedicated breakdown showing tracked version, coverage, evidence sources, and in-practice notes.",
       },
     },
     {
@@ -146,7 +146,7 @@ export default function CompliancePage() {
             <div className="lg:col-span-7">
               <ProductShot
                 src="/images/product/compliance-dashboard.jpg"
-                alt="Live compliance dashboard inside Vantage Workspace — A grade across SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PCI DSS, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act, AIDA — automated security test suite, last assessed today."
+                alt="Live compliance dashboard inside Vantage Workspace — A grade across SOC 2, ISO 42001, NIST AI RMF, EU AI Act, PCI DSS, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act, TBSDADM — automated security test suite, last assessed today."
                 ratio={1.736}
                 priority
                 url="workspace.local / engine / compliance"
@@ -502,7 +502,7 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
           />
           <FrameworkBlock
             name="EU AI Act"
-            version="Regulation (EU) 2024/1689; Annex III high-risk obligations (Articles 6-29) — deferred from 2 August 2026 to 2 December 2027 by the May 2026 omnibus agreement. Annex I safety-component obligations now 2 August 2028. Article 50 transparency obligations accelerated to 2 December 2026."
+            version="Regulation (EU) 2024/1689. Assessment templates cover Annex III high-risk obligations, Annex I safety-component obligations, and Article 50 transparency obligations. Templates are kept current as the enforcement schedule advances."
             coverage="Articles 9 (Risk management), 10 (Data and data governance), 11 (Technical documentation), 12 (Record-keeping), 13 (Transparency), 14 (Human oversight), 15 (Accuracy, robustness, cybersecurity), 16-29 (Provider obligations), 99 (Penalties — for context)."
             evidence="Article 12 (record-keeping) is the centrepiece — the audit log structure satisfies it directly. Article 11 (technical documentation) is satisfied by the Trust Report + the architecture documentation. Article 14 (human oversight) is satisfied by Layer 5 (Trust Boundaries) consent flows."
             practice="For a deployment in the EU or with EU-regulated data, the operator can request a Trust Report scoped to the AI Act's Annex IV technical-documentation requirements; the report maps each Annex IV item to its satisfying evidence in the platform."
@@ -557,11 +557,11 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
             practice="Canadian public-sector customers (federal or provincial bodies subject to the Privacy Act) have the platform's posture pre-mapped to the Act's sections."
           />
           <FrameworkBlock
-            name="AIDA (proposed)"
-            version="Artificial Intelligence and Data Act (Canada) — Bill C-27, as introduced. Status: proposed, not yet in force."
-            coverage="Anticipated impact assessment, mitigation, monitoring, and record-keeping requirements based on the published draft."
-            evidence="Same evidence pipeline as the EU AI Act and NIST AI RMF; AIDA's structure overlaps substantially with both."
-            practice="Canadian customers planning for AIDA's eventual coming-into-force can have their compliance posture pre-mapped. The grade and the mapping will be re-assessed when AIDA is enacted (the final text may differ from the proposed text)."
+            name="TBSDADM (Canada)"
+            version="Treasury Board Directive on Automated Decision-Making, in force since April 2019 with periodic updates from the Treasury Board of Canada Secretariat."
+            coverage="Impact-level determination, algorithmic impact assessment, transparency and notice obligations, quality assurance, recourse, and reporting requirements as set out in the directive."
+            evidence="The audit log structure satisfies the recurring record-keeping and transparency requirements directly. The Trust Report includes a TBSDADM-scoped section that maps each obligation to its satisfying evidence."
+            practice="Canadian federal institutions and any private-sector entity delivering automated decision-making services to a federal department operate under the directive. Vantage Workspace's compliance posture is pre-mapped to its requirements; the directive replaced the previous Bill C-27 / AIDA framing after AIDA was terminated when Parliament was prorogued in January 2025."
           />
         </div>
       </section>
@@ -573,23 +573,24 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
         <div className="max-w-narrow mx-auto px-6 md:px-12">
           <SectionEyebrow>THE AUDIT WINDOW</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">
-            2 December 2027 is when the obligations begin. The audit window opens the day each
+            The deadline is when the obligations begin. The audit window opens the day each
             system enters service.
           </h2>
           <div className="font-display text-body text-ink space-y-6 leading-relaxed">
             <p>
-              The EU AI Act&apos;s Annex III high-risk obligations were deferred on 7 May 2026 from
-              2 August 2026 to 2 December 2027 by the Council and Parliament&apos;s omnibus
-              agreement. Annex I safety-component obligations moved to 2 August 2028. The penalty
-              structure under Article 99 is unchanged: the larger of EUR 35 million or 7% of global
-              annual turnover for non-compliance.
+              The platform&apos;s assessment module ships with current templates for the EU AI Act
+              alongside ten other frameworks, kept up to date as the enforcement schedule advances.
+              The penalty structure under Article 99 of the AI Act is the larger of EUR 35 million
+              or 7% of global annual turnover for non-compliance — and the penalty applies where
+              contemporaneous evidence is absent, not only where systems fail.
             </p>
             <p>
               The under-discussed feature of the regulation is that it does not ask &ldquo;did your
               platform behave correctly on the day?&rdquo; It asks for evidence that controls were
               operating during the period leading up to the day. That period — the audit window —
-              opens the day each system is placed on the market or put into service. The deferral
-              gives organisations more runway to execute; it does not collapse the window itself.
+              opens the day each system is placed on the market or put into service. A schedule
+              deferral gives organisations more runway to execute; it does not collapse the window
+              itself.
             </p>
             <p>
               The platform was designed for this regulatory shape. Continuous evidence generation,
@@ -601,9 +602,9 @@ Verification key: ${SITE.baseUrl}/.well-known/trust-report-key`}</pre>
               is: the deadline is when the obligations begin; the audit window is the operational
               history any system going live before then will need to defend. Every prompt processed
               without contemporaneous evidence is a prompt that cannot be defended in retrospect.
-              Notified bodies have nineteen more months to consult, publish detailed guidance, and
-              raise the bar accordingly. The conformity assessments approved in 2027 are likely to
-              require evidence richer than what would have passed in mid-2026.
+              Notified bodies will use the remaining runway to consult, publish detailed guidance,
+              and raise the bar accordingly. The conformity assessments approved when the deadline
+              lands are likely to require evidence richer than what would have passed earlier.
             </p>
           </div>
         </div>

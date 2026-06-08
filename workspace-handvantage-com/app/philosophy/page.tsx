@@ -256,9 +256,9 @@ export default function PhilosophyPage() {
               compliance grade is A at 100% across eleven frameworks; that number is the best
               summary statistic of the platform&apos;s posture. It is also, mechanically, an
               underestimate of how much work remains. The frameworks update. The threat surface
-              expands as agentic AI matures. The regulatory environment is in flux — AIDA in
-              Canada, the AI Act&apos;s secondary legislation in the EU, the FTC&apos;s evolving
-              guidance in the US.
+              expands as agentic AI matures. The regulatory environment is in flux — TBSDADM
+              guidance in Canada, the AI Act&apos;s secondary legislation in the EU, the
+              FTC&apos;s evolving guidance in the US.
             </p>
             <p>
               We will fail something. The discipline that produces the A grade today is the same

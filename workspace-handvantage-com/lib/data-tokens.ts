@@ -25,7 +25,7 @@ export const FRAMEWORKS = [
   { id: "fedramp", name: "FedRAMP", status: "A" },
   { id: "pipeda", name: "PIPEDA", status: "A" },
   { id: "privacy-act-ca", name: "Privacy Act (Canada)", status: "A" },
-  { id: "aida", name: "AIDA (proposed)", status: "A" },
+  { id: "tbsdadm", name: "TBSDADM", status: "A" },
 ] as const;
 
 export const ARCHITECTURE = {

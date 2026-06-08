@@ -44,7 +44,7 @@ const productJsonLd = {
     "Six-pillar workspace: email, files, chat, meetings, documents, AI agents",
     "Pilot + Fleet agent model with three-level audit attribution",
     "7-Layer Defence Architecture mediating every prompt, tool call, and agent action",
-    "Continuous compliance grading across 11 regulatory frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, AIDA proposed)",
+    "Continuous compliance grading across 11 regulatory frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, TBSDADM)",
     "Single-tenant deployment: Docker Compose, Kubernetes, or air-gapped",
     "Identity included via Keycloak (preconfigured); federate to Okta, Microsoft Entra ID, Auth0, or Google Workspace via OIDC when present",
     "mTLS between all 20 containers; Fernet-encrypted secret vault",
