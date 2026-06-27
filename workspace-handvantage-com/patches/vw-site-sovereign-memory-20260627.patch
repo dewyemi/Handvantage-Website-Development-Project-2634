@@ -1,0 +1,555 @@
+diff --git a/workspace-handvantage-com/app/insights/[slug]/page.tsx b/workspace-handvantage-com/app/insights/[slug]/page.tsx
+index 3a5a0af..e0e61e1 100644
+--- a/workspace-handvantage-com/app/insights/[slug]/page.tsx
++++ b/workspace-handvantage-com/app/insights/[slug]/page.tsx
+@@ -56,12 +56,33 @@ export default function ArticlePage({ params }: Props) {
+     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE.baseUrl}/insights/${article.slug}` },
+   };
+ 
++  const faqJsonLd = article.faq
++    ? {
++        "@context": "https://schema.org",
++        "@type": "FAQPage",
++        mainEntity: article.faq.map((item) => ({
++          "@type": "Question",
++          name: item.question,
++          acceptedAnswer: {
++            "@type": "Answer",
++            text: item.answer,
++          },
++        })),
++      }
++    : null;
++
+   return (
+     <>
+       <script
+         type="application/ld+json"
+         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+       />
++      {faqJsonLd && (
++        <script
++          type="application/ld+json"
++          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
++        />
++      )}
+ 
+       {/* Breadcrumb + header */}
+       <section className="pt-16 md:pt-24 pb-8">
+@@ -122,6 +143,25 @@ export default function ArticlePage({ params }: Props) {
+                 .join(""),
+             }}
+           />
++          {article.faq && (
++            <section className="mt-14 border-t border-ink-hairline pt-10">
++              <h2 className="font-display text-h3 text-ink mb-8">
++                Frequently asked questions.
++              </h2>
++              <div className="space-y-8">
++                {article.faq.map((item) => (
++                  <div key={item.question}>
++                    <h3 className="font-display text-h4 text-ink mb-3">
++                      {item.question}
++                    </h3>
++                    <p className="font-display text-body text-ink-soft leading-relaxed">
++                      {item.answer}
++                    </p>
++                  </div>
++                ))}
++              </div>
++            </section>
++          )}
+           {article.lastModifiedAtHuman && (
+             <p className="mt-10 font-ui text-byline text-ink-soft">
+               Last edited {article.lastModifiedAtHuman}.
+diff --git a/workspace-handvantage-com/app/layout.tsx b/workspace-handvantage-com/app/layout.tsx
+index d4beb9a..96b8263 100644
+--- a/workspace-handvantage-com/app/layout.tsx
++++ b/workspace-handvantage-com/app/layout.tsx
+@@ -28,7 +28,7 @@ const mono = IBM_Plex_Mono({
+ });
+ 
+ const SITE_DESCRIPTION =
+-  "Vantage Workspace is a sovereign agentic AI platform for regulated enterprises. Email, files, chat, meetings, documents, AI agents, and Keycloak identity — one platform on your infrastructure, with a 7-Layer Defence Architecture and A-grade compliance across 11 frameworks. Sector-specific briefs for financial services, healthcare, fintech, Canadian public sector, and legal services.";
++  "Vantage Workspace is the sovereign self-hosted AI workspace where AI Workers operate alongside humans under the same identity model, audit trail, and governance, on infrastructure the customer owns.";
+ 
+ const SITE_KEYWORDS = [
+   // Product + category
+diff --git a/workspace-handvantage-com/app/page.tsx b/workspace-handvantage-com/app/page.tsx
+index 73f279c..5dac68c 100644
+--- a/workspace-handvantage-com/app/page.tsx
++++ b/workspace-handvantage-com/app/page.tsx
+@@ -6,7 +6,7 @@ import { COMPLIANCE, SITE } from "@/lib/data-tokens";
+ export const metadata: Metadata = {
+   title: { absolute: `${SITE.name} — The Sovereign Capability Partner for Agentic AI` },
+   description:
+-    "Handvantage builds Vantage Workspace: a 7-Layer Defence Architecture for agentic AI, with continuous compliance assessment across 11 regulatory frameworks. Deployed in your infrastructure, audited every build.",
++    "Handvantage builds Vantage Workspace: the sovereign self-hosted AI workspace where AI Workers operate under the same identity model, audit trail, and governance as the human team.",
+   alternates: { canonical: SITE.baseUrl },
+   openGraph: {
+     title: `${SITE.name} — The Sovereign Capability Partner for Agentic AI`,
+@@ -126,24 +126,22 @@ export default function HomePage() {
+               One platform. Everything governed.
+             </h2>
+             <p className="font-display text-body-lg text-ink leading-relaxed">
+-              Handvantage builds Vantage Workspace, a self-hosted, sovereign AI workspace for
+-              regulated organizations. It runs a complete productivity suite — email, files, chat,
+-              meetings, documents, document signing, and identity — plus AI operators that take
+-              real action: composing and sending email, scheduling meetings, managing files and
+-              project boards. It is single-tenant by design: one isolated instance per customer,
+-              deployed on infrastructure the customer owns. Nothing routes through a third party.
++              Handvantage builds Vantage Workspace, the sovereign self-hosted AI workspace where
++              your AI workforce works alongside your humans. Files, mail, chat, documents,
++              meetings, signing, identity, AI Workers, model routes, policy decisions, and audit
++              trail live in one customer-owned workspace.
+             </p>
+           </div>
+ 
+           <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-hairline border border-ink-hairline">
+             {[
+               {
+-                headline: "AI that acts, not just answers.",
+-                body: "The AI composes and sends email, schedules meetings, manages files and project boards, and posts to team channels. Every action that changes something waits for a human's approval first.",
++                headline: "AI Workers that act under identity.",
++                body: "AI Workers draft, schedule, file, and post inside the same workspace as the human team. Every action that changes something waits for human approval and leaves a named record.",
+               },
+               {
+                 headline: "Your data stays yours.",
+-                body: "Self-hosted on the customer's own infrastructure. Files, email, chat, even AI web search — nothing routes through a third party.",
++                body: "Self-hosted on the customer's own infrastructure. Files, mail, chat, meetings, documents, memory, and AI work stay inside the customer boundary.",
+               },
+               {
+                 headline: "Provable governance.",
+@@ -207,8 +205,8 @@ export default function HomePage() {
+               </h2>
+               <div className="font-display text-body-lg text-ink leading-relaxed space-y-6">
+                 <p>
+-                  The first wave of enterprise AI was a chatbot in a browser tab. Buy a license,
+-                  point it at your data, hope. The proof of value was a screenshot. The proof of
++                  The first wave of enterprise AI was a browser tab beside the real work. Buy a
++                  license, point it at your data, hope. The proof of value was a screenshot. The proof of
+                   safety was an acceptable-use policy in the employee handbook.
+                 </p>
+                 <p>
+@@ -223,7 +221,7 @@ export default function HomePage() {
+                   Agentic AI doesn&apos;t just answer questions. It takes actions on behalf of a
+                   user — sends emails, modifies files, queries databases, provisions resources.
+                   Each action needs an identity, a permission boundary, an audit log, and a way to
+-                  roll back. None of that lives in the chatbot. All of it has to live in the
++                  roll back. None of that lives in a side tab. All of it has to live in the
+                   platform around it.
+                 </p>
+               </div>
+@@ -252,8 +250,8 @@ export default function HomePage() {
+                   40<span className="text-ink-soft">%</span>
+                 </p>
+                 <p className="font-display text-body text-ink-soft leading-relaxed">
+-                  of agentic AI projects cancelled — almost always for missing evidence, not
+-                  missing controls.
++                  The buying question is no longer only whether the control exists. It is whether
++                  the evidence can be produced when the audit window opens.
+                 </p>
+               </div>
+             </aside>
+@@ -274,8 +272,8 @@ export default function HomePage() {
+               One workspace. One identity. One audit trail.
+             </h2>
+             <p className="font-display text-body-lg text-ink leading-relaxed">
+-              Email, files, chat, meetings, docs — and an AI that does the work across all of
+-              them. Every prompt scanned. Every action logged. Every byte under your roof.
++              Email, files, chat, meetings, docs — and AI Workers that do the work across all of
++              them. Every prompt scanned. Every action logged. Every byte inside your boundary.
+             </p>
+           </div>
+ 
+@@ -300,8 +298,8 @@ export default function HomePage() {
+       {/* ============================================================ */}
+       {/* SECTION 4.5 — WHAT THE TEAM ACTUALLY DOES (paper, business)  */}
+       {/* The business-buyer counterpart to the security narrative.    */}
+-      {/* Five outcomes anchored in real platform capabilities (the    */}
+-      {/* Pilot + Fleet model + the six pillars).                      */}
++          {/* Five outcomes anchored in real platform capabilities (the    */}
++          {/* AI Workforce model + the six pillars).                       */}
+       {/* ============================================================ */}
+       <section className="bg-paper">
+         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
+@@ -315,36 +313,36 @@ export default function HomePage() {
+             <p className="font-display text-body-lg text-ink leading-relaxed">
+               The compliance posture is what gets you through procurement. The work below is what
+               gets you renewed. Five things the platform makes faster from the first week —
+-              concrete, named by the agent or pillar that does the work.
++              concrete, named by the AI Worker or pillar that does the work.
+             </p>
+           </div>
+ 
+           <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-hairline border border-ink-hairline">
+             {[
+               {
+-                eyebrow: "PILOT AGENT",
++                eyebrow: "LENA VOSS · SALES",
+                 headline: "Inbox triage in minutes, not the morning.",
+-                body: "The Pilot reads the overnight inbox, drafts replies for the human to send, surfaces the few that genuinely need attention. The 90-minute scroll becomes a 15-minute review.",
++                body: "Lena reads the overnight inbox, drafts replies for the human to send, and surfaces the few that genuinely need attention. The 90-minute scroll becomes a 15-minute review.",
+               },
+               {
+-                eyebrow: "ANALYST AGENT + DOCUMENTS",
++                eyebrow: "MARCUS CHEN · RENEWALS",
+                 headline: "Proposals drafted with this quarter's data.",
+-                body: "The Analyst pulls the latest customer history out of Files; Documents drafts the proposal against your template. No copy-paste between four tools, no stale figures from last quarter's deck.",
++                body: "Marcus pulls the current customer history out of Files; Documents drafts the renewal proposal against your template. No copy-paste between four tools, no stale figures from last quarter's deck.",
+               },
+               {
+-                eyebrow: "CONCIERGE AGENT",
++                eyebrow: "SOFIA REYES · CUSTOMER SUCCESS",
+                 headline: "Meetings booked without the email back-and-forth.",
+-                body: "The Concierge handles availability, scheduling, and confirmation across CalDAV, Exchange, and Google Calendar. The five emails become one.",
++                body: "Sofia handles availability, scheduling, and confirmation across CalDAV, Exchange, and Google Calendar. The five emails become one.",
+               },
+               {
+-                eyebrow: "HUNTER AGENT",
++                eyebrow: "DAVID KIM · FINOPS",
+                 headline: "First-pass research before the meeting, not during.",
+-                body: "The Hunter pulls the prep work — the company brief, the customer's last six interactions, the open RFP if there is one — into a one-page summary you read on the way in.",
++                body: "David pulls the prep work — the company brief, the customer's last six interactions, the open RFP if there is one — into a one-page summary you read on the way in.",
+               },
+               {
+-                eyebrow: "SENTRY AGENT",
++                eyebrow: "PRIYA SHARMA · COMPLIANCE",
+                 headline: "Vendor security review in hours, not weeks.",
+-                body: "The Sentry pulls the vendor's SOC 2 and ISO 42001 reports, reads the latest pen-test summary, flags the three things your security team should look at — before procurement gets the contract.",
++                body: "Priya pulls the vendor's SOC 2 and ISO 42001 reports, reads the current pen-test summary, and flags the three things your security team should look at before procurement gets the contract.",
+                 wide: true,
+               },
+             ].map(({ eyebrow, headline, body, wide }) => (
+diff --git a/workspace-handvantage-com/app/product/page.tsx b/workspace-handvantage-com/app/product/page.tsx
+index 04f34c9..6ad4464 100644
+--- a/workspace-handvantage-com/app/product/page.tsx
++++ b/workspace-handvantage-com/app/product/page.tsx
+@@ -9,7 +9,7 @@ import { SITE } from "@/lib/data-tokens";
+ export const metadata: Metadata = {
+   title: "Vantage Workspace",
+   description:
+-    "Vantage Workspace is one platform: email, files, chat, meetings, documents, plus an AI agent layer that operates across all of them. One identity, one signed audit trail, deployed on your infrastructure in an hour for the typical end-to-end install.",
++    "Vantage Workspace is the sovereign self-hosted AI workspace where AI Workers operate alongside humans under the same identity model, audit trail, and governance.",
+   alternates: { canonical: `${SITE.baseUrl}/product` },
+ };
+ 
+@@ -18,13 +18,11 @@ const productJsonLd = {
+   "@type": "SoftwareApplication",
+   name: "Vantage Workspace",
+   description:
+-    "Vantage Workspace is a sovereign agentic AI platform: email, files, chat, meetings, documents, and an AI agent layer (Pilot + Fleet) running on customer infrastructure. One identity, one signed audit trail, and an A-grade compliance posture across eleven regulatory frameworks.",
++    "Vantage Workspace is the sovereign self-hosted AI workspace where the AI workforce works alongside humans: email, files, chat, meetings, documents, identity, policy decisions, model routes, and audit trail in one customer-owned environment.",
+   url: "https://workspace.handvantage.com/product",
+   applicationCategory: "BusinessApplication",
+   applicationSubCategory: "Agentic AI Platform",
+   operatingSystem: "Linux (Docker / Kubernetes); air-gapped supported",
+-  softwareVersion: "1.0",
+-  releaseNotes: "https://workspace.handvantage.com/insights",
+   brand: {
+     "@type": "Brand",
+     name: "Handvantage",
+@@ -41,9 +39,9 @@ const productJsonLd = {
+       "CISOs, compliance officers, AI governance leads, security architects, regulated enterprises",
+   },
+   featureList: [
+-    "Six-pillar workspace: email, files, chat, meetings, documents, AI agents",
+-    "Pilot + Fleet agent model with three-level audit attribution",
+-    "7-Layer Defence Architecture mediating every prompt, tool call, and agent action",
++    "Self-hosted workspace for email, files, chat, meetings, documents, signing, identity, and AI Workers",
++    "Named AI Workers operating under identity, policy scope, and audit attribution",
++    "7-Layer Defence Architecture mediating every prompt, tool call, and AI Worker action",
+     "Continuous compliance grading across 11 regulatory frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, TBSDADM)",
+     "Single-tenant deployment: Docker Compose, Kubernetes, or air-gapped",
+     "Identity included via Keycloak (preconfigured); federate to Okta, Microsoft Entra ID, Auth0, or Google Workspace via OIDC when present",
+@@ -94,14 +92,15 @@ export default function ProductPage() {
+                 Vantage Workspace.
+               </h1>
+               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[520px] mb-6">
+-                The platform we built because the alternative — assembling an
+-                &ldquo;agentic AI stack&rdquo; out of twelve vendors with twelve identities and
+-                twelve audit logs — wasn&apos;t a purchase, it was a project.
++                The platform we built because the alternative — assembling the AI work surface
++                out of twelve vendors with twelve identities and twelve audit logs — wasn&apos;t a
++                purchase, it was a project.
+               </p>
+               <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px] mb-6">
+                 Vantage Workspace is a self-hosted, sovereign AI workspace for regulated
+                 organizations. Single-tenant by design — one isolated instance per customer,
+-                deployed on infrastructure the customer owns. Nothing routes through a third party.
++                deployed on infrastructure the customer owns. The customer controls the boundary,
++                the policy model, and the model routes.
+               </p>
+               <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px]">
+                 This page documents what&apos;s in it, how it&apos;s built, and where the
+@@ -111,7 +110,7 @@ export default function ProductPage() {
+             <div className="lg:col-span-7">
+               <ProductShot
+                 src="/images/product/policy-management.jpg"
+-                alt="Policy Management UI — every agent action governed by a versioned policy, with redaction rules, tool guardrails, and per-action audit hooks declared in YAML and enforced at runtime."
++                alt="Policy Management UI — every AI Worker action governed by a versioned policy, with data controls, tool guardrails, and per-action audit hooks."
+                 ratio={1.333}
+                 priority
+                 url="workspace.local / engine / policy"
+@@ -130,9 +129,9 @@ export default function ProductPage() {
+           <SectionEyebrow>THE PLATFORM</SectionEyebrow>
+           <h2 className="font-display text-h2 text-ink mb-8">Six pillars. One identity.</h2>
+           <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-4">
+-            Most &ldquo;AI for the enterprise&rdquo; products ship a chatbot. Vantage Workspace
+-            ships the productivity stack the chatbot needs to be useful. Email, files, chat,
+-            meetings, documents — and an AI agent layer that operates across all five.
++            Most AI products sit beside the work. Vantage Workspace is the workspace the work
++            happens in: email, files, chat, meetings, documents, signing, identity, and AI Workers
++            operating across all of them.
+           </p>
+           <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px] mb-12">
+             Each pillar leads with what your team actually does with it. The architectural detail
+@@ -150,7 +149,7 @@ export default function ProductPage() {
+                   inbox, smart folders, signature management, scheduled send, snooze. SMTP, IMAP,
+                   and Microsoft 365 / Google Workspace native sync — all under your tenant
+                   identity, all logged into the same audit trail as the rest of the platform. The
+-                  AI agent can read, draft, and send email on behalf of the user (with the
++                  AI Worker can read, draft, and send email on behalf of the user (with the
+                   user&apos;s per-action consent) and every send is attributed. No shared service
+                   account. No &ldquo;email bot&rdquo; that bypasses the user&apos;s identity.
+                 </p>
+@@ -178,7 +177,7 @@ export default function ProductPage() {
+                   inter-service traffic).
+                 </p>
+                 <p>
+-                  The AI agent can read files, summarise them, and (with explicit per-file consent)
++                  The AI Worker can read files, summarise them, and (with explicit per-file consent)
+                   write them. Every read is logged. Every write produces a versioned record that
+                   can be rolled back.
+                 </p>
+@@ -198,10 +197,9 @@ export default function ProductPage() {
+                   trail.
+                 </p>
+                 <p>
+-                  The AI agent can be invoked inside any channel by mention. The agent&apos;s reply
+-                  is attributed (not anonymised), the prompt is logged, and the response is graded
+-                  by the post-response checker before it&apos;s posted. If the checker flags a
+-                  response as policy-violating, the message is held in moderation rather than sent.
++                  The AI Worker can be invoked inside any channel by mention. The AI Worker&apos;s reply
++                  is attributed, the prompt is logged, and policy-violating responses are held for
++                  review rather than posted into the channel.
+                 </p>
+               </>
+             }
+@@ -219,7 +217,7 @@ export default function ProductPage() {
+                   integration via CalDAV / Exchange / Google Calendar.
+                 </p>
+                 <p>
+-                  The AI agent can join a meeting (with the host&apos;s consent), transcribe,
++                  The AI Worker can join a meeting (with the host&apos;s consent), transcribe,
+                   summarise, extract action items, and post them into the relevant chat channel —
+                   all under the host&apos;s identity and audit trail. Recordings are retained per
+                   the per-tenant retention policy.
+@@ -240,32 +238,31 @@ export default function ProductPage() {
+                   brief).
+                 </p>
+                 <p>
+-                  The AI agent can read documents, suggest edits (visible as suggestions, not
++                  The AI Worker can read documents, suggest edits (visible as suggestions, not
+                   direct writes), draft new sections, and produce a Trust Report appendix that
+                   lists every AI contribution to the document with its prompt, its model version,
+-                  and its checker grade.
++                  and its policy outcome.
+                 </p>
+               </>
+             }
+           />
+ 
+           <Pillar
+-            name="AI AGENTS"
+-            outcome="Five named teammates that handle the work nobody enjoys."
++            name="AI WORKERS"
++            outcome="Named teammates that handle the work nobody enjoys."
+             body={
+               <>
+                 <p>
+-                  The agent layer is what makes the platform &ldquo;agentic&rdquo; rather than
+-                  &ldquo;AI-augmented&rdquo;. An agent is a named, role-scoped, audit-logged entity
+-                  that can read from the platform&apos;s knowledge surface and take actions across
+-                  the other five pillars. Agents are not user accounts. They have their own
+-                  identity (verifiable via SSO) and operate under per-action consent from the human
+-                  they&apos;re acting on behalf of.
++                  The AI workforce layer is what makes the platform agentic. An AI Worker is a
++                  named, role-scoped, audit-logged entity that can read from the platform&apos;s
++                  knowledge surface and take actions across the other pillars. AI Workers are not
++                  shared service accounts. They have their own identity and operate under
++                  per-action consent from the human they&apos;re acting on behalf of.
+                 </p>
+                 <p>
+-                  The platform ships with a small set of stock agents — Hunter (research), Sentry
+-                  (security review), Concierge (calendar/scheduling), Analyst (data summarisation),
+-                  Pilot (orchestration). Custom agents are configured via YAML, not code, with a
++                  The platform ships with a small set of named AI Workers — Lena Voss for sales,
++                  Marcus Chen for renewals, David Kim for finops, Priya Sharma for compliance, and
++                  Sofia Reyes for customer success. Customer-specific AI Workers are configured with a
+                   permission model that&apos;s enforced at the runtime architecture layer. The full
+                   agent catalogue is documented in the{" "}
+                   <Link
+@@ -284,58 +281,57 @@ export default function ProductPage() {
+ 
+       <SectionDivider />
+ 
+-      {/* Section 3 — Pilot + Fleet */}
++      {/* Section 3 — AI workforce model */}
+       <section className="py-16 md:py-24">
+         <div className="max-w-narrow mx-auto px-6 md:px-12">
+-          <SectionEyebrow>THE AGENT MODEL</SectionEyebrow>
++          <SectionEyebrow>THE AI WORKFORCE MODEL</SectionEyebrow>
+           <h2 className="font-display text-h2 text-ink mb-8">
+-            Pilot + Fleet — one orchestrator, four specialists, no shared service account.
++            Named AI Workers, narrow scopes, no shared service account.
+           </h2>
+           <div className="font-display text-body text-ink space-y-6 leading-relaxed">
+             <p>
+-              The Pilot + Fleet model is how Vantage Workspace structures agent work. Most
+-              &ldquo;agentic&rdquo; platforms ship one general-purpose agent and let it do
+-              everything. The failure mode of that pattern is well-documented: the agent&apos;s
++              Vantage Workspace structures AI work as named workers with narrow scopes. Most
++              agentic platforms ship one general-purpose account and let it do everything. The
++              failure mode of that pattern is well-documented: the account&apos;s
+               permission scope ends up being the union of every action it might ever need to take,
+               which means in practice it has god-rights and the audit log is meaningless.
+             </p>
+             <p>
+-              Pilot + Fleet inverts the model. There is one orchestrating agent — the Pilot — that
+-              decomposes a user&apos;s request into smaller, scoped tasks. The Pilot does not hold
+-              permissions. It hands each task to a specialist agent in the Fleet (Hunter, Sentry,
+-              Concierge, Analyst), and the specialist holds the narrow permission set required for
+-              that task, only for the duration of that task.
++              Vantage Workspace inverts the model. Each AI Worker is hired into a role, receives a
++              mailbox, file account, chat identity, and policy scope, and acts only inside that
++              scope. The worker holds the narrow permission set required for the task, only for the
++              duration of that task.
+             </p>
+             <p>This means three things at runtime:</p>
+             <ol className="list-decimal list-outside ml-6 space-y-3">
+               <li>
+                 <strong className="font-semibold">The audit log is meaningful.</strong> Every
+-                action is attributed to the specialist that took it, the Pilot that delegated it,
+-                and the human user that initiated the request. Three-level attribution, every time.
++                action is attributed to the AI Worker that took it and the human user that approved
++                or initiated it.
+               </li>
+               <li>
+                 <strong className="font-semibold">The permission scope is minimal.</strong> A
+-                specialist agent that&apos;s been asked to summarise a document doesn&apos;t have
+-                permission to send email. A specialist that&apos;s been asked to schedule a meeting
++                compliance AI Worker that&apos;s been asked to summarise a document doesn&apos;t have
++                permission to send email. A worker that&apos;s been asked to schedule a meeting
+                 doesn&apos;t have permission to read files outside the meeting context.
+               </li>
+               <li>
+                 <strong className="font-semibold">The failure mode is contained.</strong> If a
+-                Sentry agent is compromised (e.g. via prompt injection), the blast radius is the
+-                security-review scope only. It can&apos;t pivot to send email under the user&apos;s
+-                identity, because email is the Concierge&apos;s permission set, not Sentry&apos;s.
++                compliance worker is compromised by a prompt injection, the blast radius is the
++                compliance-review scope only. It can&apos;t pivot to send email under the user&apos;s
++                identity, because email is outside that worker&apos;s policy scope.
+               </li>
+             </ol>
+             <p>
+-              The five-agent default catalogue is the starting point. Custom agents can be added —
+-              an &ldquo;Underwriter&rdquo; agent for an insurance team, an &ldquo;Examiner&rdquo;
+-              agent for a regulatory review team — using the same YAML configuration. Each new
+-              agent declares its permission scope explicitly. The runtime enforces the scope. The
+-              audit log records the enforcement.
++              The five-worker default catalogue is the starting point. Customer-specific workers can
++              be added — an &ldquo;Underwriter&rdquo; worker for an insurance team, an
++              &ldquo;Examiner&rdquo; worker for a regulatory review team — using the same
++              configuration pattern. Each new worker declares its permission scope explicitly. The
++              runtime enforces the scope. The audit log records the enforcement.
+             </p>
+             <p>
+-              The full Pilot + Fleet specification, including the YAML schema and the inter-agent
+-              communication protocol, is documented on the{" "}
++              The full workforce specification, including scope declaration and evidence outputs,
++              is documented on the{" "}
+               <Link
+                 href="/architecture"
+                 className="text-oxblood hover:underline underline-offset-4"
+diff --git a/workspace-handvantage-com/components/FooterStrip.tsx b/workspace-handvantage-com/components/FooterStrip.tsx
+index dcbe8c0..dbdbdae 100644
+--- a/workspace-handvantage-com/components/FooterStrip.tsx
++++ b/workspace-handvantage-com/components/FooterStrip.tsx
+@@ -81,7 +81,6 @@ export function FooterStrip() {
+                   {SITE.email}
+                 </a>
+               </li>
+-              <li className="font-ui font-medium text-[15px] text-ink">{SITE.city}, Canada</li>
+               <li className="mt-2">
+                 <a
+                   href={SITE.linkedInCompany}
+diff --git a/workspace-handvantage-com/lib/insights.ts b/workspace-handvantage-com/lib/insights.ts
+index 77111fa..c023448 100644
+--- a/workspace-handvantage-com/lib/insights.ts
++++ b/workspace-handvantage-com/lib/insights.ts
+@@ -19,9 +19,63 @@ export interface Article {
+   lastModifiedAt?: string;       // ISO date of last meaningful edit
+   lastModifiedAtHuman?: string;  // e.g. "May 13, 2026"
+   editorsNote?: string;          // HTML allowed: <strong>, <em>, <a>
++  faq?: { question: string; answer: string }[];
+ }
+ 
+ export const INSIGHTS: Article[] = [
++  {
++    slug: "sovereign-ai-memory-at-scale",
++    category: "BRIEFING",
++    headline: "Sovereign AI memory has to hold up under load.",
++    dek: "A memory system that works in a demo still has to stay fast as the knowledge base grows, the team shows up, and the data stays inside the customer boundary.",
++    date: "2026-06-27",
++    dateHuman: "June 27, 2026",
++    readingTime: "4 min read",
++    author: "Josh Olayemi",
++    body: [
++      "<strong>TL;DR.</strong> Giving an AI Worker memory is easy in a demo. The real test is scale: a large knowledge base, humans and AI Workers querying at the same time, and none of the customer data leaving the customer boundary. In our scale testing, sovereign memory kept recall in the same fast band as the knowledge base grew roughly seven-fold, held under concurrent load, and ran on infrastructure the customer controlled. The harder test was not speed. It was proving the AI still surfaced the right memories.",
++      "<strong>Why memory slows down as it grows.</strong> Many memory systems behave like a new hire with a thin binder. The first week is sharp because there is not much to search. Then the binder fills up, and every answer gets slower and vaguer.",
++      "That is backwards. The more an AI Worker knows, the more useful it should become. It should not become slower just because the knowledge base is larger. Done properly, retrieval narrows to the right shelf instead of rereading the whole library.",
++      "<strong>The lunch-rush problem.</strong> One person asking one question is a food truck on a quiet Tuesday. A whole organisation, plus a fleet of AI Workers, all reaching into the same memory at once is the lunch rush.",
++      "That is the failure most teams do not see in the pilot. Concurrency, not raw data size, is often what decides whether agentic AI holds up in the real office. So it is the scenario worth testing deliberately before deployment, not after.",
++      "<strong>Why sovereignty changes the engineering question.</strong> The usual shortcut to faster memory is to send the retrieval path to someone else&rsquo;s cloud. That may be fast. It is no longer fully yours.",
++      "For regulated teams, that trade is often not acceptable. Sovereign memory has to keep data inside the customer boundary and still answer quickly. In our testing, the memory path stayed fast without a cloud round trip.",
++      "<strong>What we measured.</strong> We grew a sovereign memory running on customer-controlled infrastructure and watched what happened as the knowledge base got larger and the queries piled up.",
++      "The knowledge base grew roughly seven-fold, and recall latency stayed in the same fast band. Concurrent queries from users and AI Workers held under load. The memory path ran inside the customer environment.",
++      "These are engineering measurements from scale testing, not a service-level promise. But they answer the question buyers actually ask once the demo is over: does the memory still hold when the data is large and everyone is using it?",
++      "<strong>Why retrieval quality matters more than raw speed.</strong> A fast memory that returns the wrong thing is worse than a slow one. It is the over-eager intern who answers immediately, sounds certain, and sends everyone in the wrong direction.",
++      "That is why every change in the memory path needs a quality gate. The system has to prove it still surfaces the right memories, not just faster ones. Speed is easy to celebrate. Correct recall is the line that matters.",
++      "<strong>The bottom line for agentic AI buyers.</strong> If your honest worry is that agentic AI looks good in the pilot but may not hold up under your data, your team, and your governance boundary, that is the right worry.",
++      "It is also the right conversation to have before deployment. Memory is not a side feature once AI Workers begin doing real work. It is part of the operating record.",
++    ],
++    faq: [
++      {
++        question: "What is sovereign AI memory?",
++        answer:
++          "Sovereign AI memory is long-term memory for AI Workers that runs inside infrastructure the customer controls, so data stays within the customer boundary while still supporting persistent recall.",
++      },
++      {
++        question: "Does on-prem AI memory have to be slower than cloud memory?",
++        answer:
++          "No. In scale testing, a customer-controlled memory path kept recall in the same fast band as the knowledge base grew, without relying on a cloud round trip.",
++      },
++      {
++        question: "Does AI memory slow down as the knowledge base grows?",
++        answer:
++          "It should not. Poorly designed memory gets slower as the knowledge base grows; well-designed memory narrows to relevant candidates instead of searching the whole library every time.",
++      },
++      {
++        question: "What breaks AI memory under heavy concurrent use?",
++        answer:
++          "Concurrent retrieval and ranking pressure is usually the stress point. A memory system has to be tested with many users and AI Workers querying at the same time.",
++      },
++      {
++        question: "How do you keep AI memory accurate, not just fast?",
++        answer:
++          "By gating retrieval quality on every meaningful change. A faster memory path is not an improvement if it stops returning the right memories.",
++      },
++    ],
++  },
+   {
+     slug: "eu-ai-act-omnibus-deferral-what-to-do-with-seventeen-months",
+     category: "BRIEFING",
