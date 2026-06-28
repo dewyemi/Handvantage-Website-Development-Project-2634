@@ -56,12 +56,33 @@ export default function ArticlePage({ params }: Props) {
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE.baseUrl}/insights/${article.slug}` },
   };
 
+  const faqJsonLd = article.faq
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: article.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       {/* Breadcrumb + header */}
       <section className="pt-16 md:pt-24 pb-8">
@@ -122,6 +143,25 @@ export default function ArticlePage({ params }: Props) {
                 .join(""),
             }}
           />
+          {article.faq && (
+            <section className="mt-14 border-t border-ink-hairline pt-10">
+              <h2 className="font-display text-h3 text-ink mb-8">
+                Frequently asked questions.
+              </h2>
+              <div className="space-y-8">
+                {article.faq.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="font-display text-h4 text-ink mb-3">
+                      {item.question}
+                    </h3>
+                    <p className="font-display text-body text-ink-soft leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
           {article.lastModifiedAtHuman && (
             <p className="mt-10 font-ui text-byline text-ink-soft">
               Last edited {article.lastModifiedAtHuman}.

@@ -19,9 +19,63 @@ export interface Article {
   lastModifiedAt?: string;       // ISO date of last meaningful edit
   lastModifiedAtHuman?: string;  // e.g. "May 13, 2026"
   editorsNote?: string;          // HTML allowed: <strong>, <em>, <a>
+  faq?: { question: string; answer: string }[];
 }
 
 export const INSIGHTS: Article[] = [
+  {
+    slug: "sovereign-ai-memory-at-scale",
+    category: "BRIEFING",
+    headline: "Sovereign AI memory has to hold up under load.",
+    dek: "A memory system that works in a demo still has to stay fast as the knowledge base grows, the team shows up, and the data stays inside the customer boundary.",
+    date: "2026-06-27",
+    dateHuman: "June 27, 2026",
+    readingTime: "4 min read",
+    author: "Josh Olayemi",
+    body: [
+      "<strong>TL;DR.</strong> Giving an AI Worker memory is easy in a demo. The real test is scale: a large knowledge base, humans and AI Workers querying at the same time, and none of the customer data leaving the customer boundary. In our scale testing, sovereign memory kept recall in the same fast band as the knowledge base grew roughly seven-fold, held under concurrent load, and ran on infrastructure the customer controlled. The harder test was not speed. It was proving the AI still surfaced the right memories.",
+      "<strong>Why memory slows down as it grows.</strong> Many memory systems behave like a new hire with a thin binder. The first week is sharp because there is not much to search. Then the binder fills up, and every answer gets slower and vaguer.",
+      "That is backwards. The more an AI Worker knows, the more useful it should become. It should not become slower just because the knowledge base is larger. Done properly, retrieval narrows to the right shelf instead of rereading the whole library.",
+      "<strong>The lunch-rush problem.</strong> One person asking one question is a food truck on a quiet Tuesday. A whole organisation, plus a fleet of AI Workers, all reaching into the same memory at once is the lunch rush.",
+      "That is the failure most teams do not see in the pilot. Concurrency, not raw data size, is often what decides whether agentic AI holds up in the real office. So it is the scenario worth testing deliberately before deployment, not after.",
+      "<strong>Why sovereignty changes the engineering question.</strong> The usual shortcut to faster memory is to send the retrieval path to someone else&rsquo;s cloud. That may be fast. It is no longer fully yours.",
+      "For regulated teams, that trade is often not acceptable. Sovereign memory has to keep data inside the customer boundary and still answer quickly. In our testing, the memory path stayed fast without a cloud round trip.",
+      "<strong>What we measured.</strong> We grew a sovereign memory running on customer-controlled infrastructure and watched what happened as the knowledge base got larger and the queries piled up.",
+      "The knowledge base grew roughly seven-fold, and recall latency stayed in the same fast band. Concurrent queries from users and AI Workers held under load. The memory path ran inside the customer environment.",
+      "These are engineering measurements from scale testing, not a service-level promise. But they answer the question buyers actually ask once the demo is over: does the memory still hold when the data is large and everyone is using it?",
+      "<strong>Why retrieval quality matters more than raw speed.</strong> A fast memory that returns the wrong thing is worse than a slow one. It is the over-eager intern who answers immediately, sounds certain, and sends everyone in the wrong direction.",
+      "That is why every change in the memory path needs a quality gate. The system has to prove it still surfaces the right memories, not just faster ones. Speed is easy to celebrate. Correct recall is the line that matters.",
+      "<strong>The bottom line for agentic AI buyers.</strong> If your honest worry is that agentic AI looks good in the pilot but may not hold up under your data, your team, and your governance boundary, that is the right worry.",
+      "It is also the right conversation to have before deployment. Memory is not a side feature once AI Workers begin doing real work. It is part of the operating record.",
+    ],
+    faq: [
+      {
+        question: "What is sovereign AI memory?",
+        answer:
+          "Sovereign AI memory is long-term memory for AI Workers that runs inside infrastructure the customer controls, so data stays within the customer boundary while still supporting persistent recall.",
+      },
+      {
+        question: "Does on-prem AI memory have to be slower than cloud memory?",
+        answer:
+          "No. In scale testing, a customer-controlled memory path kept recall in the same fast band as the knowledge base grew, without relying on a cloud round trip.",
+      },
+      {
+        question: "Does AI memory slow down as the knowledge base grows?",
+        answer:
+          "It should not. Poorly designed memory gets slower as the knowledge base grows; well-designed memory narrows to relevant candidates instead of searching the whole library every time.",
+      },
+      {
+        question: "What breaks AI memory under heavy concurrent use?",
+        answer:
+          "Concurrent retrieval and ranking pressure is usually the stress point. A memory system has to be tested with many users and AI Workers querying at the same time.",
+      },
+      {
+        question: "How do you keep AI memory accurate, not just fast?",
+        answer:
+          "By gating retrieval quality on every meaningful change. A faster memory path is not an improvement if it stops returning the right memories.",
+      },
+    ],
+  },
   {
     slug: "eu-ai-act-omnibus-deferral-what-to-do-with-seventeen-months",
     category: "BRIEFING",

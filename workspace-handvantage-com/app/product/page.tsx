@@ -9,7 +9,7 @@ import { SITE } from "@/lib/data-tokens";
 export const metadata: Metadata = {
   title: "Vantage Workspace",
   description:
-    "Vantage Workspace is one platform: email, files, chat, meetings, documents, plus an AI agent layer that operates across all of them. One identity, one signed audit trail, deployed on your infrastructure in an hour for the typical end-to-end install.",
+    "Vantage Workspace is the sovereign self-hosted AI workspace where AI Workers operate alongside humans under the same identity model, audit trail, and governance.",
   alternates: { canonical: `${SITE.baseUrl}/product` },
 };
 
@@ -18,13 +18,11 @@ const productJsonLd = {
   "@type": "SoftwareApplication",
   name: "Vantage Workspace",
   description:
-    "Vantage Workspace is a sovereign agentic AI platform: email, files, chat, meetings, documents, and an AI agent layer (Pilot + Fleet) running on customer infrastructure. One identity, one signed audit trail, and an A-grade compliance posture across eleven regulatory frameworks.",
+    "Vantage Workspace is the sovereign self-hosted AI workspace where the AI workforce works alongside humans: email, files, chat, meetings, documents, identity, policy decisions, model routes, and audit trail in one customer-owned environment.",
   url: "https://workspace.handvantage.com/product",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Agentic AI Platform",
   operatingSystem: "Linux (Docker / Kubernetes); air-gapped supported",
-  softwareVersion: "1.0",
-  releaseNotes: "https://workspace.handvantage.com/insights",
   brand: {
     "@type": "Brand",
     name: "Handvantage",
@@ -41,9 +39,9 @@ const productJsonLd = {
       "CISOs, compliance officers, AI governance leads, security architects, regulated enterprises",
   },
   featureList: [
-    "Six-pillar workspace: email, files, chat, meetings, documents, AI agents",
-    "Pilot + Fleet agent model with three-level audit attribution",
-    "7-Layer Defence Architecture mediating every prompt, tool call, and agent action",
+    "Self-hosted workspace for email, files, chat, meetings, documents, signing, identity, and AI Workers",
+    "Named AI Workers operating under identity, policy scope, and audit attribution",
+    "7-Layer Defence Architecture mediating every prompt, tool call, and AI Worker action",
     "Continuous compliance grading across 11 regulatory frameworks (NIST AI RMF, ISO 42001, EU AI Act, SOC 2, PCI DSS v4.0, HIPAA, FINRA, FedRAMP, PIPEDA, Privacy Act Canada, TBSDADM)",
     "Single-tenant deployment: Docker Compose, Kubernetes, or air-gapped",
     "Identity included via Keycloak (preconfigured); federate to Okta, Microsoft Entra ID, Auth0, or Google Workspace via OIDC when present",
@@ -94,14 +92,15 @@ export default function ProductPage() {
                 Vantage Workspace.
               </h1>
               <p className="font-display text-body-lg text-ink leading-relaxed max-w-[520px] mb-6">
-                The platform we built because the alternative — assembling an
-                &ldquo;agentic AI stack&rdquo; out of twelve vendors with twelve identities and
-                twelve audit logs — wasn&apos;t a purchase, it was a project.
+                The platform we built because the alternative — assembling the AI work surface
+                out of twelve vendors with twelve identities and twelve audit logs — wasn&apos;t a
+                purchase, it was a project.
               </p>
               <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px] mb-6">
                 Vantage Workspace is a self-hosted, sovereign AI workspace for regulated
                 organizations. Single-tenant by design — one isolated instance per customer,
-                deployed on infrastructure the customer owns. Nothing routes through a third party.
+                deployed on infrastructure the customer owns. The customer controls the boundary,
+                the policy model, and the model routes.
               </p>
               <p className="font-display text-body text-ink-soft leading-relaxed max-w-[520px]">
                 This page documents what&apos;s in it, how it&apos;s built, and where the
@@ -111,7 +110,7 @@ export default function ProductPage() {
             <div className="lg:col-span-7">
               <ProductShot
                 src="/images/product/policy-management.jpg"
-                alt="Policy Management UI — every agent action governed by a versioned policy, with redaction rules, tool guardrails, and per-action audit hooks declared in YAML and enforced at runtime."
+                alt="Policy Management UI — every AI Worker action governed by a versioned policy, with data controls, tool guardrails, and per-action audit hooks."
                 ratio={1.333}
                 priority
                 url="workspace.local / engine / policy"
@@ -130,9 +129,9 @@ export default function ProductPage() {
           <SectionEyebrow>THE PLATFORM</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">Six pillars. One identity.</h2>
           <p className="font-display text-body-lg text-ink leading-relaxed max-w-[720px] mb-4">
-            Most &ldquo;AI for the enterprise&rdquo; products ship a chatbot. Vantage Workspace
-            ships the productivity stack the chatbot needs to be useful. Email, files, chat,
-            meetings, documents — and an AI agent layer that operates across all five.
+            Most AI products sit beside the work. Vantage Workspace is the workspace the work
+            happens in: email, files, chat, meetings, documents, signing, identity, and AI Workers
+            operating across all of them.
           </p>
           <p className="font-display text-body text-ink-soft leading-relaxed max-w-[720px] mb-12">
             Each pillar leads with what your team actually does with it. The architectural detail
@@ -150,7 +149,7 @@ export default function ProductPage() {
                   inbox, smart folders, signature management, scheduled send, snooze. SMTP, IMAP,
                   and Microsoft 365 / Google Workspace native sync — all under your tenant
                   identity, all logged into the same audit trail as the rest of the platform. The
-                  AI agent can read, draft, and send email on behalf of the user (with the
+                  AI Worker can read, draft, and send email on behalf of the user (with the
                   user&apos;s per-action consent) and every send is attributed. No shared service
                   account. No &ldquo;email bot&rdquo; that bypasses the user&apos;s identity.
                 </p>
@@ -178,7 +177,7 @@ export default function ProductPage() {
                   inter-service traffic).
                 </p>
                 <p>
-                  The AI agent can read files, summarise them, and (with explicit per-file consent)
+                  The AI Worker can read files, summarise them, and (with explicit per-file consent)
                   write them. Every read is logged. Every write produces a versioned record that
                   can be rolled back.
                 </p>
@@ -198,10 +197,9 @@ export default function ProductPage() {
                   trail.
                 </p>
                 <p>
-                  The AI agent can be invoked inside any channel by mention. The agent&apos;s reply
-                  is attributed (not anonymised), the prompt is logged, and the response is graded
-                  by the post-response checker before it&apos;s posted. If the checker flags a
-                  response as policy-violating, the message is held in moderation rather than sent.
+                  The AI Worker can be invoked inside any channel by mention. The AI Worker&apos;s reply
+                  is attributed, the prompt is logged, and policy-violating responses are held for
+                  review rather than posted into the channel.
                 </p>
               </>
             }
@@ -219,7 +217,7 @@ export default function ProductPage() {
                   integration via CalDAV / Exchange / Google Calendar.
                 </p>
                 <p>
-                  The AI agent can join a meeting (with the host&apos;s consent), transcribe,
+                  The AI Worker can join a meeting (with the host&apos;s consent), transcribe,
                   summarise, extract action items, and post them into the relevant chat channel —
                   all under the host&apos;s identity and audit trail. Recordings are retained per
                   the per-tenant retention policy.
@@ -240,32 +238,31 @@ export default function ProductPage() {
                   brief).
                 </p>
                 <p>
-                  The AI agent can read documents, suggest edits (visible as suggestions, not
+                  The AI Worker can read documents, suggest edits (visible as suggestions, not
                   direct writes), draft new sections, and produce a Trust Report appendix that
                   lists every AI contribution to the document with its prompt, its model version,
-                  and its checker grade.
+                  and its policy outcome.
                 </p>
               </>
             }
           />
 
           <Pillar
-            name="AI AGENTS"
-            outcome="Five named teammates that handle the work nobody enjoys."
+            name="AI WORKERS"
+            outcome="Named teammates that handle the work nobody enjoys."
             body={
               <>
                 <p>
-                  The agent layer is what makes the platform &ldquo;agentic&rdquo; rather than
-                  &ldquo;AI-augmented&rdquo;. An agent is a named, role-scoped, audit-logged entity
-                  that can read from the platform&apos;s knowledge surface and take actions across
-                  the other five pillars. Agents are not user accounts. They have their own
-                  identity (verifiable via SSO) and operate under per-action consent from the human
-                  they&apos;re acting on behalf of.
+                  The AI workforce layer is what makes the platform agentic. An AI Worker is a
+                  named, role-scoped, audit-logged entity that can read from the platform&apos;s
+                  knowledge surface and take actions across the other pillars. AI Workers are not
+                  shared service accounts. They have their own identity and operate under
+                  per-action consent from the human they&apos;re acting on behalf of.
                 </p>
                 <p>
-                  The platform ships with a small set of stock agents — Hunter (research), Sentry
-                  (security review), Concierge (calendar/scheduling), Analyst (data summarisation),
-                  Pilot (orchestration). Custom agents are configured via YAML, not code, with a
+                  The platform ships with a small set of named AI Workers — Lena Voss for sales,
+                  Marcus Chen for renewals, David Kim for finops, Priya Sharma for compliance, and
+                  Sofia Reyes for customer success. Customer-specific AI Workers are configured with a
                   permission model that&apos;s enforced at the runtime architecture layer. The full
                   agent catalogue is documented in the{" "}
                   <Link
@@ -284,58 +281,57 @@ export default function ProductPage() {
 
       <SectionDivider />
 
-      {/* Section 3 — Pilot + Fleet */}
+      {/* Section 3 — AI workforce model */}
       <section className="py-16 md:py-24">
         <div className="max-w-narrow mx-auto px-6 md:px-12">
-          <SectionEyebrow>THE AGENT MODEL</SectionEyebrow>
+          <SectionEyebrow>THE AI WORKFORCE MODEL</SectionEyebrow>
           <h2 className="font-display text-h2 text-ink mb-8">
-            Pilot + Fleet — one orchestrator, four specialists, no shared service account.
+            Named AI Workers, narrow scopes, no shared service account.
           </h2>
           <div className="font-display text-body text-ink space-y-6 leading-relaxed">
             <p>
-              The Pilot + Fleet model is how Vantage Workspace structures agent work. Most
-              &ldquo;agentic&rdquo; platforms ship one general-purpose agent and let it do
-              everything. The failure mode of that pattern is well-documented: the agent&apos;s
+              Vantage Workspace structures AI work as named workers with narrow scopes. Most
+              agentic platforms ship one general-purpose account and let it do everything. The
+              failure mode of that pattern is well-documented: the account&apos;s
               permission scope ends up being the union of every action it might ever need to take,
               which means in practice it has god-rights and the audit log is meaningless.
             </p>
             <p>
-              Pilot + Fleet inverts the model. There is one orchestrating agent — the Pilot — that
-              decomposes a user&apos;s request into smaller, scoped tasks. The Pilot does not hold
-              permissions. It hands each task to a specialist agent in the Fleet (Hunter, Sentry,
-              Concierge, Analyst), and the specialist holds the narrow permission set required for
-              that task, only for the duration of that task.
+              Vantage Workspace inverts the model. Each AI Worker is hired into a role, receives a
+              mailbox, file account, chat identity, and policy scope, and acts only inside that
+              scope. The worker holds the narrow permission set required for the task, only for the
+              duration of that task.
             </p>
             <p>This means three things at runtime:</p>
             <ol className="list-decimal list-outside ml-6 space-y-3">
               <li>
                 <strong className="font-semibold">The audit log is meaningful.</strong> Every
-                action is attributed to the specialist that took it, the Pilot that delegated it,
-                and the human user that initiated the request. Three-level attribution, every time.
+                action is attributed to the AI Worker that took it and the human user that approved
+                or initiated it.
               </li>
               <li>
                 <strong className="font-semibold">The permission scope is minimal.</strong> A
-                specialist agent that&apos;s been asked to summarise a document doesn&apos;t have
-                permission to send email. A specialist that&apos;s been asked to schedule a meeting
+                compliance AI Worker that&apos;s been asked to summarise a document doesn&apos;t have
+                permission to send email. A worker that&apos;s been asked to schedule a meeting
                 doesn&apos;t have permission to read files outside the meeting context.
               </li>
               <li>
                 <strong className="font-semibold">The failure mode is contained.</strong> If a
-                Sentry agent is compromised (e.g. via prompt injection), the blast radius is the
-                security-review scope only. It can&apos;t pivot to send email under the user&apos;s
-                identity, because email is the Concierge&apos;s permission set, not Sentry&apos;s.
+                compliance worker is compromised by a prompt injection, the blast radius is the
+                compliance-review scope only. It can&apos;t pivot to send email under the user&apos;s
+                identity, because email is outside that worker&apos;s policy scope.
               </li>
             </ol>
             <p>
-              The five-agent default catalogue is the starting point. Custom agents can be added —
-              an &ldquo;Underwriter&rdquo; agent for an insurance team, an &ldquo;Examiner&rdquo;
-              agent for a regulatory review team — using the same YAML configuration. Each new
-              agent declares its permission scope explicitly. The runtime enforces the scope. The
-              audit log records the enforcement.
+              The five-worker default catalogue is the starting point. Customer-specific workers can
+              be added — an &ldquo;Underwriter&rdquo; worker for an insurance team, an
+              &ldquo;Examiner&rdquo; worker for a regulatory review team — using the same
+              configuration pattern. Each new worker declares its permission scope explicitly. The
+              runtime enforces the scope. The audit log records the enforcement.
             </p>
             <p>
-              The full Pilot + Fleet specification, including the YAML schema and the inter-agent
-              communication protocol, is documented on the{" "}
+              The full workforce specification, including scope declaration and evidence outputs,
+              is documented on the{" "}
               <Link
                 href="/architecture"
                 className="text-oxblood hover:underline underline-offset-4"

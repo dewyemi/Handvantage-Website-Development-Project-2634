@@ -28,7 +28,7 @@ const mono = IBM_Plex_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "Vantage Workspace is a sovereign agentic AI platform for regulated enterprises. Email, files, chat, meetings, documents, AI agents, and Keycloak identity — one platform on your infrastructure, with a 7-Layer Defence Architecture and A-grade compliance across 11 frameworks. Sector-specific briefs for financial services, healthcare, fintech, Canadian public sector, and legal services.";
+  "Vantage Workspace is the sovereign self-hosted AI workspace where AI Workers operate alongside humans under the same identity model, audit trail, and governance, on infrastructure the customer owns.";
 
 const SITE_KEYWORDS = [
   // Product + category

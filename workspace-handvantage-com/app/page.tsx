@@ -6,7 +6,7 @@ import { COMPLIANCE, SITE } from "@/lib/data-tokens";
 export const metadata: Metadata = {
   title: { absolute: `${SITE.name} — The Sovereign Capability Partner for Agentic AI` },
   description:
-    "Handvantage builds Vantage Workspace: a 7-Layer Defence Architecture for agentic AI, with continuous compliance assessment across 11 regulatory frameworks. Deployed in your infrastructure, audited every build.",
+    "Handvantage builds Vantage Workspace: the sovereign self-hosted AI workspace where AI Workers operate under the same identity model, audit trail, and governance as the human team.",
   alternates: { canonical: SITE.baseUrl },
   openGraph: {
     title: `${SITE.name} — The Sovereign Capability Partner for Agentic AI`,
@@ -126,24 +126,22 @@ export default function HomePage() {
               One platform. Everything governed.
             </h2>
             <p className="font-display text-body-lg text-ink leading-relaxed">
-              Handvantage builds Vantage Workspace, a self-hosted, sovereign AI workspace for
-              regulated organizations. It runs a complete productivity suite — email, files, chat,
-              meetings, documents, document signing, and identity — plus AI operators that take
-              real action: composing and sending email, scheduling meetings, managing files and
-              project boards. It is single-tenant by design: one isolated instance per customer,
-              deployed on infrastructure the customer owns. Nothing routes through a third party.
+              Handvantage builds Vantage Workspace, the sovereign self-hosted AI workspace where
+              your AI workforce works alongside your humans. Files, mail, chat, documents,
+              meetings, signing, identity, AI Workers, model routes, policy decisions, and audit
+              trail live in one customer-owned workspace.
             </p>
           </div>
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-hairline border border-ink-hairline">
             {[
               {
-                headline: "AI that acts, not just answers.",
-                body: "The AI composes and sends email, schedules meetings, manages files and project boards, and posts to team channels. Every action that changes something waits for a human's approval first.",
+                headline: "AI Workers that act under identity.",
+                body: "AI Workers draft, schedule, file, and post inside the same workspace as the human team. Every action that changes something waits for human approval and leaves a named record.",
               },
               {
                 headline: "Your data stays yours.",
-                body: "Self-hosted on the customer's own infrastructure. Files, email, chat, even AI web search — nothing routes through a third party.",
+                body: "Self-hosted on the customer's own infrastructure. Files, mail, chat, meetings, documents, memory, and AI work stay inside the customer boundary.",
               },
               {
                 headline: "Provable governance.",
@@ -207,8 +205,8 @@ export default function HomePage() {
               </h2>
               <div className="font-display text-body-lg text-ink leading-relaxed space-y-6">
                 <p>
-                  The first wave of enterprise AI was a chatbot in a browser tab. Buy a license,
-                  point it at your data, hope. The proof of value was a screenshot. The proof of
+                  The first wave of enterprise AI was a browser tab beside the real work. Buy a
+                  license, point it at your data, hope. The proof of value was a screenshot. The proof of
                   safety was an acceptable-use policy in the employee handbook.
                 </p>
                 <p>
@@ -223,7 +221,7 @@ export default function HomePage() {
                   Agentic AI doesn&apos;t just answer questions. It takes actions on behalf of a
                   user — sends emails, modifies files, queries databases, provisions resources.
                   Each action needs an identity, a permission boundary, an audit log, and a way to
-                  roll back. None of that lives in the chatbot. All of it has to live in the
+                  roll back. None of that lives in a side tab. All of it has to live in the
                   platform around it.
                 </p>
               </div>
@@ -252,8 +250,8 @@ export default function HomePage() {
                   40<span className="text-ink-soft">%</span>
                 </p>
                 <p className="font-display text-body text-ink-soft leading-relaxed">
-                  of agentic AI projects cancelled — almost always for missing evidence, not
-                  missing controls.
+                  The buying question is no longer only whether the control exists. It is whether
+                  the evidence can be produced when the audit window opens.
                 </p>
               </div>
             </aside>
@@ -274,8 +272,8 @@ export default function HomePage() {
               One workspace. One identity. One audit trail.
             </h2>
             <p className="font-display text-body-lg text-ink leading-relaxed">
-              Email, files, chat, meetings, docs — and an AI that does the work across all of
-              them. Every prompt scanned. Every action logged. Every byte under your roof.
+              Email, files, chat, meetings, docs — and AI Workers that do the work across all of
+              them. Every prompt scanned. Every action logged. Every byte inside your boundary.
             </p>
           </div>
 
@@ -300,8 +298,8 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION 4.5 — WHAT THE TEAM ACTUALLY DOES (paper, business)  */}
       {/* The business-buyer counterpart to the security narrative.    */}
-      {/* Five outcomes anchored in real platform capabilities (the    */}
-      {/* Pilot + Fleet model + the six pillars).                      */}
+          {/* Five outcomes anchored in real platform capabilities (the    */}
+          {/* AI Workforce model + the six pillars).                       */}
       {/* ============================================================ */}
       <section className="bg-paper">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-24 md:py-32">
@@ -315,36 +313,36 @@ export default function HomePage() {
             <p className="font-display text-body-lg text-ink leading-relaxed">
               The compliance posture is what gets you through procurement. The work below is what
               gets you renewed. Five things the platform makes faster from the first week —
-              concrete, named by the agent or pillar that does the work.
+              concrete, named by the AI Worker or pillar that does the work.
             </p>
           </div>
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-hairline border border-ink-hairline">
             {[
               {
-                eyebrow: "PILOT AGENT",
+                eyebrow: "LENA VOSS · SALES",
                 headline: "Inbox triage in minutes, not the morning.",
-                body: "The Pilot reads the overnight inbox, drafts replies for the human to send, surfaces the few that genuinely need attention. The 90-minute scroll becomes a 15-minute review.",
+                body: "Lena reads the overnight inbox, drafts replies for the human to send, and surfaces the few that genuinely need attention. The 90-minute scroll becomes a 15-minute review.",
               },
               {
-                eyebrow: "ANALYST AGENT + DOCUMENTS",
+                eyebrow: "MARCUS CHEN · RENEWALS",
                 headline: "Proposals drafted with this quarter's data.",
-                body: "The Analyst pulls the latest customer history out of Files; Documents drafts the proposal against your template. No copy-paste between four tools, no stale figures from last quarter's deck.",
+                body: "Marcus pulls the current customer history out of Files; Documents drafts the renewal proposal against your template. No copy-paste between four tools, no stale figures from last quarter's deck.",
               },
               {
-                eyebrow: "CONCIERGE AGENT",
+                eyebrow: "SOFIA REYES · CUSTOMER SUCCESS",
                 headline: "Meetings booked without the email back-and-forth.",
-                body: "The Concierge handles availability, scheduling, and confirmation across CalDAV, Exchange, and Google Calendar. The five emails become one.",
+                body: "Sofia handles availability, scheduling, and confirmation across CalDAV, Exchange, and Google Calendar. The five emails become one.",
               },
               {
-                eyebrow: "HUNTER AGENT",
+                eyebrow: "DAVID KIM · FINOPS",
                 headline: "First-pass research before the meeting, not during.",
-                body: "The Hunter pulls the prep work — the company brief, the customer's last six interactions, the open RFP if there is one — into a one-page summary you read on the way in.",
+                body: "David pulls the prep work — the company brief, the customer's last six interactions, the open RFP if there is one — into a one-page summary you read on the way in.",
               },
               {
-                eyebrow: "SENTRY AGENT",
+                eyebrow: "PRIYA SHARMA · COMPLIANCE",
                 headline: "Vendor security review in hours, not weeks.",
-                body: "The Sentry pulls the vendor's SOC 2 and ISO 42001 reports, reads the latest pen-test summary, flags the three things your security team should look at — before procurement gets the contract.",
+                body: "Priya pulls the vendor's SOC 2 and ISO 42001 reports, reads the current pen-test summary, and flags the three things your security team should look at before procurement gets the contract.",
                 wide: true,
               },
             ].map(({ eyebrow, headline, body, wide }) => (

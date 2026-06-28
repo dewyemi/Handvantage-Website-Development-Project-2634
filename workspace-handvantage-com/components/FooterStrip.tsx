@@ -81,7 +81,6 @@ export function FooterStrip() {
                   {SITE.email}
                 </a>
               </li>
-              <li className="font-ui font-medium text-[15px] text-ink">{SITE.city}, Canada</li>
               <li className="mt-2">
                 <a
                   href={SITE.linkedInCompany}
